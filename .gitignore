@@ -20,6 +20,7 @@ results/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !results/.gitkeep
+!results/README.md
 
 # Logs
 *.log
