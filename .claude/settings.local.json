@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "WebSearch",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:www.usenix.org)",
+      "WebFetch(domain:mengyuanzhang.github.io)",
+      "WebFetch(domain:www.csl.sri.com)",
+      "WebFetch(domain:ieeexplore.ieee.org)",
+      "WebFetch(domain:papers.ssrn.com)",
+      "WebFetch(domain:dl.acm.org)",
+      "WebFetch(domain:www.researchgate.net)",
+      "WebFetch(domain:www.x-mol.com)",
+      "WebFetch(domain:www.semanticscholar.org)",
+      "WebFetch(domain:www.sciencedirect.com)",
+      "WebFetch(domain:export.arxiv.org)",
+      "WebFetch(domain:www.thinkmind.org)",
+      "WebFetch(domain:www.techrxiv.org)",
+      "WebFetch(domain:www.authorea.com)",
+      "WebFetch(domain:sen-chen.github.io)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
