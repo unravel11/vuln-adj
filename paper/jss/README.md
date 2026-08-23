@@ -47,6 +47,10 @@ claims.
 
 The result-independent T1 protocol is maintained at
 `experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL.md`.
+The V2 prepare-only packets are frozen at
+`data/annotations/rq2/t1_human_validation_v2/`. Their manifest explicitly
+sets `distribution_allowed=false`; the guideline and real-human role record
+must be approved before calibration distribution.
 
 ## Route decision
 

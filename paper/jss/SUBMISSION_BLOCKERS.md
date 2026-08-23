@@ -4,7 +4,7 @@ Current decision: `NO_GO_FOR_SUBMISSION`.
 
 | Class | Item | Required by | Current evidence or status | Owner | Blocks submission? |
 |---|---|---|---|---|---|
-| Scientific | T1 independent human construct validation | RQ2 and any taxonomy-performance claim | Protocol only; 0/300 real-human labels | Authors and two external real reviewers | Yes |
+| Scientific | T1 independent human construct validation | RQ2 and any taxonomy-performance claim | V2 prepare-only packets validated; distribution blocked; 0/300 real-human labels | Authors and two external real reviewers | Yes |
 | Scientific | T2 binary-versus-type-first downstream utility | Central action-oriented framing | Not implemented or run | Authors | Yes |
 | Scientific | T3 human-backed adjudication comparison, if adjudication remains a core contribution | Positive adjudication-method claim | Current affected-version result is a non-human no-go | Authors | Conditional: yes if core, otherwise remove the claim |
 | Scientific | Temporal cohort, if future-snapshot generalization remains a claim | Temporal-validity claim | Strict event-time cohort unavailable | External data availability | Conditional: remove claim or wait |

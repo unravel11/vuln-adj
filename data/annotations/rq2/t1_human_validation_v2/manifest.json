@@ -1,0 +1,245 @@
+{
+  "cautions": [
+    "These are blank preparation packets, not human labels or human gold.",
+    "Reviewer files hide baseline labels and explicit NVD/GHSA side names.",
+    "URLs may reveal source identity; source blinding is partial.",
+    "The internal mapping must not be distributed to reviewers."
+  ],
+  "counts": {
+    "calibration": 50,
+    "evaluation": 250,
+    "per_field_calibration": 10,
+    "per_field_evaluation": 50,
+    "per_field_total": 60,
+    "total": 300
+  },
+  "distribution_allowed": false,
+  "distribution_blockers": [
+    "Calibration guideline is still a draft and lacks author approval.",
+    "Human role and independence record is incomplete.",
+    "No real-human annotation has started."
+  ],
+  "expected_input_hashes": {
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+  },
+  "freeze_date": "2026-08-23",
+  "input_files": {
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2",
+    "docs/annotation_guidelines/rq2_discrepancy_typing.md": "e99137ec6b96ffec05574aeedd489bdfd77e07624bdbdec630fc77d839c9482b",
+    "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL.md": "7935454181e8de32d20f3a08c755bbda02787425594afe966bccfdd2876d5282",
+    "experiments/rq2_discrepancy_typing/build_t1_human_validation_packet.py": "1b6c790f08e8664d30c235ee39eb07b311d9230b7074124446900810d1c8696b"
+  },
+  "internal_mapping": "internal/sealed_case_mapping.jsonl",
+  "internal_sampling_frame": "internal/frozen_sampling_frame.jsonl",
+  "output_sha256": {
+    "README.md": "b29037a8c422770bac84f213b68084167ec3b5e0640e278df5f11e0ca2ad5e9a",
+    "ROLE_AND_INDEPENDENCE_RECORD.md": "6cd5208739580d1fd168e03b2f2ced87a752698361192a4fdca192d7c15260e3",
+    "internal/frozen_sampling_frame.jsonl": "81bd43462fce8eb5bcaccfec5118e89c325411ab48741e3b2cf4d4b99cced6ec",
+    "internal/sealed_case_mapping.jsonl": "583924a3839765f1dfe127848f1133df5a32448ec1aecd319fe4ec1d6601497e",
+    "reviewer_a/calibration_packet.csv": "a6cad103bd4a334efbe671980bf566addc5301710c00d9d8b577318d70bab697",
+    "reviewer_a/calibration_packet.jsonl": "65a2370b3bfee965bd78bbe0d66112fdb05219f2a96b2b8a187ae1503f87ba61",
+    "reviewer_a/evaluation_packet.csv": "b140bfee4dc4bbb2cdff846d19c874cb426084e2dd1dfba4716f0dddbeeeb44d",
+    "reviewer_a/evaluation_packet.jsonl": "c8bd91cd33c7fdcdc2558c74e5f85e4457662abced496f79707fc3d0d5320cbb",
+    "reviewer_b/calibration_packet.csv": "cc5d36df93cd32e3f85f393c3cb77e42eaa309376bb7829869779b8948a31579",
+    "reviewer_b/calibration_packet.jsonl": "fce14ae081e105a6a517df405393070be84fe67b184cc64bb0e76d35c34b2952",
+    "reviewer_b/evaluation_packet.csv": "125bb410e8024815c2784535ec3fde07dfd7a12b38a3a984d84e78de0b689500",
+    "reviewer_b/evaluation_packet.jsonl": "8e334b5ee3b50f3113d151dd23899e27be0f5131e0f83c5102154fb915bdda39"
+  },
+  "primary_fields": [
+    "severity",
+    "published",
+    "references",
+    "affected_versions"
+  ],
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v2",
+  "reviewer_packet_files": {
+    "reviewer_a": {
+      "calibration": {
+        "csv": "reviewer_a/calibration_packet.csv",
+        "jsonl": "reviewer_a/calibration_packet.jsonl"
+      },
+      "evaluation": {
+        "csv": "reviewer_a/evaluation_packet.csv",
+        "jsonl": "reviewer_a/evaluation_packet.jsonl"
+      }
+    },
+    "reviewer_b": {
+      "calibration": {
+        "csv": "reviewer_b/calibration_packet.csv",
+        "jsonl": "reviewer_b/calibration_packet.jsonl"
+      },
+      "evaluation": {
+        "csv": "reviewer_b/evaluation_packet.csv",
+        "jsonl": "reviewer_b/evaluation_packet.jsonl"
+      }
+    }
+  },
+  "sampling_rule": "60 rows per field, equalized across current non-empty deterministic baseline strata, sampled directly from the frozen field view",
+  "schema_version": "t1_packet_manifest_v1",
+  "seeds": {
+    "reviewer_a_order": 20260826,
+    "reviewer_b_order": 20260827,
+    "sampling": 20260823,
+    "side_mask": 20260825,
+    "split": 20260824
+  },
+  "status": "PREPARATION_ONLY_NOT_FOR_DISTRIBUTION",
+  "strata": [
+    {
+      "baseline_status": "equivalent",
+      "calibration_count": 3,
+      "evaluation_count": 12,
+      "evaluation_weight": 258.8333333333333,
+      "field": "severity",
+      "population_count": 3106,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "representation_discrepancy",
+      "calibration_count": 3,
+      "evaluation_count": 12,
+      "evaluation_weight": 264.8333333333333,
+      "field": "severity",
+      "population_count": 3178,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "incomplete",
+      "calibration_count": 2,
+      "evaluation_count": 13,
+      "evaluation_weight": 2.5384615384615383,
+      "field": "severity",
+      "population_count": 33,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "factual_conflict",
+      "calibration_count": 2,
+      "evaluation_count": 13,
+      "evaluation_weight": 134.53846153846155,
+      "field": "severity",
+      "population_count": 1749,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "representation_discrepancy",
+      "calibration_count": 5,
+      "evaluation_count": 25,
+      "evaluation_weight": 246.76,
+      "field": "published",
+      "population_count": 6169,
+      "seed_count": 30
+    },
+    {
+      "baseline_status": "temporal_discrepancy",
+      "calibration_count": 5,
+      "evaluation_count": 25,
+      "evaluation_weight": 75.88,
+      "field": "published",
+      "population_count": 1897,
+      "seed_count": 30
+    },
+    {
+      "baseline_status": "representation_discrepancy",
+      "calibration_count": 4,
+      "evaluation_count": 25,
+      "evaluation_weight": 12.0,
+      "field": "references",
+      "population_count": 300,
+      "seed_count": 29
+    },
+    {
+      "baseline_status": "incomplete",
+      "calibration_count": 4,
+      "evaluation_count": 24,
+      "evaluation_weight": 323.4583333333333,
+      "field": "references",
+      "population_count": 7763,
+      "seed_count": 28
+    },
+    {
+      "baseline_status": "factual_conflict",
+      "calibration_count": 2,
+      "evaluation_count": 1,
+      "evaluation_weight": 3.0,
+      "field": "references",
+      "population_count": 3,
+      "seed_count": 3
+    },
+    {
+      "baseline_status": "equivalent",
+      "calibration_count": 3,
+      "evaluation_count": 12,
+      "evaluation_weight": 35.416666666666664,
+      "field": "affected_versions",
+      "population_count": 425,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "representation_discrepancy",
+      "calibration_count": 3,
+      "evaluation_count": 12,
+      "evaluation_weight": 328.0,
+      "field": "affected_versions",
+      "population_count": 3936,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "incomplete",
+      "calibration_count": 2,
+      "evaluation_count": 13,
+      "evaluation_weight": 234.92307692307693,
+      "field": "affected_versions",
+      "population_count": 3054,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "factual_conflict",
+      "calibration_count": 2,
+      "evaluation_count": 13,
+      "evaluation_weight": 50.07692307692308,
+      "field": "affected_versions",
+      "population_count": 651,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "equivalent",
+      "calibration_count": 3,
+      "evaluation_count": 12,
+      "evaluation_weight": 567.75,
+      "field": "cwe_ids",
+      "population_count": 6813,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "representation_discrepancy",
+      "calibration_count": 3,
+      "evaluation_count": 12,
+      "evaluation_weight": 1.9166666666666667,
+      "field": "cwe_ids",
+      "population_count": 23,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "incomplete",
+      "calibration_count": 2,
+      "evaluation_count": 13,
+      "evaluation_weight": 88.15384615384616,
+      "field": "cwe_ids",
+      "population_count": 1146,
+      "seed_count": 15
+    },
+    {
+      "baseline_status": "factual_conflict",
+      "calibration_count": 2,
+      "evaluation_count": 13,
+      "evaluation_weight": 6.461538461538462,
+      "field": "cwe_ids",
+      "population_count": 84,
+      "seed_count": 15
+    }
+  ],
+  "supplementary_fields": [
+    "cwe_ids"
+  ]
+}

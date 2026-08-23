@@ -85,13 +85,29 @@ failed primary-field gate.
   - rows: 8,066
   - SHA-256:
     `c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2`
-- RQ2 stratified seed:
+- Historical RQ2 stratified seed:
   `data/annotations/rq2/discrepancy_typing_seed.jsonl`
   - rows: 300, 60 per field
   - blank real-human labels: 300
-  - exact binding to the current field-view rows: 300/300
+  - core field values and deterministic statuses match the current field view:
+    300/300
+  - full context matches: 298/300; two rows retain a removed
+    `enterprise_linux` package name
   - SHA-256:
     `2b70d0c48b3659c3a6f2cba2c8024b4c12673b15814b9f123871ec97dd6a518f`
+- T1 V2 sampling rule:
+  - draw a new 300-row frame directly from the current field view before any
+    human label;
+  - retain the historical seed for audit, but do not distribute or silently
+    refresh it as the JSS T1 packet.
+- T1 V2 preparation packet:
+  `data/annotations/rq2/t1_human_validation_v2/`
+  - calibration/evaluation: 50/250, with 10/50 rows per field;
+  - manifest SHA-256:
+    `816d1d274237ae4d276b7db0925d46255f07b3ea9f39c410ae42eb68a675b1ac`;
+  - validator status: internally consistent;
+  - distribution status: `false`;
+  - real-human labels: 0.
 - Seed manifest:
   `data/annotations/rq2/sample_manifest.json`
   - SHA-256:

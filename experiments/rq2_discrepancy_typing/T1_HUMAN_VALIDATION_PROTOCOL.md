@@ -1,6 +1,6 @@
 # T1 Real-Human Discrepancy-Typing Validation Protocol
 
-Protocol ID: `vuln-adj-jss-t1-human-validation-v1`
+Protocol ID: `vuln-adj-jss-t1-human-validation-v2`
 
 Status: `FROZEN_BEFORE_ANY_REAL_HUMAN_LABEL`
 
@@ -8,7 +8,19 @@ Freeze date: 2026-08-23
 
 This protocol defines the mandatory construct-validation experiment for the
 active JSS route. It does not claim that annotation has started or that human
-gold exists. The current seed contains 300 blank real-human labels.
+gold exists.
+
+Revision record:
+
+- v1 was frozen earlier on 2026-08-23 and received no human labels.
+- Before packet generation, full source-binding validation found that two rows
+  in the historical 300-row seed retained stale `package_names` context after
+  the 2026-07-15 input repair. The field values and deterministic statuses
+  still matched, but full context matched only 298/300. The old manifest also
+  contained pre-repair population counts.
+- v1 is therefore superseded before any human exposure. V2 draws a new,
+  versioned 300-row frame directly from the current frozen field view. This is
+  a provenance correction, not a result-seeking change.
 
 ## 1. Purpose and claim gap
 
@@ -33,14 +45,23 @@ Population frame:
 - current SHA-256:
   `c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2`.
 
-Fixed seed:
-`data/annotations/rq2/discrepancy_typing_seed.jsonl`
+V2 sampling rule:
 
-- 300 rows, 60 per field;
-- source SHA-256:
-  `2b70d0c48b3659c3a6f2cba2c8024b4c12673b15814b9f123871ec97dd6a518f`;
-- verified on 2026-08-23 as 300 unique IDs, 300 blank labels, and 300/300
-  exact bindings to the current field-view rows.
+- draw directly from the frozen current field view before any human label;
+- sample 60 rows per field, 300 total;
+- allocate each field's 60 rows as evenly as possible across its non-empty
+  deterministic baseline strata, capped by available rows;
+- use Python `random.Random(20260823)` after sorting candidates by current
+  source-line number;
+- record every population stratum count, selected source line, field value,
+  context, and input hash in the V2 manifest.
+
+The historical seed at
+`data/annotations/rq2/discrepancy_typing_seed.jsonl` is retained for audit but
+is not a V2 sampling input. Its core field values and statuses match the current
+view on 300/300 rows, while full context matches 298/300 because
+`enterprise_linux` was removed from two NVD `package_names` lists. It must
+not be silently refreshed or distributed as the V2 packet.
 
 Primary fields:
 
@@ -53,30 +74,30 @@ Supplementary field:
 
 - `cwe_ids`
 
-The seed was stratified by deterministic baseline status and is not a simple
+The V2 frame is stratified by deterministic baseline status and is not a simple
 random sample. Unweighted totals may describe only the annotation sample.
 Population-oriented summaries must use the recorded field-by-baseline-stratum
 candidate counts and evaluation inclusion weights.
 
 ## 3. Calibration and evaluation split
 
-The 300 seed rows are split before any human label:
+The newly sampled 300 V2 rows are split before any human label:
 
 - calibration: 50 rows, exactly 10 per field;
 - evaluation: 250 rows, exactly 50 per field.
 
-Within each field, calibration rows are allocated across available baseline
-strata using the existing equalized allocation rule with one additional
+Within each field, calibration rows are allocated across available sampled
+baseline strata using the equalized allocation rule with one additional
 constraint: at least one row must remain in the evaluation set for every
-non-empty stratum. Rows are selected with Python `random.Random(20260823)`.
-All remaining rows form the evaluation set.
+non-empty sampled stratum. Calibration rows are selected with Python
+`random.Random(20260824)`. All remaining rows form the evaluation set.
 
 The baseline stratum may be used by the packet builder for sampling and
 weighting, but it must not appear in either reviewer's packet.
 
-Side masking uses `random.Random(20260824)`. Reviewer packet orders use
-`random.Random(20260825)` for reviewer A and
-`random.Random(20260826)` for reviewer B. Seeds may not change after packet
+Side masking uses `random.Random(20260825)`. Reviewer packet orders use
+`random.Random(20260826)` for reviewer A and
+`random.Random(20260827)` for reviewer B. Seeds may not change after packet
 generation.
 
 The evaluation set remains unopened to reviewers until calibration is resolved
@@ -260,7 +281,8 @@ Before annotation:
 
 - versioned protocol and protocol hash;
 - versioned calibration guideline and hash;
-- split manifest with source and seed hashes;
+- current-field-view sampling manifest and frozen 300-row internal frame;
+- split manifest with source hashes and frozen random seeds;
 - sealed left/right and case-ID mapping;
 - reviewer A/B calibration packets and hashes;
 - human role and independence record.
