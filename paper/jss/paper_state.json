@@ -1,0 +1,56 @@
+{
+  "schema_version": "1",
+  "paper_id": "vuln-adj-jss-type-first-audit-v1",
+  "target_venue": {
+    "name": "Journal of Systems and Software",
+    "family": "jss",
+    "requirements_checked_on": null
+  },
+  "authority": {
+    "kind": "repository",
+    "workspace": "/home/xiaoyuliang/code/vuln-adj",
+    "branch": "codex/jss-framing-b-20260823",
+    "head": "659831571df7d4b0a3ae6549afd0fc8dae5a6927",
+    "status": "dirty",
+    "manuscript": "paper/jss/manuscript.md"
+  },
+  "stage": "S1_EVIDENCE_LOCKED",
+  "gates": {
+    "authority_resolved": true,
+    "evidence_locked": true,
+    "argument_locked": false,
+    "draft_present": false,
+    "integrity_checked": false,
+    "venue_reviewed": false,
+    "artifact_verified": false,
+    "submission_blockers_resolved": false
+  },
+  "artifacts": {
+    "evidence_ledger": "paper/jss/EVIDENCE_LEDGER.md",
+    "claim_ledger": "paper/jss/CLAIM_LEDGER.md",
+    "paper_plan": "paper/jss/ARGUMENT_PLAN.md",
+    "manuscript": null,
+    "integrity_report": null,
+    "venue_review": null,
+    "final_pdf": null,
+    "artifact_validation": null,
+    "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md"
+  },
+  "claim_ceiling": [
+    "Report deterministic RQ1 distributions only for the frozen 8066-row NVD-GHSA corpus.",
+    "Treat all existing AI or Codex labels as non-human candidate or retrospective evidence.",
+    "Require T1 before any human-gold taxonomy or baseline-performance claim.",
+    "Require T2 before any claim that type-first routing reduces expert workload while preserving conflict recall.",
+    "Report current adjudication results as bounded no-go or failure evidence unless a new frozen human-backed T3 is authorized.",
+    "Do not claim temporal generalization without a newly eligible bilateral post-freeze cohort."
+  ],
+  "open_blockers": [
+    "T1 V2 prepare-only packets pass validation, but distribution is blocked and there are no real-human labels, independent reviewer returns, or author adjudication.",
+    "T2 has not been frozen, implemented, or run.",
+    "The S2 title, RQs, action map, and contribution boundary await author approval.",
+    "No JSS manuscript draft exists.",
+    "Current JSS submission requirements and author metadata are not frozen.",
+    "The repository contains substantial pre-existing uncommitted and untracked work."
+  ],
+  "last_verified_at": "2026-08-24T00:09:57+08:00"
+}

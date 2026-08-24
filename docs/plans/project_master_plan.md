@@ -66,7 +66,7 @@ IST（务实备选）
 
 ### 2026-08-24 仓库整理阶段
 
-- 状态：`IN_PROGRESS`。本阶段只整理 Git 边界和历史资产，不产生新的科学结果。
+- 状态：`COMPLETED`。本阶段只整理 Git 边界和历史资产，不产生新的科学结果。
 - 在 `codex/repo-hygiene-20260824` 上分步提交，不直接清洗 `main`，也不自动推送。
 - 源码、测试、协议、prompt、论文源文件和小型控制 manifest 进入 Git。
 - raw/processed 数据、results、外部论文 PDF、evidence cache 与历史生成 payload
@@ -77,6 +77,13 @@ IST（务实备选）
   `/home/xiaoyuliang/archives/vuln-adj-pre-hygiene-20260824T104541+0800`。
 - 完成门：范围受控提交、payload manifest 复核、Python/test validators、
   `git diff --check`、`git fsck` 和 clean worktree 全部通过。
+- 整理后 Git 只跟踪源码、协议、文档、论文源文件和小型控制 metadata；
+  `4,361` 个本地 payload 文件（`2,296,239,806` bytes）由
+  `docs/repository_hygiene/retained_local_payloads.sha256.tsv` 绑定。
+- 明确删除 9 个 Python cache 目录、2 个零字节旧锁、1 个 `.DS_Store` 和
+  1 个误生成命令文件；删除候选另有可恢复 tar，不包含科研 payload。
+- 历史 COSE readiness 的大小写重复已收敛为被代码和文档实际引用的
+  `paper/cose/submission_readiness.md`。
 
 ---
 
