@@ -45,6 +45,11 @@ def parse_args() -> argparse.Namespace:
         help="Glob pattern for raw NVD files inside --raw-dir.",
     )
     parser.add_argument(
+        "--nvd-output-name",
+        default="nvd_2023_2025.normalized.jsonl",
+        help="Filename for normalized NVD JSONL inside the output nvd directory.",
+    )
+    parser.add_argument(
         "--ghsa-archive",
         default="data/raw/ghsa/advisory-database-main.tar.gz",
         help="GHSA tar.gz snapshot path.",
@@ -140,30 +145,36 @@ def walk_nvd_nodes(nodes: list[dict]) -> Iterable[dict]:
         yield from walk_nvd_nodes(node.get("children", []) or [])
 
 
+def normalize_nvd_match(match: dict) -> dict:
+    parsed = parse_cpe_criteria(match.get("criteria"))
+    return {
+        "source_type": "cpe",
+        "criteria": match.get("criteria"),
+        "vendor": parsed["vendor"],
+        "product": parsed["product"],
+        "package_name": parsed["product"],
+        "ecosystem": None,
+        "version": parsed["version"],
+        "introduced": match.get("versionStartIncluding")
+        or match.get("versionStartExcluding"),
+        "fixed": None,
+        "version_start_including": match.get("versionStartIncluding"),
+        "version_start_excluding": match.get("versionStartExcluding"),
+        "version_end_including": match.get("versionEndIncluding"),
+        "version_end_excluding": match.get("versionEndExcluding"),
+        "vulnerable": match.get("vulnerable"),
+    }
+
+
 def normalize_nvd_affected(configurations: list[dict]) -> list[dict]:
     affected = []
     for config in configurations or []:
         for match in walk_nvd_nodes(config.get("nodes", []) or []):
-            parsed = parse_cpe_criteria(match.get("criteria"))
-            affected.append(
-                {
-                    "source_type": "cpe",
-                    "criteria": match.get("criteria"),
-                    "vendor": parsed["vendor"],
-                    "product": parsed["product"],
-                    "package_name": parsed["product"],
-                    "ecosystem": None,
-                    "version": parsed["version"],
-                    "introduced": match.get("versionStartIncluding")
-                    or match.get("versionStartExcluding"),
-                    "fixed": None,
-                    "version_start_including": match.get("versionStartIncluding"),
-                    "version_start_excluding": match.get("versionStartExcluding"),
-                    "version_end_including": match.get("versionEndIncluding"),
-                    "version_end_excluding": match.get("versionEndExcluding"),
-                    "vulnerable": match.get("vulnerable"),
-                }
-            )
+            # Non-vulnerable CPE matches express applicability constraints, not
+            # affected products or versions.
+            if match.get("vulnerable") is False:
+                continue
+            affected.append(normalize_nvd_match(match))
     return affected
 
 
@@ -477,7 +488,9 @@ def main() -> int:
     if not nvd_paths:
         raise FileNotFoundError(f"No NVD files matched: {raw_dir / args.nvd_glob}")
 
-    nvd_output = output_dir / "nvd" / "nvd_2023_2025.normalized.jsonl"
+    if Path(args.nvd_output_name).name != args.nvd_output_name:
+        raise ValueError("--nvd-output-name must be a filename, not a path")
+    nvd_output = output_dir / "nvd" / args.nvd_output_name
     ghsa_output = output_dir / "ghsa" / "ghsa.normalized.jsonl"
     align_output = output_dir / "aligned" / "nvd_ghsa_by_cve.jsonl"
     manifest_output = output_dir / "manifests" / "bootstrap_summary.json"

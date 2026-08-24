@@ -7,6 +7,8 @@
 - `rq1_discrepancy_distribution/`: 差异分布统计
 - `rq2_discrepancy_typing/`: 字段级差异检测与类型判定
 - `rq3_adjudication/`: 证据驱动裁决与拒判
+- `holdout/`: affected_versions CVE-disjoint 冻结评估、盲 worklist、预测预密封和双 Codex 严格合并；不是 human-gold
+- `simulated_expert_validation/`: 本地 simulated-expert fallback 的 proxy 指标，不能作为 human-gold 结果
 - `rq4_stress_test/`: 跨语言 / 高缺失压力测试
 - `configs/`: 实验配置、字段映射、规则参数
 

@@ -31,6 +31,18 @@ SEVERITY_CANONICAL_MAP = {
     "CRITICAL": "CRITICAL",
 }
 SEVERITY_RANK = {"LOW": 1, "MEDIUM": 2, "HIGH": 3, "CRITICAL": 4}
+REFERENCE_NORMALIZATION_PROFILES = (
+    "current",
+    "resource_identity_v1",
+    "resource_identity_audited_v1",
+)
+REFERENCE_LINE_SUFFIX_RE = re.compile(r"%23L\d+(?:-L\d+)?$", re.IGNORECASE)
+REFERENCE_GHSA_PATH_RE = re.compile(
+    r"/(?:security/)?advisories/(GHSA-[0-9a-z-]+)$", re.IGNORECASE
+)
+REFERENCE_HUNTR_PATH_RE = re.compile(
+    r"/bounties/([0-9a-f-]+)$", re.IGNORECASE
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -46,6 +58,16 @@ def parse_args() -> argparse.Namespace:
         "--output-dir",
         default="data/processed/bootstrap/discrepancies",
         help="Directory for unified pair views and field-level discrepancy outputs.",
+    )
+    parser.add_argument(
+        "--reference-normalization-profile",
+        choices=REFERENCE_NORMALIZATION_PROFILES,
+        default="current",
+        help=(
+            "Reference URL normalization profile. The default preserves the "
+            "existing baseline; resource_identity_v1 and "
+            "resource_identity_audited_v1 are experimental candidates."
+        ),
     )
     return parser.parse_args()
 
@@ -77,22 +99,56 @@ def parse_iso_datetime(value: str | None) -> datetime | None:
     return parsed.astimezone(timezone.utc)
 
 
-def canonicalize_url(value: str | None) -> str | None:
+def canonicalize_url(
+    value: str | None, *, profile: str = "current"
+) -> str | None:
     if not value:
         return None
+    if profile not in REFERENCE_NORMALIZATION_PROFILES:
+        raise ValueError(f"Unknown reference normalization profile: {profile}")
     parsed = urlsplit(value.strip())
     scheme = parsed.scheme.lower() or "https"
     netloc = parsed.netloc.lower()
     path = parsed.path.rstrip("/")
-    canonical = urlunsplit((scheme, netloc, path, parsed.query, ""))
+    query = parsed.query
+
+    if profile in {"resource_identity_v1", "resource_identity_audited_v1"}:
+        if scheme in {"http", "https"}:
+            scheme = "https"
+        if profile == "resource_identity_v1":
+            path = REFERENCE_LINE_SUFFIX_RE.sub("", path)
+        if (
+            netloc == "liferay.dev"
+            and "/known-vulnerabilities/" in path.lower()
+            and "/content/cve-" in path.lower()
+        ):
+            query = ""
+        if netloc == "github.com":
+            match = REFERENCE_GHSA_PATH_RE.search(path)
+            if match:
+                return f"github-advisory:{match.group(1).lower()}"
+        if netloc in {"huntr.com", "huntr.dev"}:
+            match = REFERENCE_HUNTR_PATH_RE.fullmatch(path)
+            if match:
+                return f"huntr-bounty:{match.group(1).lower()}"
+
+    if not netloc and scheme in {"http", "https"}:
+        canonical = f"{scheme}:///{path.lstrip('/')}"
+        if query:
+            canonical = f"{canonical}?{query}"
+    else:
+        canonical = urlunsplit((scheme, netloc, path, query, ""))
     return canonical or None
 
 
-def normalize_reference_urls(references: list[dict]) -> list[str]:
+def normalize_reference_urls(
+    references: list[dict], *, profile: str = "current"
+) -> list[str]:
     urls = {
         canonical
         for item in references or []
-        if (canonical := canonicalize_url(item.get("url"))) is not None
+        if (canonical := canonicalize_url(item.get("url"), profile=profile))
+        is not None
     }
     return sorted(urls)
 
@@ -445,9 +501,15 @@ def compare_set_field(
     }
 
 
-def compare_references(nvd: dict, ghsa: dict) -> dict:
-    nvd_urls = normalize_reference_urls(nvd.get("references") or [])
-    ghsa_urls = normalize_reference_urls(ghsa.get("references") or [])
+def compare_references(
+    nvd: dict, ghsa: dict, *, normalization_profile: str = "current"
+) -> dict:
+    nvd_urls = normalize_reference_urls(
+        nvd.get("references") or [], profile=normalization_profile
+    )
+    ghsa_urls = normalize_reference_urls(
+        ghsa.get("references") or [], profile=normalization_profile
+    )
     nvd_hosts = normalize_reference_hosts(nvd.get("references") or [])
     ghsa_hosts = normalize_reference_hosts(ghsa.get("references") or [])
 
@@ -632,7 +694,9 @@ def compare_affected_versions(nvd: dict, ghsa: dict) -> dict:
     }
 
 
-def build_unified_view(nvd: dict, ghsa: dict) -> dict:
+def build_unified_view(
+    nvd: dict, ghsa: dict, *, reference_normalization_profile: str = "current"
+) -> dict:
     return {
         "severity": {
             "nvd": {
@@ -661,8 +725,14 @@ def build_unified_view(nvd: dict, ghsa: dict) -> dict:
             "ghsa": normalize_cwe_ids(ghsa.get("cwe_ids") or []),
         },
         "references": {
-            "nvd_urls": normalize_reference_urls(nvd.get("references") or []),
-            "ghsa_urls": normalize_reference_urls(ghsa.get("references") or []),
+            "nvd_urls": normalize_reference_urls(
+                nvd.get("references") or [],
+                profile=reference_normalization_profile,
+            ),
+            "ghsa_urls": normalize_reference_urls(
+                ghsa.get("references") or [],
+                profile=reference_normalization_profile,
+            ),
             "nvd_hosts": normalize_reference_hosts(nvd.get("references") or []),
             "ghsa_hosts": normalize_reference_hosts(ghsa.get("references") or []),
         },
@@ -677,7 +747,9 @@ def build_unified_view(nvd: dict, ghsa: dict) -> dict:
     }
 
 
-def compare_fields(nvd: dict, ghsa: dict) -> dict:
+def compare_fields(
+    nvd: dict, ghsa: dict, *, reference_normalization_profile: str = "current"
+) -> dict:
     return {
         "severity": compare_severity(nvd, ghsa),
         "published": compare_published(nvd, ghsa),
@@ -687,7 +759,11 @@ def compare_fields(nvd: dict, ghsa: dict) -> dict:
             overlap_means="representation_discrepancy",
             conflict_note="CWE assignments are disjoint",
         ),
-        "references": compare_references(nvd, ghsa),
+        "references": compare_references(
+            nvd,
+            ghsa,
+            normalization_profile=reference_normalization_profile,
+        ),
         "affected_versions": compare_affected_versions(nvd, ghsa),
     }
 
@@ -730,17 +806,30 @@ def main() -> int:
         nonlocal processed_pairs
         for nvd_record, ghsa_record in iter_matched_pairs(aligned_path):
             processed_pairs += 1
-            unified_view = build_unified_view(nvd_record, ghsa_record)
-            discrepancies = compare_fields(nvd_record, ghsa_record)
+            unified_view = build_unified_view(
+                nvd_record,
+                ghsa_record,
+                reference_normalization_profile=args.reference_normalization_profile,
+            )
+            discrepancies = compare_fields(
+                nvd_record,
+                ghsa_record,
+                reference_normalization_profile=args.reference_normalization_profile,
+            )
             for field_name, result in discrepancies.items():
                 field_counters[field_name][result["status"]] += 1
-            yield {
+            output_row = {
                 "cve_id": nvd_record.get("cve_id"),
                 "nvd_source_id": nvd_record.get("source_id"),
                 "ghsa_source_id": ghsa_record.get("source_id"),
                 "unified_view": unified_view,
                 "field_discrepancies": discrepancies,
             }
+            if args.reference_normalization_profile != "current":
+                output_row["reference_normalization_profile"] = (
+                    args.reference_normalization_profile
+                )
+            yield output_row
 
     written = write_jsonl(pair_output, rows())
 
@@ -755,6 +844,10 @@ def main() -> int:
             for field_name, counter in sorted(field_counters.items())
         },
     }
+    if args.reference_normalization_profile != "current":
+        stats["reference_normalization_profile"] = (
+            args.reference_normalization_profile
+        )
     stats_output.parent.mkdir(parents=True, exist_ok=True)
     stats_output.write_text(
         json.dumps(stats, indent=2, ensure_ascii=False) + "\n",

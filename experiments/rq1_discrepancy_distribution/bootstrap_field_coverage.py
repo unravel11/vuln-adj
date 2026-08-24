@@ -80,6 +80,7 @@ def compute_summary(input_path: Path) -> dict:
     field_stats = {
         label: {
             "nvd_nonempty": 0,
+            "matched_nvd_nonempty": 0,
             "matched_ghsa_nonempty": 0,
             "matched_both_nonempty": 0,
             "matched_nvd_only": 0,
@@ -115,6 +116,9 @@ def compute_summary(input_path: Path) -> dict:
                 if not matched:
                     continue
 
+                if nvd_has:
+                    field_stats[label]["matched_nvd_nonempty"] += 1
+
                 ghsa_has = any(field_present(ghsa_record, raw_field) for ghsa_record in ghsa_records)
                 if ghsa_has:
                     field_stats[label]["matched_ghsa_nonempty"] += 1
@@ -141,6 +145,11 @@ def compute_summary(input_path: Path) -> dict:
 
     for label, stats in field_stats.items():
         stats["nvd_nonempty_rate"] = round(stats["nvd_nonempty"] / total_rows, 6) if total_rows else 0.0
+        stats["matched_nvd_nonempty_rate"] = (
+            round(stats["matched_nvd_nonempty"] / matched_rows, 6)
+            if matched_rows
+            else 0.0
+        )
         stats["matched_ghsa_nonempty_rate"] = (
             round(stats["matched_ghsa_nonempty"] / matched_rows, 6) if matched_rows else 0.0
         )
@@ -156,6 +165,21 @@ def compute_summary(input_path: Path) -> dict:
         stats["matched_both_empty_rate"] = (
             round(stats["matched_both_empty"] / matched_rows, 6) if matched_rows else 0.0
         )
+        if stats["matched_nvd_nonempty"] != (
+            stats["matched_both_nonempty"] + stats["matched_nvd_only"]
+        ):
+            raise AssertionError(f"{label}: inconsistent matched NVD coverage counts")
+        if stats["matched_ghsa_nonempty"] != (
+            stats["matched_both_nonempty"] + stats["matched_ghsa_only"]
+        ):
+            raise AssertionError(f"{label}: inconsistent matched GHSA coverage counts")
+        if matched_rows != (
+            stats["matched_both_nonempty"]
+            + stats["matched_nvd_only"]
+            + stats["matched_ghsa_only"]
+            + stats["matched_both_empty"]
+        ):
+            raise AssertionError(f"{label}: matched coverage partition does not sum")
 
     return {
         "input_path": str(input_path),
@@ -210,7 +234,7 @@ def render_markdown(summary: dict) -> str:
         lines.append(
             "| "
             f"{field} | "
-            f"{stats['nvd_nonempty_rate']:.4%} | "
+            f"{stats['matched_nvd_nonempty_rate']:.4%} | "
             f"{stats['matched_ghsa_nonempty_rate']:.4%} | "
             f"{stats['matched_both_nonempty_rate']:.4%} | "
             f"{stats['matched_nvd_only_rate']:.4%} | "
