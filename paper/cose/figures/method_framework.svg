@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 900" width="1180" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">Method framework for NVD-GHSA field discrepancy typing and evidence-constrained adjudication</title>
+  <desc id="desc">A staged method diagram showing aligned NVD and GHSA records flowing through an operational input/output contract, field-view construction, deterministic discrepancy typing, a type-to-action routing contract, evidence construction only for factual conflicts, silver-label adjudication baselines, and human audit handoff.</desc>
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 21px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .stage-title { font-size: 15px; font-weight: 700; fill: #111827; }
+    .label { font-size: 13px; font-weight: 600; fill: #111827; }
+    .body { font-size: 12px; fill: #374151; }
+    .small { font-size: 11px; fill: #6b7280; }
+    .tiny { font-size: 10px; fill: #6b7280; }
+    .node { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .soft-blue { fill: #eff6ff; stroke: #bfdbfe; stroke-width: 1.5; rx: 8; ry: 8; }
+    .soft-green { fill: #f0fdf4; stroke: #bbf7d0; stroke-width: 1.5; rx: 8; ry: 8; }
+    .soft-orange { fill: #fff7ed; stroke: #fed7aa; stroke-width: 1.5; rx: 8; ry: 8; }
+    .soft-purple { fill: #faf5ff; stroke: #ddd6fe; stroke-width: 1.5; rx: 8; ry: 8; }
+    .soft-red { fill: #fef2f2; stroke: #fecaca; stroke-width: 1.5; rx: 8; ry: 8; }
+    .container { fill: #f9fafb; stroke: #d1d5db; stroke-width: 1.2; stroke-dasharray: 7 5; rx: 12; ry: 12; }
+    .main-flow { stroke: #2563eb; stroke-width: 2.3; fill: none; marker-end: url(#arrow-blue); }
+    .fc-flow { stroke: #dc2626; stroke-width: 2.2; fill: none; marker-end: url(#arrow-red); }
+    .evidence-flow { stroke: #16a34a; stroke-width: 2.1; fill: none; marker-end: url(#arrow-green); }
+    .audit-flow { stroke: #9333ea; stroke-width: 2.1; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrow-purple); }
+    .thin { stroke-width: 1.6; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="900" fill="#ffffff"/>
+
+  <text x="40" y="38" class="title">Method Framework: Type First, Adjudicate Only Residual Conflicts</text>
+  <text x="40" y="60" class="subtitle">Current COSE draft scope: deterministic field typing over 8,066 aligned pairs; RQ3 adjudication remains a silver-label prototype.</text>
+
+  <g transform="translate(34,88)">
+    <rect class="container" x="0" y="0" width="1112" height="120"/>
+    <text x="20" y="28" class="stage-title">Inputs, Field Scope, and Operational Contract</text>
+    <rect class="soft-blue" x="24" y="40" width="202" height="34"/>
+    <text x="42" y="61" class="label">NVD record</text>
+    <rect class="soft-blue" x="24" y="82" width="202" height="34"/>
+    <text x="42" y="103" class="label">GHSA record</text>
+    <rect class="soft-green" x="318" y="48" width="258" height="60"/>
+    <text x="338" y="70" class="label">Aligned pair</text>
+    <text x="338" y="90" class="body">(r_NVD, r_GHSA) by CVE ID</text>
+    <rect class="soft-orange" x="708" y="34" width="364" height="76"/>
+    <text x="728" y="56" class="label">Target fields</text>
+    <text x="728" y="76" class="body">severity, published/date, references</text>
+    <text x="728" y="94" class="body">affected_versions, cwe_ids</text>
+    <path class="main-flow thin" d="M226 57 C264 57, 284 62, 318 72"/>
+    <path class="main-flow thin" d="M226 99 C264 99, 284 94, 318 86"/>
+    <path class="main-flow thin" d="M576 78 L708 72"/>
+  </g>
+
+  <g transform="translate(34,238)">
+    <rect class="container" x="0" y="0" width="1112" height="160"/>
+    <text x="20" y="28" class="stage-title">Stage 1: Field-View Construction</text>
+    <rect class="node" x="24" y="50" width="204" height="72"/>
+    <text x="42" y="74" class="label">Extract values</text>
+    <text x="42" y="94" class="body">source value + provenance</text>
+    <rect class="node" x="270" y="50" width="224" height="72"/>
+    <text x="288" y="74" class="label">Normalize by field</text>
+    <text x="288" y="94" class="body">labels, dates, URLs, sets</text>
+    <rect class="node" x="538" y="50" width="236" height="72"/>
+    <text x="556" y="74" class="label">Shape affected ranges</text>
+    <text x="556" y="94" class="body">span-like records when possible</text>
+    <rect class="soft-green" x="826" y="44" width="238" height="84"/>
+    <text x="846" y="68" class="label">Auditable field view</text>
+    <text x="846" y="88" class="body">raw + normalized values</text>
+    <text x="846" y="106" class="body">provenance + rule-note carrier</text>
+    <path class="main-flow" d="M228 86 L270 86"/>
+    <path class="main-flow" d="M494 86 L538 86"/>
+    <path class="main-flow" d="M774 86 L826 86"/>
+  </g>
+
+  <g transform="translate(34,426)">
+    <rect class="container" x="0" y="0" width="1112" height="148"/>
+    <text x="20" y="28" class="stage-title">Stage 2: Deterministic Discrepancy Typing</text>
+    <rect class="node" x="24" y="48" width="240" height="76"/>
+    <text x="42" y="72" class="label">Ordered field-specific rules</text>
+    <text x="42" y="92" class="body">compatible explanations first</text>
+    <text x="42" y="110" class="body">residual FC only</text>
+    <rect class="soft-purple" x="318" y="42" width="330" height="88"/>
+    <text x="338" y="66" class="label">Five working labels</text>
+    <text x="338" y="88" class="body">EQ, representation discrepancy, incomplete</text>
+    <text x="338" y="106" class="body">temporal discrepancy, factual conflict</text>
+    <rect class="soft-orange" x="716" y="42" width="338" height="88"/>
+    <text x="736" y="66" class="label">RQ2 current output</text>
+    <text x="736" y="88" class="body">labels, rule notes, audit targets</text>
+    <text x="736" y="106" class="body">not human-gold accuracy metrics</text>
+    <path class="main-flow" d="M264 86 L318 86"/>
+    <path class="main-flow" d="M648 86 L716 86"/>
+  </g>
+
+  <g transform="translate(34,602)">
+    <rect class="container" x="0" y="0" width="1112" height="116"/>
+    <text x="20" y="28" class="stage-title">Routing Contract: Discrepancy Type Determines the Next Action</text>
+    <rect class="node" x="24" y="48" width="190" height="48"/>
+    <text x="42" y="68" class="label">Typed field instance</text>
+    <text x="42" y="86" class="body">one label per field view</text>
+    <rect class="soft-green" x="262" y="42" width="214" height="60"/>
+    <text x="282" y="64" class="label">EQ / RD</text>
+    <text x="282" y="84" class="body">normalize, merge, suppress</text>
+    <rect class="soft-orange" x="520" y="42" width="238" height="60"/>
+    <text x="540" y="64" class="label">INC / TD</text>
+    <text x="540" y="84" class="body">augment coverage or interpret timing</text>
+    <rect class="soft-red" x="804" y="42" width="250" height="60"/>
+    <text x="824" y="64" class="label">FC only</text>
+    <text x="824" y="84" class="body">construct evidence context</text>
+    <path class="main-flow thin" d="M214 72 L262 72"/>
+    <path class="main-flow thin" d="M476 72 L520 72"/>
+    <path class="fc-flow thin" d="M758 72 L804 72"/>
+  </g>
+
+  <g transform="translate(34,748)">
+    <rect class="container" x="0" y="0" width="1112" height="104"/>
+    <text x="20" y="28" class="stage-title">Stage 3: Evidence-Constrained Adjudication for Sampled FC Cases</text>
+    <rect class="soft-red" x="24" y="46" width="178" height="40"/>
+    <text x="42" y="71" class="label">FC candidates</text>
+    <rect class="soft-green" x="254" y="38" width="226" height="56"/>
+    <text x="274" y="60" class="label">Fetch evidence context</text>
+    <text x="274" y="80" class="body">URL provenance, status, snippets</text>
+    <rect class="soft-green" x="532" y="38" width="220" height="56"/>
+    <text x="552" y="60" class="label">Source-support baselines</text>
+    <text x="552" y="80" class="body">cue matching, not gold truth</text>
+    <rect class="soft-purple" x="804" y="30" width="250" height="72"/>
+    <text x="824" y="54" class="label">Decision + audit handoff</text>
+    <text x="824" y="74" class="body">NVD, GHSA, both, neither, abstain</text>
+    <text x="824" y="92" class="body">silver now; human audit pending</text>
+    <path class="fc-flow" d="M202 66 L254 66"/>
+    <path class="evidence-flow" d="M480 66 L532 66"/>
+    <path class="audit-flow" d="M752 66 L804 66"/>
+  </g>
+
+  <path class="main-flow" d="M590 208 L590 238"/>
+  <path class="main-flow" d="M590 398 L590 426"/>
+  <path class="main-flow" d="M590 574 L590 602"/>
+  <path class="fc-flow" d="M963 704 L963 724 L44 724 L44 814 L58 814"/>
+
+  <g transform="translate(60,866)">
+    <line x1="0" y1="8" x2="30" y2="8" class="main-flow thin"/>
+    <text x="40" y="12" class="tiny">field pipeline</text>
+    <line x1="156" y1="8" x2="186" y2="8" class="fc-flow thin"/>
+    <text x="196" y="12" class="tiny">FC-only path</text>
+    <line x1="318" y1="8" x2="348" y2="8" class="evidence-flow thin"/>
+    <text x="358" y="12" class="tiny">evidence path</text>
+    <line x1="492" y1="8" x2="522" y2="8" class="audit-flow thin"/>
+    <text x="532" y="12" class="tiny">audit handoff</text>
+  </g>
+</svg>

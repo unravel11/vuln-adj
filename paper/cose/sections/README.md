@@ -14,4 +14,4 @@
 - `08_related_work.md`
 - `09_conclusion.md`
 
-当前仅保留结构说明，正文按实验推进逐步补写。
+当前正文已进入 COSE 工作草稿阶段。写作主线保持为 `triage before truth`：先做 post-alignment structured-field discrepancy typing，再只对 residual factual_conflict 描述 evidence-constrained source-support prototype；在 RQ2/RQ3 human-gold 完成前，不写最终性能或真值裁决结论。

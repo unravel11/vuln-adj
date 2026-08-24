@@ -1,0 +1,60 @@
+\documentclass[preprint,review,12pt]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\emergencystretch=3em
+\sloppy
+
+\journal{Computers \& Security}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Field-Level Discrepancy Typing across Aligned Vulnerability Databases}
+\author{TODO Author}
+\address{TODO affiliation}
+\begin{abstract}
+Vulnerability records are often aligned by CVE identifier before they are used for security analytics, but alignment does not make their field values agree. This paper studies post-alignment field-level discrepancies between NVD and GHSA records. From 100,032 normalized NVD records and 28,785 normalized GHSA records, the current corpus contains 8,066 CVE-ID aligned pairs. The central design is type-first: a deterministic baseline assigns each target field to one of five working discrepancy types before any source-support question is considered. The resulting RQ1 distribution shows that disagreement is field-specific: severity and affected\_versions retain visible factual-conflict tails, published/date is dominated by representation and temporal differences, references are mostly incomplete, and cwe\_ids are mostly equivalent. We then report non-gold RQ2 rule-trigger and annotation-readiness diagnostics, plus silver-label RQ3 evidence diagnostics for severity and affected\_versions. These artifacts characterize evidence availability, source provenance, threshold sensitivity, and audit targets; they are not human gold and are not final evaluation claims. The main contribution is therefore a scoped task definition, field-aware discrepancy taxonomy, and reproducible baseline artifact for structured vulnerability-data discrepancy typing, with an evidence-constrained adjudication scaffold whose validation is left to the pending gold-label phase.
+\end{abstract}
+\begin{keyword}
+vulnerability \sep NVD \sep GHSA \sep CVE \sep discrepancy \sep adjudication \sep evidence
+\end{keyword}
+\end{frontmatter}
+
+\section*{Highlights}
+\begin{itemize}
+\item Defines post-alignment discrepancy typing for NVD-GHSA vulnerability records.
+\item Uses type-first triage before source-support adjudication.
+\item Separates representation, incompleteness, timing, and factual conflicts.
+\item Reports deterministic field-discrepancy distributions over 8,066 CVE pairs.
+\item Characterizes evidence availability, provenance, and audit-risk diagnostics.
+\end{itemize}
+
+\section*{Draft Status and Claim Boundaries}
+This generated LaTeX source is a packaging scaffold produced from the Markdown manuscript and logged artifacts. RQ1 results are deterministic baseline distributions, RQ2 remains a non-gold rule-trigger diagnostic with blank annotation templates, and RQ3 results are silver-label prototype evaluations rather than human-gold performance claims.
+
+\input{sections/01_introduction.tex}
+\input{sections/02_background_problem_definition.tex}
+\input{sections/03_method.tex}
+\input{sections/04_experimental_setup.tex}
+\input{sections/05_results.tex}
+\input{sections/06_discussion.tex}
+\input{sections/07_threats_to_validity.tex}
+\input{sections/08_related_work.tex}
+\input{sections/09_conclusion.tex}
+
+\input{sections/declarations.tex}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}

@@ -1,6 +1,6 @@
 # Related Work Papers Archive
 
-更新时间：2026-04-22
+更新时间：2026-05-24
 
 说明：
 
@@ -10,9 +10,9 @@
 
 ## 当前结果
 
-- 已保存全文 PDF：`13` 篇
-- 仅保存落地页：`2` 篇
-- 已定位但当前环境未成功保存：`1` 篇
+- 已保存全文 PDF：`16` 篇
+- 同时保留落地页/HTML：`4` 个条目
+- 已定位但当前环境未成功保存：`0` 篇
 
 ## 条目清单
 
@@ -28,18 +28,18 @@
    来源：arXiv
 6. `06_cvss_user_centric_sp_2024`：已保存全文 PDF
    来源：arXiv 预印本
-7. `07_aspect_level_tosem_2023`：仅保存落地页
-   原因：当前未找到可直接抓取的公开全文 PDF；已保存 GrowKudos 页面
+7. `07_aspect_level_tosem_2023`：已保存全文 PDF
+   来源：当前目录已有 PDF；同时保留了抓取过程中留下的落地页
 8. `08_aspects_threat_intel_acm_2025`：已保存全文 PDF
    来源：公开 preprint PDF
-9. `09_vuldifffinder_cose_2025`：仅保存落地页
-   原因：当前只确认到 ScienceDirect 摘要页，未拿到公开全文 PDF
+9. `09_vuldifffinder_cose_2025`：已保存全文 PDF
+   来源：当前目录已有 PDF；同时保留了 ScienceDirect 摘要页
 10. `10_gapfinder_tifs_2021`：已保存全文 PDF
     来源：作者主页 PDF
 11. `11_crh_sigmod_2014_tkde_2016`：已保存全文 PDF
     来源：作者主页 PDF；目录中额外保留了抓取过程中留下的落地页
-12. `12_truth_discovery_survey_tbd_2024`：已定位但当前环境未成功保存
-    原因：UniSQ 仓库给出的 accepted version 下载链接在当前环境返回 `HTTP 405`
+12. `12_truth_discovery_survey_tbd_2024`：已保存全文 PDF
+    来源：当前目录已有 PDF
 13. `13_ghsa_review_pipeline_arxiv_2026`：已保存全文 PDF
     来源：arXiv
 14. `14_vulzoo_arxiv_2024`：已保存全文 PDF
@@ -51,9 +51,9 @@
 
 ## 验证方式
 
-- 对每个 `paper.pdf` 运行过 `file`，当前已确认保存下来的 `13` 个文件均被识别为 PDF。
+- 对当前目录中的 PDF 文件重新运行 `file` 后，应确认 `16` 个文件均被识别为 PDF。
 - 未对每篇 PDF 的页数、版本是否为最终出版版、附录是否完整做人工复核。
 
 ## 后续建议
 
-- 若需要补齐 `07`、`09`、`12` 的全文，优先使用机构订阅、浏览器手动下载或作者主页/作者自存档再次检索。
+- 若需要最终投稿引用，逐篇核对 PDF 是否为最终出版版、accepted version 或预印本，并把最终元数据同步到 `paper/cose/references.md`。

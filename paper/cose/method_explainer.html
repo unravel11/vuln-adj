@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NVD-GHSA 字段差异检测与证据裁决方法讲解</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5f6b7a;
+      --line: #d7dde6;
+      --surface: #ffffff;
+      --band: #f7f8fa;
+      --blue: #2563eb;
+      --green: #168f50;
+      --red: #d12f2f;
+      --violet: #7c3aed;
+      --amber: #b7791f;
+      --blue-bg: #edf5ff;
+      --green-bg: #eefaf3;
+      --red-bg: #fff0f0;
+      --violet-bg: #f6f0ff;
+      --amber-bg: #fff7e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 28px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      min-width: 220px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+      font-size: 13px;
+    }
+
+    .hero {
+      padding: 34px 28px 28px;
+      border-bottom: 1px solid var(--line);
+      background: var(--band);
+    }
+
+    .hero-inner,
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 920px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .status {
+      min-height: 92px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      background: #fff;
+    }
+
+    .status:nth-child(2) { border-left-color: var(--green); }
+    .status:nth-child(3) { border-left-color: var(--amber); }
+    .status:nth-child(4) { border-left-color: var(--red); }
+
+    .status strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .status span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 30px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:nth-of-type(even) {
+      background: var(--band);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .diagram-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .diagram-wrap img {
+      display: block;
+      width: min(1180px, 100%);
+      min-width: 860px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      min-height: 170px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .panel.blue { background: var(--blue-bg); }
+    .panel.green { background: var(--green-bg); }
+    .panel.red { background: var(--red-bg); }
+    .panel.violet { background: var(--violet-bg); }
+    .panel.amber { background: var(--amber-bg); }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .panel ul,
+    .checklist {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .label-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .label-pill {
+      min-height: 106px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .label-pill b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .label-pill span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .flow-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .flow-table th,
+    .flow-table td {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .flow-table th {
+      background: #eef2f7;
+      font-weight: 700;
+    }
+
+    code {
+      padding: 1px 5px;
+      border: 1px solid #e5e7eb;
+      background: #f8fafc;
+      color: #0f172a;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .footer {
+      padding: 24px 28px 34px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      .status-row,
+      .grid-3,
+      .grid-2,
+      .label-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .diagram-wrap img {
+        min-width: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">NVD-GHSA 方法讲解</div>
+    <nav aria-label="页面导航">
+      <a href="#framework">框架图</a>
+      <a href="#novelty">创新边界</a>
+      <a href="#stages">三层流程</a>
+      <a href="#contract">操作合同</a>
+      <a href="#labels">五类差异</a>
+      <a href="#actions">处理动作</a>
+      <a href="#evidence">证据裁决</a>
+      <a href="#comparison">相关工作</a>
+      <a href="#boundary">当前边界</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Method chapter explainer</p>
+        <h1>字段级差异先类型化，只对残留事实冲突做证据约束裁决。</h1>
+        <p class="lead">当前最稳的创新定位是 triage before truth：从已经按 CVE-ID 对齐的 NVD-GHSA 记录对出发，先把每个目标字段转成可比较视图，再用确定性规则区分等价、表述差异、不完整、时间差异和事实冲突。只有事实冲突样本进入证据层，并保留拒判与人工审计接口。</p>
+        <div class="status-row">
+          <div class="status">
+            <strong>输入规模</strong>
+            <span>8,066 对 NVD-GHSA CVE 对齐记录。</span>
+          </div>
+          <div class="status">
+            <strong>已实现主链路</strong>
+            <span>字段视图与确定性差异类型检测覆盖五个目标字段。</span>
+          </div>
+          <div class="status">
+            <strong>当前 RQ3</strong>
+            <span>severity 与 affected_versions 为 silver-label prototype。</span>
+          </div>
+          <div class="status">
+            <strong>不能越界声明</strong>
+            <span>当前还没有 RQ2/RQ3 human-gold 性能结论。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="framework">
+      <div class="section-inner">
+        <h2>方法框架图</h2>
+        <div class="diagram-wrap">
+          <img src="figures/method_framework.svg" alt="NVD-GHSA 字段差异检测与证据裁决方法框架图">
+        </div>
+      </div>
+    </section>
+
+    <section id="novelty">
+      <div class="section-inner">
+        <h2>审稿视角下的创新边界</h2>
+        <div class="grid-2">
+          <article class="panel green">
+            <h3>可以 defend 的创新点</h3>
+	            <ul>
+	              <li>post-CVE-alignment structured-field discrepancy task。</li>
+	              <li>type-first routing contract：先判断差异类型，再讨论 source truth。</li>
+	              <li>field-aware taxonomy，把 raw mismatch 拆成 EQ/RD/INC/TD/FC。</li>
+	              <li>evidence provenance 与 source correctness 分离。</li>
+	              <li>包含 both、neither、abstain 的 source-support decision space。</li>
+	            </ul>
+          </article>
+          <article class="panel amber">
+            <h3>当前验证边界</h3>
+            <ul>
+              <li>方法章节已补强 IO contract 与 procedure，但仍缺 human-gold 验证。</li>
+              <li>没有 RQ2 human-gold typing metrics。</li>
+              <li>RQ3 仍是 evidence-aware silver-label diagnostic。</li>
+              <li>affected_versions 还是 token-support prototype。</li>
+              <li>证据抓取存在 fetchability bias。</li>
+              <li>gold-backed validation 完成前，只能作为 scoped method framework。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stages">
+      <div class="section-inner">
+        <h2>三层流程</h2>
+        <div class="grid-3">
+          <article class="panel blue">
+            <h3>1. Field-view construction</h3>
+            <p>抽取每个字段的 NVD/GHSA 原始值、来源 provenance、可比较表示和 rule-note carrier。severity 映射到规范标签；date 做时间戳规范化；references 做 URL/host 去重；CWE 做集合化；affected_versions 尽量转成 span-like 结构。</p>
+          </article>
+          <article class="panel violet">
+            <h3>2. Deterministic discrepancy typing</h3>
+            <p>按有优先级的字段规则输出五类工作标签。兼容解释先于 residual factual_conflict，这个阶段的目标不是选出正确来源，而是避免把所有二元不一致都错误地当成事实冲突。</p>
+          </article>
+          <article class="panel green">
+            <h3>3. Evidence-constrained source-support prototype</h3>
+            <p>只对 sampled factual_conflict 激活。系统抓取 URL provenance、fetch status 和 advisory 文本片段，运行轻量 cue-matching baseline，并输出 provisional NVD、GHSA、both、neither 或 abstain。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contract">
+      <div class="section-inner">
+        <h2>操作合同与 Procedure</h2>
+        <table class="flow-table">
+          <thead>
+            <tr>
+              <th>方法产物</th>
+              <th>必须保留的内容</th>
+              <th>用途</th>
+              <th>当前边界</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Field view</td>
+              <td>原始值、规范化 comparands、来源 provenance、rule-note carrier。</td>
+              <td>支撑 RQ1 分布和 RQ2 typing audit。</td>
+              <td>规范化仍是 baseline 规则，不是已验证字段语义。</td>
+            </tr>
+            <tr>
+              <td>Typed instance</td>
+              <td>五类差异标签、规则说明、routing action。</td>
+              <td>决定 normalize、augment、interpret timing 或进入证据层。</td>
+              <td>没有 RQ2 gold 前不能报告分类性能。</td>
+            </tr>
+            <tr>
+              <td>Evidence context</td>
+              <td>候选 URL、URL provenance、fetch status、文本片段、source class。</td>
+              <td>支撑 evidence availability、silver diagnostic 和人工审计队列。</td>
+              <td>抓取片段不是人工核验过的页面重建。</td>
+            </tr>
+            <tr>
+              <td>Adjudication record</td>
+              <td>NVD/GHSA/both/neither/abstain、matched cues、human-audit 字段。</td>
+              <td>当前用于 prototype 输出和后续 human-gold evaluator。</td>
+              <td>silver-v2 是 annotation aid，不是 evaluation oracle。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grid-2" style="margin-top:16px;">
+          <article class="panel blue">
+            <h3>Procedure 1</h3>
+            <p>遍历 CVE-aligned field instance，构造 field view，按字段规则顺序输出差异类型。EQ/RD/INC/TD 在 routing 层停止，不进入 source-support prototype。</p>
+          </article>
+          <article class="panel green">
+            <h3>Procedure 2</h3>
+            <p>只处理 sampled FC：收集引用、抓取证据、匹配字段 cue，输出 source-support prototype，并把最终判断交给 human audit。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="labels">
+      <div class="section-inner">
+        <h2>五类差异标签</h2>
+        <div class="label-strip">
+          <div class="label-pill">
+            <b>Equivalent</b>
+            <span>规范化后字段事实一致，可以合并。</span>
+          </div>
+          <div class="label-pill">
+            <b>Representation</b>
+            <span>表述或 schema 不同，但规则判断事实兼容。</span>
+          </div>
+          <div class="label-pill">
+            <b>Incomplete</b>
+            <span>一侧缺失或明显为另一侧子集，优先补全而不是选边。</span>
+          </div>
+          <div class="label-pill">
+            <b>Temporal</b>
+            <span>发布时间或更新时间差异，更像流程时序问题。</span>
+          </div>
+          <div class="label-pill">
+            <b>Factual conflict</b>
+            <span>前四类都解释不了，才进入证据裁决。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="actions">
+      <div class="section-inner">
+        <h2>差异类型决定下一步动作</h2>
+        <table class="flow-table">
+          <thead>
+            <tr>
+              <th>差异类型</th>
+              <th>典型触发</th>
+              <th>下一步动作</th>
+              <th>当前验证边界</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Equivalent</td>
+              <td>规范 severity、CWE 集合或版本 span 匹配。</td>
+              <td>合并或静默处理为非行动性差异。</td>
+              <td>确定性 baseline，等待 RQ2 gold 核验。</td>
+            </tr>
+            <tr>
+              <td>Representation</td>
+              <td>同日时间戳、标签别名、URL 或 range-shape 表述差异。</td>
+              <td>规范化表述并保留来源 provenance。</td>
+              <td>确定性 baseline，等待 RQ2 gold 核验。</td>
+            </tr>
+            <tr>
+              <td>Incomplete</td>
+              <td>一侧 reference、CWE 或 affected-version 内容缺失。</td>
+              <td>作为补全或覆盖差距处理，不直接选边。</td>
+              <td>确定性 baseline，等待 RQ2 gold 核验。</td>
+            </tr>
+            <tr>
+              <td>Temporal</td>
+              <td>跨日 published/date 差异。</td>
+              <td>解释为发布、导入或 enrichment 时序差异。</td>
+              <td>确定性 baseline，等待 RQ2 gold 核验。</td>
+            </tr>
+            <tr>
+              <td>Factual conflict</td>
+              <td>severity 冲突或无法解释的版本结构残差。</td>
+              <td>进入证据层，允许 NVD、GHSA、both、neither 或 abstain。</td>
+              <td>RQ3 prototype，等待 human audit。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <div class="section-inner">
+        <h2>证据层如何解释当前 prototype</h2>
+        <table class="flow-table">
+          <thead>
+            <tr>
+              <th>对象</th>
+              <th>当前实现</th>
+              <th>论文中可声明的内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>severity</td>
+              <td><code>evidence_score_baseline</code> 匹配 severity label、CVSS score 和 vector。</td>
+              <td>silver-label 上的 evidence-availability 与 baseline diagnostic。</td>
+            </tr>
+	            <tr>
+	              <td>affected_versions</td>
+	              <td><code>version_token_support_baseline</code> 检查证据文本是否出现两侧版本 token。</td>
+	              <td>audit-prioritization heuristic 与 token-support prototype，不是语义版本范围裁决。</td>
+	            </tr>
+            <tr>
+              <td>source decision</td>
+              <td>输出 provisional NVD、GHSA、both、neither 或 abstain。</td>
+              <td>保留 both 和 abstain，避免强制 winner-only 裁决；最终有效性等 human audit。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="comparison">
+      <div class="section-inner">
+        <h2>相关工作边界</h2>
+        <table class="flow-table">
+          <thead>
+            <tr>
+              <th>方向</th>
+              <th>输入与阶段</th>
+              <th>通常输出</th>
+              <th>证据与 abstention</th>
+              <th>本文边界</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>漏洞库质量与不一致研究</td>
+              <td>单库审计或跨源观察。</td>
+              <td>缺失、质量缺陷、severity 差异、版本范围困难。</td>
+              <td>多为描述性统计；source support 不是主要输出。</td>
+              <td>本文进一步把 CVE 对齐后的字段差异类型化，并定义 source-support handoff。</td>
+            </tr>
+	            <tr>
+	              <td>非结构化 advisory 差异挖掘</td>
+	              <td>报告文本、advisory prose、抽取 aspect。</td>
+	              <td>文本或 aspect-level inconsistency labels。</td>
+	              <td>证据通常就是输入文本；abstention 通常不是一等输出。</td>
+	              <td>本文从结构化 NVD-GHSA 字段对开始，输出字段类型与 routing action，不做文本 aspect discovery。</td>
+	            </tr>
+	            <tr>
+	              <td>Truth discovery / data fusion</td>
+	              <td>尚未经过字段 routing 的多源 claim。</td>
+	              <td>真值估计或全局来源可靠性。</td>
+	              <td>证据多隐含在来源一致性里；abstention 不是中心机制。</td>
+	              <td>本文不学习全局 truth model；先排除非冲突字段差异，再对残留 FC 做证据约束 source-support。</td>
+	            </tr>
+            <tr>
+              <td>Affected-version / scanner ecosystem</td>
+              <td>包名、range event、commit、scanner 输出。</td>
+              <td>适用性错误、scanner divergence、版本范围困难。</td>
+              <td>可使用 commits/advisories，但不是本文的 field-typing workflow。</td>
+              <td>本文当前保持 diagnostic-only，尚未声称语义版本范围裁决。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="boundary">
+      <div class="section-inner">
+        <h2>当前写作边界</h2>
+        <div class="grid-2">
+          <article class="panel green">
+            <h3>可以写成方法贡献</h3>
+	            <ul>
+	              <li>post-alignment field-level discrepancy task。</li>
+	              <li>五类字段差异 taxonomy 与字段特定规则。</li>
+	              <li>可审计的 IO contract、routing contract 与规则优先级。</li>
+	              <li>FC-only evidence context construction。</li>
+	              <li>source-support decision space with abstention。</li>
+	              <li>human audit handoff interface。</li>
+	            </ul>
+          </article>
+          <article class="panel red">
+            <h3>现在不能写成最终结论</h3>
+            <ul>
+              <li>RQ2 accuracy、precision、recall、macro-F1。</li>
+              <li>RQ3 human-gold adjudication performance。</li>
+              <li>affected_versions validated false-positive rate。</li>
+              <li>semantic version-range adjudication 已解决。</li>
+              <li>silver-v2 等同于人工金标。</li>
+              <li>当前方法框架已完成 human-gold 验证。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section-inner">
+      Source files: <a href="sections/03_method.md">sections/03_method.md</a>,
+      <a href="figures/method_framework.svg">figures/method_framework.svg</a>,
+      and generated draft artifacts under <code>paper/cose/</code>.
+    </div>
+  </footer>
+</body>
+</html>
