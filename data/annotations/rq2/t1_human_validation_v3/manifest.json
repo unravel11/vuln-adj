@@ -1,0 +1,437 @@
+{
+  "actions": [
+    "no_action",
+    "enrich_record",
+    "wait_for_sync",
+    "conflict_escalation",
+    "abstain"
+  ],
+  "calibration_proxy_coverage": {
+    "deterministic_status_case_counts": {
+      "equivalent": 3,
+      "factual_conflict": 3,
+      "incomplete": 5,
+      "representation_discrepancy": 6,
+      "temporal_discrepancy": 3
+    },
+    "frozen_policy_action_case_counts": {
+      "abstain": 4,
+      "conflict_escalation": 3,
+      "enrich_record": 9,
+      "no_action": 9,
+      "wait_for_sync": 3
+    },
+    "proxies_do_not_prescribe_human_labels": true,
+    "rule_limit_abstention_proxy_cases": 3
+  },
+  "calibration_specs": [
+    {
+      "agreement": true,
+      "count": 2,
+      "field": "severity",
+      "id": "severity_equivalent_agreement",
+      "status": "equivalent"
+    },
+    {
+      "agreement": true,
+      "count": 1,
+      "field": "severity",
+      "id": "severity_incomplete_agreement",
+      "status": "incomplete"
+    },
+    {
+      "count": 1,
+      "field": "severity",
+      "id": "severity_conflict_agreement",
+      "pair": "conflict_escalation->conflict_escalation",
+      "status": "factual_conflict"
+    },
+    {
+      "count": 1,
+      "field": "severity",
+      "id": "severity_conflict_abstention",
+      "pair": "conflict_escalation->abstain",
+      "status": "factual_conflict"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_abstain_to_no_action",
+      "pair": "abstain->no_action"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_enrich_to_abstain",
+      "pair": "enrich_record->abstain"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_enrich_to_conflict",
+      "pair": "enrich_record->conflict_escalation"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_enrich_to_no_action",
+      "pair": "enrich_record->no_action"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_equivalent_no_action_to_abstain",
+      "pair": "no_action->abstain",
+      "status": "equivalent"
+    },
+    {
+      "count": 2,
+      "field": "published",
+      "id": "published_representation_control",
+      "status": "representation_discrepancy"
+    },
+    {
+      "count": 3,
+      "field": "published",
+      "id": "published_temporal_control",
+      "status": "temporal_discrepancy"
+    },
+    {
+      "count": 2,
+      "field": "references",
+      "id": "references_representation_control",
+      "status": "representation_discrepancy"
+    },
+    {
+      "count": 3,
+      "field": "references",
+      "id": "references_incomplete_control",
+      "status": "incomplete"
+    }
+  ],
+  "cautions": [
+    "Packets are blank preparation artifacts, not human labels.",
+    "Reviewer packets hide policies and explicit NVD/GHSA side names.",
+    "URLs may reveal source identity, so blinding is partial.",
+    "Internal files must not be shared with reviewers.",
+    "Evaluation weights are sensitivity weights, not primary estimands."
+  ],
+  "claim_ceiling": {
+    "eligible_for_accuracy_claim": false,
+    "eligible_for_human_gold_claim": false,
+    "eligible_for_policy_superiority_claim": false,
+    "eligible_for_submission_readiness_claim": false,
+    "eligible_for_workload_reduction_claim": false
+  },
+  "counts": {
+    "calibration": 20,
+    "evaluation": 120,
+    "per_reviewer": 140,
+    "reviewer_case_judgments": 280,
+    "reviewers": 2,
+    "stages_per_case": 2,
+    "unique_cases": 140
+  },
+  "distribution_allowed": false,
+  "distribution_blockers": [
+    "The V3 guideline is draft and lacks author approval.",
+    "Reviewer role and independence record is incomplete.",
+    "Ethics and recruitment determination is incomplete.",
+    "Action-to-reason stage locks have not been executed.",
+    "No author-approved distribution manifest revision exists."
+  ],
+  "evaluation_strata": [
+    {
+      "cell": "disagreement|factual_conflict|conflict_escalation->abstain",
+      "evaluation_count": 25,
+      "evaluation_weight": 10.32,
+      "field": "severity",
+      "population_count": 258,
+      "selection_probability": 0.09689922480620156
+    },
+    {
+      "cell": "disagreement|representation_discrepancy|abstain->no_action",
+      "evaluation_count": 5,
+      "evaluation_weight": 1.0,
+      "field": "severity",
+      "population_count": 5,
+      "selection_probability": 1.0
+    },
+    {
+      "cell": "agreement|equivalent",
+      "evaluation_count": 5,
+      "evaluation_weight": 621.2,
+      "field": "severity",
+      "population_count": 3106,
+      "selection_probability": 0.0016097875080489374
+    },
+    {
+      "cell": "agreement|representation_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 634.6,
+      "field": "severity",
+      "population_count": 3173,
+      "selection_probability": 0.001575795776867318
+    },
+    {
+      "cell": "agreement|incomplete",
+      "evaluation_count": 5,
+      "evaluation_weight": 6.6,
+      "field": "severity",
+      "population_count": 33,
+      "selection_probability": 0.15151515151515152
+    },
+    {
+      "cell": "agreement|factual_conflict",
+      "evaluation_count": 5,
+      "evaluation_weight": 298.2,
+      "field": "severity",
+      "population_count": 1491,
+      "selection_probability": 0.00335345405767941
+    },
+    {
+      "cell": "disagreement|abstain->no_action",
+      "evaluation_count": 6,
+      "evaluation_weight": 11.833333333333334,
+      "field": "affected_versions",
+      "population_count": 71,
+      "selection_probability": 0.08450704225352113
+    },
+    {
+      "cell": "disagreement|enrich_record->abstain",
+      "evaluation_count": 6,
+      "evaluation_weight": 12.333333333333334,
+      "field": "affected_versions",
+      "population_count": 74,
+      "selection_probability": 0.08108108108108109
+    },
+    {
+      "cell": "disagreement|enrich_record->conflict_escalation",
+      "evaluation_count": 6,
+      "evaluation_weight": 30.666666666666668,
+      "field": "affected_versions",
+      "population_count": 184,
+      "selection_probability": 0.03260869565217391
+    },
+    {
+      "cell": "disagreement|enrich_record->no_action",
+      "evaluation_count": 6,
+      "evaluation_weight": 112.0,
+      "field": "affected_versions",
+      "population_count": 672,
+      "selection_probability": 0.008928571428571428
+    },
+    {
+      "cell": "disagreement|no_action->abstain",
+      "evaluation_count": 6,
+      "evaluation_weight": 127.5,
+      "field": "affected_versions",
+      "population_count": 765,
+      "selection_probability": 0.00784313725490196
+    },
+    {
+      "cell": "agreement|equivalent",
+      "evaluation_count": 5,
+      "evaluation_weight": 83.8,
+      "field": "affected_versions",
+      "population_count": 419,
+      "selection_probability": 0.011933174224343675
+    },
+    {
+      "cell": "agreement|representation_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 486.8,
+      "field": "affected_versions",
+      "population_count": 2434,
+      "selection_probability": 0.002054231717337716
+    },
+    {
+      "cell": "agreement|incomplete",
+      "evaluation_count": 5,
+      "evaluation_weight": 596.0,
+      "field": "affected_versions",
+      "population_count": 2980,
+      "selection_probability": 0.0016778523489932886
+    },
+    {
+      "cell": "agreement|factual_conflict",
+      "evaluation_count": 5,
+      "evaluation_weight": 93.4,
+      "field": "affected_versions",
+      "population_count": 467,
+      "selection_probability": 0.010706638115631691
+    },
+    {
+      "cell": "status|representation_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 1233.8,
+      "field": "published",
+      "population_count": 6169,
+      "selection_probability": 0.0008105041335710813
+    },
+    {
+      "cell": "status|temporal_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 379.4,
+      "field": "published",
+      "population_count": 1897,
+      "selection_probability": 0.002635740643120717
+    },
+    {
+      "cell": "status|factual_conflict",
+      "evaluation_count": 3,
+      "evaluation_weight": 1.0,
+      "field": "references",
+      "population_count": 3,
+      "selection_probability": 1.0
+    },
+    {
+      "cell": "status|representation_discrepancy",
+      "evaluation_count": 4,
+      "evaluation_weight": 75.0,
+      "field": "references",
+      "population_count": 300,
+      "selection_probability": 0.013333333333333334
+    },
+    {
+      "cell": "status|incomplete",
+      "evaluation_count": 3,
+      "evaluation_weight": 2587.6666666666665,
+      "field": "references",
+      "population_count": 7763,
+      "selection_probability": 0.0003864485379363648
+    }
+  ],
+  "expected_input_hashes": {
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+  },
+  "field_counts": {
+    "calibration": {
+      "affected_versions": 5,
+      "published": 5,
+      "references": 5,
+      "severity": 5
+    },
+    "evaluation": {
+      "affected_versions": 50,
+      "published": 10,
+      "references": 10,
+      "severity": 50
+    }
+  },
+  "freeze_date": "2026-08-25",
+  "human_gold": false,
+  "human_labels": 0,
+  "input_files": {
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2",
+    "docs/annotation_guidelines/t1_action_reason_v3.md": "cc4d01d930b29c9ef44da4dcf054e6e21a2966818945afbdb9af2b6c332023d6",
+    "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3.md": "df86acbd3f48b6566dc5e7d6b00ef2eeef4602fbf8d1fde208776e1e14006e01",
+    "experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md": "a1b81a769499ffb96d53637f5548b29aff8370e00363c564f22008b019248ae9",
+    "experiments/rq2_discrepancy_typing/analyze_t1_routing_precheck.py": "ad7c190fa0c2a2ec3e6af218bd2bea043d76068b4ff9d8a715dc14b01e16f173",
+    "experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3.py": "dbdb04e8188eed676c69381a899e77d3f27b2895d7e48fc8ac72a11950a232b5",
+    "experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3.py": "01a79bb092d94dfa11e2f90aeee05f644a8e5ff54ed5de307f4d9eaaec27fc17",
+    "results/jss/t1_routing_precheck_v1/analysis.json": "47428580744f0d83331c15b82a623a771f40a40d1ddcf59731fd83787553f7a8"
+  },
+  "internal_mapping": "internal/sealed_case_mapping.jsonl",
+  "internal_sampling_frame": "internal/frozen_sampling_frame.jsonl",
+  "lower_reference_policies": [
+    "binary_observed_non_equal",
+    "binary_canonical_non_equal"
+  ],
+  "main_policies": [
+    "field_aware_simple_v1",
+    "type_first_current_v1",
+    "type_first_abstention_v1"
+  ],
+  "output_sha256": {
+    "README.md": "db903c26dba39b91b90d9a4191ccfc80eb00638abfe2076b16646ecfaec6f372",
+    "ROLE_AND_INDEPENDENCE_RECORD.md": "7258462afccf6cbab542a016e2d105dfc4310e00dac667a213f1ef38e428dc45",
+    "STAGE_LOCK_RECORD.md": "784945aa97497f125ff3dbee3f48c6afe3b8c238e65b7bbd613b51d851956a44",
+    "internal/frozen_sampling_frame.jsonl": "63d125e073a413a80ef89aeecca9e887667f0de7c34a8ddfa5a20657563e112e",
+    "internal/sealed_case_mapping.jsonl": "0a3ae431bcc221636fa644c76306fdd2a7d54b73890b8de6fd5e66eed4512eb4",
+    "reviewer_a/calibration_action_packet.csv": "7a12b92e33c4de96005b159c7829147a6400e8b51cba7f42493ef8a647fad67b",
+    "reviewer_a/calibration_action_packet.jsonl": "5ff150938471d2692ab0a07d8c1be9fc352f502c1420cbc3ef3ddf61ddf8c730",
+    "reviewer_a/calibration_reason_packet.csv": "1bef6fa1a3f1571e04e8503560d80ba835b2dc490733e8f11593cf395d5954b3",
+    "reviewer_a/calibration_reason_packet.jsonl": "fc3f7190b6c4b0e3b76a50d24c1550781298cfc6d6cc995d203736282a7c6bf0",
+    "reviewer_a/evaluation_action_packet.csv": "6f6934191c6b53935355301af2871ba3ef38913c2e738b46e34988af1ec1b06d",
+    "reviewer_a/evaluation_action_packet.jsonl": "f765eecb2a4f2945c82a96ed9a320b982377948d797b7ddaba55ef4eddd91d54",
+    "reviewer_a/evaluation_reason_packet.csv": "7a25b0f0851c8f76597fdad0e16b0a71cfa15594400a044a66982a59339207d7",
+    "reviewer_a/evaluation_reason_packet.jsonl": "1f4fb4c418da5777798c3cca8af98293197d0954b58adf69c76c8fa35510af91",
+    "reviewer_b/calibration_action_packet.csv": "72e6fc3e7a23c8a58b6ea0fa1457c5e0befa038495ff7ae73f6d59ca2e166dfe",
+    "reviewer_b/calibration_action_packet.jsonl": "08d36e2e7158fe86809d987c9bca842edb8e6fe0d780e05ada67386ddf1f5492",
+    "reviewer_b/calibration_reason_packet.csv": "a07c6e8ff6a50d131f48afe5971d6825efe68262740b2a23acf541834ccc231c",
+    "reviewer_b/calibration_reason_packet.jsonl": "a6c99bb87d2b02f6dec56929ac7b048a72fa84f4508c04fa34b117e7862dbbb4",
+    "reviewer_b/evaluation_action_packet.csv": "cf586205d39a52c93889c6064d37bf95b4e02c359f2004a90c87c6d329c9b450",
+    "reviewer_b/evaluation_action_packet.jsonl": "46a2e5ed668cab1e52dc885c2c0993de24f5aa159ea33d0228dfd1063da19f3b",
+    "reviewer_b/evaluation_reason_packet.csv": "700f7b666e0d873dd3d6f7b9ed9081976357c695bad1fbfa08d533e981a02643",
+    "reviewer_b/evaluation_reason_packet.jsonl": "ca9237f21373bbe6390b3de6ef0c630fc75a9c358f284f0661c4af9e1c55bd9b"
+  },
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v3",
+  "reasons": [
+    "equivalent",
+    "representation_discrepancy",
+    "incomplete",
+    "temporal_discrepancy",
+    "factual_conflict",
+    "uncertain"
+  ],
+  "repository": {
+    "branch": "codex/jss-v3-routing-precheck-20260825",
+    "head_before_packet_commit": "f64bec92dab3fe6e7be80d0cd6a739732ef34ae2"
+  },
+  "reviewer_packet_files": {
+    "reviewer_a": {
+      "calibration": {
+        "action": {
+          "csv": "reviewer_a/calibration_action_packet.csv",
+          "jsonl": "reviewer_a/calibration_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_a/calibration_reason_packet.csv",
+          "jsonl": "reviewer_a/calibration_reason_packet.jsonl"
+        }
+      },
+      "evaluation": {
+        "action": {
+          "csv": "reviewer_a/evaluation_action_packet.csv",
+          "jsonl": "reviewer_a/evaluation_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_a/evaluation_reason_packet.csv",
+          "jsonl": "reviewer_a/evaluation_reason_packet.jsonl"
+        }
+      }
+    },
+    "reviewer_b": {
+      "calibration": {
+        "action": {
+          "csv": "reviewer_b/calibration_action_packet.csv",
+          "jsonl": "reviewer_b/calibration_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_b/calibration_reason_packet.csv",
+          "jsonl": "reviewer_b/calibration_reason_packet.jsonl"
+        }
+      },
+      "evaluation": {
+        "action": {
+          "csv": "reviewer_b/evaluation_action_packet.csv",
+          "jsonl": "reviewer_b/evaluation_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_b/evaluation_reason_packet.csv",
+          "jsonl": "reviewer_b/evaluation_reason_packet.jsonl"
+        }
+      }
+    }
+  },
+  "schema_version": "t1_action_reason_manifest_v3",
+  "seeds": {
+    "calibration_rank": "vuln-adj-t1-v3-calibration-20260825",
+    "evaluation_rank": "vuln-adj-t1-v3-evaluation-20260825",
+    "reviewer_phase_stage_order": "vuln-adj-t1-v3-order-20260825",
+    "side_mask": "vuln-adj-t1-v3-side-mask-20260825"
+  },
+  "selection_order": "evaluation first; calibration from remaining rows",
+  "status": "PREPARATION_ONLY_NOT_FOR_DISTRIBUTION"
+}
