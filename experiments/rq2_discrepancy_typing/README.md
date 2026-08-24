@@ -12,6 +12,54 @@
 - field comparators
 - evaluation scripts
 
+## JSS V3 routing precheck and prepare-only human packet
+
+The active low-human JSS route first runs a label-free full-corpus census of a
+strong field-aware simple comparator, the current type-first efficiency arm,
+and an abstention-aware safety arm. Raw and canonical non-equality are lower
+references only.
+
+```bash
+python -m unittest discover \
+  -s experiments/rq2_discrepancy_typing -p 'test_*routing_precheck.py'
+python experiments/rq2_discrepancy_typing/analyze_t1_routing_precheck.py
+python experiments/rq2_discrepancy_typing/verify_t1_routing_precheck.py
+```
+
+The frozen 8,066-row census returns
+`CONDITIONAL_GO_FOR_V3_PACKET_DESIGN`. The strong-simple versus
+abstention-aware comparison has 2,332 action differences. The safety arm has
+74 fewer conflict escalations but 950 more total manual-review routes when
+abstention is counted. These are deterministic policy outputs, not human-
+validated correctness, safety, workload, or utility.
+
+V3 uses the same two independent trained analysts and the same 120 formal cases
+for action and reason judgments. Actions are completed and locked before reason
+packets are released.
+
+```bash
+python -m unittest discover \
+  -s experiments/rq2_discrepancy_typing \
+  -p 'test_*t1_human_validation_packet_v3.py'
+python experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3.py
+python experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3.py
+python experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3.py \
+  --require-distribution-ready
+```
+
+The normal validator must pass. The distribution-ready command must fail while
+the manifest remains prepare-only. Current outputs are under:
+
+- `results/jss/t1_routing_precheck_v1/`
+- `data/annotations/rq2/t1_human_validation_v3/`
+
+The V3 directory contains 20 calibration and 120 formal cases per reviewer,
+separate action/reason stages, and zero human labels. Do not distribute it
+until the guideline, reviewer roles, ethics/recruitment disposition, return
+validators, evaluator, and author-approved distribution revision are frozen.
+The older V2 packet is retained unchanged for audit and is not the active
+distribution route.
+
 ## References normalization candidate diagnostic
 
 `analyze_reference_normalization_variants.py` compares four incremental URL-normalization variants against the isolated RQ2 AI expert candidates and the full `8,066`-pair field view. It reports primary-pass, same-model review-pass, repeated-consensus, and full-corpus impact separately.

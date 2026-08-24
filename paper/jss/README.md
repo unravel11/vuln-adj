@@ -3,11 +3,12 @@
 ## Status
 
 - Paper line: active, conservative JSS reframing
-- Repository branch: `codex/jss-framing-b-20260823`
+- Repository branch: `codex/jss-v3-routing-precheck-20260825`
 - Current paper stage: `S1_EVIDENCE_LOCKED`
 - Argument stage: `S2 candidate`, not yet locked
 - Submission readiness: `false`
-- Primary venue: Journal of Systems and Software, conditional on T1 and T2
+- Primary venue: Journal of Systems and Software, conditional on V3 human
+  construct and routing-frontier results
 - Practical fallback: Information and Software Technology
 
 The 2026-07-19 COSE package remains a historical evidence line. It is not the
@@ -18,15 +19,15 @@ not clear the missing real-human, scientific, manuscript, or metadata gates.
 
 Working title:
 
-> Beyond Binary Mismatch: An Empirical Audit of Field-Level Reconciliation
-> between NVD and GHSA
+> From Field Mismatch to Maintenance Action: Auditing NVD–GHSA Reconciliation
+> Policies under Human Uncertainty
 
 Candidate thesis:
 
-> For CVE-aligned NVD and GHSA records, a binary mismatch flag is not yet a
-> validated conflict decision. A type-first, abstention-aware evaluation can
-> distinguish operationally different cases and make explicit when automated
-> reconciliation is unsupported or empirically unidentifiable.
+> A CVE-aligned field mismatch is not itself a conflict verdict; comparing a
+> strong field-aware strategy with efficiency- and safety-oriented type-first
+> policies reveals a testable routing frontier whose validity depends on
+> independent human actions and explicit abstention.
 
 The thesis is deliberately conditional. The taxonomy and downstream-routing
 parts require independent real-human evidence before they can become paper
@@ -45,25 +46,33 @@ claims.
   external-action blockers
 - `paper_state.json`: machine-checkable workflow state
 
-The result-independent T1 protocol is maintained at
-`experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL.md`.
-The V2 prepare-only packets are frozen at
-`data/annotations/rq2/t1_human_validation_v2/`. Their manifest explicitly
-sets `distribution_allowed=false`; the guideline and real-human role record
-must be approved before calibration distribution.
+The label-free gate and V3 human protocol are maintained at
+`experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md` and
+`experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3.md`.
+The active blank packets are frozen at
+`data/annotations/rq2/t1_human_validation_v3/`. Their manifest explicitly sets
+`distribution_allowed=false` and `human_labels=0`. V2 is retained unchanged as
+historical prepare-only material and must not be distributed for this route.
 
 ## Route decision
 
-1. Run T1 with two different real reviewers on a baseline-blinded packet.
-2. Freeze adjudicated human labels without dropping uncertain or failed fields.
-3. Run T2 to compare binary escalate-all routing with type-first routing.
-4. Keep the existing affected-version adjudication work only as bounded
+1. Freeze the V3 return validators and three-policy evaluator before exposure.
+2. Approve the guideline, reviewer roles, ethics/recruitment disposition, and a
+   separate distribution manifest revision.
+3. Run two independent trained analysts action-first and reason-second on the
+   same 20 calibration and 120 formal cases, locking each action stage first.
+4. Freeze pre-adjudication evidence without dropping abstain, uncertain,
+   disagreement, or failed fields; then apply the frozen stop rules.
+5. Compare the strong field-aware comparator, current type-first efficiency
+   arm, and abstention-aware safety arm against both independent action passes.
+6. Keep the existing affected-version adjudication work only as bounded
    negative/failure evidence unless a separately frozen human-backed T3 is
    authorized.
-5. Do not claim temporal generalization unless a new bilateral post-freeze
+7. Do not claim temporal generalization unless a new bilateral post-freeze
    cohort becomes eligible under the already frozen event-time rule.
 
-Stop the positive-method route if T1 does not establish construct reliability
-or if T2 does not show downstream value. Preserve either result and reframe as
-a construct-ambiguity or negative empirical study instead of changing labels,
-fields, thresholds, or cohorts after seeing outcomes.
+Stop the positive-method route if V3 does not establish construct reliability
+or if both reviewers do not support the same paired policy direction. Preserve
+the result and reframe as a decision-ambiguity or negative empirical study
+instead of changing labels, fields, policies, thresholds, or cohorts after
+seeing outcomes.

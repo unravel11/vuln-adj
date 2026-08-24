@@ -9,8 +9,8 @@
   "authority": {
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
-    "branch": "codex/jss-framing-b-20260823",
-    "head": "659831571df7d4b0a3ae6549afd0fc8dae5a6927",
+    "branch": "codex/jss-v3-routing-precheck-20260825",
+    "head": "24c62026794815f73cff395d088bcba4b0795d09",
     "status": "dirty",
     "manuscript": "paper/jss/manuscript.md"
   },
@@ -39,18 +39,20 @@
   "claim_ceiling": [
     "Report deterministic RQ1 distributions only for the frozen 8066-row NVD-GHSA corpus.",
     "Treat all existing AI or Codex labels as non-human candidate or retrospective evidence.",
-    "Require T1 before any human-gold taxonomy or baseline-performance claim.",
-    "Require T2 before any claim that type-first routing reduces expert workload while preserving conflict recall.",
+    "Treat the label-free policy census as routing and identifiability evidence only, never correctness or utility.",
+    "Require two independent V3 action-first and reason-second human passes before any construct or policy-performance claim.",
+    "Treat field-aware simple as the main comparator, current type-first as the efficiency arm, and abstention-aware type-first as the safety arm.",
+    "Do not call routing counts workload, saved time, or safety without human-backed evidence and explicit abstention accounting.",
     "Report current adjudication results as bounded no-go or failure evidence unless a new frozen human-backed T3 is authorized.",
     "Do not claim temporal generalization without a newly eligible bilateral post-freeze cohort."
   ],
   "open_blockers": [
-    "T1 V2 prepare-only packets pass validation, but distribution is blocked and there are no real-human labels, independent reviewer returns, or author adjudication.",
-    "T2 has not been frozen, implemented, or run.",
-    "The S2 title, RQs, action map, and contribution boundary await author approval.",
+    "V3 prepare-only packets pass integrity validation, but distribution is blocked and there are no reviewer identities, ethics/recruitment disposition, stage locks, or human labels.",
+    "V3 return validators and the pre-adjudication agreement and three-policy evaluator are not yet implemented or frozen.",
+    "The S2 title, revised RQs, three-policy frontier, and contribution boundary await author approval.",
     "No JSS manuscript draft exists.",
     "Current JSS submission requirements and author metadata are not frozen.",
-    "The repository contains substantial pre-existing uncommitted and untracked work."
+    "The active isolated branch is intentionally dirty until the V3 preparation artifacts and governance updates are committed."
   ],
-  "last_verified_at": "2026-08-24T00:09:57+08:00"
+  "last_verified_at": "2026-08-25T01:30:00+08:00"
 }

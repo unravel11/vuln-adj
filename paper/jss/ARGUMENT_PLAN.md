@@ -2,162 +2,185 @@
 
 Status: `S2_CANDIDATE_FOR_AUTHOR_APPROVAL`.
 
-This plan defines the intended argument, not a completed manuscript or a
-positive result. T1 and T2 outcomes may force a negative or construct-ambiguity
-paper, but they may not be screened out to preserve the candidate thesis.
+The label-free routing census has passed the packet-design gate. That is not a
+positive empirical result: the argument remains conditional on two independent
+human action/reason passes. Failed reliability, conflicting reviewer
+preferences, abstention, and uncertain cases must remain visible.
 
 ## Working title
 
-Beyond Binary Mismatch: An Empirical Audit of Field-Level Reconciliation
-between NVD and GHSA
+From Field Mismatch to Maintenance Action: Auditing NVD–GHSA Reconciliation
+Policies under Human Uncertainty
 
 ## One-sentence candidate argument
 
-A CVE-aligned field mismatch is an observation rather than a conflict verdict;
-type-first routing with explicit abstention provides a testable way to separate
-different maintenance actions and to expose the empirical limits of automated
-reconciliation.
+A CVE-aligned field mismatch is not itself a conflict verdict; comparing a
+strong field-aware strategy with efficiency- and safety-oriented type-first
+policies reveals a testable routing frontier whose validity depends on
+independent human actions and explicit abstention.
 
 ## Narrative spine
 
-1. NVD and GHSA often encode aligned CVEs differently at the field level.
-2. A binary mismatch collapses representation, incompleteness, timing, and
-   incompatible facts into one action.
-3. The project therefore tests a type-first taxonomy under independent human
-   review instead of treating deterministic labels as truth.
-4. The downstream test asks whether the taxonomy changes expert workload
-   without concealing human-validated factual conflicts.
-5. Existing evidence-driven adjudication results are retained as a bounded
-   audit of abstention, evidence dependence, low coverage, and no-go outcomes.
+1. NVD and GHSA encode many aligned CVEs differently at the field level.
+2. Raw or canonical non-equality collapses different maintenance actions and
+   is therefore only a lower-reference comparator.
+3. A strong field-aware simple strategy and two type-first variants provide
+   materially different routings over the full frozen corpus.
+4. The abstention-aware variant reduces the deterministic conflict queue but
+   increases total manual routing, so the question is an efficiency-safety
+   frontier rather than automatic workload reduction.
+5. Two independent trained analysts assign actions before reasons on the same
+   120 formal cases. Their pre-adjudication decisions determine whether a
+   positive routing result, a decision-ambiguity result, or a no-go is honest.
+6. Existing evidence-driven adjudication work remains a secondary account of
+   evidence dependence and failure, not a successful method contribution.
 
-Steps 3 and 4 are planned claims until T1 and T2 are complete.
+Steps 5 and the positive interpretation of step 4 remain unobserved.
 
 ## Research questions and decision roles
 
-### RQ1 — Distribution
+### RQ1 — Deterministic landscape
 
-Rhetorical job: establish the frozen NVD–GHSA corpus, field view, deterministic
-comparison outputs, and where differences occur.
+Rhetorical job: establish the frozen corpus, deterministic statuses, policy
+outputs, and policy-disagreement cells.
 
-Admissible claim: snapshot-bounded descriptive counts.
+Admissible claim: snapshot-bounded counts and label-free identifiability.
 
-Forbidden upgrade: database correctness, factual-conflict prevalence, or causal
+Forbidden upgrade: human truth, correctness, unnecessary work, database
+quality, or causal explanation.
+
+### RQ2 — Human decision construct
+
+Rhetorical job: test whether two real trained analysts can independently assign
+maintenance actions and, after action lock, discrepancy reasons.
+
+Admissible result after V3: raw agreement, nominal Krippendorff alpha,
+abstention/uncertain rates, disagreement matrices, and cross-reviewer
+action-reason association.
+
+Forbidden upgrade: treating author-adjudicated agreement as independent
+agreement or treating same-reviewer action-reason association as causal
 explanation.
 
-### RQ2 — Construct and typing validity
+### RQ3 — Routing frontier
 
-Rhetorical job: test whether two real reviewers can use the five-way taxonomy
-reliably and evaluate the deterministic baseline only after gold is frozen.
+Rhetorical job: compare `field_aware_simple_v1`,
+`type_first_current_v1`, and `type_first_abstention_v1` against the two
+independent human action passes.
 
-Admissible claim before T1: protocol and hypothesis only.
+Admissible result after V3: paired action-match differences on policy-
+disagreement rows, conflict-escalation behavior, abstention, agreement-control
+failures, and design-weighted sensitivity.
 
-Admissible claim after T1: exact agreement, Krippendorff's alpha, uncertain
-coverage, design-weighted confusion and performance, all reported by field.
-
-### RQ3 — Operational value and limits
-
-Rhetorical job: compare binary conflict escalation with a frozen type-first
-action map, then explain where automated evidence-driven adjudication abstains
-or fails against named baselines.
-
-Admissible claim before T2: protocol and current retrospective no-go only.
-
-Forbidden upgrade: deployment benefit, general source authority, or successful
-affected-version adjudication.
+Forbidden upgrade: deployment benefit, elapsed-time savings, practitioner
+relevance without practitioner reviewers, or superiority when reviewers favor
+different policies.
 
 ## Contribution-to-evidence map
 
 | Candidate contribution | Required evidence | Current disposition |
 |---|---|---|
-| Frozen-corpus field-level empirical audit | E01 | Available and bounded |
-| Reliable action-oriented discrepancy taxonomy | E02 plus T1/E08 | Missing human validation |
-| Reduced expert conflict-review workload at preserved recall | T1/E08 plus T2/E09 | Missing |
-| Auditable limits of automated reconciliation | E04–E06 | Available only as retrospective negative/failure evidence |
+| Frozen-corpus field and policy census | E01, E07B | Available and bounded |
+| Strong-comparator efficiency-safety framing | E07B | Policy differences supported; correctness absent |
+| Action-first/reason-second human construct | E07C plus E08 | Blank packet ready; human evidence missing |
+| Human-backed routing-policy frontier | E08 plus E09 | Missing |
+| Auditable reconciliation limits | E04–E06 | Available only as retrospective negative/failure evidence |
 
 ## Section outline
 
 1. Introduction
-   - Define the operational cost of treating every mismatch as conflict.
-   - State the human-validation and abstention requirements up front.
-   - Do not lead with a claim of method superiority.
+   - Define field observation, maintenance action, and abstention.
+   - State the human gate and frontier framing; do not lead with superiority.
 2. Background and Task Definition
-   - Define the business objects: CVE-aligned record, field instance, observed
-     difference, discrepancy type, conflict-review action, and source
-     adjudication.
-   - Separate typing from choosing which source is correct.
+   - Define CVE-aligned record, field instance, discrepancy reason, maintenance
+     action, conflict escalation, abstention, and source adjudication.
+   - Separate routing from choosing which database is factually correct.
 3. Related Work
-   - Compare directly with cross-database vulnerability inconsistency studies,
-     VuldiffFinder, and affected-version tool benchmarks.
-   - Position the differential as action-oriented routing, abstention, and
-     identifiability/failure analysis, not the first discrepancy taxonomy.
-4. Corpus and Deterministic Field View
-   - Describe NVD/GHSA snapshots, CVE alignment, fields, exclusions, and
-     normalization.
-   - Bind every count to E01.
-5. Type-First Method and Human Protocol
-   - Present taxonomy and action map separately.
-   - Describe sampling weights, blinding, dual review, uncertainty, and
-     adjudication.
+   - Compare cross-database inconsistency studies, VuldiffFinder,
+     affected-version benchmarks, selective prediction, and human routing.
+   - Position the differential as action-first routing plus a frozen strong
+     comparator and explicit efficiency-safety accounting.
+4. Corpus and Deterministic Policies
+   - Describe inputs, CVE alignment, fields, normalization, seven frozen arms,
+     and the label-free 8,066-row census.
+5. Human Protocol
+   - Describe evaluation-first stable-hash sampling, constructed calibration,
+     action-stage lock, reason stage, dual independent review, blinding,
+     uncertainty, weights, and stop rules.
 6. RQ1 Results
-   - Report only deterministic distribution and input-sensitivity checks.
+   - Report deterministic status, policy-output, and disagreement counts only.
 7. RQ2 Results
-   - Report T1 reliability, coverage, confusion, and field failures.
-   - Preserve uncertain rows and any no-go field.
+   - Report pre-adjudication action and reason reliability, uncertainty, and
+     cross-reviewer associations.
 8. RQ3 Results
-   - Report T2 workload/recall trade-offs.
-   - Report existing adjudication no-go and evidence dependence in a separate
-     subsection so it cannot masquerade as a successful method.
-9. Discussion
-   - Explain action-specific maintenance implications, identifiability limits,
-     and when abstention is required.
-10. Threats to Validity
-    - Snapshot, CVE-alignment, stratified sampling, reviewer expertise,
-      taxonomy construction, source blinding limits, dynamic evidence, and
-      post-hoc historical analyses.
+   - Compare the three main policies on disagreement rows; keep agreement
+     controls and weighted sensitivity separate.
+9. Reconciliation Limits
+   - Present older adjudication no-go and evidence-dependence findings without
+     merging incompatible cohorts or label sources.
+10. Discussion and Threats
+    - Explain the frontier, field concentration, sampling design, reviewer
+      role, source-blinding limits, action-reason anchoring, and snapshot scope.
 11. Conclusion
-    - Match the strongest result that survives T1/T2; do not preserve the
-      positive candidate thesis if a gate fails.
+    - Match only the result that survives the V3 gates.
 
 ## Figure and table plan
 
-| Artifact | Question | Evidence source | Planned role | Gate |
-|---|---|---|---|---|
-| Figure 1: task and routing flow | How does a field observation move from comparison to action or abstention? | Method contract | Define typing versus source adjudication | Conceptual only; no result styling |
-| Table 1: corpus and field distribution | What was compared and how often did deterministic outputs occur? | E01 | RQ1 lookup table | Counts must trace to frozen field view |
-| Figure 2: taxonomy and action map | Which labels imply no action, enrichment, freshness handling, or conflict review? | T1 codebook | Explain the operational differential | Freeze before T1 evaluation unsealing |
-| Table 2: human reliability and coverage | Can reviewers apply the construct? | E08 | RQ2 primary evidence | Show all fields and uncertain counts |
-| Figure 3: workload–conflict-recall trade-off | Does type-first routing improve the decision objective? | E09 | RQ3 primary comparison | Fixed comparator and action map |
-| Table 3: automated adjudication limits | Where did methods cover, abstain, or lose to simple baselines? | E05–E06, and T3 if run | Negative/failure evidence | Keep protocols and denominators separate |
+| Artifact | Question | Evidence | Gate |
+|---|---|---|---|
+| Figure 1: observation-to-action flow | Where do reason, action, abstention, and source adjudication differ? | Method contract | Conceptual only |
+| Table 1: corpus and status counts | What deterministic field landscape was observed? | E01 | Snapshot-bounded |
+| Table 2: policy-output and disagreement census | Where do the three main policies differ? | E07B | Label-free wording required |
+| Figure 2: efficiency-safety frontier | How do conflict queue and total manual route differ? | E07B then E09 | Deterministic outputs before E09; no cost wording |
+| Table 3: human reliability | Can analysts use action and reason constructs? | E08 | Show every field and uncertain outcome |
+| Table 4: paired policy comparison | Which policies align with independent actions? | E09 | Reviewer-specific direction and CIs required |
+| Table 5: bounded failure evidence | Where do existing reconciliation methods abstain or fail? | E05–E06 | Keep cohorts/provenance separate |
 
-No temporal-generalization figure is planned. It may be added only if a new
-eligible cohort is frozen before labels or results are observed.
+No temporal-generalization figure is planned. Add one only if a new eligible
+bilateral post-freeze cohort is frozen under the existing rule.
+
+## Estimand and reporting contract
+
+- Primary routing evidence is the pre-adjudication paired comparison on formal
+  policy-disagreement cases for reviewer A and reviewer B separately.
+- Agreement controls are reported separately.
+- Population weights are sensitivity analyses, with effective sample size and
+  cell intervals; they are not the primary table.
+- `conflict_escalation` and `abstain` are separate actions. Total manual route
+  is their sum, not labor time.
+- Author adjudication is secondary and is followed by an analysis excluding all
+  adjudicated cases.
+- Cross-reviewer action-reason association is primary for explanatory
+  structure; same-reviewer association is an upper bound.
+- A positive policy result requires consistent direction across both reviewers
+  and the frozen interval/test gate. Otherwise use ambiguity or boundary
+  framing.
 
 ## Related-work positioning contract
 
-The manuscript must include and directly compare at least:
+The manuscript must directly compare at least:
 
 - the 2023 TOSEM aspect-level vulnerability database discrepancy study
   (DOI `10.1145/3624734`);
 - VuldiffFinder's inconsistency categories and sample-based detection study;
-- the public affected-version tool benchmark identified by arXiv
-  `2509.03876`;
-- source-specific vulnerability database quality, mapping, and reconciliation
-  work already inventoried in `docs/related_work_survey.md`.
+- the affected-version tool benchmark identified by arXiv `2509.03876`;
+- selective prediction/abstention and human-routing work inventoried in
+  `docs/related_work_survey.md` and the per-paper notes.
 
-The paper may claim a differential only after a source-grounded comparison
-table is written. The candidate differential is:
+The allowed differential is:
 
-> CVE-aligned, field-level, action-oriented routing with explicit abstention,
-> coupled with a human construct test and an empirical account of
-> identifiability and failure.
+> A frozen, CVE-aligned, field-level comparison of maintenance-action policies
+> using a strong field-aware comparator, explicit efficiency and safety arms,
+> action-first/reason-second independent human judgments, and a preserved
+> no-go path.
 
 ## Writing order
 
-1. Freeze and run T1.
-2. Freeze and run T2.
-3. Decide positive versus negative/construct-ambiguity framing.
-4. Draft Methods and Results.
-5. Draft Discussion and Threats.
+1. Freeze the V3 evaluator and distribution controls.
+2. Complete calibration and both independent formal passes.
+3. Run pre-adjudication analyses and apply stop rules.
+4. Choose positive-frontier, decision-ambiguity, or negative framing.
+5. Draft Methods and Results, then Discussion and Threats.
 6. Draft Introduction and Related Work.
 7. Draft title, abstract, conclusion, highlights, and cover letter last.
 
@@ -165,12 +188,13 @@ table is written. The candidate differential is:
 
 The argument can move to `S2_ARGUMENT_LOCKED` only when:
 
-- the author approves the title direction, RQs, primary fields, and non-claims;
-- the T1 protocol and codebook route are accepted before human labels;
-- the T2 action comparator is fixed;
-- the decision to keep or demote adjudication as a core contribution is
-  recorded;
+- the author approves the title direction, revised RQs, four fields, and
+  explicit non-claims;
+- the V3 protocol, action/reason vocabulary, three main policies, sampling
+  cells, estimands, and stop rules are approved before human exposure;
+- the evaluator and return validators are frozen;
+- adjudication is recorded as secondary rather than a method rescue; and
 - no closest-related-work finding invalidates the differential.
 
-If T1 reliability or T2 utility fails, the positive route stops. The paper may
-continue only with the failure retained and an explicitly revised thesis.
+If V3 reliability or paired policy utility fails, the positive route stops.
+The paper may continue only with the failure retained and the thesis revised.

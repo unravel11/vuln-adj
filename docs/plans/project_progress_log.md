@@ -3771,3 +3771,99 @@
     unit、冲突 recall 和样本量/检验方案。
   - 若 T1/T2 未过门禁，转为 taxonomy/identifiability failure study；若通过，再开始
     JSS 正文。T3 只在保留正向 adjudication 主张时启动，T4 默认删除。
+
+## 2026-08-25：完成 JSS V3 零人工 routing 门禁与 prepare-only 双人材料
+
+- 本次完成了什么：
+  - 在权威环境核对 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj` 后，从干净的
+    `codex/literature-framing-20260824@5a0238750600e9eef78d3eb39c3d3810df5cd1d7`
+    新建隔离分支 `codex/jss-v3-routing-precheck-20260825`；未修改 `main`，未
+    push。
+  - 在任何真人标签之前冻结五个 maintenance actions、七个策略和主比较：强字段
+    简单策略 `field_aware_simple_v1`、type-first 当前效率臂
+    `type_first_current_v1`、type-first abstention 安全臂
+    `type_first_abstention_v1`；raw/canonical non-equal 降为下界参考。
+  - 对 8,066 行、32,264 个四字段实例完成全量 label-free action census、pairwise
+    disagreement、conflict-queue/total-manual-route 计数和固定 120 行预算的
+    identifiability capacity。独立 verifier 从原始 field view 重算并核对主结果。
+  - 零人工门禁返回 `CONDITIONAL_GO_FOR_V3_PACKET_DESIGN`。该结果只授权设计
+    packet，不授权 correctness、superiority、workload reduction 或投稿主张。
+  - 冻结 V3 action-first/reason-second 协议。两位不同真人标相同的 20 个校准和
+    120 个正式案例；动作阶段完整返回并哈希锁定后，才允许发原因阶段。跨标注者
+    action×reason 为主要关联证据，同人关联只作上界。
+  - 正式样本固定为 severity 50、affected_versions 50、published 10、references
+    10；先按稳定 SHA-256 rank 选正式集，再从剩余总体构造 20 行校准集。每个正式
+    sampling cell 记录 `N_h`、`n_h`、inclusion probability 和 sensitivity weight。
+  - 生成 reviewer A/B 独立顺序、action/reason 分阶段 JSONL/CSV、140 行内部 frame、
+    140 行 sealed mapping、role record、stage-lock record 和全文件哈希 manifest。
+    V2 未修改，保留为历史 prepare-only 材料且不得用于当前分发。
+  - 同步 JSS paper brief、argument plan、claim/evidence ledgers、submission blockers、
+    paper state 和总计划，将主张改为“强基线下的效率—安全 frontier”，不再预设
+    type-first+abstention 能降低总人工量。
+
+- 产物路径：
+  - `experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md`
+  - `experiments/rq2_discrepancy_typing/analyze_t1_routing_precheck.py`
+  - `experiments/rq2_discrepancy_typing/verify_t1_routing_precheck.py`
+  - `results/jss/t1_routing_precheck_v1/`
+  - `experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3.md`
+  - `docs/annotation_guidelines/t1_action_reason_v3.md`
+  - `experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3.py`
+  - `experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3.py`
+  - `data/annotations/rq2/t1_human_validation_v3/`
+  - `paper/jss/PAPER_BRIEF.md`
+  - `paper/jss/ARGUMENT_PLAN.md`
+  - `paper/jss/CLAIM_LEDGER.md`
+  - `paper/jss/EVIDENCE_LEDGER.md`
+  - `paper/jss/SUBMISSION_BLOCKERS.md`
+
+- 如何验证：
+  - label-free analyzer 返回
+    `rows=8066 field_instances=32264 decision=CONDITIONAL_GO_FOR_V3_PACKET_DESIGN`；
+    独立 verifier 返回 `rows=8066 action_differences=2332` 和相同 decision。
+  - routing precheck 聚焦测试 `9/9` 通过；V3 builder/validator 聚焦测试 `10/10`
+    通过；新增核心脚本通过 `py_compile`。
+  - V3 normal validator 返回 PASS：calibration `20`、evaluation `120`、
+    `distribution_allowed=false`、`human_labels=0`。加
+    `--require-distribution-ready` 时按预期以退出码 `2` 拒绝分发。
+  - precheck analysis SHA-256 为
+    `47428580744f0d83331c15b82a623a771f40a40d1ddcf59731fd83787553f7a8`；
+    V3 manifest SHA-256 为
+    `f98c9084071cf8c78f4fec977449ff57f5a940fa5c8fa3a3bf19de185c67dfa9`。
+  - 校准 proxy coverage 为 deterministic statuses
+    EQ/RD/INC/TD/FC=`3/6/5/3/3`；冻结策略输出所覆盖的
+    abstain/conflict/enrich/no-action/wait cases=`4/3/9/9/3`。这些只是校准覆盖
+    proxy，不预填或规定真人答案。
+
+- 当前观察：
+  - simple 与 abstention-aware 主比较共 2,332 个 action differences：severity
+    263、affected_versions 1,766、published 0、references 303。真正的增量信号
+    主要集中在 affected_versions；published 是构念控制，不是策略优越性字段。
+  - 在全语料策略输出上，安全臂比 simple 少 74 个 `conflict_escalation`，却多
+    950 个 `conflict_escalation + abstain`。因此“减少冲突队列”和“减少总人工
+    路由”方向相反；论文必须报告 frontier，不能把 abstain 当零成本。
+  - `type_first_current_v1` 仍是可检验的效率臂，abstention 版本是安全臂。同一
+    120 行真人 action 可以同时比较三臂，不增加真人标签量。
+  - 正式样本的最大 action-disagreement capacity 为 110；这只是可识别性容量，
+    不是 realized power、正确率或预期效应。
+
+- 还没验证的点：
+  - V3 guideline 仍为 draft；两位真人尚未招募，身份、独立性、从业者资格、补偿、
+    伦理/招募处置和作者分发批准均为空。现实人工标签仍为 0。
+  - return importer、完成度/阶段锁 validator、Krippendorff alpha 与三策略配对
+    evaluator 尚未实现和冻结；因此当前 packet 不得分发。
+  - label-free census 不知道哪种 action 正确，也没有测量用时、成本或真实维护流程；
+    不能据此称 type-first 更安全、更省人或更适合部署。
+  - JSS 正文、作者元数据、当前 venue requirements 和最终 artifact gate 均未完成；
+    投稿状态继续为 `NO_GO_FOR_SUBMISSION`。
+
+- 下一步：
+  - 在 reviewer 看到任何材料之前，实现并冻结 V3 return/import、stage-lock、
+    pre-adjudication agreement、paired policy comparison 和 blinded adjudication
+    sensitivity evaluator。
+  - 作者批准 guideline，确认两位不同真人及角色口径，补齐伦理/招募和分发记录，
+    再生成单独、可审查的 distribution manifest revision。
+  - 先做 20 行独立 calibration action→lock→reason；仅按冻结的 0.60 calibration
+    门禁决定是否澄清 guideline，绝不改 120 行正式 selection。之后再启动正式
+    action→lock→reason。
