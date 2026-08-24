@@ -3669,15 +3669,19 @@
     `feae02349a66a0bf805cce218a2cec2a774590524ef2f4a349e6232cf362978a`。
   - payload builder 与 verifier 对 4,361 个 ignored 本地文件、
     `2,296,239,806` bytes 完成逐文件大小和 SHA-256 核对。
-  - payload 工具测试 `2/2`、core scripts 测试 `18/18`、RQ2 测试
-    `363/363`、AI-adjudicated 测试 `4/4`、holdout 测试 `37/37`、RQ3 测试
-    `41/41`、COSE artifact 测试 `14/14` 通过。`expert_candidate_validation`
-    当前没有 `test_*.py`，只完成语法检查，不能写成测试通过。
+  - scripts discovery 测试 `18/18`（其中 payload 工具专项为 `2/2`）、RQ2
+    测试 `363/363`、AI-adjudicated 测试 `4/4`、holdout 测试 `37/37`、RQ3
+    测试 `41/41`、COSE artifact 测试 `14/14` 通过，共 `477` 个现有测试。
+    `expert_candidate_validation` 当前没有 `test_*.py`，只完成语法检查，不能写成
+    测试通过。
   - T1 prepare-only 独立 validator 继续返回 PASS，且
     `distribution_allowed=false`、`human_labels=0`。
   - 分步提交：`78c8f6d`（payload 边界）、`8ec0280`（核心数据/标注工具）、
     `dcf1a50`（RQ2 lineage/protocol）、`8f1437e`（RQ3/holdout 工具）、
     `b12dbdb`（历史 COSE 源码包）。
+  - 全仓凭据扫描的初版宽泛 `sk-` 正则误命中 Endor Labs URL 中的普通
+    `risk-known-...` 片段；不输出匹配值并核对上下文后，改用只接受 legacy
+    alphanumeric 或 `sk-proj-` 形式的精确规则复扫。该命中不是凭据。
 
 - 当前观察：
   - 原始 Git 脏状态主要来自长期未提交的可审查源码/协议，以及本地科研 payload
