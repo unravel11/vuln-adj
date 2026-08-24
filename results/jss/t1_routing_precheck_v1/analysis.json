@@ -1,0 +1,508 @@
+{
+  "actions": [
+    "no_action",
+    "enrich_record",
+    "wait_for_sync",
+    "conflict_escalation",
+    "abstain"
+  ],
+  "artifact_type": "t1_routing_precheck_analysis_v1",
+  "decision": "CONDITIONAL_GO_FOR_V3_PACKET_DESIGN",
+  "decision_scope": "whether a V3 dual-human packet can be designed to compare the frozen policies; not whether either policy is correct or superior",
+  "deterministic_status_counts": {
+    "affected_versions": {
+      "equivalent": 425,
+      "factual_conflict": 651,
+      "incomplete": 3054,
+      "representation_discrepancy": 3936
+    },
+    "published": {
+      "representation_discrepancy": 6169,
+      "temporal_discrepancy": 1897
+    },
+    "references": {
+      "factual_conflict": 3,
+      "incomplete": 7763,
+      "representation_discrepancy": 300
+    },
+    "severity": {
+      "equivalent": 3106,
+      "factual_conflict": 1749,
+      "incomplete": 33,
+      "representation_discrepancy": 3178
+    }
+  },
+  "eligible_for_accuracy_claim": false,
+  "eligible_for_human_gold_claim": false,
+  "eligible_for_policy_superiority_claim": false,
+  "eligible_for_submission_readiness_claim": false,
+  "eligible_for_workload_reduction_claim": false,
+  "field_instances": 32264,
+  "fields": [
+    "severity",
+    "affected_versions",
+    "published",
+    "references"
+  ],
+  "gates": {
+    "efficacy_field_manual_review_identifiability": {
+      "fields_meeting_minimum": [
+        "affected_versions"
+      ],
+      "status": "PASS"
+    },
+    "input_has_no_human_labels": {
+      "basis": "the frozen field view contains deterministic records only",
+      "status": "PASS"
+    },
+    "main_policies_are_distinct": {
+      "minimum_required_action_disagreements": 6,
+      "status": "PASS"
+    },
+    "multi_field_action_identifiability": {
+      "fields_meeting_minimum": [
+        "severity",
+        "affected_versions",
+        "references"
+      ],
+      "minimum_required_fields": 2,
+      "status": "PASS"
+    },
+    "planned_sample_conditional_power_capacity": {
+      "capacity_is_not_realized_power": true,
+      "maximum_effective_action_discordance_capacity": 110,
+      "required_if_candidate_wins_80_percent_of_effective_discordance": 20,
+      "status": "PASS"
+    }
+  },
+  "label_is_human": false,
+  "label_source": "none_label_free_policy_census",
+  "pairwise_action_disagreement_counts": {
+    "always_manual__vs__abstain_all": {
+      "affected_versions": 8066,
+      "published": 8066,
+      "references": 8066,
+      "severity": 8066
+    },
+    "binary_canonical_non_equal__vs__abstain_all": {
+      "affected_versions": 8066,
+      "published": 8066,
+      "references": 8066,
+      "severity": 8066
+    },
+    "binary_canonical_non_equal__vs__always_manual": {
+      "affected_versions": 2734,
+      "severity": 6279
+    },
+    "binary_canonical_non_equal__vs__field_aware_simple_v1": {
+      "affected_versions": 5301,
+      "published": 8066,
+      "references": 8066,
+      "severity": 38
+    },
+    "binary_canonical_non_equal__vs__type_first_abstention_v1": {
+      "affected_versions": 5882,
+      "published": 8066,
+      "references": 8066,
+      "severity": 296
+    },
+    "binary_canonical_non_equal__vs__type_first_current_v1": {
+      "affected_versions": 4681,
+      "published": 8066,
+      "references": 8063,
+      "severity": 38
+    },
+    "binary_observed_non_equal__vs__abstain_all": {
+      "affected_versions": 8066,
+      "published": 8066,
+      "references": 8066,
+      "severity": 8066
+    },
+    "binary_observed_non_equal__vs__always_manual": {
+      "affected_versions": 425,
+      "severity": 3106
+    },
+    "binary_observed_non_equal__vs__binary_canonical_non_equal": {
+      "affected_versions": 2309,
+      "severity": 3173
+    },
+    "binary_observed_non_equal__vs__field_aware_simple_v1": {
+      "affected_versions": 7610,
+      "published": 8066,
+      "references": 8066,
+      "severity": 3211
+    },
+    "binary_observed_non_equal__vs__type_first_abstention_v1": {
+      "affected_versions": 7432,
+      "published": 8066,
+      "references": 8066,
+      "severity": 3469
+    },
+    "binary_observed_non_equal__vs__type_first_current_v1": {
+      "affected_versions": 6990,
+      "published": 8066,
+      "references": 8063,
+      "severity": 3211
+    },
+    "field_aware_simple_v1__vs__abstain_all": {
+      "affected_versions": 6675,
+      "published": 8066,
+      "references": 8066,
+      "severity": 8061
+    },
+    "field_aware_simple_v1__vs__always_manual": {
+      "affected_versions": 8035,
+      "published": 8066,
+      "references": 8066,
+      "severity": 6317
+    },
+    "field_aware_simple_v1__vs__type_first_abstention_v1": {
+      "affected_versions": 1766,
+      "references": 303,
+      "severity": 263
+    },
+    "field_aware_simple_v1__vs__type_first_current_v1": {
+      "affected_versions": 2247,
+      "references": 303,
+      "severity": 5
+    },
+    "type_first_abstention_v1__vs__abstain_all": {
+      "affected_versions": 5907,
+      "published": 8066,
+      "references": 8063,
+      "severity": 7808
+    },
+    "type_first_abstention_v1__vs__always_manual": {
+      "affected_versions": 7851,
+      "published": 8066,
+      "references": 8066,
+      "severity": 6575
+    },
+    "type_first_current_v1__vs__abstain_all": {
+      "affected_versions": 8066,
+      "published": 8066,
+      "references": 8066,
+      "severity": 8066
+    },
+    "type_first_current_v1__vs__always_manual": {
+      "affected_versions": 7415,
+      "published": 8066,
+      "references": 8063,
+      "severity": 6317
+    },
+    "type_first_current_v1__vs__type_first_abstention_v1": {
+      "affected_versions": 2159,
+      "references": 3,
+      "severity": 258
+    }
+  },
+  "policies": [
+    "binary_observed_non_equal",
+    "binary_canonical_non_equal",
+    "field_aware_simple_v1",
+    "type_first_current_v1",
+    "type_first_abstention_v1",
+    "always_manual",
+    "abstain_all"
+  ],
+  "policy_action_counts": {
+    "abstain_all": {
+      "affected_versions": {
+        "abstain": 8066
+      },
+      "published": {
+        "abstain": 8066
+      },
+      "references": {
+        "abstain": 8066
+      },
+      "severity": {
+        "abstain": 8066
+      }
+    },
+    "always_manual": {
+      "affected_versions": {
+        "conflict_escalation": 8066
+      },
+      "published": {
+        "conflict_escalation": 8066
+      },
+      "references": {
+        "conflict_escalation": 8066
+      },
+      "severity": {
+        "conflict_escalation": 8066
+      }
+    },
+    "binary_canonical_non_equal": {
+      "affected_versions": {
+        "conflict_escalation": 5332,
+        "no_action": 2734
+      },
+      "published": {
+        "conflict_escalation": 8066
+      },
+      "references": {
+        "conflict_escalation": 8066
+      },
+      "severity": {
+        "conflict_escalation": 1787,
+        "no_action": 6279
+      }
+    },
+    "binary_observed_non_equal": {
+      "affected_versions": {
+        "conflict_escalation": 7641,
+        "no_action": 425
+      },
+      "published": {
+        "conflict_escalation": 8066
+      },
+      "references": {
+        "conflict_escalation": 8066
+      },
+      "severity": {
+        "conflict_escalation": 4960,
+        "no_action": 3106
+      }
+    },
+    "field_aware_simple_v1": {
+      "affected_versions": {
+        "abstain": 1391,
+        "conflict_escalation": 31,
+        "enrich_record": 3910,
+        "no_action": 2734
+      },
+      "published": {
+        "no_action": 6169,
+        "wait_for_sync": 1897
+      },
+      "references": {
+        "enrich_record": 8066
+      },
+      "severity": {
+        "abstain": 5,
+        "conflict_escalation": 1749,
+        "enrich_record": 33,
+        "no_action": 6279
+      }
+    },
+    "type_first_abstention_v1": {
+      "affected_versions": {
+        "abstain": 2159,
+        "conflict_escalation": 215,
+        "enrich_record": 2980,
+        "no_action": 2712
+      },
+      "published": {
+        "no_action": 6169,
+        "wait_for_sync": 1897
+      },
+      "references": {
+        "abstain": 3,
+        "enrich_record": 7763,
+        "no_action": 300
+      },
+      "severity": {
+        "abstain": 258,
+        "conflict_escalation": 1491,
+        "enrich_record": 33,
+        "no_action": 6284
+      }
+    },
+    "type_first_current_v1": {
+      "affected_versions": {
+        "conflict_escalation": 651,
+        "enrich_record": 3054,
+        "no_action": 4361
+      },
+      "published": {
+        "no_action": 6169,
+        "wait_for_sync": 1897
+      },
+      "references": {
+        "conflict_escalation": 3,
+        "enrich_record": 7763,
+        "no_action": 300
+      },
+      "severity": {
+        "conflict_escalation": 1749,
+        "enrich_record": 33,
+        "no_action": 6284
+      }
+    }
+  },
+  "primary_comparison": {
+    "by_field": {
+      "affected_versions": {
+        "action_disagreement": 1766,
+        "action_pairs": {
+          "abstain__to__no_action": 71,
+          "enrich_record__to__abstain": 74,
+          "enrich_record__to__conflict_escalation": 184,
+          "enrich_record__to__no_action": 672,
+          "no_action__to__abstain": 765
+        },
+        "conflict_queue_disagreement": 184,
+        "manual_review_disagreement": 1094,
+        "rows": 8066
+      },
+      "published": {
+        "action_disagreement": 0,
+        "action_pairs": {},
+        "conflict_queue_disagreement": 0,
+        "manual_review_disagreement": 0,
+        "rows": 8066
+      },
+      "references": {
+        "action_disagreement": 303,
+        "action_pairs": {
+          "enrich_record__to__abstain": 3,
+          "enrich_record__to__no_action": 300
+        },
+        "conflict_queue_disagreement": 0,
+        "manual_review_disagreement": 3,
+        "rows": 8066
+      },
+      "severity": {
+        "action_disagreement": 263,
+        "action_pairs": {
+          "abstain__to__no_action": 5,
+          "conflict_escalation__to__abstain": 258
+        },
+        "conflict_queue_disagreement": 258,
+        "manual_review_disagreement": 5,
+        "rows": 8066
+      }
+    },
+    "by_field_and_deterministic_status": {
+      "affected_versions:equivalent": {
+        "action_disagreement": 6,
+        "manual_review_disagreement": 6
+      },
+      "affected_versions:factual_conflict": {
+        "action_disagreement": 184,
+        "conflict_queue_disagreement": 184,
+        "manual_review_disagreement": 184
+      },
+      "affected_versions:incomplete": {
+        "action_disagreement": 74,
+        "manual_review_disagreement": 74
+      },
+      "affected_versions:representation_discrepancy": {
+        "action_disagreement": 1502,
+        "manual_review_disagreement": 830
+      },
+      "references:factual_conflict": {
+        "action_disagreement": 3,
+        "manual_review_disagreement": 3
+      },
+      "references:representation_discrepancy": {
+        "action_disagreement": 300
+      },
+      "severity:factual_conflict": {
+        "action_disagreement": 258,
+        "conflict_queue_disagreement": 258
+      },
+      "severity:representation_discrepancy": {
+        "action_disagreement": 5,
+        "manual_review_disagreement": 5
+      }
+    },
+    "corpus_conflict_queue_counts": {
+      "candidate_minus_simple": -74,
+      "field_aware_simple_v1": 1780,
+      "type_first_abstention_v1": 1706
+    },
+    "corpus_total_manual_review_counts": {
+      "candidate_minus_simple": 950,
+      "field_aware_simple_v1": 3176,
+      "type_first_abstention_v1": 4126
+    },
+    "first": "field_aware_simple_v1",
+    "manual_review_actions": [
+      "abstain",
+      "conflict_escalation"
+    ],
+    "second": "type_first_abstention_v1",
+    "workload_counts_are_policy_outputs_not_human_validated": true
+  },
+  "rows": 8066,
+  "sampling_capacity": {
+    "by_field": {
+      "affected_versions": {
+        "available_action_disagreements": 1766,
+        "available_conflict_queue_disagreements": 184,
+        "available_manual_review_disagreements": 1094,
+        "formal_budget": 50,
+        "maximum_sampled_action_disagreements": 50,
+        "maximum_sampled_conflict_queue_disagreements": 50,
+        "maximum_sampled_manual_review_disagreements": 50,
+        "minimum_attainable_exact_p_if_all_effective_action_discordance_one_way": 1.7763568394002505e-15
+      },
+      "published": {
+        "available_action_disagreements": 0,
+        "available_conflict_queue_disagreements": 0,
+        "available_manual_review_disagreements": 0,
+        "formal_budget": 10,
+        "maximum_sampled_action_disagreements": 0,
+        "maximum_sampled_conflict_queue_disagreements": 0,
+        "maximum_sampled_manual_review_disagreements": 0,
+        "minimum_attainable_exact_p_if_all_effective_action_discordance_one_way": 1.0
+      },
+      "references": {
+        "available_action_disagreements": 303,
+        "available_conflict_queue_disagreements": 0,
+        "available_manual_review_disagreements": 3,
+        "formal_budget": 10,
+        "maximum_sampled_action_disagreements": 10,
+        "maximum_sampled_conflict_queue_disagreements": 0,
+        "maximum_sampled_manual_review_disagreements": 3,
+        "minimum_attainable_exact_p_if_all_effective_action_discordance_one_way": 0.001953125
+      },
+      "severity": {
+        "available_action_disagreements": 263,
+        "available_conflict_queue_disagreements": 258,
+        "available_manual_review_disagreements": 5,
+        "formal_budget": 50,
+        "maximum_sampled_action_disagreements": 50,
+        "maximum_sampled_conflict_queue_disagreements": 50,
+        "maximum_sampled_manual_review_disagreements": 5,
+        "minimum_attainable_exact_p_if_all_effective_action_discordance_one_way": 1.7763568394002505e-15
+      }
+    },
+    "conditional_power_sensitivity": [
+      {
+        "achieved_exact_power": 0.810002003930678,
+        "candidate_win_probability_on_effective_discordance": 0.7,
+        "minimum_effective_discordant_rows": 49,
+        "target_power": 0.8
+      },
+      {
+        "achieved_exact_power": 0.8042077854595496,
+        "candidate_win_probability_on_effective_discordance": 0.8,
+        "minimum_effective_discordant_rows": 20,
+        "target_power": 0.8
+      },
+      {
+        "achieved_exact_power": 0.889130022255,
+        "candidate_win_probability_on_effective_discordance": 0.9,
+        "minimum_effective_discordant_rows": 12,
+        "target_power": 0.8
+      }
+    ],
+    "maximum_sampled_action_disagreements": 110,
+    "maximum_sampled_conflict_queue_disagreements": 100,
+    "maximum_sampled_manual_review_disagreements": 58,
+    "minimum_rows_for_any_two_sided_exact_rejection": 6,
+    "planned_budget_by_field": {
+      "affected_versions": 50,
+      "published": 10,
+      "references": 10,
+      "severity": 50
+    },
+    "planned_formal_rows": 120,
+    "sampling_capacity_is_not_power_or_expected_effect": true
+  },
+  "uses_any_labels": false
+}
