@@ -1,0 +1,32 @@
+{
+  "schema_version": "artifact_lineage_multi_component_cohort_v1",
+  "artifact_type": "artifact_lineage_multi_component_cohort_manifest",
+  "generated_at": "2026-07-18T23:08:51Z",
+  "sealed": true,
+  "source": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/source_rows.jsonl",
+    "sha256": "c952ef90a4bb804eca759314e803454a02c0016383b47f607d5aad24498737d7"
+  },
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/artifact_lineage_multi_component_v1/cohort.jsonl",
+    "sha256": "8041eff4dae1de98a26d6033582850b7c78891d0dc19414d4f2f16174b6b71e1"
+  },
+  "selection": {
+    "field": "affected_versions",
+    "both_claims_nonempty": true,
+    "one_nvd_subject": true,
+    "multiple_ghsa_subjects": true,
+    "full_subject_identifiers_differ": true,
+    "selection_uses_reviewer_labels": false,
+    "selection_uses_non_human_consensus": false,
+    "upstream_source_conditioned_on_non_human_consensus": true
+  },
+  "selected_count": 1,
+  "selected_sample_ids": [
+    "rq2_typing_holdout_v1:548"
+  ],
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_diagnostic_only": true,
+  "post_unsealing": true
+}

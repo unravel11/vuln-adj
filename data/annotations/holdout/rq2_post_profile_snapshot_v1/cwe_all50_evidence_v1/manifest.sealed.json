@@ -1,0 +1,155 @@
+{
+  "artifact_type": "rq2_post_profile_cwe_all50_evidence_manifest_v1",
+  "sealed_at_ns": 1784446297788374298,
+  "row_count": 50,
+  "selection": {
+    "post_hoc_field_complete": true,
+    "selected_after_a_b_unsealing": true,
+    "all_cwe_rows_in_sealed_250_cohort": true,
+    "profile_differences_hidden_from_reviewers": true,
+    "source_profile_comparison": "cwe_taxonomy_v1",
+    "profile_difference_rows": [
+      {
+        "sample_id": "rq2_post_profile_snapshot_v1:104",
+        "cve_id": "CVE-2026-49834",
+        "current": "factual_conflict",
+        "candidate": "representation_discrepancy"
+      },
+      {
+        "sample_id": "rq2_post_profile_snapshot_v1:212",
+        "cve_id": "CVE-2026-28394",
+        "current": "factual_conflict",
+        "candidate": "representation_discrepancy"
+      },
+      {
+        "sample_id": "rq2_post_profile_snapshot_v1:248",
+        "cve_id": "CVE-2026-54771",
+        "current": "factual_conflict",
+        "candidate": "representation_discrepancy"
+      }
+    ]
+  },
+  "claim_boundary": {
+    "label_is_human": false,
+    "eligible_for_human_gold_claim": false,
+    "eligible_for_confirmatory_method_gain_claim": false,
+    "strict_event_time_claim_allowed": false,
+    "candidate_promotion_allowed": false,
+    "production_default_changed": false,
+    "sealed_250_row_evaluation_changed": false
+  },
+  "reviewer_outputs_absent_at_seal": true,
+  "execution": {
+    "backend": "codex-cli",
+    "model": "gpt-5.5",
+    "reasoning_effort": "medium",
+    "batch_size": 5,
+    "schedule": "input",
+    "ephemeral_session_per_batch": true
+  },
+  "set_relation_counts": {
+    "disjoint": 4,
+    "exact_set": 33,
+    "literal_strict_subset": 9,
+    "overlap_non_subset": 4
+  },
+  "evidence_status_counts": {
+    "ok": 134,
+    "url_error": 1
+  },
+  "inputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/source_rows.jsonl",
+      "sha256": "9b08b0767119be103c351477011ca5139fce4f6b6c129e16a8339ad5bf81761e"
+    },
+    "predictions": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/predictions.sealed.jsonl",
+      "sha256": "6b388f29221973ff10162cb93ea6391fa64f6291694b933cd9030c46ef351e59"
+    },
+    "cohort_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/manifest.sealed.json",
+      "sha256": "3e2dfd05746d935de92430a19b61c5f744c5876df60d28246d252c5032d1acc2"
+    },
+    "reviewer_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reviewer_a.jsonl",
+      "sha256": "f7183f4a123618e7042aa6b81be562ce78386d00d5ba99eee7c7fa4af70caf95"
+    },
+    "reviewer_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reviewer_b.jsonl",
+      "sha256": "29590fd02ebb0339407e67b045653cd6f380769e9175ef352e4f974cce833f66"
+    },
+    "dual_consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/dual_review_consensus.jsonl",
+      "sha256": "1bc200caca1a761e1b28730dc6614e2d31b6cd81a7a307efbb500543f724b847"
+    },
+    "profile_evaluation": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/profile_evaluation.json",
+      "sha256": "f28dcfcde1fc738bece6e8539093d4fdee59182486dc38847a0f83bc2a8fe2ba"
+    },
+    "cwe_xml_zip": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/external/cwe/cwec_v4.20.xml.zip",
+      "sha256": "3976f599e5e5200219a3108bb896d06e2a88fbb293369e1883cb423a5e9d7d50"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_post_profile_cwe_all50_evidence_review_v1.md",
+      "sha256": "9344532082271c8447ad3791a5f006396fdd9aa38c19c536bff40db9b6aee0e4"
+    },
+    "contract": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/annotation_guidelines/rq2_post_profile_cwe_all50_evidence_contract_v1.md",
+      "sha256": "181c778bf30f0a9afdbaa3d0ffd11f6bc717a417811933fe5b0e80cf846e5e1d"
+    },
+    "fetcher_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_rq3_evidence_samples.py",
+      "sha256": "35b02ebcc7a62ba1e5cb6b3dc375d19ca45a2731a4b4318f90755d10b8e44c63"
+    },
+    "taxonomy_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/analyze_cwe_taxonomy_variants.py",
+      "sha256": "1721299ed2b20b66a838fbe6305141edf24cb806bda01677f505cced854f8dd8"
+    },
+    "helper_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_cwe_evidence_secondary.py",
+      "sha256": "dbca0157a18ef5bb028a47197eb68d9ee66da81f65c3ac5b6cdbc71b9fa03bcd"
+    },
+    "runner_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/run_rq2_post_profile_cwe_all50_review.py",
+      "sha256": "19d4899a14a2091d36420103b7c05df2e762993af6c583ff2b6d916dde1934ca"
+    },
+    "merge_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/merge_rq2_post_profile_cwe_all50.py",
+      "sha256": "b0f96b0badbce9cab4ed13375cce9de4638964cdab1b23fa7b2efc7d363909c6"
+    },
+    "verifier_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/verify_rq2_post_profile_cwe_all50.py",
+      "sha256": "d2fb55dc200c2e718df6eec25b2475902908c9b473384f98f93ecd29b8017e83"
+    }
+  },
+  "worklists": {
+    "reviewer_e": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v1/worklist_e.blind.jsonl",
+      "sha256": "f622979bbde7d4bf90f9a9c3256b30be4bcf6a397fe5c02c7546b91bc5ab089f",
+      "order": "sealed_source_order",
+      "reasoning_order": "set_then_taxonomy_then_mechanism"
+    },
+    "reviewer_f": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v1/worklist_f.blind.jsonl",
+      "sha256": "093db909558ecbc798b781524cf2c4a76f1183d9f1809f47ce52e3f5399b4095",
+      "order": "reverse_sealed_source_order",
+      "reasoning_order": "mechanism_then_taxonomy_then_set"
+    }
+  },
+  "reviewer_outputs": {
+    "reviewer_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v1/reviewer_e.jsonl",
+    "reviewer_f": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v1/reviewer_f.jsonl",
+    "requests_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v1/reviewer_e.requests.jsonl",
+    "requests_f": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v1/reviewer_f.requests.jsonl"
+  },
+  "builder": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_cwe_all50_evidence.py",
+    "sha256": "cda345c7e1ee7bff57b27466c3303a21a9b114694274731bcf347d373c0b2010"
+  },
+  "cautions": [
+    "All 50 CWE rows were selected after original A/B and profile unsealing.",
+    "Both reviewers are non-human Codex runs from one model family.",
+    "The result cannot replace the sealed 250-row evaluation or estimate unbiased gain."
+  ]
+}

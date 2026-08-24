@@ -1,0 +1,27 @@
+{
+  "artifact_type": "affected_versions_holdout_blind_worklist_v1",
+  "contains_labels": false,
+  "contains_method_predictions": false,
+  "contains_prior_candidates": false,
+  "rows": 100,
+  "allowed_top_level_keys": [
+    "sample_id",
+    "cve_id",
+    "nvd_source_id",
+    "ghsa_source_id",
+    "field",
+    "nvd_value",
+    "ghsa_value",
+    "nvd_context",
+    "ghsa_context",
+    "evidence_context"
+  ],
+  "input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/evidence/source_rows.evidence.jsonl",
+    "sha256": "d437bb7f69408aacea27bf7766ab94ff14566c083c2afb62abbc6b238fc9bacd"
+  },
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/blind/affected_versions_holdout_blind_worklist.jsonl",
+    "sha256": "043062e52d283c3ec5e25d2a598ed65ac311c6b1d380f822e1489328352e5083"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "rq2_typing_contract_evidence_secondary_v1",
+  "artifact_type": "rq2_typing_contract_evidence_secondary_v1_manifest",
+  "sealed_at_ns": 1784409071166852775,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_calibration_only": true,
+  "target_sample_id": "rq2_typing_holdout_v1:148",
+  "selected_rows": 1,
+  "evidence_records": 5,
+  "inputs": {
+    "v2_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/manifest.sealed.json",
+      "sha256": "a71df80e8927ac2fd7a44073721f004bd5e60c452daeaae3a927b13aa337ff03"
+    },
+    "v2_cases": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/contract_calibration_v2/dual_review_consensus.jsonl",
+      "sha256": "b459ad2d524a3d16a86ccff238a0d84ef6c8337b120fc6a0c0eb0bd685a3c4f1"
+    },
+    "v2_summary": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/contract_calibration_v2/summary.json",
+      "sha256": "f1a32ca10af2a6230c0fe02feef38b875ff2448dd5c8ef3aa28c817a2a360d39"
+    },
+    "v2_merge_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/contract_calibration_v2/merge_manifest.json",
+      "sha256": "407136b80a416f4ad4ceb0fe4dc34c5f5a5e14eea1bd2324c549dfd4739f8e06"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_contract_evidence_secondary.md",
+      "sha256": "ac3a1daf762b9bed656f8821f088ba2d0fe3cb8762d3c92e55e61f6b2011d0b4"
+    },
+    "runner": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/run_expert_candidate_annotation.py",
+      "sha256": "e63d9ce65bf9cb7b01c9ba3636d6668d7a64c6dc8adf00a5ec5c26039007eeb3"
+    }
+  },
+  "evidence_cache": {
+    "fixing_commit.fetch.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/fixing_commit.fetch.json",
+      "sha256": "b95e8a449b4aea7254ae90ac29b8e09d1d4157f6b845c1a5aa30a157b7897db1"
+    },
+    "fixing_commit.response.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/fixing_commit.response.json",
+      "sha256": "28ffd87770afafe3ff77d46bb14685c768bc9de06bb74ff9730692f3a08e83e8"
+    },
+    "ghsa_advisory.fetch.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/ghsa_advisory.fetch.json",
+      "sha256": "651ca948191aaf9f45b948f75e57099fda5db6386babf59bde2c8de0aaec4309"
+    },
+    "ghsa_advisory.response.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/ghsa_advisory.response.json",
+      "sha256": "e5d2283dff255b1ae8757aa5a57bad739c412320ea5866bb4fadd1dd4046c7a5"
+    },
+    "xwiki-19514.fetch.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/xwiki-19514.fetch.json",
+      "sha256": "f5f396b6e92358e233c97f3ab60ecf3144c7b33f00a45eee3a680623664d60d4"
+    },
+    "xwiki-19514.response.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/xwiki-19514.response.json",
+      "sha256": "3be157f6420d7f2cf35b8ee7cb4d3754f581f99d93b3d9b5d8e3fd6623598d6e"
+    },
+    "xwiki-19583.fetch.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/xwiki-19583.fetch.json",
+      "sha256": "423272530f0d67b557d409797c1030910286aea6f60db1f59238bf62d3a990a2"
+    },
+    "xwiki-19583.response.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/xwiki-19583.response.json",
+      "sha256": "aa1de7700ba175021406a5eecc94d25897fbb18b78da41d956492c4f4a8bc2b3"
+    },
+    "xwiki-9119.fetch.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/xwiki-9119.fetch.json",
+      "sha256": "ba87a281f9bded1212ba71dadc3bd82a762ee8ee4668555a2c253c6996ebe4b3"
+    },
+    "xwiki-9119.response.json": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_contract_evidence_secondary_v1/xwiki-9119.response.json",
+      "sha256": "2cd9a12b0c9f96c9ae62f849ae0903c35d91afed8f1c03687dbb3de6c8486cf8"
+    }
+  },
+  "outputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/evidence_secondary_v1/source_rows.jsonl",
+      "sha256": "2e9f86e054e9cd9d2c599ad0f39adb6839ecc5d82487ece76d15c8f798a3c4cb"
+    },
+    "blind_worklist_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/evidence_secondary_v1/blind/worklist_a.blind.jsonl",
+      "sha256": "e06ac5d7ab738e11f41d63fee5796cda7bc928e12013caa046ed5a969e781527"
+    },
+    "blind_worklist_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/evidence_secondary_v1/blind/worklist_b.blind.jsonl",
+      "sha256": "e06ac5d7ab738e11f41d63fee5796cda7bc928e12013caa046ed5a969e781527"
+    }
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "high",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_a_pass_id": "rq2_contract_evidence_secondary_v1_reviewer_a",
+    "reviewer_b_pass_id": "rq2_contract_evidence_secondary_v1_reviewer_b",
+    "reviewer_a_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/evidence_secondary_v1/reviewer_a.jsonl",
+    "reviewer_b_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/evidence_secondary_v1/reviewer_b.jsonl",
+    "same_prompt_raw_values_and_evidence_for_both_reviewers": true,
+    "reviewer_sessions_must_be_disjoint": true,
+    "schedule": "input",
+    "max_evidence_records": 8,
+    "max_evidence_chars": 3200,
+    "minimum_cited_frozen_evidence_urls": 2
+  }
+}

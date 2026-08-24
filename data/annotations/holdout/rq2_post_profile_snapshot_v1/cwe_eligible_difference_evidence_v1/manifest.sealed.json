@@ -1,0 +1,518 @@
+{
+  "artifact_type": "rq2_post_profile_eligible_universe_cwe_difference_evidence_manifest_v1",
+  "sealed_at_ns": 1784458987803695318,
+  "row_count": 29,
+  "selection": {
+    "complete_eligible_universe_cwe_profile_difference_set": true,
+    "selected_after_prediction_census_revealed": true,
+    "selected_after_prior_reviews_revealed": true,
+    "sampling_performed": false,
+    "unique_cves": 29,
+    "current_prediction": "factual_conflict",
+    "candidate_prediction": "representation_discrepancy",
+    "profile_values_hidden_from_reviewers": true,
+    "selection_reason_hidden_from_reviewers": true,
+    "selection_blinding_complete": false,
+    "overlap_with_prior_all50_rows": 3,
+    "prior_all50_overlap_cves": [
+      "CVE-2026-28394",
+      "CVE-2026-49834",
+      "CVE-2026-54771"
+    ]
+  },
+  "evidence": {
+    "max_references_per_row": 3,
+    "max_bytes": 1500000,
+    "max_text_chars": 6000,
+    "timeout_seconds": 25,
+    "refresh": false,
+    "fetch_status_counts": {
+      "http_403": 2,
+      "ok": 83
+    },
+    "cache_files": [
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/034cf42ed4900f6d7bc97c007271c7372520d8d101ef1a5b0c6ba5f3f23d0406.json",
+        "sha256": "db89d2d8452ba38a00c989cda7ae1cf9774466e4abb5c49fbbc29dbb16a71e9a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/04245cd76d3ea120841bf65bc2888f05f2b3e2e9932726a31d2c4a01d6e2e067.json",
+        "sha256": "375a646ac83bcab22427dbbd8c40a8256d81b463e7b605aa928b80b67ace92e2"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/07f8da557fce1cb5abfb031f20c10403b22c4a4d2f143e6e57acbaa20fae29d4.json",
+        "sha256": "4f4ae7dcf0cb99f02bc1a8858d2eeefef10b0d7da425fcfb58047c1e51adc0ed"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/0840cb41f365b4be9a603de27f4752241da15e98d3b4c549ec09d9efc6aa12eb.json",
+        "sha256": "37d282a120df1797dc0d05c819cb8788a1f052c733cabc0f44b5f6086c156119"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/0a33202956593cd5cd676126cf166dd10a9b43e1d956d76c48944229537a2f0b.json",
+        "sha256": "11a57d95569248c875a7e7324aeb8fa8bad286c90ffdb2946bfe71c3deb407e1"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/11da501acd39004176b34769b1dae3d417eca63b54dc6799cd80a320f145fcaf.json",
+        "sha256": "ae8db6b3f31b454bf9592732ff9e1f1cad741e48e857541b59e8401d1a10390b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/12347445a1f9dae50114e37fba85c2f6b3e41e3539e68939a270404298a78fef.json",
+        "sha256": "052013a9967d0f090407b99f16e5fd55f1a57ce2757102a15f67bf50347600b2"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/157e5ceca1cfab4a4bcb230b9e463553c7a1c13534b6af8a9da1d98e3021a8de.json",
+        "sha256": "e28fb57cdf2bfe7213fc24cd960af26aaa273d9ef680f98698f0070dd87472c2"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/168193e8e9d9d9192173dceff9db12ff98fd2900ca96336dde843a05ceb46f1e.json",
+        "sha256": "c8541dd3a6a106f8f08f51ef1698bb49f7b78e10f1a12804d956499fbdb13b48"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/1f90a786434d2dfa22deadd7429632233092c325e1ada5204ed49d63634f4787.json",
+        "sha256": "8bf01fc1b56f613a123f801ac57d999c2e86dcb9c16d7f044d9866d7b4530da6"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/1fb39abd2744e53fd09573b84ed067a70f2572ffe58755f53b8bb64dcac6491a.json",
+        "sha256": "b4e26de47762918c82de00ed8f861b6946cc15289e35f19cdfa6e97eb1a18679"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/21aa4cfa990a0dd993784ed1739fe589149e5307c13c0f731ace042da7b25886.json",
+        "sha256": "4beb15aa90b0a75e0282d34f33541138531ae93d878366b54d92c05a8b083abd"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/22eff67b3888b607c5f347b451efdef066578364acf1563f70f4d77e99bcf4c0.json",
+        "sha256": "884d2714550885455e80f497563893ac73c45d38a5c938f2024d94f8c173a059"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/23547b216721580a8ed6f4f5443825493ead0f4c36ba1bd30e3e97f566a71eae.json",
+        "sha256": "d5dfe9bb00aba2c28aed4ffcd9974c4863be6e8849e3f9097a3c914bd1c769d8"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/256df16abf12f240483c07d0c118a37e9f9c63c9988960dbfcd5430ce34d9305.json",
+        "sha256": "d5e3d0e44ac643a0ac1a500001fcefa13d8d235166ea877173b024c8cd9ee7c0"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/27cec4ce428161824a800fb2514b8b3c768971952435aee3492a0c238ae2a1b1.json",
+        "sha256": "c3c982c2bd55b3084040a035ae0932d98844d2029b6cfcc6a5cc640c5368d67b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/2807ab8f138b9b9c4da05f26bbcd70f7420805794413575542f3a17d898272cc.json",
+        "sha256": "97ca6bf4e61db0ee8026353465158ab22e45dd11eef1f07e4e58b57e1a223e5d"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/2b53b370fcd0449c43a2aff4626cdea291a61f560de5b073822209a7607a07dd.json",
+        "sha256": "e38a8fbb1b9eaffc926e1e85e8add19a3ce52c8f0d537980b172e9d724a03b99"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/2ba27e3acb5a308930334e61b4c6bd1b8d0ad5974a94fca7d7e4471a6c0b8729.json",
+        "sha256": "5dd22ec7f5d100ff22928d26f37aeada482d7cdf22dccb96a901839a79c9983b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/30ebb833c1013913b90e22ec758e2d569c35ed9a4de78a257ec8bacc0247b003.json",
+        "sha256": "5a13251b5f92d27006f7a4d86dc8d9c497e856c50d230169d4c90dab9caf393b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/3650e4231a883b286b012178d409f2c243778ed158f3d88587eaa728b0cdd985.json",
+        "sha256": "a04acf24367cc8d0d715de76f767560a107f667586e5329dd48635d659763660"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/48bf7ca4de27e47646a6508a580676d584c4b9e9625dbf7e502c3ab20b1f81b1.json",
+        "sha256": "942d3429a0fb835dace0cecd5de288005ba799cb65fa36419b23ce8a33e628b0"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/4c0b058b2790053b6d360fcae41912abd7747b8a4ce9f9749150d4f2e57093e2.json",
+        "sha256": "242e49602935c8366bc22f1bfafb977c9dd3a1055a3c4b5eb9e322210a233c44"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/5188d4e89ed22ce365414c8266559bc77b3313de0d04cf8780197faa301abfad.json",
+        "sha256": "0cc8e1c0ec746d6b5454cea02268dcaa1038d40736e41153d2cbfe297320ff1e"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/586ab49a2f8148a9698f6eb6753209b55db5a5719756ca5fd9e373700b50939a.json",
+        "sha256": "2e57c8a1e811b4a15f917caa6b85a11652f125a2cd8b948f96ca1ee37a63118a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/58c6ee20fdbb3b74ffb3085350339a3617b63715b0a952559d6cc69a1a00654d.json",
+        "sha256": "3b65b77733dacc19e609bb6838d61143f255012ab2d5abe02a81ee134fea33ca"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/5ab65d959a304b822626c4f47fc73c253c7091930d2c9747a4c140fb432dc407.json",
+        "sha256": "80d4700528b90df2084dc926425e9c504c34abed9ba1d30bdc860dd4e2912710"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/613466dbe79c5a23bc2ff0fc868dfa1e5eb0e051e342f92984e200e393cb17e1.json",
+        "sha256": "95352bc0726e5fe832d163e5c7bb495208e91c49a82ca297cbc98b7e5cd8ac7b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/61355413e85350f08f7cdfa4ca18511680c9bcae1a6d64a138cfb4f5aa308671.json",
+        "sha256": "b09efbf4b3acd4471fa11268a3cfcd0cc71f22e0e9de6f9db48d21777c555766"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/617b5a2dc31142f36d9afc62e82edb23ecc5cd4c54bd1ea674a96604ea65ef75.json",
+        "sha256": "08de250d3b3ba9f06cca0bbedb820cb910f81d311d64621c07e3a29b176d73e4"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/6192890fd96ccacf9a86b8bec6dda7301b75744fdf12b624b6e79dc39318f027.json",
+        "sha256": "b5e9efae60f3c3374926def32901034c3404f19d2eb55687e44e95d3350c00e2"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/63d0f0b31021939cffc24b8b7bc03919cc3eb8e4ee8eb23684a4d836dbaccfa1.json",
+        "sha256": "910d338b32e10ded9f5c2a520b3478bec2ea1c16549f2b326ff6e31101a0fa5b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/6540dc3ac42a2fec3814bf825595386368fcfa7c51347e7270b9210a197bf7fe.json",
+        "sha256": "e19cad30d701dbc6b671be4f66a3f4f7b07257f8432cfea3a290b84b611a3d35"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/67862b0c241e80547b99a741b2506c2315efa47b0edcefd8a4090f2d3490306b.json",
+        "sha256": "1c7ac359f23fa7b492f865c47f457b625e0b8806fd118c52c87fe28c8c846e6b"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/690bad0069a5b34fef6409e8d490b006ba869a4b9c68d94ce50b200f73865cce.json",
+        "sha256": "12770f7152dba9d4c82d0d835bff888f195c67425ba1af6a5e3970a04416f500"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/69f5cba40a8a48f9cac0dcf3fc9e67357e14f608fa325e1828a497c665171702.json",
+        "sha256": "9f9d2e9263f5e7b6da860c78d4f809f1c20c01cfb779fcba124c8413618a57ef"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/6b08940c0b8957cbaef3eb2d796d6b87a4f45c5b291ea1520e0410f72322110e.json",
+        "sha256": "36c9f09768183545d413b7a0e74db5150fcc7ab6a39b1e874deda232f487b3a7"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/6cc48cf8d3686a2d847b382d6c4c6cae26ac484fb9c18e6819a02c3c1d722bfa.json",
+        "sha256": "815b706836db354daead1aac3033e30104970177742b148432b0f872dc7955ac"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/6d8fae7508ec45c3e9411f0568f5a52a65d958e3451790cc3efc754562075561.json",
+        "sha256": "5674e8ee9f2d4a404a1181023cf3987ef4094d1cfedde078036f71b1e02f02b4"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/713182700ed9d766b35f37305f5218e34f6b0a0fde6080ceafddd06021b45156.json",
+        "sha256": "7a397dbc4aceb2611269198a45d8bce9ea1937cd773ac183c89990db8721bc3f"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/7231442ceab7b5c411d771baf5b96846a2afd6e3aa9b4962f8c01930e10abf53.json",
+        "sha256": "f925fc7678ac6d3b3e5398f9f999b790318c23cc4abacc3f60db59af9d8fa260"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/7710f610df56e3c4d36a80244348ac407394a91e4f72225d10753ab1cbe4c92b.json",
+        "sha256": "47309214be7e24fb61480e6b499a54e91765c37b969a86844acfb80d32e03c2a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/7758925fa959b9c78d7d13a8863be213d30f342c6a96f8f39d667e5137d047f7.json",
+        "sha256": "62bc11edc9331db544ea361c61ee115efeb024622ae02d1b51a5f6c422397330"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/7c0a29d2753194c28aae44f154e680e32844a53485e58e83b0f37ee8ffc71dc0.json",
+        "sha256": "833d934182475993324ea9c4413398dd3b3a95100cde3e48bf64be6d814708b1"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/8412498e79ab97a9d22cba11f77e604458353830bebe5a458888694f797af99b.json",
+        "sha256": "036edef04163e010a0f67f4de955330a4e07711b0ec186aab079664d7d3bf232"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/8557d73311fadd7992b6f40c78d17bf806a67ee45eeaec6d392a48ddf887d986.json",
+        "sha256": "09ffaa73ad0b9c96b3e0bdd53b38332cde637fc0433246b3338ba8bf4677aa75"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/86e5b955277ddaf7ea6c751f8d1ab5820c35ee08352446e8941733cde33dd0ce.json",
+        "sha256": "7e2d9591c77ec381d06352ec3e26d523f5fc6e1ffdb8d77ff833cf987dfc7611"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/8d7f9a7c9a52002b63564d640eb4a6664b09bf10e6ef8be4eafc0129ad8adfb2.json",
+        "sha256": "1e049b0e9e86e821e77182502e7a79130afcc54e7a288756b26a3da0983ae2d7"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/90e1c2f06aeedeb7d1703e20faf20b6fb4c9075e62eaa4bc606ca2c0c13fef39.json",
+        "sha256": "e672464ce34b0e1155e6bd689c5c3c64844641124d0d22592dc008771484cef5"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/9116aba13800780dcaa96b0abcd1bb680270e1bc02ad287b5bc8f4adadf07bf1.json",
+        "sha256": "ed2191b063e9e8cb333384ea7ac5e0a657792bbc8a2a5985110179d8b3e5b45c"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/930822b4b6ec8a3ad0387c700859311e2b22f209fe33df259ca198566ad466a9.json",
+        "sha256": "e84ec1741ba2c3749c34c9c39b2fa90c7a71b94964ca8cc2d31b2f9460ded785"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/9a18f9d861cea18651b2b576ccc36bc08688d850ea8d248837beb549d487ae7c.json",
+        "sha256": "a2096a493e35f5773a6507a336fa9d5531a40bea670dc1234a0a35a87a53b3c1"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/9a6b39ba4120981895e6988f45c2cbf846b1649b22d6a5e5b252baf6a32e855d.json",
+        "sha256": "67a742b2832318f62e78a3eeb1301f396835c98cd1964863579859636098a5c7"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/9b4f5c8fd20a4c25e3c2db47fd1a611238a95c26aee3cf00a9da6080fc652533.json",
+        "sha256": "bd47eab8e41c2a789e7d25278fd3b601c899135104341bfc2ec551abcc53ae02"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/9bec6e46a6e4c7621140e580554d25af303ba69cecf1751994389c96db1ed184.json",
+        "sha256": "67d2eeff1047e57d34599f89b60208c2a31ad97a9ce5399cb2fe559918db1096"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/a522371a1f03affca4d3598099dca526af298dc1e03dbf3bb9b019910aef2565.json",
+        "sha256": "3a76b90b91a8700d8d4940468f834324a51506e554ecdb90f26edee185fce068"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/a7b5f349abd88e34333eeb51d50f0f7bacb2bb2cca0a2430564ff7e98af98a65.json",
+        "sha256": "718881d37c9fca14e4f6bf6f18db39ebf8856702e06d50e0dd51b1b719c1703f"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/a86ab43b80c34117ed73896f170977f741b526c4a834f4f5095e15e7c1d8d8e4.json",
+        "sha256": "598f5d7f4d9ab0ee9f01706cabe3af08b88ea5ae27bc50fcbae529e83b6de076"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/a8d3cb78b87fa73a417beed82f323ae480e9b0a60babe31f3ccccf5ab03bc503.json",
+        "sha256": "c221c154d42938b1dc12c3c1352876c76cbf8da85797f348faa736c8103a2e4a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/aa050ac2ca25fd9605f3bf2f48e71593aea3b510f5550f5a833a7d8764e19fdc.json",
+        "sha256": "0f056611e05fdda9afd2d5730ce042483b430a285b1856b449bb0291611ebf84"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/ac0c5779fcd53b1f25da59905b5b0547c73bd8f8a0c791a7a1524fc02ba956df.json",
+        "sha256": "52b96c03e27efad6110de49bbc2684ff362516857d81c07a0fee87289fa83a09"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/b0a303e9b09908c2cd449aa37a8a09a14629c98dcf0fbc08ce83699d89325915.json",
+        "sha256": "6ebfa170b36be22c00ebc9c3ad460138fbb4a99dc23bbc25b70818d2add58bfc"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/b20a5739986d3ed37e8a7fc3bd788bf598663809a5571ee1b49f8cebf8664bb3.json",
+        "sha256": "135e8e1bdc36a167604dfd22008d27f13af23641e7e3d7c5601dd83c6bf85777"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/b4c40ccbecaf13d6189a88f198714a0315a9f0d7eeaae136735cff0dbd439d6e.json",
+        "sha256": "c7c8d0716617b659ac2c70281cdd835d8e83cfaede1b17d21643d0c1fd6599c5"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/b636da6b3a1a1e5a213264d60c2a7fd86d1d872c72e28dcf12037b88625c6292.json",
+        "sha256": "1bae974d894860c8a1cdf9c68a435d0890ddb5d8f06428f1af7176abd6201e89"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/b6a533f07ec862c283e7682c64871e54928ff996eec916b0575c16444b7f3bc5.json",
+        "sha256": "f9e3c390d2ddb15c710f09a86e16c1366f319b43e73b11a99a054f8906224d93"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/b9fbbc939a5f2e586d5f765660ec40f69cce7e92b54ceca8f312f9ec1a3f3b5e.json",
+        "sha256": "4b1b7a141c27454de945c1d19f4cf7217759643225703c9df4bbb6d1271af2ed"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/c187f6c50cb2036082f2b050f17ac414ec1b93b4c250a23796304d8adb7e3b41.json",
+        "sha256": "701d626c45c7b4483b7b7e7e1b6f2376708d34aa7e68965e87dc7107f5511637"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/c2b4722500458f4a809ed51de5287bbc8b38d8a48c24a9ae29316e52041013d1.json",
+        "sha256": "fffdca7b5fc0a5d12022f77d6a39164463415da050ec6bf1272ddf0040c4b177"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/c94b1dbf17cf62826814e63d731fea853ea3c9e30c8194e88960b6a99425542f.json",
+        "sha256": "81234be4b7d1d469746dfc4ba07df8b2a403daeb4e034eef1df93e5b4c316a5f"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/ca50d2816f8017e296db148172255bfb7000cbce0f6ee58caf7d9b0665ea3c9e.json",
+        "sha256": "f00c18aa93fae9f45d51adeecf4484c991f0a79a39f46b5d1ba499f9a81feb1d"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/cdab55fef7275d2c4d9b933a72e8670e40d57cf68359fb8703212fb687286b45.json",
+        "sha256": "214d8eb861651fea62245ec0bc0c6d6ea1b3c2ac43fc744602b72eab936452e5"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/ceffbfe6b5a3c0e6eff5c7ab9ae494cca99c896ea080fcaa4ac45a0a491608db.json",
+        "sha256": "465e48f5d6723cb3e9ded7251e6b305e2b8f0a51e010226c03890016688f84d3"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/da13fb1aa7b1b49944ead5c75f882a6aa7e51aaa2086dd96dfc84291c3b9dae0.json",
+        "sha256": "2ecc3aea657926844356bd062b0f9fa59644766aa6a9a2800c62cbb8ca5c8900"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/daef751c3888d2cdce50968d63238955056470bbe0d7309ec237ce1c3f9fff3d.json",
+        "sha256": "2845c8a129c36d3a09db084ea1835fbb060f38d7195fbbbfa19ec96433ff3257"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/e68ebaf91eceb1d9ad704a04c880684d5e252789421051a24f26629bcf68bc6c.json",
+        "sha256": "9c0fcc361d0b1626c462f47302e039690c06ed4bcd131e3603ece3054551ccc0"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/eabb7753f150932210167c815414af9966883853d28087dc75b69c5738fcfbe4.json",
+        "sha256": "d39c3424407dab93e283e35abd977aeb8b1d3555c644ac0e2f61cafe70f7cb8e"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/edcc82636a029c9bc0bdabd876a7da0e055987c42439c44dc21f266f774e08bc.json",
+        "sha256": "536d7b6864add70a203a11e7162cb8f7297e465386dd1a7de9f5b352fb50755e"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/f23bf979d240cc37ecca0f8a8360fad06244ecc156a300f2c756b3cdf7641c2e.json",
+        "sha256": "0a8d248eaa1d18fcd07f59f27170b5de4cd9b9ec6cafeefbf64862b9eb92c7e8"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/f4ceee5131327fb095cc77da2da44a3458d0adb720bebe065350e6374320a68f.json",
+        "sha256": "745553f68412eaf4d14a3831b0aac671de1a33c08faf243df2a8bc03e18aec77"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/f7ed9c19d242801b1d8ec7683fc9a0c3b9ed20857729f4674c6b646d83234ef8.json",
+        "sha256": "05fb82dd647b8ff5450b29d2e8ea03563944efc2b77386a9d062f88355585403"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/f95b87cf7258a597513337f03aee6c23d1c54dbe7de16f398175e0fcd8c57efa.json",
+        "sha256": "fcb88314eb4c2aae7da9cf9051a096eda5415988d0b5118d58ad7f3a4d95213e"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_cwe_eligible_difference_evidence_v1/url_cache/fd4cff571c6afb6d4bc8225c09a4fad23fc18451bc5e853e4c5cb2f3f3e6af68.json",
+        "sha256": "06bff65299c82f34ec2af4751039fe7d8c9585fdf8cc10de37f94ab36f9e28ee"
+      }
+    ],
+    "evidence_availability_does_not_change_selection": true,
+    "live_lookup_during_review_allowed": false
+  },
+  "claim_boundary": {
+    "uses_any_labels": true,
+    "uses_human_labels": false,
+    "label_is_human": false,
+    "eligible_for_human_gold_claim": false,
+    "eligible_for_absolute_accuracy_claim": false,
+    "eligible_for_confirmatory_gain_claim": false,
+    "eligible_for_temporal_generalization_claim": false,
+    "eligible_for_preregistered_power_claim": false,
+    "candidate_promotion_allowed": false,
+    "production_default_changed": false,
+    "sealed_250_row_evaluation_changed": false,
+    "real_person_review_requirement_reduced": false
+  },
+  "reviewer_outputs_absent_at_seal": true,
+  "execution": {
+    "backend": "codex-cli",
+    "api_route": "codex_cli",
+    "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+    "version": "codex-cli 0.144.4",
+    "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+    "model": "gpt-5.5",
+    "reasoning_effort": "medium",
+    "max_output_tokens": null,
+    "sandbox": "read-only",
+    "ephemeral": true,
+    "batch_size": 5,
+    "schedule": "input",
+    "ephemeral_session_per_batch": true
+  },
+  "inputs": {
+    "census_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/eligible_universe_prediction_census_v1/manifest.json",
+      "sha256": "b24a8ef70129ebdbcffafe6970d60922b20e461d582eabc4f37a5c5ae5eb5869"
+    },
+    "census_analysis": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/eligible_universe_prediction_census_v1/analysis.json",
+      "sha256": "8f25c88dafbccf69a7d0083c6cb8fb2a228e3716a9c9b3398f41fb505749d18b"
+    },
+    "difference_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/eligible_universe_prediction_census_v1/prediction_difference_rows.jsonl",
+      "sha256": "787289179479f1acc442549a3114f9160090c1eaff3c16f408c96f51fd586ce3"
+    },
+    "parent_cohort_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/manifest.sealed.json",
+      "sha256": "3e2dfd05746d935de92430a19b61c5f744c5876df60d28246d252c5032d1acc2"
+    },
+    "parent_field_views": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/time_cohort/rq2_post_profile_snapshot_v1/discrepancies/nvd_ghsa_field_views.jsonl",
+      "sha256": "18090ecc4fa3755b1d5e5d4bf4f50dcc1809ef690e24177f1c07b543b632d041"
+    },
+    "parent_aligned": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/time_cohort/rq2_post_profile_snapshot_v1/bootstrap/aligned/nvd_ghsa_by_cve.jsonl",
+      "sha256": "98b3b6bffd8b21c11c47b958237ef125b49eccaabbfb215f541b786068ce2d3b"
+    },
+    "cwe_xml_zip": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/external/cwe/cwec_v4.20.xml.zip",
+      "sha256": "3976f599e5e5200219a3108bb896d06e2a88fbb293369e1883cb423a5e9d7d50"
+    },
+    "prior_all50_consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/cwe_all50_evidence_v3/dual_review_consensus.jsonl",
+      "sha256": "ce7dbcb485727428bfbf231dd2b2e56e366b226f227319ff91d9f2c279d04850"
+    },
+    "prior_all50_merge_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/cwe_all50_evidence_v3/merge_manifest.json",
+      "sha256": "9b896846e96ddb8a6f9552a351153c3051b42c923c88b8fa9152dbf7e39482c8"
+    },
+    "sealed_profile_evaluation": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/profile_evaluation.json",
+      "sha256": "f28dcfcde1fc738bece6e8539093d4fdee59182486dc38847a0f83bc2a8fe2ba"
+    },
+    "contract": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/annotation_guidelines/rq2_post_profile_eligible_universe_cwe_difference_evidence_contract_v1.md",
+      "sha256": "e61231c03b002188f1dc2cbd826b2b9d4f3122dcbdab33fc1fba20076ca884a5"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_post_profile_eligible_universe_cwe_difference_evidence_review_v1.md",
+      "sha256": "191f1245a0fdcbe438e2ed6aae0ac76cb1de7026446a6d54e7c7115ab7aed6af"
+    },
+    "fetcher_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_rq3_evidence_samples.py",
+      "sha256": "35b02ebcc7a62ba1e5cb6b3dc375d19ca45a2731a4b4318f90755d10b8e44c63"
+    },
+    "source_builder_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_typing_holdout.py",
+      "sha256": "ea8bdd0a995ba4cadd5f6ba5a3327a99ceab9fb6ea20679c7778bfe9b1a5a117"
+    },
+    "evidence_helper_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_cwe_evidence_secondary.py",
+      "sha256": "dbca0157a18ef5bb028a47197eb68d9ee66da81f65c3ac5b6cdbc71b9fa03bcd"
+    },
+    "all50_builder_helper_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_cwe_all50_evidence.py",
+      "sha256": "2bb3c2aebadc8e18d2de6deef1a4fbbfb15c8714809c954202dabe8dd4157c63"
+    },
+    "runner_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/run_rq2_post_profile_eligible_universe_cwe_difference_review.py",
+      "sha256": "8b482dd885511d18da888d6a3b5ccc29d1eea347a43598c6650f6e1f6cb0ba5e"
+    },
+    "merge_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/merge_rq2_post_profile_eligible_universe_cwe_difference_reviews.py",
+      "sha256": "f748d418174ebe10ef047c806b256df4fafc3123f4bc75934d85c84add5e6cb6"
+    },
+    "verifier_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/verify_rq2_post_profile_eligible_universe_cwe_difference_review.py",
+      "sha256": "e01f0e17eca2b0666eeb63e37242a896d99f7c3287b9d767989de7caf7280aec"
+    },
+    "builder_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_eligible_universe_cwe_difference_evidence.py",
+      "sha256": "174f57d823749d32fd5c4f6122ab9ab12e01b6a27ef52253aa1c0816ee4f91ca"
+    },
+    "census_verifier_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/verify_rq2_post_profile_eligible_universe_prediction_census.py",
+      "sha256": "ad1439399262aa4a64a672553f99f725633cdcf48f6bf4112dc839645e151e0e"
+    }
+  },
+  "outputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/source_rows.jsonl",
+      "sha256": "3c594d5cfcacbfb5142de345a32935176fafb0d4ecd9564ea3ae56d827f19115"
+    }
+  },
+  "worklists": {
+    "reviewer_e": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/worklist_e.blind.jsonl",
+      "sha256": "bac34c23c21ff1689415c1af9f933f494ff46423e166e65c775eda4ce0557aae",
+      "order": "sample_id_sorted",
+      "reasoning_order": "set_then_taxonomy_then_mechanism"
+    },
+    "reviewer_f": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/worklist_f.blind.jsonl",
+      "sha256": "b3a1b16eb7f3872558dbdeb9f0e80862aceeeb6bda02ff1c71a6464f16ddd00a",
+      "order": "exact_reverse",
+      "reasoning_order": "mechanism_then_taxonomy_then_set"
+    }
+  },
+  "reviewer_outputs": {
+    "reviewer_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/reviewer_e.jsonl",
+    "reviewer_f": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/reviewer_f.jsonl",
+    "requests_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/reviewer_e.requests.jsonl",
+    "requests_f": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_eligible_difference_evidence_v1/reviewer_f.requests.jsonl"
+  },
+  "cautions": [
+    "All rows are selected after the complete prediction census was revealed.",
+    "Every row exposes the taxonomy relation, so selection blinding is incomplete.",
+    "Both reviewers are non-human Codex runs from one model family.",
+    "The three prior all-50 rows are repeat same-model stability observations."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "hutool_maven_external_application_v1",
+  "artifact_type": "hutool_maven_external_application_cohort_seal",
+  "sealed_at": "2026-07-19T03:55:00.066147+00:00",
+  "inputs": {
+    "aligned": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/aligned/nvd_ghsa_by_cve.jsonl",
+      "sha256": "056d20bab59e1f00c730b1626b8a97333863ed9c4818d2d8a1e63d85a4313f1f"
+    },
+    "exclusions": {
+      "rq2_primary": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/discrepancy_typing_seed.jsonl",
+        "sha256": "2b70d0c48b3659c3a6f2cba2c8024b4c12673b15814b9f123871ec97dd6a518f",
+        "cve_count": 299
+      },
+      "reference_impact": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_impact_validation/reference_identity_secondary_worklist.masked.jsonl",
+        "sha256": "be2209d55bbb19b822aaa23d74b0cd97f42499d1a6cc729f6b56008fc0ebad48",
+        "cve_count": 56
+      },
+      "cwe_impact": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/impact_holdout/cwe_taxonomy_impact_worklist.blind.jsonl",
+        "sha256": "bdbad7fc0995f09d59152b96de8cbe0df5d425d534fec9789565b48e69f2c47a",
+        "cve_count": 17
+      },
+      "phase_d_affected": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+        "sha256": "91bbd0b1885c1e41424404510b5521d6c6df02b4e99f1e0a06b40fa65043daa0",
+        "cve_count": 100
+      },
+      "phase_d_severity": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/severity_fc_adjudication_seed.jsonl",
+        "sha256": "f109fc3d30ef6a9d2728d0e78b6977a9dd323f20d22af80f990bf24c9862bdb5",
+        "cve_count": 80
+      },
+      "affected_versions_v1": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/source_rows.jsonl",
+        "sha256": "e31842c1560b7247e88c4bbf81ee4c6477a59476304ee22fd8e3d6466ee987b9",
+        "cve_count": 100
+      },
+      "affected_versions_v2": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v2/source_rows.jsonl",
+        "sha256": "2397dc9991025c82953092d010683fba1087e614af8477696db9eda3cc182e55",
+        "cve_count": 100
+      },
+      "fresh_typing_1250": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+        "sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5",
+        "cve_count": 1250
+      }
+    },
+    "builder": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_hutool_maven_external_application.py",
+      "sha256": "27227d8ea8385d68d258c2e700dea5481228ef264b02d39775ac80efea6e1293"
+    }
+  },
+  "output": {
+    "cohort": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/hutool_maven_external_application_v1/cohort.jsonl",
+      "sha256": "f99304768abe9eb6ede3ae27072126e8e6d86e2393997e19bd8f60d6281a4d1e",
+      "row_count": 6
+    }
+  },
+  "selection_audit": {
+    "matched_row_count": 8066,
+    "hutool_family_row_count": 10,
+    "excluded_family_row_count": 4,
+    "excluded_family_rows": [
+      {
+        "cve_id": "CVE-2023-3276",
+        "route": "product_via_aggregate_component",
+        "reason": "prior_cve_exposure"
+      },
+      {
+        "cve_id": "CVE-2023-42276",
+        "route": "product_via_aggregate_component",
+        "reason": "prior_cve_exposure"
+      },
+      {
+        "cve_id": "CVE-2023-51080",
+        "route": "product_via_aggregate_component",
+        "reason": "prior_cve_exposure"
+      },
+      {
+        "cve_id": "CVE-2025-56769",
+        "route": "out_of_scope_coordinate",
+        "reason": "prior_cve_exposure"
+      }
+    ],
+    "selected_row_count": 6,
+    "route_counts": {
+      "product_to_aggregate_direct": 2,
+      "product_via_aggregate_component": 4
+    }
+  },
+  "excluded_union_cves": 1967,
+  "selection_uses_labels": false,
+  "selection_uses_reviewer_labels": false,
+  "mechanism_frozen_before_availability_audit": true,
+  "availability_discovery_disclosed": true,
+  "same_snapshot_retrospective": true,
+  "candidate_promotion_allowed": false,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false
+}

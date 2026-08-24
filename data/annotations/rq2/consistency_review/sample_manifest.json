@@ -1,0 +1,49 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/discrepancy_typing_seed.jsonl",
+  "output_dir": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/consistency_review",
+  "seed": 20260524,
+  "fraction": 0.2,
+  "candidate_count": 300,
+  "sampled_count": 60,
+  "strata": [
+    {
+      "field": "affected_versions",
+      "candidate_count": 60,
+      "sampled_count": 12
+    },
+    {
+      "field": "cwe_ids",
+      "candidate_count": 60,
+      "sampled_count": 12
+    },
+    {
+      "field": "published",
+      "candidate_count": 60,
+      "sampled_count": 12
+    },
+    {
+      "field": "references",
+      "candidate_count": 60,
+      "sampled_count": 12
+    },
+    {
+      "field": "severity",
+      "candidate_count": 60,
+      "sampled_count": 12
+    }
+  ],
+  "sampled_distribution": {
+    "severity": 12,
+    "published": 12,
+    "references": 12,
+    "affected_versions": 12,
+    "cwe_ids": 12
+  },
+  "cautions": [
+    "This is a second-pass annotation template, not a completed agreement result.",
+    "Do not report inter-annotator agreement until reviewer_status and original manual_status are both filled."
+  ],
+  "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/consistency_review/discrepancy_typing_consistency_review.jsonl",
+  "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/consistency_review/discrepancy_typing_consistency_review.csv",
+  "readme_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/consistency_review/README.md"
+}

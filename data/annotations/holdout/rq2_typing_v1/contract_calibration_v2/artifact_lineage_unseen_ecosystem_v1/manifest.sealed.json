@@ -1,0 +1,46 @@
+{
+  "schema_version": "artifact_lineage_unseen_ecosystem_cohort_v1",
+  "artifact_type": "artifact_lineage_unseen_ecosystem_cohort_manifest",
+  "generated_at": "2026-07-18T23:38:23Z",
+  "sealed": true,
+  "source": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/aligned/nvd_ghsa_by_cve.jsonl",
+    "sha256": "056d20bab59e1f00c730b1626b8a97333863ed9c4818d2d8a1e63d85a4313f1f"
+  },
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/artifact_lineage_unseen_ecosystem_v1/cohort.jsonl",
+    "sha256": "377e1dde6dd0450d6f499a58d1960209b2b3f40069f7c7e613c2315ebdd30007"
+  },
+  "selection": {
+    "target_ecosystems": [
+      "NuGet",
+      "PyPI",
+      "crates.io"
+    ],
+    "one_nvd_subject": true,
+    "exactly_two_ghsa_subjects": true,
+    "single_ghsa_ecosystem": true,
+    "component_range_signatures_differ": true,
+    "maximum_spans_per_claim": 3,
+    "all_nonzero_boundaries_parseable": true,
+    "rank": "minimum_sha256(cve_id)_per_ecosystem",
+    "selection_uses_reviewer_labels": false,
+    "selection_uses_non_human_consensus": false,
+    "upstream_source_conditioned_on_non_human_consensus": false
+  },
+  "eligible_counts": {
+    "NuGet": 5,
+    "PyPI": 12,
+    "crates.io": 6
+  },
+  "selected_count": 3,
+  "selected_cves": {
+    "NuGet": "CVE-2023-21893",
+    "PyPI": "CVE-2023-39631",
+    "crates.io": "CVE-2025-48888"
+  },
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_diagnostic_only": true,
+  "post_unsealing": true
+}

@@ -9,6 +9,12 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
+.env
+.env.*
+!.env.example
+
+# Local agent configuration
+/.claude/settings.local.json
 
 # Jupyter
 .ipynb_checkpoints/
@@ -21,6 +27,29 @@ results/*
 !data/processed/.gitkeep
 !results/.gitkeep
 !results/README.md
+
+# Retained local research payloads
+#
+# These paths contain external downloads, evidence caches, generated review
+# payloads, or historical non-human annotation attempts.  Their small control
+# files (README/manifest) may be force-tracked; the remaining local payload is
+# bound by docs/repository_hygiene/retained_local_payloads.sha256.tsv.
+/data/evidence_cache/
+/data/external/
+/data/annotations/ai_adjudicated_gold/
+/data/annotations/expert_candidate/
+/data/annotations/holdout/
+/data/annotations/phase_d/
+/data/annotations/rq2/consistency_review/
+/data/annotations/rq2/cwe_taxonomy_impact_human_review/
+/data/annotations/rq2/reference_normalization_impact_human_review/
+/data/annotations/rq2/discrepancy_typing_seed.csv
+/data/annotations/rq2/discrepancy_typing_seed.jsonl
+/data/annotations/rq3/
+
+# Local literature sources and historical paper builds
+/docs/related_work_papers/**/*.pdf
+/paper/cose/**/*.pdf
 
 # Logs
 *.log
@@ -39,4 +68,3 @@ results/*
 *.synctex.gz
 *.toc
 *.xdv
-*.pdf

@@ -1,0 +1,43 @@
+{
+  "schema_version": "ai_adjudicated_gold_v1",
+  "dataset": "rq2_review",
+  "artifact_role": "ai_consistency_pass",
+  "row_count": 60,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "eligible_for_provisional_candidate_analysis": true,
+  "human_signed_rows": 0,
+  "candidate_input": "/home/xiaoyuliang/code/vuln-adj/data/annotations/expert_candidate/raw/rq2_review.jsonl",
+  "candidate_sha256": "903a26657f835fff8404c28924e96e43b4bd0d16e924072d8cd149a7bde67710",
+  "adjudication_input": null,
+  "adjudication_sha256": null,
+  "required_worklist": null,
+  "required_worklist_sha256": null,
+  "risk_worklist_rows": 0,
+  "risk_rows_adjudicated": 0,
+  "changed_label_count": 0,
+  "changed_source_count": 0,
+  "requires_additional_review_count": 10,
+  "label_counts": {
+    "equivalent": 11,
+    "factual_conflict": 8,
+    "incomplete": 17,
+    "representation_discrepancy": 14,
+    "temporal_discrepancy": 5,
+    "uncertain": 5
+  },
+  "source_counts": {
+    "abstain": 60
+  },
+  "decision_origin_counts": {
+    "same_model_consistency_pass": 60
+  },
+  "output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/rq2_review.jsonl",
+  "output_sha256": "87c22974c16e9c959dde17423f099d028810f7e9d1c7918fe00c365a4643b727",
+  "cautions": [
+    "This snapshot is AI-adjudicated gold, not human-gold.",
+    "Interactive adjudication and prior candidates are not independent human annotations.",
+    "Rows marked final_abstain intentionally preserve unresolved uncertainty.",
+    "Human annotator, independent reviewer, and author sign-off remain required for a human-gold claim."
+  ]
+}

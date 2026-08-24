@@ -1,0 +1,16 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/severity_fc_adjudication_seed.jsonl",
+  "output_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/severity_fc_adjudication_seed.evidence.jsonl",
+  "cache_dir": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq3/url_cache",
+  "row_count": 80,
+  "url_cache_hits": 470,
+  "url_fetches": 0,
+  "fetch_status_counts": {
+    "http_403": 4,
+    "http_404": 3,
+    "ok": 415,
+    "timeout": 2,
+    "url_error": 46
+  },
+  "max_text_chars": 5000
+}

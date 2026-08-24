@@ -1,0 +1,104 @@
+{
+  "schema_version": "rq2_typing_tiebreak_v1",
+  "artifact_type": "rq2_typing_tiebreak_manifest",
+  "sealed_at_ns": 1784421619699134369,
+  "sealed_at": "2026-07-19T00:40:19Z",
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_diagnostic_only": true,
+  "post_unsealing": true,
+  "selection_uses_reviewer_labels": true,
+  "selection_rule": "all and only rows with strict_consensus=false in the sealed A/B merge; order by sha256(seed:sample_id)",
+  "selection_seed": "rq2_typing_holdout_v1_tiebreak_v1",
+  "selected_rows": 103,
+  "field_counts": {
+    "affected_versions": 58,
+    "cwe_ids": 21,
+    "references": 13,
+    "severity": 11
+  },
+  "thresholds_fixed_before_reviewer_c": {
+    "minimum_selected_resolution": 0.7,
+    "minimum_overall_candidate_coverage": 0.975
+  },
+  "inputs": {
+    "source_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/manifest.sealed.json",
+      "sha256": "b7bfd349c24c4b013d96dc71735d3f58fd4f187175f1e49d56e7955ee01871da"
+    },
+    "dual_merge_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/merge_manifest.json",
+      "sha256": "b51c7960263182cdcf9901a6d6d3714c8e6c982f585fba5e2a8b0fb3927fd0b7"
+    },
+    "dual_consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/dual_review_consensus.jsonl",
+      "sha256": "d9cdd7fc827be281e80e7f324c44b24f7416a40d5a0428b3cc4bf1a461695c63"
+    },
+    "reviewer_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/reviewer_a.jsonl",
+      "sha256": "871dcaeb0b1c1fadf886adb94a8b5b1f72efaa18c15dfae5850076b4988c9b48"
+    },
+    "reviewer_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/reviewer_b.jsonl",
+      "sha256": "f28aad01257f6a931a732c02a75cccad8c94e8c4345d810edba9c55f00324b34"
+    },
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+      "sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5"
+    },
+    "predictions": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/predictions.sealed.jsonl",
+      "sha256": "43202021378954a93c0b019cf1a48cf73a1634319408b5633c956d9f5e3b0ed9"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_holdout_review.md",
+      "sha256": "2777be877b6194ed6ff9353a46615b46e16a7b09703b6476267b15e1a491debd"
+    },
+    "runner": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/run_expert_candidate_annotation.py",
+      "sha256": "e63d9ce65bf9cb7b01c9ba3636d6668d7a64c6dc8adf00a5ec5c26039007eeb3"
+    },
+    "builder": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_typing_tiebreak.py",
+      "sha256": "d9d0b577997230b34b6ba7ccd0225f5c661e2d30bef0df07716b80723f30c185"
+    }
+  },
+  "outputs": {
+    "blind_worklist_c": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/blind/worklist_c.blind.jsonl",
+      "sha256": "3af462fc3ba42d0223399b1dc001ff554796b49741aca3f2f5ae3fbe81e55e26"
+    },
+    "reviewer_c": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/reviewer_c.jsonl",
+    "reviewer_c_requests": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/reviewer_c.requests.jsonl"
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_backend": "codex-cli",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_c_pass_id": "rq2_typing_holdout_v1_tiebreak_c",
+    "schedule": "input",
+    "blindness": "reviewer C receives only original blind row data and the original prompt; no baseline, A/B output, consensus, or selection reason",
+    "resolution_rule": "retain original strict A/B rows; otherwise require at least two qualified votes for one determinate label, where qualified means non-uncertain, confidence not low, and needs_human_review=false"
+  },
+  "boundary": {
+    "same_model_family": true,
+    "source_runner_sealed_sha256": "bc0835a13e0fe23885e878dc54218e897ea9d8d75cdd12a252969641df7bb580",
+    "current_runner_sha256": "e63d9ce65bf9cb7b01c9ba3636d6668d7a64c6dc8adf00a5ec5c26039007eeb3",
+    "source_runner_file_changed_after_original_seal": true,
+    "human_gold_claim_allowed": false,
+    "accuracy_claim_allowed": false,
+    "production_switch_allowed": false,
+    "confirmatory_claim_allowed": false
+  }
+}

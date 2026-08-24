@@ -1,0 +1,737 @@
+{
+  "schema_version": "rq2_typing_unresolved_evidence_secondary_v1",
+  "artifact_type": "rq2_typing_unresolved_evidence_secondary_manifest",
+  "sealed_at_ns": 1784424264967571780,
+  "sealed_at": "2026-07-19T01:24:24Z",
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_diagnostic_only": true,
+  "post_unsealing": true,
+  "selected_rows": 37,
+  "field_counts": {
+    "affected_versions": 28,
+    "cwe_ids": 6,
+    "references": 2,
+    "severity": 1
+  },
+  "prior_vote_group_counts": {
+    "one_qualified": 10,
+    "three_qualified_split": 7,
+    "two_qualified_split": 3,
+    "zero_qualified": 17
+  },
+  "evidence": {
+    "max_references_per_row": 6,
+    "rows_with_successful_nonempty_evidence": 28,
+    "successful_nonempty_evidence_rate": 0.7567567567567568,
+    "fetch_status_counts": {
+      "http_403": 3,
+      "http_404": 3,
+      "ok": 88,
+      "timeout": 10
+    }
+  },
+  "thresholds_fixed_before_evidence_fetch": {
+    "minimum_evidence_availability": 0.75,
+    "minimum_secondary_strict_resolution": 0.4,
+    "minimum_combined_candidate_coverage": 0.982
+  },
+  "inputs": {
+    "parent_result_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/tiebreak_v1/manifest.json",
+      "sha256": "85fb1a4e7fb003094aaf371db38b64da8d98aef9d7c61c001ff7e8769f9b4eb2"
+    },
+    "parent_candidate": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/tiebreak_v1/expert_candidate_consensus.jsonl",
+      "sha256": "b3abca3b6e1ad4559b2781f7275cf1656122c6d843df5cdeedfa8d540a40ab62"
+    },
+    "parent_sealed_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/manifest.sealed.json",
+      "sha256": "0ae8b7f1a076c9ded28a92718fa77a65ced2eaf3049f323eedf75617ac5f5f74"
+    },
+    "source_worklist": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/blind/worklist_c.blind.jsonl",
+      "sha256": "3af462fc3ba42d0223399b1dc001ff554796b49741aca3f2f5ae3fbe81e55e26"
+    },
+    "predictions": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/predictions.sealed.jsonl",
+      "sha256": "43202021378954a93c0b019cf1a48cf73a1634319408b5633c956d9f5e3b0ed9"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_unresolved_evidence_review.md",
+      "sha256": "99757c90787bbff71f707bf63deb68cf00302c8061faa55550eb4aba0e500aa7"
+    },
+    "contract": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/annotation_guidelines/rq2_typing_unresolved_evidence_secondary_contract_v1.md",
+      "sha256": "e73584ee0c9b7323328567ef81d0275f594772007a6c2b8c39f34b48e795ddc0"
+    },
+    "runner": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/run_expert_candidate_annotation.py",
+      "sha256": "e63d9ce65bf9cb7b01c9ba3636d6668d7a64c6dc8adf00a5ec5c26039007eeb3"
+    },
+    "fetcher": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_rq3_evidence_samples.py",
+      "sha256": "35b02ebcc7a62ba1e5cb6b3dc375d19ca45a2731a4b4318f90755d10b8e44c63"
+    },
+    "builder": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_typing_unresolved_evidence_secondary.py",
+      "sha256": "bf17db31d5b18f84d9bb418a2c1bb68f9c89c3f9a10dedd5c27d06cbc0efa086"
+    }
+  },
+  "evidence_cache": [
+    {
+      "fetch_url": "http://www.openwall.com/lists/oss-security/2023/12/13/4",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/e81798471b65d2e75d524e7ecc049479e9f392a7b60f0f5030ddc338cee30e0d.json",
+      "sha256": "4f79fbaaae930dbd557df294338a98f8c76e823dea4244f41169b406f197b355",
+      "source_url": "http://www.openwall.com/lists/oss-security/2023/12/13/4"
+    },
+    {
+      "fetch_url": "https://access.redhat.com/errata/RHSA-2023:5701",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/dd9944c99b0e16fbbe612991b8e8022147d7eb00208b52c7550e749bfc7596ee.json",
+      "sha256": "6c8563e9274a38869d0ca317d811fa8a5b42b9836518e513f2c658e0733430e8",
+      "source_url": "https://access.redhat.com/errata/RHSA-2023:5701"
+    },
+    {
+      "fetch_url": "https://access.redhat.com/errata/RHSA-2023:5758",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/598f292ca1698a20544d1c58cfe49edaa221e217c5be76db077dab18f9fdcc19.json",
+      "sha256": "355906db274435e155773e0a1e385db8aa06daa1bbb8ba8e6bebd8a9ec0d9172",
+      "source_url": "https://access.redhat.com/errata/RHSA-2023:5758"
+    },
+    {
+      "fetch_url": "https://access.redhat.com/security/cve/CVE-2023-5115",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/bf376ecbcc2160674724952744602d93a8145fd19295cf938aad0c0ac1a0135f.json",
+      "sha256": "b071b7f9f750ac2bd6908c3b9142f0f8a0f675a57f9da46c84eaab20d9dabff7",
+      "source_url": "https://access.redhat.com/security/cve/CVE-2023-5115"
+    },
+    {
+      "fetch_url": "https://asrg.io/security-advisories/config-partition-not-measured-from-2-fronts",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/a462bb9f92701c16897c270fa3422099aa8f17eb31b7befbc9a5bae658b5b809.json",
+      "sha256": "678c989fde911a085629c66479fafb2aafe397189803121fa40a1dda8a1e4472",
+      "source_url": "https://asrg.io/security-advisories/config-partition-not-measured-from-2-fronts"
+    },
+    {
+      "fetch_url": "https://asrg.io/security-advisories/cve-2023-43630",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/533d66f662bfe1a72c8307e9227f4dbfc7f68b12474312a05fdb617abbaed519.json",
+      "sha256": "388451576bbadb0d3432f7bee8c4f27d61c9ba00ab6513ac742547fc55d39702",
+      "source_url": "https://asrg.io/security-advisories/cve-2023-43630"
+    },
+    {
+      "fetch_url": "https://asrg.io/security-advisories/cve-2023-43630/",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/3709d3b50fbb6e1aef4bcab5cc61015e8d0607c2cd1de80249dea9d0018c1c51.json",
+      "sha256": "8cd97eb5907b6290bf4b49ba8960c773d00025b2d9684610742cc01ea9f46e7a",
+      "source_url": "https://asrg.io/security-advisories/cve-2023-43630/"
+    },
+    {
+      "fetch_url": "https://asrg.io/security-advisories/cve-2023-43632",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/10aa7f3e6075dafc1857261b3513004253c9dda9e9b5efc762f7ee8ebee84492.json",
+      "sha256": "0af0a63dbdae07124557a57ff9edbc70d2cff0dad6c3f165c7f17ef4171e0108",
+      "source_url": "https://asrg.io/security-advisories/cve-2023-43632"
+    },
+    {
+      "fetch_url": "https://asrg.io/security-advisories/cve-2023-43632/",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/855ec80a94a91482c6268ff5027608495b124af2e58b2c42b00918d29808a69f.json",
+      "sha256": "d11908f5bf3419eb990772b2c7635cf51180daae8f91700e0ff6b726efcb677e",
+      "source_url": "https://asrg.io/security-advisories/cve-2023-43632/"
+    },
+    {
+      "fetch_url": "https://asrg.io/security-advisories/freely-allocate-buffer-on-the-stack-with-data-from-socket",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/170787af17808fe69897fe9f945957727cc2a9205553b3b89610ab6a441631f8.json",
+      "sha256": "3d92b59133cedccf54cbb515283d2bd0577ac28672295adf59fe48b75727a521",
+      "source_url": "https://asrg.io/security-advisories/freely-allocate-buffer-on-the-stack-with-data-from-socket"
+    },
+    {
+      "fetch_url": "https://bugs.launchpad.net/storlets/+bug/2047723",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/2d52dbd61708bf7af65b665d1836761bcf73c95353cd0b6bb98043077000b3bd.json",
+      "sha256": "e8ecaa6b9312c97203e7290cd9266f27cab22583f5f0f04598d0acc455444d09",
+      "source_url": "https://bugs.launchpad.net/storlets/+bug/2047723"
+    },
+    {
+      "fetch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=2233810",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/3d2456bc7262716d5c4e38d9c42d5b1339c73eddb7eaea5e01a156348a1d025d.json",
+      "sha256": "a0968e5dfd5f43f420b627c23ce0d0be50b0524783de56498ad061e2bac4f327",
+      "source_url": "https://bugzilla.redhat.com/show_bug.cgi?id=2233810"
+    },
+    {
+      "fetch_url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2023-32187https:/",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/4e203b4b3e15a8d52bd8c7b9469637a972a06eb6c75549eed23c0e95b077a8bb.json",
+      "sha256": "053a730dd57e9df49027c1f56b7c18874d0cc9160a2cab659fd690ed2d9405f3",
+      "source_url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2023-32187https:/"
+    },
+    {
+      "fetch_url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2023-32187https://",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/fe1015c9ab21266df1ea8733fdd6a8dc7b0544395b97e01c8cf5c9c8fed3a33f.json",
+      "sha256": "553ca7661b6e59f843f6f2fea21de20ce062a1a196b25f8f4fe401cd1a490415",
+      "source_url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2023-32187https://"
+    },
+    {
+      "fetch_url": "https://doc.traefik.io/traefik/https/acme/#dnschallenge",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/30a4e9ef78c94133cc7c8700a4c16318035275d21dec6ef1099c388c83d90c99.json",
+      "sha256": "40f670fe679219db01c6807a3e05692ba012d950e60bf77526e0766fce7f6a10",
+      "source_url": "https://doc.traefik.io/traefik/https/acme/#dnschallenge"
+    },
+    {
+      "fetch_url": "https://doc.traefik.io/traefik/https/acme/#httpchallenge",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/635d44f51fe7d836d1b59ce0dc926a67f7e4977092f10ef167d9115a858491cd.json",
+      "sha256": "20c3e9f55a51103b2d4325ee113af0f95a5d14233106dbea3b49c0367ff5cf36",
+      "source_url": "https://doc.traefik.io/traefik/https/acme/#httpchallenge"
+    },
+    {
+      "fetch_url": "https://doc.traefik.io/traefik/https/acme/#tlschallenge",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/23053904cea10e1b9e5d346fcfa830a8a1064a6a2e467d71adc758064dfdb81b.json",
+      "sha256": "ebafed20eba1bb8d3b6e22c21b30e24f01814ac851bb985215ab5881edfe3554",
+      "source_url": "https://doc.traefik.io/traefik/https/acme/#tlschallenge"
+    },
+    {
+      "fetch_url": "https://fbdhhhh47.github.io/2023/06/06/hutool-XXE",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/f69e12e820c67e6f02dbaaef1048a2b448df03f36fdc7774748a5a8aed60d683.json",
+      "sha256": "54a2faf3047e3d1a94925f46215bd36be9cd4473e0ec51b1652302e2b672a55f",
+      "source_url": "https://fbdhhhh47.github.io/2023/06/06/hutool-XXE"
+    },
+    {
+      "fetch_url": "https://fbdhhhh47.github.io/2023/06/06/hutool-XXE/",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/d1b6352407ea66de4b35e992347227b0849a3b53c6967525730aeb722602713e.json",
+      "sha256": "f1f108f3eb5ee0ac98ecd082f09fd6f93c5947c70110bcb2f0d983e2e3364d24",
+      "source_url": "https://fbdhhhh47.github.io/2023/06/06/hutool-XXE/"
+    },
+    {
+      "fetch_url": "https://gist.github.com/Fewword/f098d8d6375ac25e27b18c0e57be532f/raw",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/8f5126c89c26e5a28b4520099b305ae815467f0cba1b550c86f885d340502601.json",
+      "sha256": "29cab48179c5baa20cc289ef6d52ea6a23e81ce476df5d7f36336d44dec6a3db",
+      "source_url": "https://gist.github.com/Fewword/f098d8d6375ac25e27b18c0e57be532f"
+    },
+    {
+      "fetch_url": "https://github.com/NLnetLabs/bcder/commit/4da91c3fd853e3d466d8581cf1d82b7f3255de56.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/023d7f300ad682f7625c50835c0708b0dc50027bb4c2d82868cbfed66ead43a2.json",
+      "sha256": "55259612a88cc7187d5368ec0517ac5e3fd5268f0d5aa13fa2f5b817bf9668b3",
+      "source_url": "https://github.com/NLnetLabs/bcder/commit/4da91c3fd853e3d466d8581cf1d82b7f3255de56"
+    },
+    {
+      "fetch_url": "https://github.com/SixLabors/ImageSharp/pull/2688.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/21287c7eec36678f4c51f0e9382f03fbf5f8d434a2da03f1c6d36e9e30fb7bdc.json",
+      "sha256": "7710770d080d8c49579c006033f7a4c51f9254616fbe2a7c0b86344443416e73",
+      "source_url": "https://github.com/SixLabors/ImageSharp/pull/2688"
+    },
+    {
+      "fetch_url": "https://github.com/SixLabors/ImageSharp/security/advisories/GHSA-65x7-c272-7g7r",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/2ae80316817cc046c9af86949e3a0f4500dbb1762e1c5d660734a599a46d8b01.json",
+      "sha256": "fc818075004729ff9c201bb35109d26323037234bd95fb7778e866349411a992",
+      "source_url": "https://github.com/SixLabors/ImageSharp/security/advisories/GHSA-65x7-c272-7g7r"
+    },
+    {
+      "fetch_url": "https://github.com/ansible/ansible/commit/1e930684bc0a76ec3d094cd326738ad26416541c.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/11c171f2e150399aec54df4167c927b38b810d6ed1590105c41fef42b124c6ae.json",
+      "sha256": "8e63187629a39c1f882518e44478432fbf7106a2a790a2b0da05baa1667e49c8",
+      "source_url": "https://github.com/ansible/ansible/commit/1e930684bc0a76ec3d094cd326738ad26416541c"
+    },
+    {
+      "fetch_url": "https://github.com/corydolphin/flask-cors/commit/35d875319621bd129a38b2b823abf4a2f6cda536.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/ea87f8a09479c16e0429b705b32437d680c9d866ffb1a179eef3a7270fe8ce1a.json",
+      "sha256": "cc1ce86e4cd24a73ed5984c65d798b0674d071adc6e30ca32da3b9c60d9525e7",
+      "source_url": "https://github.com/corydolphin/flask-cors/commit/35d875319621bd129a38b2b823abf4a2f6cda536"
+    },
+    {
+      "fetch_url": "https://github.com/denoland/deno/commit/1ab2268c0bcbf9b0468e0e36963f77f8c31c73ec.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/090b28e62c9eadff4a4eda7b53ed86051f8c861ac4dcd78bb9040afb2524cec0.json",
+      "sha256": "e2fffbaabbe8b780edce2ee72a7dc46e8c4b5bfd8fa3b6bef08ff9f9cc210bab",
+      "source_url": "https://github.com/denoland/deno/commit/1ab2268c0bcbf9b0468e0e36963f77f8c31c73ec"
+    },
+    {
+      "fetch_url": "https://github.com/denoland/deno/pull/30876.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/1e63bda5f821e2daffac4f1137a0ffdb7ae8cbd3ab834a688f6774729cac11ee.json",
+      "sha256": "4f2b83cbb124046274a18cab22b3963e55dfc420663c8f87cbc6956f5ac91186",
+      "source_url": "https://github.com/denoland/deno/pull/30876"
+    },
+    {
+      "fetch_url": "https://github.com/denoland/deno/releases/tag/v2.2.15",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/dd5a5415718bf63fbc27d21bf0d769038deca7eac6fd7950114db5115255fc7f.json",
+      "sha256": "bb6444826a06dea8bf01ac2ba11314ffeb7e74ed05f8a97f70b961520b8e44ae",
+      "source_url": "https://github.com/denoland/deno/releases/tag/v2.2.15"
+    },
+    {
+      "fetch_url": "https://github.com/denoland/deno/releases/tag/v2.5.3",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/24d03fe303dfca36cabd842e35c7675007df9bb57f1d6420c954a2eee6f2b92b.json",
+      "sha256": "dc617383ab0b616b31ab0f0faeb8f626fc93bf30f471fa122a8390dc7a86aabb",
+      "source_url": "https://github.com/denoland/deno/releases/tag/v2.5.3"
+    },
+    {
+      "fetch_url": "https://github.com/denoland/deno/security/advisories/GHSA-qq26-84mh-26j9",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/fdd1b13b9d59e497f3e0a45f7ebb717bf686341ec404a0ece73614f1c14e6a20.json",
+      "sha256": "51ecf328043d02d75fde2945ee8b9d6bfca5e44335398fb1439666912321c8f5",
+      "source_url": "https://github.com/denoland/deno/security/advisories/GHSA-qq26-84mh-26j9"
+    },
+    {
+      "fetch_url": "https://github.com/dotnet/runtime/security/advisories/GHSA-v7vf-f5q6-m899",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/cea905e2eee26bc534542bdfc9a61e6eb6c7d6dbbcc92cd2b1f6d1820899e84b.json",
+      "sha256": "fbb6b26159f92b97d0e75a3884bab1cd463872d3cef04ed600f58067f9924f88",
+      "source_url": "https://github.com/dotnet/runtime/security/advisories/GHSA-v7vf-f5q6-m899"
+    },
+    {
+      "fetch_url": "https://github.com/dromara/hutool/commit/9ba8f9ca5dd32441f2e0f150cb22fa178bb771d3.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/910d75236989a247a17cb73bba690ec6cf68914b288748115e4c37981c759d11.json",
+      "sha256": "df18e60fbf3f90bc1eff7206f73ab0b0fa6d3058789934266c52b236ca2f7e0e",
+      "source_url": "https://github.com/dromara/hutool/commit/9ba8f9ca5dd32441f2e0f150cb22fa178bb771d3"
+    },
+    {
+      "fetch_url": "https://github.com/dromara/hutool/issues/3286",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/b273dafef150214682a592af9b4cf2bf1141007a4e33e05b04391104e984433d.json",
+      "sha256": "d307dc7252ed28e79108266899597d3bb31cc052c90dd07db93052bebb8c2d44",
+      "source_url": "https://github.com/dromara/hutool/issues/3286"
+    },
+    {
+      "fetch_url": "https://github.com/froxlor/froxlor/commit/ce9a5f97a3edb30c7d33878765d3c014a6583597.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/80eb2bbab3e92cc2e506204e877c27e67731a632bdf7fa14bf18fd5b14bae5d1.json",
+      "sha256": "4fefbd857b761d64ccb95e33d27c208fb1559904c94f890adb18d94c60959189",
+      "source_url": "https://github.com/froxlor/froxlor/commit/ce9a5f97a3edb30c7d33878765d3c014a6583597"
+    },
+    {
+      "fetch_url": "https://github.com/jenkinsci/nexus-platform-plugin/commit/1d5e1e9e457af5e8ce8c9a403933d6cb73542dbd.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/eba8fd26c7b0048d707268f8587a437ed23cdd58435e9dbe20ab52f040cbfecf.json",
+      "sha256": "2e19513e6014ba9f83d942fd0453fb7e61c781df4dc48ebeb191b054d2ffa9c2",
+      "source_url": "https://github.com/jenkinsci/nexus-platform-plugin/commit/1d5e1e9e457af5e8ce8c9a403933d6cb73542dbd"
+    },
+    {
+      "fetch_url": "https://github.com/jenkinsci/nexus-platform-plugin/pull/291.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/b34601bcd5a225dc55769ea6b0e4056041adf70022ffd2036769d5a1e2189dca.json",
+      "sha256": "5fb1daf33dd884a12eff8546840d1a4fe4dba4255259972761da154656bcfa03",
+      "source_url": "https://github.com/jenkinsci/nexus-platform-plugin/pull/291"
+    },
+    {
+      "fetch_url": "https://github.com/k3s-io/k3s/security/advisories/GHSA-m4hf-6vgr-75r2",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/e9490aa8a932ed77eb01665bbaf6a0a501182ada07b5492e654712c6fa5e0e08.json",
+      "sha256": "d6cb092fb9bd71b793cd5b3f921a2dda1f83e3a4734f6f97415b5f5f7e9a9cda",
+      "source_url": "https://github.com/k3s-io/k3s/security/advisories/GHSA-m4hf-6vgr-75r2"
+    },
+    {
+      "fetch_url": "https://github.com/lf-edge/eve/commit/d9383a7ee4e1c39f5c8c6d4a63cb2ebd00695e8a.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/ce732ad140f12dd9f42dd726bedd3da5d94796683a80e9f6aca1965150b4b593.json",
+      "sha256": "f7e6cadb1d411d7e3f2c167d32fbfacad5f99ca091624b69a1404554ab4ae6ec",
+      "source_url": "https://github.com/lf-edge/eve/commit/d9383a7ee4e1c39f5c8c6d4a63cb2ebd00695e8a"
+    },
+    {
+      "fetch_url": "https://github.com/lf-edge/eve/security/advisories/GHSA-6jp5-grgh-jw42",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/1b08eba8ced07cabc50f261973a1dae2da0ddb88436c9e8c0c725a89548613c3.json",
+      "sha256": "1ef8a1a134618dfdba2d9caf25ff5d8f58c72dd1e156b0b7eca6d62e06ae07b8",
+      "source_url": "https://github.com/lf-edge/eve/security/advisories/GHSA-6jp5-grgh-jw42"
+    },
+    {
+      "fetch_url": "https://github.com/lf-edge/eve/security/advisories/GHSA-phcg-h58r-gmcq",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/a24312a627c0a4ef37fd29111fa62671943beb818eec6164d7709b0c39e64058.json",
+      "sha256": "1ee5ef235c19ccb7523e04dbb4cd9acea4b5970cfd1c8bb3cd280c3b3f373bcf",
+      "source_url": "https://github.com/lf-edge/eve/security/advisories/GHSA-phcg-h58r-gmcq"
+    },
+    {
+      "fetch_url": "https://github.com/magento/magento2/commit/30877fce83b793f71421c47347885cf076e81799.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/e113af579cfe75595ed1c524ae19d89d0632ddef2af1c47d19ebad93864a8ded.json",
+      "sha256": "ee62b86f41b6a5d066c35cb8edf4c5dc9327e32054113ee5d57718d99e012b8b",
+      "source_url": "https://github.com/magento/magento2/commit/30877fce83b793f71421c47347885cf076e81799"
+    },
+    {
+      "fetch_url": "https://github.com/magento/magento2/commit/a3c6d6e5e95e63031e4df26cfcf76feace7549c2.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/fd63c92829f42629d4e44cd1b1b481e5da95ea7145446f6dc84d5bc2abc1c9a4.json",
+      "sha256": "99f0eb5a91bceaafc40edebb330f770551ec6dc17fa3e9ac3fb54cdf2e2e6a7d",
+      "source_url": "https://github.com/magento/magento2/commit/a3c6d6e5e95e63031e4df26cfcf76feace7549c2"
+    },
+    {
+      "fetch_url": "https://github.com/magento/magento2/commit/c5c538810b87449886f4669cb8abbe8e5593c83c.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/1d0370d17c72e8532edbb3dadf620d3220e42ed2a6e211b4df22588269f7a640.json",
+      "sha256": "1293620b0b06d85dfc9fa767dbaee78fc6512742396c3f027fbfd25d682b61f3",
+      "source_url": "https://github.com/magento/magento2/commit/c5c538810b87449886f4669cb8abbe8e5593c83c"
+    },
+    {
+      "fetch_url": "https://github.com/magento/magento2/commit/d10435b11ada4e502dca7539f8fd31d059d3c482.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/b4a4f277c6da63f6f5c38cb3e76eb57c0cefe694f6936aea8674f5beb5eff19f.json",
+      "sha256": "21ce80e13dab59a29da4be82d0fa82acd02818d894c9410dea992acb4b17e667",
+      "source_url": "https://github.com/magento/magento2/commit/d10435b11ada4e502dca7539f8fd31d059d3c482"
+    },
+    {
+      "fetch_url": "https://github.com/micropython/micropython/commit/4bed614e707c0644c06e117f848fa12605c711cd.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/877e93cec9b92f01b7bfe9de0369a0fcda4f61c4008ceb6a44e0b7dcc38385c7.json",
+      "sha256": "171e13cd294d99dfdffbc094c00c753f2ba670fc4248eb764820cbfc50c04e52",
+      "source_url": "https://github.com/micropython/micropython/commit/4bed614e707c0644c06e117f848fa12605c711cd"
+    },
+    {
+      "fetch_url": "https://github.com/micropython/micropython/issues/13283",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/903271d3c04a1d7acdf8a226cd9f1e2db10899af1014557ba12beb351ae29722.json",
+      "sha256": "89f7ab5e9fdbae911832d175eb48c71eac22ed3760029aa66bfe597c1c77883c",
+      "source_url": "https://github.com/micropython/micropython/issues/13283"
+    },
+    {
+      "fetch_url": "https://github.com/micropython/micropython/issues/13283#issuecomment-1918479709",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/5b946c3fb7c1455b9fc368c357d287a769a43d47fcfb426ba95abddbfacbf5ce.json",
+      "sha256": "8b3545ab037504238c64e4373cf6ee80b377e8d985ba78032c5a56b6908100f8",
+      "source_url": "https://github.com/micropython/micropython/issues/13283#issuecomment-1918479709"
+    },
+    {
+      "fetch_url": "https://github.com/micropython/micropython/releases/tag/v1.23.0",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/8df67fd09ca57ecf8c73852b75a67104e7c09610ea8b285f3ace95252239ac6a.json",
+      "sha256": "44ce93f7b1dff1354b0164c1872a177f971f8342e7bec5eb00daed436873a14b",
+      "source_url": "https://github.com/micropython/micropython/releases/tag/v1.23.0"
+    },
+    {
+      "fetch_url": "https://github.com/mlflow/mlflow/commit/6dde93758d42455cb90ef324407919ed67668b9b.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/075b21bd0d92a0c0475fd3dd6430bac62ccab3f4c7430b78e9f12b5b82b76feb.json",
+      "sha256": "feb8b3682c906743f78e223a1548c1f9ddb729aafb081398763d41ca8ca3fb5e",
+      "source_url": "https://github.com/mlflow/mlflow/commit/6dde93758d42455cb90ef324407919ed67668b9b"
+    },
+    {
+      "fetch_url": "https://github.com/openjdk/jfx/commit/0a52a4cf1d1226e7a3c6d73313fde02e7f36fb11.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/5d383a1836792fc68728d784663c974f355426d12c5fcebc4b24c16a79977668.json",
+      "sha256": "40b7bf1759ae5c0d42730e21a283f0762f98c88095ecfad15a9f1a7db98b2872",
+      "source_url": "https://github.com/openjdk/jfx/commit/0a52a4cf1d1226e7a3c6d73313fde02e7f36fb11"
+    },
+    {
+      "fetch_url": "https://github.com/openjdk/jfx17u/commit/18206453163dec04f36f8787ce73624bb9ba6a7d.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/4a00e7a6e597f644573c933270cdcbc3f5e2b6dc33cc45623ec3dc9831da986f.json",
+      "sha256": "106af496919b875a3672ac6e82b2aa08c88e4817f79e09cd475bc7fad4d6b84f",
+      "source_url": "https://github.com/openjdk/jfx17u/commit/18206453163dec04f36f8787ce73624bb9ba6a7d"
+    },
+    {
+      "fetch_url": "https://github.com/openjdk/jfx21u/commit/0c00753da13ed696b1a5025ce01ff478ee7ebd0a.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/81037cc7bf5cc448e1b0c7f2ed9b3e0ef6bfc78b0e839f0d07d89b6265cc9e7d.json",
+      "sha256": "ab4df51eeb087b8205745c0c38892ebded28c2e7e55b7e07c20a69c7669537f6",
+      "source_url": "https://github.com/openjdk/jfx21u/commit/0c00753da13ed696b1a5025ce01ff478ee7ebd0a"
+    },
+    {
+      "fetch_url": "https://github.com/openstack/storlets/commit/5ad58804af885db3eb7a78bea5000c401eeeb70e.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/3bae68fec935b5da87332d8dd2190360d006cb4a928fd136dda50462af3daec3.json",
+      "sha256": "79400e67d2cb037a0ffed2f71a2726e4c81017f639d6d8d448d44c5483e5fb40",
+      "source_url": "https://github.com/openstack/storlets/commit/5ad58804af885db3eb7a78bea5000c401eeeb70e"
+    },
+    {
+      "fetch_url": "https://github.com/pypa/advisory-database/tree/main/vulns/micropython-copy/PYSEC-2024-92.yaml",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/daf8157ffc95347706bcaa1c4d5ac44c0f3e43039a0d1cafd570e0bccb66f53c.json",
+      "sha256": "57e1c055fc3ad6911db1e3b7e907d1fc753e5b01d18d5f0609ca2650f6815aa3",
+      "source_url": "https://github.com/pypa/advisory-database/tree/main/vulns/micropython-copy/PYSEC-2024-92.yaml"
+    },
+    {
+      "fetch_url": "https://github.com/pypa/advisory-database/tree/main/vulns/micropython-io/PYSEC-2024-94.yaml",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/ba0130b4dd964b44249f8ea28abd7a1402f1144223478b98544e222801c5ee63.json",
+      "sha256": "f18c993065c79c56daec063373e5de25b6c3f77cfa621fb7f85201449f29f5c6",
+      "source_url": "https://github.com/pypa/advisory-database/tree/main/vulns/micropython-io/PYSEC-2024-94.yaml"
+    },
+    {
+      "fetch_url": "https://github.com/pypa/advisory-database/tree/main/vulns/mlflow/PYSEC-2023-308.yaml",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/eb45601d126c8a9ddd9d86018ebd738fd76914260c4740e82d653b8997561bab.json",
+      "sha256": "b5952f7b85c9a0d0064d35f50701148493a1ac1e6bc2391874c4c699f11a27ab",
+      "source_url": "https://github.com/pypa/advisory-database/tree/main/vulns/mlflow/PYSEC-2023-308.yaml"
+    },
+    {
+      "fetch_url": "https://github.com/tj-actions/branch-names/commit/4923d1ca41f928c24f1c1b3af9daaadfb71e6337.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/c0914de0f2a767e1c098cdf19b9ead14f1f61ca62e96a9a6ba29b117c06c2b69.json",
+      "sha256": "9e5912e94726a32b5a7dc18705237e6c9eb3ac3725f16af61cf423dabacf4688",
+      "source_url": "https://github.com/tj-actions/branch-names/commit/4923d1ca41f928c24f1c1b3af9daaadfb71e6337"
+    },
+    {
+      "fetch_url": "https://github.com/tj-actions/branch-names/commit/6c999acf206f5561e19f46301bb310e9e70d8815.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/5d58797f6a6ea2976635f7bb42a02c58521023ae9598d7842a33a03a9273e08c.json",
+      "sha256": "d6a119ee54d2b42cf2099816e331d1e8ef11f990ec7d7a2f917b3b99a7a6c338",
+      "source_url": "https://github.com/tj-actions/branch-names/commit/6c999acf206f5561e19f46301bb310e9e70d8815"
+    },
+    {
+      "fetch_url": "https://github.com/tj-actions/branch-names/commit/726fe9ba5e9da4fcc716223b7994ffd0358af060.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/915215b154161aa9af471522af8b0ecdd32cf684754c872c4c17404acab32fa0.json",
+      "sha256": "95418c1e4707a1fb4cf31dc522c033a647bc6206db0ee2cefa59bd448109b463",
+      "source_url": "https://github.com/tj-actions/branch-names/commit/726fe9ba5e9da4fcc716223b7994ffd0358af060"
+    },
+    {
+      "fetch_url": "https://github.com/tj-actions/branch-names/security/advisories/GHSA-8v8w-v8xg-79rf",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/38b636f638ba97a56e0e4bf6aed7003ac4f78a94d9d08f8a5c2a935d5ec4eb19.json",
+      "sha256": "5fba315b1649eb7be66704af6073e682f7c30196da5c7729552e58dfa4ec6385",
+      "source_url": "https://github.com/tj-actions/branch-names/security/advisories/GHSA-8v8w-v8xg-79rf"
+    },
+    {
+      "fetch_url": "https://github.com/traefik/traefik/releases/tag/v2.10.6",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/7f66f17de86aa9b6008eac45fa1da838ea73e1406ee467dafbd229cd73c14c1c.json",
+      "sha256": "11c836ceb52b4e8faa4a94a8b626a0d92a18469855cd7b195760fce02e78f117",
+      "source_url": "https://github.com/traefik/traefik/releases/tag/v2.10.6"
+    },
+    {
+      "fetch_url": "https://github.com/traefik/traefik/releases/tag/v3.0.0-beta5",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/be848ffd22b1c274a9971654cce5564b882bfd8ee23d5c9fe828399f701ff016.json",
+      "sha256": "489c61f9820f37316ff78986f317a73f09b1c838fbe7319114ab37e365c957d8",
+      "source_url": "https://github.com/traefik/traefik/releases/tag/v3.0.0-beta5"
+    },
+    {
+      "fetch_url": "https://github.com/traefik/traefik/security/advisories/GHSA-8g85-whqh-cr2f",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/4ae3918d4b13ff244e89bfc008f0ab181d767c078df931866a210ffe8ec394b1.json",
+      "sha256": "3473e7eb996320c4634324787acba3f7100cfa1cdb4712f337c22c975e1e5782",
+      "source_url": "https://github.com/traefik/traefik/security/advisories/GHSA-8g85-whqh-cr2f"
+    },
+    {
+      "fetch_url": "https://github.com/umbraco/Umbraco.Forms.Issues/security/advisories/GHSA-2qrj-g9hq-chph",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/5194e3d1e02086473b4dff7da6e50d26e46fd7a73006393ce0fd25140837e89b.json",
+      "sha256": "deaf2ba3bd3fb2efb6b9f1b751e6656c01cc9b8781190744e97d523a4076ae97",
+      "source_url": "https://github.com/umbraco/Umbraco.Forms.Issues/security/advisories/GHSA-2qrj-g9hq-chph"
+    },
+    {
+      "fetch_url": "https://github.com/weaviate/weaviate/commit/2a7b208d9aca07e28969e3be82689c184ccf9118.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/600b1e7d1fb7b7c28d5aec1d6f64f8894cdace14795e46885fbde374c8a08042.json",
+      "sha256": "18d87acff39f1f7a57bb25723e7eea427888ccf63d6c6bd63604cacd2bc0cef1",
+      "source_url": "https://github.com/weaviate/weaviate/commit/2a7b208d9aca07e28969e3be82689c184ccf9118"
+    },
+    {
+      "fetch_url": "https://github.com/weaviate/weaviate/issues/3258",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/0a77d6376eae29221b1f7e18e535c5ac0ea67dee3beb91edfcccb07cfd39c83e.json",
+      "sha256": "61aa379e0f387aba06c41c26840e0b2c93bbb9e2894daa7d7ec2e4c25449150c",
+      "source_url": "https://github.com/weaviate/weaviate/issues/3258"
+    },
+    {
+      "fetch_url": "https://github.com/weaviate/weaviate/pull/3431.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/e0beb24f50a42a4c5216c6b43bff68356ac981d65304daf7f693872926701313.json",
+      "sha256": "306c70a35f052fe0fe34087b3404d6e1985dc857ec8beef2b31eec5656d7fe42",
+      "source_url": "https://github.com/weaviate/weaviate/pull/3431"
+    },
+    {
+      "fetch_url": "https://github.com/weaviate/weaviate/releases/tag/v1.18.6",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/2ced0d47508c2726a4881b34954023aafe6a9f22618ea72ece896d314e46c68b.json",
+      "sha256": "c02a9c47b5cb9db4c583fa47a243cf610a65ce02804055fb797dd8427808f3b7",
+      "source_url": "https://github.com/weaviate/weaviate/releases/tag/v1.18.6"
+    },
+    {
+      "fetch_url": "https://github.com/weaviate/weaviate/releases/tag/v1.19.13",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/4620b7675e8c9a3b2476e1c016449c57bc8e892ff9407dc70675b1b4351f1d07.json",
+      "sha256": "b398c70b2de503bd62b56bbd2ce350c64989eaa35c49a5069602801b8885c043",
+      "source_url": "https://github.com/weaviate/weaviate/releases/tag/v1.19.13"
+    },
+    {
+      "fetch_url": "https://github.com/weaviate/weaviate/security/advisories/GHSA-8697-479h-5mfp",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/9bc4963d97a16fe5c5f4b62cbd3eb38b3b19ef65b73cd9b81b387a9bf238f705.json",
+      "sha256": "78953de01b088ac662042a2b63b90eba0732b3961a178e557d85331cf9fe863d",
+      "source_url": "https://github.com/weaviate/weaviate/security/advisories/GHSA-8697-479h-5mfp"
+    },
+    {
+      "fetch_url": "https://github.com/wiremock/wiremock/security/advisories/GHSA-pmxq-pj47-j8j4",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/0663578a2d2aae896c7e1b445f1f8a0451c12457a72e47273af4d01be9eb19a1.json",
+      "sha256": "91442b9e5e0db5b804c6be8cdb83c2d6f5bbf0fee30f19ba23f78bb091ca94ef",
+      "source_url": "https://github.com/wiremock/wiremock/security/advisories/GHSA-pmxq-pj47-j8j4"
+    },
+    {
+      "fetch_url": "https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/22c711f27fbc3e52e1840a2aee877d8edfbecc0c7279221881e5b239862eea9f.json",
+      "sha256": "b44966e985d34530c68309c77dc7454d4793378400189b11aae3977313a8dc89",
+      "source_url": "https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb23-50.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/d2a8beac0c1e6ac07364cfd41c262c473b4fdf5d563033db936e7737f3f5d9bf.json",
+      "sha256": "dcc0620872d8c755ffd6fe2fcaa08ae4b1384797ca84a23478692ac413832370",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb23-50.html"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb24-40.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/7c9ccd8414f69399992d68ba6a6fc132387472f96e36d786c57d8762946895e8.json",
+      "sha256": "66f3d6f770a2eaeb864e55294a1711659a11cf79637e118b04f83af8534c9790",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb24-40.html"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb24-61.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/7d4605c1a85125305bdb67decb1794533ed3ebda611f8f84874f2a918e619bed.json",
+      "sha256": "5eb86b1f4b5e60bf7483e2d83a9a15a8329b2b271ac953bb03a9e26ea1c94c50",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb24-61.html"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb24-73.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/a1bb25631e647e7ecf35b236f197de18a70ab86bbc89fa43f672001a44b4f732.json",
+      "sha256": "3d7ba829666fee887cb4a988a221b480e38a42b1ab1ac0cf4911bb75fef2d049",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb24-73.html"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb25-08.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/570dfbaaef8c2a2400dd87498463fbe3e467335e69f103a6ddda4fb7e74a0301.json",
+      "sha256": "8fd4f3da6a0796b6b3159c02711172aa9afc1693dc5e13f1a6da958e99c2b5c8",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb25-08.html"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb25-26.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/e9ade8baecfee941b94a6e2afbab5c2a3e66ba1116de5d2b0fe2c53e04d3a2f9.json",
+      "sha256": "bce24ea6d8dd0e9f638716884759ad93a4ecd38f28eb6919b78d85efecfdd8aa",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb25-26.html"
+    },
+    {
+      "fetch_url": "https://helpx.adobe.com/security/products/magento/apsb25-71.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/90a22bc3ef355139c3365462b2e0890fa6aff84a92a0ed5d781e35e6863a8533.json",
+      "sha256": "e0ec0ae9c0f89ed0ef3132346f447176f1534d68008642887a8fef2b95b1e760",
+      "source_url": "https://helpx.adobe.com/security/products/magento/apsb25-71.html"
+    },
+    {
+      "fetch_url": "https://huntr.com/bounties/731a6cd4-d05f-4fe6-8f5b-fe088d7b34e0",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/eaf0f1c68a616f9b584dc2f3740cb5541c9b9d6cef0e57f9c4d32bf48c0df703.json",
+      "sha256": "85c338454f36ee1dc1fdcf59be1fdf5b32c5df2a3291bf22e0a09f6183675294",
+      "source_url": "https://huntr.com/bounties/731a6cd4-d05f-4fe6-8f5b-fe088d7b34e0"
+    },
+    {
+      "fetch_url": "https://huntr.com/bounties/8b642a78-2b80-4fb0-9b2f-8ba0ff37db6a",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/cbcd435a23d30fb75ff32c11c579fbd08256cedcb16bd95e9735aa2beadc1cc6.json",
+      "sha256": "6b7a1735b8e4684a093f8e6ec575148aaa67a906b7213548fb9f1e302a340d73",
+      "source_url": "https://huntr.com/bounties/8b642a78-2b80-4fb0-9b2f-8ba0ff37db6a"
+    },
+    {
+      "fetch_url": "https://huntr.dev/bounties/4be5fd63-8a0a-490d-9ee1-f33dc768ed76",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/9f35eb75e6f22facc1db63e2c3e665e6cb57315562f99042e5a475bdbfefa7fa.json",
+      "sha256": "6be0b374f6429c6a50980edaed0ce309a8b147d307a21df1a362eacd46d3d136",
+      "source_url": "https://huntr.dev/bounties/4be5fd63-8a0a-490d-9ee1-f33dc768ed76"
+    },
+    {
+      "fetch_url": "https://huntr.dev/bounties/59fe5037-b253-4b0f-be69-1d2e4af8b4a9",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/ed70718fff87ee0e347f0c07518421a40aa0b5a6b7c7dc3da9ab2fd8e5e079c2.json",
+      "sha256": "994133fe7202ea298f42cab2c0703942a2720b16895fe5e52c58baaea8be01d6",
+      "source_url": "https://huntr.dev/bounties/59fe5037-b253-4b0f-be69-1d2e4af8b4a9"
+    },
+    {
+      "fetch_url": "https://liferay.dev/portal/security/known-vulnerabilities/-/asset_publisher/jekt/content/cve-2024-26270",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/aaa68bcd06a8a8a3778e5e2129b09ccb2ba4dbee4ea901ece5817f8cefab843b.json",
+      "sha256": "e25fe353bc8a2575c3b79255b3ac6d93a4fa417e3c1d45033ace3b0562ad6aad",
+      "source_url": "https://liferay.dev/portal/security/known-vulnerabilities/-/asset_publisher/jekt/content/cve-2024-26270"
+    },
+    {
+      "fetch_url": "https://lists.debian.org/debian-lts-announce/2025/05/msg00049.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/45d4231a8389afe838992ce2368588f6ad8b6b88749156aca0dc0a6000779b8d.json",
+      "sha256": "97be608f0975b0bb5237946817e149d39cf02306be501f1aef45b762e52bc151",
+      "source_url": "https://lists.debian.org/debian-lts-announce/2025/05/msg00049.html"
+    },
+    {
+      "fetch_url": "https://mattermost.com/security-updates",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/f206f3c8d6a8299b4e9348a3650c96cf6dbd57b6b8570e77dcce761da30b98df.json",
+      "sha256": "0fa6695ac27772e28e768f4a5ec67ecfea6e2754f88b6360492bf4dee664a09d",
+      "source_url": "https://mattermost.com/security-updates"
+    },
+    {
+      "fetch_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43498",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/6964c2bf32ed53ea6b7c1cfbf5f740798d5384b05166d00faf21d20338ed9b0e.json",
+      "sha256": "1f4d2bf2dd70390bba24c1ec451de0b25e71d144a463439070b028e520f751cb",
+      "source_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43498"
+    },
+    {
+      "fetch_url": "https://nlnetlabs.nl/downloads/bcder/CVE-2023-39914.txt",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/3209fbe462350d45a2db35ae151667db2d6b1770f4f4ddd0410443b07f4a2e75.json",
+      "sha256": "550f36f29c82073d6a7e8f1b4ebd0af28c224e3fd56b10a303642824d2e38570",
+      "source_url": "https://nlnetlabs.nl/downloads/bcder/CVE-2023-39914.txt"
+    },
+    {
+      "fetch_url": "https://openjdk.org/groups/vulnerability/advisories/2024-01-16",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/aa917b0bf57f0c220d190332151d95fd89535dbddef5f89d303e35e6f920521d.json",
+      "sha256": "eb9c2a262aa557d948cacf67dcfaecbcfb2a86b3f8e601402eb14de8a33103f1",
+      "source_url": "https://openjdk.org/groups/vulnerability/advisories/2024-01-16"
+    },
+    {
+      "fetch_url": "https://raw.githubusercontent.com/ansible-community/ansible-build-data/16d36538b96c65d9e0e28d89781361b69857ac0e/8/CHANGELOG-v8.rst",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/9accf515ec4804cfeaa267779bed35c0f7f565f22219ac1f1b04c6b18c46a501.json",
+      "sha256": "8d82f0747f0217542ada5eb0ef6925acb0ae428aa56cf70359ea67a68fc30575",
+      "source_url": "https://github.com/ansible-community/ansible-build-data/blob/16d36538b96c65d9e0e28d89781361b69857ac0e/8/CHANGELOG-v8.rst#L221"
+    },
+    {
+      "fetch_url": "https://raw.githubusercontent.com/corydolphin/flask-cors/main/flask_cors/extension.py",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/0408a07bba968bfa16b59675ead2810d1532a668e2f8e6e3fc5f1b4f474955ea.json",
+      "sha256": "3ec2674d1b30b185181d80ab273e33e43f62a9d3348e9a68b526ab46348abcec",
+      "source_url": "https://github.com/corydolphin/flask-cors/blob/main/flask_cors/extension.py#L193"
+    },
+    {
+      "fetch_url": "https://raw.githubusercontent.com/openjdk/jfx/4beeb89f864ccf1424db36c9739a7f6999adeecc/doc-files/release-notes-22.md",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/0fd6bcb5102d7eac8aa46661e5ee13979a1eabec230eac94e708f8362fd1a46e.json",
+      "sha256": "5a468cd95ad405676264fd4d764ef77350bb2082edd5f3249cc14204d9de65ab",
+      "source_url": "https://github.com/openjdk/jfx/blob/4beeb89f864ccf1424db36c9739a7f6999adeecc/doc-files/release-notes-22.md?plain=1#L122"
+    },
+    {
+      "fetch_url": "https://rustsec.org/advisories/RUSTSEC-2023-0062.html",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/7c9c9f993340c72daae407d1e42c95fb9c033ba6b07f4c50b9113361ee9ebc1a.json",
+      "sha256": "54ebd8aec063db3b80018709ae56a58e06b774ea10ad471f3973f9db5c3486bc",
+      "source_url": "https://rustsec.org/advisories/RUSTSEC-2023-0062.html"
+    },
+    {
+      "fetch_url": "https://security.netapp.com/advisory/ntap-20240201-0002",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/436bad004f625e4484b8e0e02d6d4ff1b1d6d81299436d920d2aa3c24823d66f.json",
+      "sha256": "9c9afbab4b49094abb2221245450f115d54cf632d2a68b4a9e065ab4ec380810",
+      "source_url": "https://security.netapp.com/advisory/ntap-20240201-0002"
+    },
+    {
+      "fetch_url": "https://securitylab.github.com/research/github-actions-untrusted-input",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/34a5cb0ec2775540b29b59c7c80d489e2db6a7418381b89b3fcbde824cfcddd6.json",
+      "sha256": "34290f21a12821d797366f829abc93c676b92ea483a137f41081af0d8f1acbcf",
+      "source_url": "https://securitylab.github.com/research/github-actions-untrusted-input"
+    },
+    {
+      "fetch_url": "https://vuldb.com/?ctiid.231626",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/28eca46cd44dafeb2a6c277384e0df9fd4e385829ac869cf34c0d5cdf10d6d7a.json",
+      "sha256": "c8779aca419c617f7014a40bc4023113bb052a03c134c53c0a84f8fc648b83e2",
+      "source_url": "https://vuldb.com/?ctiid.231626"
+    },
+    {
+      "fetch_url": "https://vuldb.com/?id.231626",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/1b8dd838a039efa7e7e37aaeba27edead178dd91beded4b94d288397e3926424.json",
+      "sha256": "b3c93b1f9dfa90c068a4b56173748db8e92ea0830368aa769c9f85ccebb275a9",
+      "source_url": "https://vuldb.com/?id.231626"
+    },
+    {
+      "fetch_url": "https://wiremock.org/docs/configuration/#preventing-proxying-to-and-recording-from-specific-target-addresses",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/aa738d4bc5769d715468920008c2d142f991f0ebab902c18c562f46c35095cdc.json",
+      "sha256": "5f0febfa609d0bb28c67bc63c6fd00043316cc8b6537564b04f338bcb0cda155",
+      "source_url": "https://wiremock.org/docs/configuration/#preventing-proxying-to-and-recording-from-specific-target-addresses"
+    },
+    {
+      "fetch_url": "https://www.jenkins.io/security/advisory/2023-05-16/#SECURITY-3001%20(2)",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/8ee88fbb17b35b6e5c5e60dd094432673a7588bac0fd3b40644f3793606633a4.json",
+      "sha256": "4646c9e1987b0e8f1dc56df77d38d59c3fccae5f60657a41a6ce115f8f38dff4",
+      "source_url": "https://www.jenkins.io/security/advisory/2023-05-16/#SECURITY-3001%20(2)"
+    },
+    {
+      "fetch_url": "https://www.jenkins.io/security/advisory/2023-12-13/#SECURITY-3203",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/typing_unresolved_evidence_secondary_v1/url_cache/973fe206e689274a3acb7c21f7eb433b5e76c333a897d668be8aceefc34cf16d.json",
+      "sha256": "7c92db2eb0785330949a384b41c0daac0c364d7f4cf05c28b9408327d9b22a6a",
+      "source_url": "https://www.jenkins.io/security/advisory/2023-12-13/#SECURITY-3203"
+    }
+  ],
+  "outputs": {
+    "blind_worklist_d": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/blind/worklist_d.blind.jsonl",
+      "sha256": "ec19ad7362db4091052a8985cbba2e0bf93337fad8562a816cda9d11592e25bb"
+    },
+    "blind_worklist_e": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/blind/worklist_e.blind.jsonl",
+      "sha256": "5538138900e8e0e402852fd86896227949afbd5619859a17542ba214c8e61392"
+    },
+    "author_triage": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/author_triage.jsonl",
+      "sha256": "03121fd89c07a1f96cf815869a5458fa04f51f5bebe674b9a80440f1ac0d0483",
+      "reviewer_visible": false
+    },
+    "reviewer_d": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/reviewer_d.jsonl",
+    "reviewer_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/reviewer_e.jsonl",
+    "reviewer_d_requests": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/reviewer_d.requests.jsonl",
+    "reviewer_e_requests": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/reviewer_e.requests.jsonl"
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_backend": "codex-cli",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_d_pass_id": "rq2_typing_unresolved_evidence_v1_d",
+    "reviewer_e_pass_id": "rq2_typing_unresolved_evidence_v1_e",
+    "schedule": "input",
+    "opposite_input_order": true,
+    "minimum_cited_successful_evidence_urls": 1,
+    "citation_required_fields": [
+      "affected_versions",
+      "cwe_ids",
+      "references"
+    ],
+    "resolution_rule": "strict D/E consensus only; prior A/B/C votes are excluded; citation-required fields need one successful frozen URL per reviewer"
+  },
+  "boundary": {
+    "same_model_family": true,
+    "human_gold_claim_allowed": false,
+    "accuracy_claim_allowed": false,
+    "confirmatory_claim_allowed": false,
+    "production_switch_allowed": false,
+    "threshold_relaxation_after_results_allowed": false
+  }
+}

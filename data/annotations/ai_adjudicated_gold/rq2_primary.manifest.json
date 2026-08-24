@@ -1,0 +1,44 @@
+{
+  "schema_version": "ai_adjudicated_gold_v1",
+  "dataset": "rq2_primary",
+  "artifact_role": "ai_gold_primary",
+  "row_count": 300,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "eligible_for_provisional_candidate_analysis": true,
+  "human_signed_rows": 0,
+  "candidate_input": "/home/xiaoyuliang/code/vuln-adj/data/annotations/expert_candidate/raw/rq2_primary.jsonl",
+  "candidate_sha256": "611963c2f244489d1fba3ee90b480aea658146ad57a95a5a7f66f198ae73777d",
+  "adjudication_input": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/adjudication_passes/rq2_primary.jsonl",
+  "adjudication_sha256": "4a5134dd95606725ceabe953ad1c50d777887648ddbfb5781451d13a2feb4996",
+  "required_worklist": "/home/xiaoyuliang/code/vuln-adj/results/ai_adjudicated_gold/worklists/rq2_primary_risk.jsonl",
+  "required_worklist_sha256": "d4b09f723d04dafdc20b4f2b95d5fa5974a15c37e8541f28d52e4c508eb5cfaa",
+  "risk_worklist_rows": 53,
+  "risk_rows_adjudicated": 53,
+  "changed_label_count": 14,
+  "changed_source_count": 0,
+  "requires_additional_review_count": 18,
+  "label_counts": {
+    "equivalent": 40,
+    "factual_conflict": 39,
+    "incomplete": 87,
+    "representation_discrepancy": 86,
+    "temporal_discrepancy": 30,
+    "uncertain": 18
+  },
+  "source_counts": {
+    "abstain": 300
+  },
+  "decision_origin_counts": {
+    "interactive_ai_adjudication": 53,
+    "single_pass_candidate_accepted": 247
+  },
+  "output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/rq2_primary.jsonl",
+  "output_sha256": "2632c03e634a9801c0dee2c41ff93725409c756bc411bd25379d6cb470043a26",
+  "cautions": [
+    "This snapshot is AI-adjudicated gold, not human-gold.",
+    "Interactive adjudication and prior candidates are not independent human annotations.",
+    "Rows marked final_abstain intentionally preserve unresolved uncertainty.",
+    "Human annotator, independent reviewer, and author sign-off remain required for a human-gold claim."
+  ]
+}

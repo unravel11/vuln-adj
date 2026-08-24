@@ -1,0 +1,132 @@
+{
+  "artifact_type": "rq2_residual_nonaffected_evidence_seal",
+  "candidate_promotion_allowed": false,
+  "eligible_for_human_gold_claim": false,
+  "evidence": {
+    "cwe_248": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/af01dac67eb27c67bbf90eb43074dfc360e32e9fe02716275ffedc19633bac5a.body",
+      "body_sha256": "897df7b223baf1032c6113ead29f537e95c1075505802b0e3c09cb61fb6023ac",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/af01dac67eb27c67bbf90eb43074dfc360e32e9fe02716275ffedc19633bac5a.metadata.json",
+      "metadata_sha256": "5b88274e5e314bcdec3ccde253de538c9ce917adf5e72baf2d13f36d367776e5",
+      "url": "https://cwe.mitre.org/data/definitions/248.html"
+    },
+    "cwe_284": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/21901885a68b7d86b127b87237eb4ecf77f1feed2f98bdd5889537add9ac19c2.body",
+      "body_sha256": "31db34fe191184dab49bab7627cf81f483cf6e04fd15ae4e333e86fa2599155e",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/21901885a68b7d86b127b87237eb4ecf77f1feed2f98bdd5889537add9ac19c2.metadata.json",
+      "metadata_sha256": "93d8aa406df317021c3f456bedbc8bff8cc5f4d58b82938f4e8715cc1a447bfe",
+      "url": "https://cwe.mitre.org/data/definitions/284.html"
+    },
+    "cwe_400": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/13082034f0bf83c14e471845b2573bb4b198b4d20bb9d19e6ca3b772ca342f8b.body",
+      "body_sha256": "4a81e70ea642db7c361deccb236a2d5a12d06cbb92b4d6a15b01188811f969ed",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/13082034f0bf83c14e471845b2573bb4b198b4d20bb9d19e6ca3b772ca342f8b.metadata.json",
+      "metadata_sha256": "a9ff65c007c3b6162b1eb860594c043545af54f85cf910c29222970f090ff0a6",
+      "url": "https://cwe.mitre.org/data/definitions/400.html"
+    },
+    "cwe_840": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/0eaf1b05a277c10a836c66127a888edcd2b58d421336e67d2dbd66e36ad10118.body",
+      "body_sha256": "7132c8c5fa13c0cbe32b691d63fcfbfb1dd2d2bdd17250d607374a1cf619bc3b",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/0eaf1b05a277c10a836c66127a888edcd2b58d421336e67d2dbd66e36ad10118.metadata.json",
+      "metadata_sha256": "720c702d61b3ff19f2fc278f92d1c96a1e84b4d7913abbc1602ca6d3c99c3f84",
+      "url": "https://cwe.mitre.org/data/definitions/840.html"
+    },
+    "cwe_862": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/0e51b4161e70688943e34da9f2d91753ece53403110e7e7af48f5e39a334da0f.body",
+      "body_sha256": "acbe5764b929e5c188359343cfb0bb9b344d77fa9f0245137111b250fe7fee73",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/0e51b4161e70688943e34da9f2d91753ece53403110e7e7af48f5e39a334da0f.metadata.json",
+      "metadata_sha256": "caf836c27af64f231fa896c7f194eb61fa9f976aaf80d503f42e60e83472c39a",
+      "url": "https://cwe.mitre.org/data/definitions/862.html"
+    },
+    "froxlor_advisory": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/c6008303322f4550c0a51eff5ccbb5a53176db15123346452e30b9abdc10e723.body",
+      "body_sha256": "e4de28689f2c435e41d7ccad1beedebd653bef5f50ccbce181f20ebae4c2002c",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/c6008303322f4550c0a51eff5ccbb5a53176db15123346452e30b9abdc10e723.metadata.json",
+      "metadata_sha256": "d8d240ac541cfa3805b112f5b98a97d6614e847b5e078092dce43bb4bed2acc2",
+      "url": "https://api.github.com/advisories/GHSA-9rmf-6qgj-g3wj"
+    },
+    "froxlor_patch": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/80eb2bbab3e92cc2e506204e877c27e67731a632bdf7fa14bf18fd5b14bae5d1.body",
+      "body_sha256": "471bec84030fd4801864f8cd6fe8bc6eff7506c6e0df7ca9fc922df48ee74521",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/80eb2bbab3e92cc2e506204e877c27e67731a632bdf7fa14bf18fd5b14bae5d1.metadata.json",
+      "metadata_sha256": "e1f8a74c50a306c34a7cf2900bd19945683d61421b3879c3c02292b2c239049f",
+      "url": "https://github.com/froxlor/froxlor/commit/ce9a5f97a3edb30c7d33878765d3c014a6583597.patch"
+    },
+    "k3s_advisory": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/4432da8db790cbe1b6b7ecb5e31f5f8e3ef9c4d7ac2fda8b3b3a899cae52c5bb.body",
+      "body_sha256": "421cc5021279f75d4f3a22de98819261dd22931575fb551391d77370adbd3538",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/4432da8db790cbe1b6b7ecb5e31f5f8e3ef9c4d7ac2fda8b3b3a899cae52c5bb.metadata.json",
+      "metadata_sha256": "d7bbc117b22873e8a91d189362655ae3a883a5e8f8c169af05ab950646cbf705",
+      "url": "https://api.github.com/advisories/GHSA-m4hf-6vgr-75r2"
+    },
+    "lightning_advisory": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/83d3a0b02c7e50f2ef34e066dae119539685895446daef006b2ccba886e08faa.body",
+      "body_sha256": "727dad9ed14dcc0de2702aa7e2d4ebf4b1ebcca43cdfc0039a09ca656eda911f",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/83d3a0b02c7e50f2ef34e066dae119539685895446daef006b2ccba886e08faa.metadata.json",
+      "metadata_sha256": "4698277a2ed05739acec986cef33eadc7ac7c608fdaee025648ae26739835f92",
+      "url": "https://api.github.com/advisories/GHSA-98fp-7v67-4v3q"
+    },
+    "lightning_api_source": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/6d158fcadb287dbf8a99656aae5b9d03bd77dad90ffb7f3b1d6d1eaada31d9c9.body",
+      "body_sha256": "a196089ed1e81e8badfe86226d207b17025a32e2758d4f4dcfd4519f0567fb06",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/6d158fcadb287dbf8a99656aae5b9d03bd77dad90ffb7f3b1d6d1eaada31d9c9.metadata.json",
+      "metadata_sha256": "207eff996463df0d9af070ccce21a029cca679a0a89f831878fbe5e9da7c818d",
+      "url": "https://raw.githubusercontent.com/Lightning-AI/pytorch-lightning/056bb0834b8fca739dec3e731b01f2f6631be142/src/lightning/app/core/api.py"
+    },
+    "suse_malformed_double_slash": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/fe1015c9ab21266df1ea8733fdd6a8dc7b0544395b97e01c8cf5c9c8fed3a33f.body",
+      "body_sha256": "59f3c2fc91f23e6192f3292e6bcf5d608567b880a0135e641eab7ed8bd22b282",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/fe1015c9ab21266df1ea8733fdd6a8dc7b0544395b97e01c8cf5c9c8fed3a33f.metadata.json",
+      "metadata_sha256": "c196067aea69a7da1cd809ad41aaa2a59453bce7bb0b9b287c07ff82da823112",
+      "url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2023-32187https://"
+    },
+    "suse_malformed_single_slash": {
+      "body_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/4e203b4b3e15a8d52bd8c7b9469637a972a06eb6c75549eed23c0e95b077a8bb.body",
+      "body_sha256": "66a4b350608e03c9e383a9251d6544ff160c4be9d5e23e0642a3e57ced61bf50",
+      "metadata_path": "data/evidence_cache/rq2/residual_nonaffected_evidence_v1/4e203b4b3e15a8d52bd8c7b9469637a972a06eb6c75549eed23c0e95b077a8bb.metadata.json",
+      "metadata_sha256": "bc168e6648e4285a810316e9c369ce1fa5e27f54c3a1605669b65fdb38fa6f82",
+      "url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2023-32187https:/"
+    }
+  },
+  "inputs": {
+    "builder": {
+      "path": "experiments/rq2_discrepancy_typing/build_rq2_residual_nonaffected_evidence.py",
+      "sha256": "ecc872a8573006f12c49a5b6dd5fed88b86c3b1059ac76995a6778a72cc9d1ef"
+    },
+    "consensus": {
+      "path": "results/holdout/rq2_typing_v1/tiebreak_v1/evidence_secondary_v1/dual_review_consensus.jsonl",
+      "sha256": "232c2bf65f191babc80592613a8529f7b045d3e66f5121996e0e84acbe576e15"
+    },
+    "contract": {
+      "path": "docs/annotation_guidelines/rq2_residual_nonaffected_evidence_contract_v1.md",
+      "sha256": "6758b54b48b74af7533524963f04177d1bfc3808ca1866f15c7d76d1ed9741f6"
+    },
+    "source": {
+      "path": "data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+      "sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5"
+    }
+  },
+  "label_is_human": false,
+  "output": {
+    "worklist": {
+      "path": "data/annotations/holdout/rq2_typing_v1/tiebreak_v1/residual_nonaffected_evidence_v1/worklist.evidence.jsonl",
+      "row_count": 3,
+      "sha256": "715dc955c4314d4701b691bd15724f20cf0d95f4bc77b9710aa1dfa8fd50770d"
+    }
+  },
+  "post_unsealing_targeted_diagnostic": true,
+  "protocol_discovery_disclosed": true,
+  "schema_version": "rq2_residual_nonaffected_evidence_v1",
+  "sealed_at": "2026-07-19T04:27:23.803539+00:00",
+  "selection": {
+    "candidate_labels_copied_to_worklist": false,
+    "reviewer_rationales_copied_to_worklist": false,
+    "rule": "secondary_strict_consensus_false_and_field_not_affected_versions",
+    "sample_ids": [
+      "rq2_typing_holdout_v1:1023",
+      "rq2_typing_holdout_v1:1118",
+      "rq2_typing_holdout_v1:787"
+    ],
+    "selection_uses_prior_unresolved_status": true
+  }
+}

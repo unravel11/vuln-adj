@@ -1,0 +1,268 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl",
+  "output_dir": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2",
+  "seed": 20260524,
+  "target_per_field": 60,
+  "sampled_count": 300,
+  "fields": [
+    "severity",
+    "published",
+    "references",
+    "affected_versions",
+    "cwe_ids"
+  ],
+  "statuses": [
+    "equivalent",
+    "representation_discrepancy",
+    "incomplete",
+    "temporal_discrepancy",
+    "factual_conflict"
+  ],
+  "strata": [
+    {
+      "field": "severity",
+      "baseline_status": "equivalent",
+      "candidate_count": 3106,
+      "sampled_count": 15
+    },
+    {
+      "field": "severity",
+      "baseline_status": "representation_discrepancy",
+      "candidate_count": 3178,
+      "sampled_count": 15
+    },
+    {
+      "field": "severity",
+      "baseline_status": "incomplete",
+      "candidate_count": 33,
+      "sampled_count": 15
+    },
+    {
+      "field": "severity",
+      "baseline_status": "temporal_discrepancy",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "severity",
+      "baseline_status": "factual_conflict",
+      "candidate_count": 1749,
+      "sampled_count": 15
+    },
+    {
+      "field": "published",
+      "baseline_status": "equivalent",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "published",
+      "baseline_status": "representation_discrepancy",
+      "candidate_count": 6169,
+      "sampled_count": 30
+    },
+    {
+      "field": "published",
+      "baseline_status": "incomplete",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "published",
+      "baseline_status": "temporal_discrepancy",
+      "candidate_count": 1897,
+      "sampled_count": 30
+    },
+    {
+      "field": "published",
+      "baseline_status": "factual_conflict",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "references",
+      "baseline_status": "equivalent",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "references",
+      "baseline_status": "representation_discrepancy",
+      "candidate_count": 300,
+      "sampled_count": 29
+    },
+    {
+      "field": "references",
+      "baseline_status": "incomplete",
+      "candidate_count": 7763,
+      "sampled_count": 28
+    },
+    {
+      "field": "references",
+      "baseline_status": "temporal_discrepancy",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "references",
+      "baseline_status": "factual_conflict",
+      "candidate_count": 3,
+      "sampled_count": 3
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "equivalent",
+      "candidate_count": 424,
+      "sampled_count": 15
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "representation_discrepancy",
+      "candidate_count": 3931,
+      "sampled_count": 15
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "incomplete",
+      "candidate_count": 3059,
+      "sampled_count": 15
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "temporal_discrepancy",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "factual_conflict",
+      "candidate_count": 652,
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "equivalent",
+      "candidate_count": 6813,
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "representation_discrepancy",
+      "candidate_count": 23,
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "incomplete",
+      "candidate_count": 1146,
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "temporal_discrepancy",
+      "candidate_count": 0,
+      "sampled_count": 0
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "factual_conflict",
+      "candidate_count": 84,
+      "sampled_count": 15
+    }
+  ],
+  "sampled_distribution": [
+    {
+      "field": "severity",
+      "baseline_status": "equivalent",
+      "sampled_count": 15
+    },
+    {
+      "field": "severity",
+      "baseline_status": "representation_discrepancy",
+      "sampled_count": 15
+    },
+    {
+      "field": "severity",
+      "baseline_status": "incomplete",
+      "sampled_count": 15
+    },
+    {
+      "field": "severity",
+      "baseline_status": "factual_conflict",
+      "sampled_count": 15
+    },
+    {
+      "field": "published",
+      "baseline_status": "representation_discrepancy",
+      "sampled_count": 30
+    },
+    {
+      "field": "published",
+      "baseline_status": "temporal_discrepancy",
+      "sampled_count": 30
+    },
+    {
+      "field": "references",
+      "baseline_status": "representation_discrepancy",
+      "sampled_count": 29
+    },
+    {
+      "field": "references",
+      "baseline_status": "incomplete",
+      "sampled_count": 28
+    },
+    {
+      "field": "references",
+      "baseline_status": "factual_conflict",
+      "sampled_count": 3
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "equivalent",
+      "sampled_count": 15
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "representation_discrepancy",
+      "sampled_count": 15
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "incomplete",
+      "sampled_count": 15
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "factual_conflict",
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "equivalent",
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "representation_discrepancy",
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "incomplete",
+      "sampled_count": 15
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "factual_conflict",
+      "sampled_count": 15
+    }
+  ],
+  "cautions": [
+    "This is an annotation template, not a completed human gold set.",
+    "Baseline statuses are deterministic labels to audit, not ground truth.",
+    "RQ2 accuracy, macro-F1, precision, and recall require completed manual_status labels."
+  ],
+  "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/discrepancy_typing_seed.jsonl",
+  "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/discrepancy_typing_seed.csv",
+  "readme_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/README.md"
+}

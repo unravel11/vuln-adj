@@ -1,0 +1,110 @@
+{
+  "schema_version": "expert_candidate_review_v1",
+  "generated_at": "2026-07-14T20:53:58.518839+00:00",
+  "label_is_human": false,
+  "author_review_required": true,
+  "human_gold_rows": 0,
+  "datasets": [
+    {
+      "dataset": "rq2_primary",
+      "candidate_rows": 300,
+      "human_signed_rows": 0,
+      "field_counts": {
+        "affected_versions": 60,
+        "cwe_ids": 60,
+        "published": 60,
+        "references": 60,
+        "severity": 60
+      },
+      "candidate_label_counts": {
+        "equivalent": 40,
+        "factual_conflict": 32,
+        "incomplete": 86,
+        "representation_discrepancy": 95,
+        "temporal_discrepancy": 30,
+        "uncertain": 17
+      },
+      "candidate_source_counts": {
+        "abstain": 300
+      },
+      "needs_human_review_rows": 20,
+      "jsonl_path": "data/annotations/expert_candidate/review_packets/rq2_primary.review.jsonl",
+      "csv_path": "data/annotations/expert_candidate/review_packets/rq2_primary.review.csv"
+    },
+    {
+      "dataset": "rq2_review",
+      "candidate_rows": 60,
+      "human_signed_rows": 0,
+      "field_counts": {
+        "affected_versions": 12,
+        "cwe_ids": 12,
+        "published": 12,
+        "references": 12,
+        "severity": 12
+      },
+      "candidate_label_counts": {
+        "equivalent": 11,
+        "factual_conflict": 8,
+        "incomplete": 17,
+        "representation_discrepancy": 14,
+        "temporal_discrepancy": 5,
+        "uncertain": 5
+      },
+      "candidate_source_counts": {
+        "abstain": 60
+      },
+      "needs_human_review_rows": 10,
+      "jsonl_path": "data/annotations/expert_candidate/review_packets/rq2_review.review.jsonl",
+      "csv_path": "data/annotations/expert_candidate/review_packets/rq2_review.review.csv"
+    },
+    {
+      "dataset": "rq3_severity",
+      "candidate_rows": 80,
+      "human_signed_rows": 0,
+      "field_counts": {
+        "severity": 80
+      },
+      "candidate_label_counts": {
+        "factual_conflict": 67,
+        "representation_discrepancy": 12,
+        "uncertain": 1
+      },
+      "candidate_source_counts": {
+        "abstain": 1,
+        "both": 29,
+        "ghsa": 27,
+        "nvd": 23
+      },
+      "needs_human_review_rows": 21,
+      "jsonl_path": "data/annotations/expert_candidate/review_packets/rq3_severity.review.jsonl",
+      "csv_path": "data/annotations/expert_candidate/review_packets/rq3_severity.review.csv"
+    },
+    {
+      "dataset": "rq3_affected_versions",
+      "candidate_rows": 100,
+      "human_signed_rows": 0,
+      "field_counts": {
+        "affected_versions": 100
+      },
+      "candidate_label_counts": {
+        "equivalent": 2,
+        "factual_conflict": 25,
+        "incomplete": 4,
+        "representation_discrepancy": 10,
+        "temporal_discrepancy": 1,
+        "uncertain": 58
+      },
+      "candidate_source_counts": {
+        "abstain": 14,
+        "both": 22,
+        "ghsa": 10,
+        "neither": 3,
+        "nvd": 51
+      },
+      "needs_human_review_rows": 79,
+      "jsonl_path": "data/annotations/expert_candidate/review_packets/rq3_affected_versions.review.jsonl",
+      "csv_path": "data/annotations/expert_candidate/review_packets/rq3_affected_versions.review.csv"
+    }
+  ],
+  "missing_candidate_datasets": []
+}

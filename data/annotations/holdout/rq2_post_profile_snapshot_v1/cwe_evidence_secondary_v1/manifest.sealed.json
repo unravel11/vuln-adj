@@ -1,0 +1,140 @@
+{
+  "artifact_type": "rq2_post_profile_cwe_evidence_secondary_manifest_v1",
+  "sealed_at_ns": 1784443633433681757,
+  "row_count": 3,
+  "selection": {
+    "post_selection_profile_differential": true,
+    "selected_after_a_b_unsealing": true,
+    "source_profile_comparison": "cwe_taxonomy_v1",
+    "rows": [
+      {
+        "review_id": "rq2_post_profile_cwe_evidence_v1:001",
+        "sample_id": "rq2_post_profile_snapshot_v1:104",
+        "cve_id": "CVE-2026-49834",
+        "current": "factual_conflict",
+        "candidate": "representation_discrepancy",
+        "prior_strict_consensus": false,
+        "prior_consensus_label": null
+      },
+      {
+        "review_id": "rq2_post_profile_cwe_evidence_v1:002",
+        "sample_id": "rq2_post_profile_snapshot_v1:212",
+        "cve_id": "CVE-2026-28394",
+        "current": "factual_conflict",
+        "candidate": "representation_discrepancy",
+        "prior_strict_consensus": true,
+        "prior_consensus_label": "representation_discrepancy"
+      },
+      {
+        "review_id": "rq2_post_profile_cwe_evidence_v1:003",
+        "sample_id": "rq2_post_profile_snapshot_v1:248",
+        "cve_id": "CVE-2026-54771",
+        "current": "factual_conflict",
+        "candidate": "representation_discrepancy",
+        "prior_strict_consensus": false,
+        "prior_consensus_label": null
+      }
+    ]
+  },
+  "claim_boundary": {
+    "label_is_human": false,
+    "eligible_for_human_gold_claim": false,
+    "eligible_for_confirmatory_method_gain_claim": false,
+    "strict_event_time_claim_allowed": false,
+    "candidate_promotion_allowed": false,
+    "production_default_changed": false
+  },
+  "reviewer_outputs_absent_at_seal": true,
+  "evidence_status_counts": {
+    "ok": 9
+  },
+  "inputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/source_rows.jsonl",
+      "sha256": "9b08b0767119be103c351477011ca5139fce4f6b6c129e16a8339ad5bf81761e"
+    },
+    "predictions": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/predictions.sealed.jsonl",
+      "sha256": "6b388f29221973ff10162cb93ea6391fa64f6291694b933cd9030c46ef351e59"
+    },
+    "cohort_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/manifest.sealed.json",
+      "sha256": "3e2dfd05746d935de92430a19b61c5f744c5876df60d28246d252c5032d1acc2"
+    },
+    "reviewer_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reviewer_a.jsonl",
+      "sha256": "f7183f4a123618e7042aa6b81be562ce78386d00d5ba99eee7c7fa4af70caf95"
+    },
+    "reviewer_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reviewer_b.jsonl",
+      "sha256": "29590fd02ebb0339407e67b045653cd6f380769e9175ef352e4f974cce833f66"
+    },
+    "dual_consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/dual_review_consensus.jsonl",
+      "sha256": "1bc200caca1a761e1b28730dc6614e2d31b6cd81a7a307efbb500543f724b847"
+    },
+    "profile_evaluation": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/profile_evaluation.json",
+      "sha256": "f28dcfcde1fc738bece6e8539093d4fdee59182486dc38847a0f83bc2a8fe2ba"
+    },
+    "cwe_xml_zip": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/external/cwe/cwec_v4.20.xml.zip",
+      "sha256": "3976f599e5e5200219a3108bb896d06e2a88fbb293369e1883cb423a5e9d7d50"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_post_profile_cwe_evidence_secondary_review.md",
+      "sha256": "d04cb81dd0c33e18672aeadee16f5d4839d4b6f4b843539c3108bbde67584285"
+    },
+    "contract": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/annotation_guidelines/rq2_post_profile_cwe_evidence_secondary_contract_v1.md",
+      "sha256": "8db019fff38bb60ff7409dff717227eca0bc0f493e10c2f348bf2118ed5b3ae8"
+    },
+    "fetcher_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_rq3_evidence_samples.py",
+      "sha256": "35b02ebcc7a62ba1e5cb6b3dc375d19ca45a2731a4b4318f90755d10b8e44c63"
+    },
+    "taxonomy_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/analyze_cwe_taxonomy_variants.py",
+      "sha256": "1721299ed2b20b66a838fbe6305141edf24cb806bda01677f505cced854f8dd8"
+    },
+    "runner_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/run_rq2_post_profile_cwe_evidence_review.py",
+      "sha256": "c52c7e1a6a0c41cb841ecc601afe35dfe3f9fbd413da86909b81b9f891ac11d6"
+    },
+    "merge_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/merge_rq2_post_profile_cwe_evidence_secondary.py",
+      "sha256": "87f4eaf693aeefcfee9e789088d214dcd5490f5cc502922d614dc4acfc3c7db5"
+    },
+    "verifier_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/verify_rq2_post_profile_cwe_evidence_secondary.py",
+      "sha256": "4097c2669456c87d31d24b047d4ca78299997ff86694d2cdc7a7f646769091b5"
+    }
+  },
+  "worklists": {
+    "reviewer_c": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_evidence_secondary_v1/worklist_c.blind.jsonl",
+      "sha256": "df3ad3ac452be051f6f11d313916a7be52118f80af49a64180d26bee2beefc56",
+      "order": "target_order"
+    },
+    "reviewer_d": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_evidence_secondary_v1/worklist_d.blind.jsonl",
+      "sha256": "80c33e8cdbeb1a093ae4207393b020f1817207c3330e2ab95b254b16b42e3090",
+      "order": "reverse_target_order"
+    }
+  },
+  "reviewer_outputs": {
+    "reviewer_c": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_evidence_secondary_v1/reviewer_c.jsonl",
+    "reviewer_d": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_evidence_secondary_v1/reviewer_d.jsonl",
+    "requests_c": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_evidence_secondary_v1/reviewer_c.requests.jsonl",
+    "requests_d": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_evidence_secondary_v1/reviewer_d.requests.jsonl"
+  },
+  "builder": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_cwe_evidence_secondary.py",
+    "sha256": "b3c12c7ded193bae787d9296e61d37ea0ac1ddec9591b42837daa298882defdd"
+  },
+  "cautions": [
+    "The three rows were selected after the original A/B labels and profile evaluation were unsealed.",
+    "Both evidence reviewers are Codex runs and are not real humans.",
+    "The targeted result cannot replace the sealed 250-row evaluation or estimate unbiased gain."
+  ]
+}

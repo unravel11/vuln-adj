@@ -1,0 +1,51 @@
+{
+  "artifact_type": "affected_versions_prior_cohort_disjoint_holdout_v2",
+  "contains_annotations": false,
+  "contains_gold_labels": false,
+  "selection_uses_ai_gold": false,
+  "selection_uses_method_predictions": false,
+  "selection_rows_were_inspected": false,
+  "field": "affected_versions",
+  "required_baseline_status": "factual_conflict",
+  "sampling_algorithm": "ascending_sha256(seed + ':' + cve_id), tie_break_cve_id",
+  "seed": "20260715-v2",
+  "input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl",
+    "sha256": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+  },
+  "exclusions": {
+    "development": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+      "sha256": "91bbd0b1885c1e41424404510b5521d6c6df02b4e99f1e0a06b40fa65043daa0",
+      "rows": 100,
+      "identity_commitment_sha256": "18c217bf12e8524e07da2954478493c5f17421eb8ebe1d61431a1ba3d56e2219"
+    },
+    "v1_holdout": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/source_rows.jsonl",
+      "sha256": "e31842c1560b7247e88c4bbf81ee4c6477a59476304ee22fd8e3d6466ee987b9",
+      "rows": 100,
+      "identity_commitment_sha256": "fe04f8cc972e3dcb8f7c4bb1aa2ffd0f33ced749e2f2fb621330ab8f5f6c1db1"
+    },
+    "combined_rows": 200,
+    "combined_identity_commitment_sha256": "1c419e9156bfd5641565c6414adf43448f12a209965044f25e2de3dbbf9f2c42"
+  },
+  "fc_candidates": 651,
+  "fc_candidate_identity_commitment_sha256": "d2bbd1e68da7a1157cb5c9377d0a016ddd647a8932a42ccb06c114e3a81f5e09",
+  "eligible_after_exclusion": 451,
+  "selected_rows": 100,
+  "selected_cve_commitment_sha256": "dcb97b753c2b94981e224ecd5b10f43641a60f56a39f5795141120b52bd440fc",
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v2/source_rows.jsonl",
+    "sha256": "2397dc9991025c82953092d010683fba1087e614af8477696db9eda3cc182e55"
+  },
+  "builder": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/experiments/holdout/build_affected_versions_holdout_v2.py",
+    "sha256": "15bc6f61d21b926ef984464e2e2db9383a8191ba639bf035e04451b643a2a9b7"
+  },
+  "cautions": [
+    "The v2 cohort is disjoint by CVE and source identity from the old development and v1 holdout cohorts.",
+    "Sampling remains conditional on the deterministic factual-conflict candidate miner.",
+    "No labels, predictions, or evidence content are used for selection.",
+    "Do not inspect or adjudicate v2 rows until the v2 method and prediction seal are frozen."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions_determinate/source_rows.jsonl",
+  "output_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions_determinate/evidence_refresh/source_rows.evidence.jsonl",
+  "cache_dir": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq3_source_reaudit/determinate_url_cache",
+  "row_count": 40,
+  "url_cache_hits": 0,
+  "url_fetches": 234,
+  "fetch_status_counts": {
+    "http_403": 4,
+    "http_404": 3,
+    "http_502": 1,
+    "ok": 225,
+    "timeout": 1
+  },
+  "max_text_chars": 8000
+}

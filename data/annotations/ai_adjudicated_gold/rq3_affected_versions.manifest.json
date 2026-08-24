@@ -1,0 +1,47 @@
+{
+  "schema_version": "ai_adjudicated_gold_v1",
+  "dataset": "rq3_affected_versions",
+  "artifact_role": "ai_gold_primary",
+  "row_count": 100,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "eligible_for_provisional_candidate_analysis": true,
+  "human_signed_rows": 0,
+  "candidate_input": "/home/xiaoyuliang/code/vuln-adj/data/annotations/expert_candidate/raw/rq3_affected_versions.jsonl",
+  "candidate_sha256": "61a4edda0d57732d31a02c793160415cf1703d728f53c4d1e6f5a32d81e80c17",
+  "adjudication_input": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/adjudication_passes/rq3_affected_versions.jsonl",
+  "adjudication_sha256": "9ad6909616330cba1decd2514b8dc1a58d6dd780194b52337121ba3ff6fc2ece",
+  "required_worklist": "/home/xiaoyuliang/code/vuln-adj/results/ai_adjudicated_gold/worklists/rq3_affected_versions_risk.jsonl",
+  "required_worklist_sha256": "c4cfed18099788c064c25eb2798d8fa3aecc53712096053b69858581d1bcaa17",
+  "risk_worklist_rows": 96,
+  "risk_rows_adjudicated": 96,
+  "changed_label_count": 4,
+  "changed_source_count": 1,
+  "requires_additional_review_count": 79,
+  "label_counts": {
+    "factual_conflict": 24,
+    "incomplete": 5,
+    "representation_discrepancy": 11,
+    "temporal_discrepancy": 2,
+    "uncertain": 58
+  },
+  "source_counts": {
+    "abstain": 15,
+    "both": 21,
+    "ghsa": 10,
+    "neither": 3,
+    "nvd": 51
+  },
+  "decision_origin_counts": {
+    "interactive_ai_adjudication": 96,
+    "single_pass_candidate_accepted": 4
+  },
+  "output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/rq3_affected_versions.jsonl",
+  "output_sha256": "b961f8287ac284c82113609fefecb5525cb24311f61a8d2753ac65f988aab02b",
+  "cautions": [
+    "This snapshot is AI-adjudicated gold, not human-gold.",
+    "Interactive adjudication and prior candidates are not independent human annotations.",
+    "Rows marked final_abstain intentionally preserve unresolved uncertainty.",
+    "Human annotator, independent reviewer, and author sign-off remain required for a human-gold claim."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "artifact_type": "affected_versions_development_disjoint_holdout_v1",
+  "contains_annotations": false,
+  "contains_gold_labels": false,
+  "selection_uses_ai_gold": false,
+  "selection_uses_method_predictions": false,
+  "field": "affected_versions",
+  "required_baseline_status": "factual_conflict",
+  "sampling_algorithm": "ascending_sha256(seed + ':' + cve_id), tie_break_cve_id",
+  "seed": "20260715",
+  "input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl",
+    "sha256": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+  },
+  "development_exclusion": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+    "sha256": "91bbd0b1885c1e41424404510b5521d6c6df02b4e99f1e0a06b40fa65043daa0",
+    "rows": 100,
+    "identity_commitment_sha256": "18c217bf12e8524e07da2954478493c5f17421eb8ebe1d61431a1ba3d56e2219"
+  },
+  "fc_candidates": 651,
+  "fc_candidate_identity_commitment_sha256": "d2bbd1e68da7a1157cb5c9377d0a016ddd647a8932a42ccb06c114e3a81f5e09",
+  "eligible_after_exclusion": 551,
+  "selected_rows": 100,
+  "selected_cve_commitment_sha256": "8ae0a8d60e5ec6dac9a8296fa8df966aae85dbc86d924a142824f6be9e006213",
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/source_rows.jsonl",
+    "sha256": "e31842c1560b7247e88c4bbf81ee4c6477a59476304ee22fd8e3d6466ee987b9"
+  },
+  "builder": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/experiments/holdout/build_affected_versions_holdout.py",
+    "sha256": "5551d9e9cfa305f79d9231daf79fedddb1ed6129697492a25c1bd87e41feadd4"
+  },
+  "cautions": [
+    "The holdout is disjoint from the 100-row development sample by CVE ID.",
+    "Sampling is conditional on the deterministic factual-conflict baseline.",
+    "No human or AI labels and no method predictions are used for selection.",
+    "The cohort must remain frozen before adjudication and evaluation."
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "artifact_type": "rq2_typing_holdout_v1_manifest",
+  "sealed_at_ns": 1784395342399429685,
+  "contains_annotations": false,
+  "contains_human_labels": false,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "selection_uses_gold": false,
+  "selection_uses_reviewer_outputs": false,
+  "selection_uses_current_status_for_balanced_stratification": true,
+  "seed": "rq2_typing_holdout_v1_20260715",
+  "sampling_algorithm": "70% proportional plus 30% equal audit allocation across nonempty current-status strata per field; ascending sha256(seed:field:status:cve_id) within stratum; deterministic bipartite quota matching with global CVE uniqueness",
+  "rows_per_field": 250,
+  "selected_rows": 1250,
+  "selected_unique_cves": 1250,
+  "field_counts": {
+    "affected_versions": 250,
+    "cwe_ids": 250,
+    "published": 250,
+    "references": 250,
+    "severity": 250
+  },
+  "strata": [
+    {
+      "field": "severity",
+      "baseline_status": "equivalent",
+      "eligible_rows": 2864,
+      "sampled_rows": 87,
+      "design_weight": 32.91954022988506
+    },
+    {
+      "field": "severity",
+      "baseline_status": "representation_discrepancy",
+      "eligible_rows": 2937,
+      "sampled_rows": 89,
+      "design_weight": 33.0
+    },
+    {
+      "field": "severity",
+      "baseline_status": "incomplete",
+      "eligible_rows": 18,
+      "sampled_rows": 18,
+      "design_weight": 1.0
+    },
+    {
+      "field": "severity",
+      "baseline_status": "factual_conflict",
+      "eligible_rows": 1530,
+      "sampled_rows": 56,
+      "design_weight": 27.321428571428573
+    },
+    {
+      "field": "published",
+      "baseline_status": "representation_discrepancy",
+      "eligible_rows": 5650,
+      "sampled_rows": 173,
+      "design_weight": 32.65895953757225
+    },
+    {
+      "field": "published",
+      "baseline_status": "temporal_discrepancy",
+      "eligible_rows": 1699,
+      "sampled_rows": 77,
+      "design_weight": 22.064935064935064
+    },
+    {
+      "field": "references",
+      "baseline_status": "representation_discrepancy",
+      "eligible_rows": 203,
+      "sampled_rows": 43,
+      "design_weight": 4.72093023255814
+    },
+    {
+      "field": "references",
+      "baseline_status": "incomplete",
+      "eligible_rows": 7146,
+      "sampled_rows": 207,
+      "design_weight": 34.52173913043478
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "equivalent",
+      "eligible_rows": 375,
+      "sampled_rows": 28,
+      "design_weight": 13.392857142857142
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "representation_discrepancy",
+      "eligible_rows": 3739,
+      "sampled_rows": 108,
+      "design_weight": 34.620370370370374
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "incomplete",
+      "eligible_rows": 2911,
+      "sampled_rows": 88,
+      "design_weight": 33.07954545454545
+    },
+    {
+      "field": "affected_versions",
+      "baseline_status": "factual_conflict",
+      "eligible_rows": 324,
+      "sampled_rows": 26,
+      "design_weight": 12.461538461538462
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "equivalent",
+      "eligible_rows": 6251,
+      "sampled_rows": 172,
+      "design_weight": 36.343023255813954
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "representation_discrepancy",
+      "eligible_rows": 8,
+      "sampled_rows": 8,
+      "design_weight": 1.0
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "incomplete",
+      "eligible_rows": 1044,
+      "sampled_rows": 47,
+      "design_weight": 22.21276595744681
+    },
+    {
+      "field": "cwe_ids",
+      "baseline_status": "factual_conflict",
+      "eligible_rows": 46,
+      "sampled_rows": 23,
+      "design_weight": 2.0
+    }
+  ],
+  "exclusions": {
+    "primary": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/discrepancy_typing_seed.jsonl",
+      "cves": 299
+    },
+    "reference_impact": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_impact_validation/reference_identity_secondary_worklist.masked.jsonl",
+      "cves": 56
+    },
+    "cwe_impact": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/impact_holdout/cwe_taxonomy_impact_worklist.blind.jsonl",
+      "cves": 17
+    },
+    "phase_d_affected": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+      "cves": 100
+    },
+    "phase_d_severity": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/severity_fc_adjudication_seed.jsonl",
+      "cves": 80
+    },
+    "affected_versions_v1": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/source_rows.jsonl",
+      "cves": 100
+    },
+    "affected_versions_v2": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v2/source_rows.jsonl",
+      "cves": 100
+    }
+  },
+  "excluded_union_cves": 717,
+  "candidate_profile_comparison_identifiable": false,
+  "candidate_profile_prediction_differences": 0,
+  "prediction_profiles": [
+    "current",
+    "reference_resource_identity_original_v1",
+    "reference_resource_identity_audited_v1",
+    "cwe_taxonomy_v1",
+    "combined_original_v1",
+    "combined_audited_v1"
+  ],
+  "blind_projection": "Raw aligned NVD/GHSA field values plus source summaries, package names, reference URLs, and individual official CWE entries; no normalized values, taxonomy paths, baseline labels, predictions, or selection strata.",
+  "candidate_profile_boundary": "All known reference/CWE development-impact CVEs are excluded. The holdout tests fresh-CVE typing stability; it cannot estimate the audited profiles' impact, which remains confined to separate complete-impact audits.",
+  "inputs": {
+    "field_views": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl",
+      "sha256": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+    },
+    "aligned": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/aligned/nvd_ghsa_by_cve.jsonl",
+      "sha256": "056d20bab59e1f00c730b1626b8a97333863ed9c4818d2d8a1e63d85a4313f1f"
+    },
+    "primary_exclusion": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/discrepancy_typing_seed.jsonl",
+      "sha256": "2b70d0c48b3659c3a6f2cba2c8024b4c12673b15814b9f123871ec97dd6a518f"
+    },
+    "reference_impact": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_impact_validation/reference_identity_secondary_worklist.masked.jsonl",
+      "sha256": "be2209d55bbb19b822aaa23d74b0cd97f42499d1a6cc729f6b56008fc0ebad48"
+    },
+    "reference_combined": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_impact_validation/reference_normalization_combined_candidate.jsonl",
+      "sha256": "30e6d2fe0232c99a92a01a0adfb227e99c254b2f55dc60e3c990702f4e7faede"
+    },
+    "cwe_impact": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/impact_holdout/cwe_taxonomy_impact_worklist.blind.jsonl",
+      "sha256": "bdbad7fc0995f09d59152b96de8cbe0df5d425d534fec9789565b48e69f2c47a"
+    },
+    "phase_d_affected_exclusion": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+      "sha256": "91bbd0b1885c1e41424404510b5521d6c6df02b4e99f1e0a06b40fa65043daa0"
+    },
+    "phase_d_severity_exclusion": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/severity_fc_adjudication_seed.jsonl",
+      "sha256": "f109fc3d30ef6a9d2728d0e78b6977a9dd323f20d22af80f990bf24c9862bdb5"
+    },
+    "affected_v1_exclusion": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/source_rows.jsonl",
+      "sha256": "e31842c1560b7247e88c4bbf81ee4c6477a59476304ee22fd8e3d6466ee987b9"
+    },
+    "affected_v2_exclusion": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v2/source_rows.jsonl",
+      "sha256": "2397dc9991025c82953092d010683fba1087e614af8477696db9eda3cc182e55"
+    },
+    "cwe_changes": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/cwe_taxonomy_changed_cases.jsonl",
+      "sha256": "d325541d47a047acd2f11e529fb48415ea5d505561ac4c73d3680c46fdc3a6d1"
+    },
+    "cwe_xml_zip": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/external/cwe/cwec_v4.20.xml.zip",
+      "sha256": "3976f599e5e5200219a3108bb896d06e2a88fbb293369e1883cb423a5e9d7d50"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_holdout_review.md",
+      "sha256": "2777be877b6194ed6ff9353a46615b46e16a7b09703b6476267b15e1a491debd"
+    },
+    "field_predictor": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_field_discrepancies.py",
+      "sha256": "f7e8a58bdc4f830a5b92a883cee4603cb0eb512fcc5d54b1fd792467a80c06a1"
+    },
+    "runner": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/run_expert_candidate_annotation.py",
+      "sha256": "bc0835a13e0fe23885e878dc54218e897ea9d8d75cdd12a252969641df7bb580"
+    },
+    "merge": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/merge_rq2_typing_holdout_reviews.py",
+      "sha256": "51b3aefc490a8e1801aa1248046d8ae116b5277f3f255a10c765b73dd892864f"
+    },
+    "evaluator": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/evaluate_rq2_typing_holdout.py",
+      "sha256": "7a49b037ee5fb8602d3e14835b76cdc6744cc9d36cabecb6862019fc47a649ca"
+    }
+  },
+  "outputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+      "sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5"
+    },
+    "predictions": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/predictions.sealed.jsonl",
+      "sha256": "43202021378954a93c0b019cf1a48cf73a1634319408b5633c956d9f5e3b0ed9"
+    },
+    "blind_worklist_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/blind/worklist_a.blind.jsonl",
+      "sha256": "1629d4ade26cc1dcd6ae11b6cc06d972948056a442d761068cf777d18826c4cc"
+    },
+    "blind_worklist_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/blind/worklist_b.blind.jsonl",
+      "sha256": "0ce1813828699b8a4eb40c687c141a203149e50850595ac2f0e1afa4d97184ba"
+    }
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_backend": "codex-cli",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_a_pass_id": "rq2_typing_holdout_v1_reviewer_a",
+    "reviewer_b_pass_id": "rq2_typing_holdout_v1_reviewer_b",
+    "reviewer_a_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/reviewer_a.jsonl",
+    "reviewer_b_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/reviewer_b.jsonl",
+    "strict_consensus": "exact non-uncertain label agreement, neither confidence low, and neither reviewer requests human review"
+  },
+  "source_inputs_unchanged_during_build": true
+}

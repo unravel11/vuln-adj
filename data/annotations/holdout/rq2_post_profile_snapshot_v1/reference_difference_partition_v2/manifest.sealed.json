@@ -1,0 +1,293 @@
+{
+  "artifact_type": "rq2_post_profile_reference_difference_partition_manifest_v2",
+  "review_protocol_revision": 2,
+  "superseded_v1_excluded": true,
+  "protocol_repair_reason": "The v1 merge called a nonexistent runner write_jsonl helper and failed before writing any consensus or summary artifact.",
+  "sealed_at_ns": 1784460650337071948,
+  "row_count": 5,
+  "selection": {
+    "complete_reference_profile_difference_union": true,
+    "sampling_performed": false,
+    "original_difference_rows": 5,
+    "audited_difference_rows": 3,
+    "original_only_rows": 2,
+    "selected_after_prediction_census_revealed": true,
+    "profile_values_hidden_from_reviewers": true,
+    "source_side_hidden_from_reviewers": true,
+    "direct_cve_field_hidden_from_reviewers": true,
+    "selection_blinding_complete": false,
+    "cve_identifier_blinding_complete": false
+  },
+  "evidence": {
+    "probe_schema_version": "rq2_reference_probe_v2",
+    "unique_urls": 26,
+    "cache_hits": 26,
+    "cache_misses": 0,
+    "status_counts": {
+      "http_404": 2,
+      "ok": 24
+    },
+    "timeout_seconds": 15,
+    "max_bytes": 750000,
+    "max_text_chars": 6000,
+    "refresh": false,
+    "cache_files": [
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/eeba228e3985a0ed396953072ef5ff038bff4886f902aae30db015b03de0e587.json",
+        "sha256": "5d77f66a264a691cc14ea0bd0a1788272c57fed17b6e912aacb4cbc294a1a695"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/029705f17fb917c433b48788baef3b341e77c6a2cef36b3e75ed32efb2511cd5.json",
+        "sha256": "4d9103f048a0f182b267737767bb75a6c453a761b1465f89a8cb90ebadcd5f86"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/23d83118eddc840ba604e7b41d57a44ef28c76528de72992cff84d51cec6a785.json",
+        "sha256": "d6dad14eb406054b0a57bcd07c64240adfbb465c4e8e67adbbf6ea29e7ba9534"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/b02f5eba485548f7fc3451b4ef270f58ada2ab162bb5d39ea4a211d2d30b419a.json",
+        "sha256": "766c3e995e846ad3ce767c9313b2bd40865704524f643ca7af67fab78d848ed1"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/76dbf251f701722608d75af08a6d35ed013cc2c7b3d796dcc6f700ca331ea363.json",
+        "sha256": "07c1fd01df024b26582ea243f58905fb3b44a2feda2d92178f47e812dc317fb0"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/f7bd97860f779350b764734de3eb78613a2584cdd4e825e7078a5f43b644e4c2.json",
+        "sha256": "9b92e2e32c4df72eb8f5c0d61670692bfbc4f8fa0965abd23a739b4faaadb342"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/37168ff1f0f5bdf4bd1e0054b00f44443f842070bb3d4e3e57efe3cbd77f0343.json",
+        "sha256": "369e51aa37230e62994983b2e951ae4be6b4f02a53251d511501658d56c73588"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/82c62fcec9af9185c354220b1051fa7c658c9cb41a9fbad8df6539cd90cd1b1d.json",
+        "sha256": "fc12e9c1cf3550880f870110606c0604f76ba114887ce785b7322304305011bd"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/2d017cd34db314f1aa61eb6235fe139c7908aa75bfc602ebb16146249732d7d5.json",
+        "sha256": "a24adf54e2c37b513de24cba02ac5857503e642ca01b2cfd0acd60daec60ad3c"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/db6d0899610a4f690182b928aa09871d68f5148c8ecbbe5de647f6cf35084a06.json",
+        "sha256": "b943ceef1b05caf7de774524271a2cabc3a86d2eb57acdcefa3e9cd7d8980b75"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/284f88abc24b35948bbc64602825221862799f3bb3011e25fe2ea1506128a98c.json",
+        "sha256": "759f11b55bcd1f7e6c637ec068c875c407e45c3ab9aadedef030d7b2d975598c"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/e4c9ca138d764d03206e9b0d24b7dd433dd3b212974ae8b451aaef18d9fa050a.json",
+        "sha256": "5ca1548e8775cd02c887acd6cef6e4a823f94fc055cd3d96c7bf181c3d723612"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/9a701d6d13df8d46c57cf14343f727db26aa780e83c4f92ff667bb847c8dcfa0.json",
+        "sha256": "2ff0f7a617915d20a5930a77b3b4e66730e6cca10e0b6dae7c6ababbd915650a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/4255eeffe1c02182db7ba9bde5ebc28f2a2457cf9f1a324c9c091bc6aa0a3655.json",
+        "sha256": "bf9a36e263d42335ddc995bcad4581802ff1586345aa3b078337e3e4863b61b6"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/93270308c50ce5d34aee286f087d164326654d609219f6a87a7f870d4a755633.json",
+        "sha256": "e85d2accf71441a94f4b496cb4c0f5c22d1af6278d932c7df7419cb5db1f1f8a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/cf94eb0052acf6dc305dcd34ad26237b63f5274a92bdcd3bc1afd287c176de32.json",
+        "sha256": "0df39f205580d764899307bdabea966d6064ca419fca1661f12b6acbe8331816"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/7d6c3d799d408f8f21ce17c6dde80eea9489301397fff0f07461ee10da331d78.json",
+        "sha256": "06ab38f688e3f00dac1dd19fbe44940f6ce42d3dda99e6ca8462a031f87d9998"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/2b5adbca6a7dddbdcf4730da29487fbe8f32b40f1ca75f33eca2b063ed5d8ad4.json",
+        "sha256": "a6b155ab5fda31ee50d0eb7c3937b99e0db45a9f88b941b8955df6cdcf622410"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/a01f90fa5ef3be8b379c5f2f340e25c175cf8d1c16f1dfc08b020c9cea19ea90.json",
+        "sha256": "95e4f4191c4102e77cf1f30efaa9fd509f8c6cc8c93b9ce6bf0f97868f246591"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/3202ade8a6ac36506970a843d431a827adf2b5ef9d63e55eea5efbbe45651c9e.json",
+        "sha256": "0bf7cd9e507dfa4a8114de5e07e4ea43af25759e22d4dc205d464f2ac6fc0c6a"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/565454d0c7a5c9269e6547699cb056f4c5f2be139bf671e9b3bdf93e347093d6.json",
+        "sha256": "5637fc8a6f17b0ae1acc17bee60121654486c6927dea4530d33852b49ca8bb52"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/a7f6d02a93d6433b156b4d65eac79326f998add80d2aeac91cf67f97ce326453.json",
+        "sha256": "6e7bebfebabb9fb0d932a04ee619271a3c6483d8a678729be8496fa75f52dd3c"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/b44fee9b472d5b20121214cb074bc4acbc272dda416ccc2546d30b5013715154.json",
+        "sha256": "0d324fd5ade5183c904527587fa20c96e51fa8e8749dd791d5d5c7db5469a0e6"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/2ddf4d0087026823bbb501c3fd22f86ee1bd9a04039d49ba672f3f76b0405890.json",
+        "sha256": "c8b4b95177ae081ba19b798d65159cf9a44663ef09ea8cb4cb34610e8efd1ad1"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/6b1574e0c5c2645e9e750b27348aff7d94742c5d5c018eab35bb9ded28ce1d5b.json",
+        "sha256": "a9b5fc97d76f631946e08b47d3f7de2767c4f5f6e4651a05ed1478fdb7a25661"
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_reference_difference_partition_v1/url_cache/5834f244c510ccda1ca72486acb412f68335759a8df35fef30b3a4deacf4d59c.json",
+        "sha256": "4da531de652dc110cbbb5cb07093e69adeb4ff2b195a75dc269f5f6f54f59ef6"
+      }
+    ],
+    "live_lookup_during_review_allowed": false
+  },
+  "definitions": [
+    "underlying_reference_resource_v1",
+    "frozen_http_resource_v1"
+  ],
+  "claim_boundary": {
+    "uses_any_labels": true,
+    "uses_human_labels": false,
+    "label_is_human": false,
+    "eligible_for_human_gold_claim": false,
+    "eligible_for_absolute_accuracy_claim": false,
+    "eligible_for_confirmatory_gain_claim": false,
+    "eligible_for_temporal_generalization_claim": false,
+    "eligible_for_preregistered_power_claim": false,
+    "candidate_promotion_allowed": false,
+    "production_default_changed": false,
+    "sealed_250_row_evaluation_changed": false,
+    "real_person_review_requirement_reduced": false
+  },
+  "reviewer_outputs_absent_at_seal": true,
+  "execution": {
+    "backend": "codex-cli",
+    "api_route": "codex_cli",
+    "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+    "version": "codex-cli 0.144.4",
+    "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+    "model": "gpt-5.5",
+    "reasoning_effort": "medium",
+    "max_output_tokens": null,
+    "sandbox": "read-only",
+    "ephemeral": true,
+    "batch_size": 5,
+    "schedule": "input",
+    "ephemeral_session_per_batch": true
+  },
+  "inputs": {
+    "census_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/eligible_universe_prediction_census_v1/manifest.json",
+      "sha256": "b24a8ef70129ebdbcffafe6970d60922b20e461d582eabc4f37a5c5ae5eb5869"
+    },
+    "census_analysis": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/eligible_universe_prediction_census_v1/analysis.json",
+      "sha256": "8f25c88dafbccf69a7d0083c6cb8fb2a228e3716a9c9b3398f41fb505749d18b"
+    },
+    "difference_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/eligible_universe_prediction_census_v1/prediction_difference_rows.jsonl",
+      "sha256": "787289179479f1acc442549a3114f9160090c1eaff3c16f408c96f51fd586ce3"
+    },
+    "parent_cohort_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/manifest.sealed.json",
+      "sha256": "3e2dfd05746d935de92430a19b61c5f744c5876df60d28246d252c5032d1acc2"
+    },
+    "parent_field_views": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/time_cohort/rq2_post_profile_snapshot_v1/discrepancies/nvd_ghsa_field_views.jsonl",
+      "sha256": "18090ecc4fa3755b1d5e5d4bf4f50dcc1809ef690e24177f1c07b543b632d041"
+    },
+    "parent_aligned": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/time_cohort/rq2_post_profile_snapshot_v1/bootstrap/aligned/nvd_ghsa_by_cve.jsonl",
+      "sha256": "98b3b6bffd8b21c11c47b958237ef125b49eccaabbfb215f541b786068ce2d3b"
+    },
+    "audited_profile_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_audited_profile/reference_normalization_audited_profile_manifest.json",
+      "sha256": "0ee0ad832b448666cb7e88808fff140a3dd163a9e8d37d1a806cd5a032dbdf40"
+    },
+    "audited_profile": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_audited_profile/reference_normalization_audited_profile.json",
+      "sha256": "89c63e2f20d9aa2cb513f41036fb6ea2397a12a400fce353fc6b6b1035bbf6bd"
+    },
+    "sealed_profile_evaluation": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/profile_evaluation.json",
+      "sha256": "f28dcfcde1fc738bece6e8539093d4fdee59182486dc38847a0f83bc2a8fe2ba"
+    },
+    "failed_v1_archive": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v1_failed_merge_code_attempt.tar.gz",
+      "sha256": "d79c15e9ce6553bc3ffacae8d6e7dede9b6276d3e80cfd2b2e65c0a721e9dbec"
+    },
+    "contract": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/annotation_guidelines/rq2_post_profile_reference_difference_partition_contract_v1.md",
+      "sha256": "233e90a980e4c0fb245f48839bd0da61cf9ff636b4f8e756d040d023d7fc51d9"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_post_profile_reference_difference_partition_review_v1.md",
+      "sha256": "7732fafda0df87635d32d96728d50bf5811fb894978e4f618ab37f0b3be91af1"
+    },
+    "field_comparator_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_field_discrepancies.py",
+      "sha256": "f7e8a58bdc4f830a5b92a883cee4603cb0eb512fcc5d54b1fd792467a80c06a1"
+    },
+    "variant_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/analyze_reference_normalization_variants.py",
+      "sha256": "935102093e5a71ba14f6f1a67c85e1629e542488c27c7992121aa2a714089741"
+    },
+    "audited_profile_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/analyze_reference_normalization_audited_profile.py",
+      "sha256": "1e8e8d01a45d50ae01611efabe8b51b8167d18ce7c683d677ea15e03ee41687f"
+    },
+    "probe_helper_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_reference_normalization_impact_validation.py",
+      "sha256": "8074c7e78e0d6f414366f8900c5bbfbdb992319f53ad902c03b1f42894bea418"
+    },
+    "runner_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/run_rq2_post_profile_reference_difference_partition_review.py",
+      "sha256": "0e88ef0b9a97bf3589763040d01ee7d2812c09e5ec4540c80d0af2cdf9b2982d"
+    },
+    "merge_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/merge_rq2_post_profile_reference_difference_partition_reviews.py",
+      "sha256": "0dfd8b7c3d308c101f7c8207db68cb06dab8a2a1711b754037fddb317c1314f4"
+    },
+    "verifier_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/verify_rq2_post_profile_reference_difference_partition_review.py",
+      "sha256": "f8ad85a84f7615626c7a4a76a8db0120fc76194adf3686ba67c013278f286e4c"
+    },
+    "builder_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_reference_difference_partition.py",
+      "sha256": "0a66b3ce2ef2fc908e361277b2d4949400ab55c9b408bc45b12904ab51cd49ad"
+    },
+    "census_verifier_code": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/verify_rq2_post_profile_eligible_universe_prediction_census.py",
+      "sha256": "ad1439399262aa4a64a672553f99f725633cdcf48f6bf4112dc839645e151e0e"
+    }
+  },
+  "outputs": {
+    "author_mapping": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/author_mapping.jsonl",
+      "sha256": "d759ec342077d7de87a415a22357d7a2150300009633bd57d2892285bf86bbe1"
+    }
+  },
+  "worklists": {
+    "reviewer_e": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/worklist_e.blind.jsonl",
+      "sha256": "c9dae596f42667622a436774f9ad9595d89466dfa166b302ec727678f73dd4c6",
+      "order": "sample_id_sorted"
+    },
+    "reviewer_f": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/worklist_f.blind.jsonl",
+      "sha256": "51ff67b23151bfc825d8eba5ac858c99481c25af7f457608f4dfccbd6695f2ab",
+      "order": "exact_reverse"
+    }
+  },
+  "reviewer_outputs": {
+    "reviewer_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/reviewer_e.jsonl",
+    "reviewer_f": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/reviewer_f.jsonl",
+    "requests_e": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/reviewer_e.requests.jsonl",
+    "requests_f": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reference_difference_partition_v2/reviewer_f.requests.jsonl"
+  },
+  "cautions": [
+    "The archived v1 attempt is excluded because its merge code failed before result output.",
+    "All five rows were selected after the complete prediction census was revealed.",
+    "Raw URLs can reveal CVE identity and the alias structure under test.",
+    "Both reviewers are non-human Codex runs from one model family.",
+    "The two resource definitions are reported separately and cannot be selected by outcome."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "artifact_type": "affected_versions_source_reaudit_inputs",
+  "selection_contract": "ai_gold_status=final_abstain and adjudicated_source!=abstain",
+  "rows": 45,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "gold_input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/rq3_affected_versions.jsonl",
+    "sha256": "b961f8287ac284c82113609fefecb5525cb24311f61a8d2753ac65f988aab02b"
+  },
+  "evidence_input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/affected_versions_fc_manual_check.evidence.jsonl",
+    "sha256": "3d3133f84477e46f309b79453f292464c1ceb2dc303adbddd15fe0a210ea6d21"
+  },
+  "source_rows": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions/source_rows.jsonl",
+    "sha256": "01875522bf77f17b85c93b1b837ce23b463029c8c42a7bd31ad0abe166a84116"
+  },
+  "candidate_rows": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions/candidate_rows.jsonl",
+    "sha256": "f29c92e3e71f2e6dbd4e2e50548865dc9f784f77affa7b8510909c28908c68a1"
+  },
+  "prior_source_counts": {
+    "both": 4,
+    "ghsa": 1,
+    "neither": 1,
+    "nvd": 39
+  },
+  "prior_confidence_counts": {
+    "low": 3,
+    "medium": 42
+  },
+  "sample_ids": [
+    "affected_versions_fc_manual_check:001",
+    "affected_versions_fc_manual_check:003",
+    "affected_versions_fc_manual_check:004",
+    "affected_versions_fc_manual_check:006",
+    "affected_versions_fc_manual_check:007",
+    "affected_versions_fc_manual_check:008",
+    "affected_versions_fc_manual_check:009",
+    "affected_versions_fc_manual_check:010",
+    "affected_versions_fc_manual_check:012",
+    "affected_versions_fc_manual_check:013",
+    "affected_versions_fc_manual_check:024",
+    "affected_versions_fc_manual_check:027",
+    "affected_versions_fc_manual_check:028",
+    "affected_versions_fc_manual_check:030",
+    "affected_versions_fc_manual_check:031",
+    "affected_versions_fc_manual_check:032",
+    "affected_versions_fc_manual_check:033",
+    "affected_versions_fc_manual_check:034",
+    "affected_versions_fc_manual_check:035",
+    "affected_versions_fc_manual_check:041",
+    "affected_versions_fc_manual_check:047",
+    "affected_versions_fc_manual_check:049",
+    "affected_versions_fc_manual_check:054",
+    "affected_versions_fc_manual_check:056",
+    "affected_versions_fc_manual_check:060",
+    "affected_versions_fc_manual_check:062",
+    "affected_versions_fc_manual_check:067",
+    "affected_versions_fc_manual_check:068",
+    "affected_versions_fc_manual_check:073",
+    "affected_versions_fc_manual_check:074",
+    "affected_versions_fc_manual_check:075",
+    "affected_versions_fc_manual_check:076",
+    "affected_versions_fc_manual_check:077",
+    "affected_versions_fc_manual_check:080",
+    "affected_versions_fc_manual_check:081",
+    "affected_versions_fc_manual_check:085",
+    "affected_versions_fc_manual_check:086",
+    "affected_versions_fc_manual_check:087",
+    "affected_versions_fc_manual_check:088",
+    "affected_versions_fc_manual_check:089",
+    "affected_versions_fc_manual_check:090",
+    "affected_versions_fc_manual_check:096",
+    "affected_versions_fc_manual_check:097",
+    "affected_versions_fc_manual_check:098",
+    "affected_versions_fc_manual_check:099"
+  ],
+  "caution": "These rows have a prior non-abstain source value but an uncertain discrepancy label. Re-audit must not treat missing evidence for the other source as affirmative contradiction."
+}

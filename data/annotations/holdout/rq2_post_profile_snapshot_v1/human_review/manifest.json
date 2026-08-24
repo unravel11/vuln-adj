@@ -1,0 +1,104 @@
+{
+  "schema_version": "rq2_post_profile_human_review_v1",
+  "artifact_type": "rq2_post_profile_human_review_manifest",
+  "generated_at": "2026-07-19T08:03:17.218597+00:00",
+  "row_count": 250,
+  "field_counts": {
+    "affected_versions": 50,
+    "cwe_ids": 50,
+    "published": 50,
+    "references": 50,
+    "severity": 50
+  },
+  "human_fields_blank_at_build": true,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "source_sealed_manifest": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/manifest.sealed.json",
+  "source_sealed_manifest_sha256": "3e2dfd05746d935de92430a19b61c5f744c5876df60d28246d252c5032d1acc2",
+  "source_rows": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/source_rows.jsonl",
+  "source_rows_sha256": "9b08b0767119be103c351477011ca5139fce4f6b6c129e16a8339ad5bf81761e",
+  "source_predictions": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/predictions.sealed.jsonl",
+  "source_predictions_sha256": "6b388f29221973ff10162cb93ea6391fa64f6291694b933cd9030c46ef351e59",
+  "source_merge_manifest": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/merge_manifest.json",
+  "source_merge_manifest_sha256": "b389f386809238436c00a0a447f660b49522a389b780164fb68d7ef6958f72d5",
+  "source_non_human_consensus": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/dual_review_consensus.jsonl",
+  "source_non_human_consensus_sha256": "1bc200caca1a761e1b28730dc6614e2d31b6cd81a7a307efbb500543f724b847",
+  "source_all50_evidence_merge": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/cwe_all50_evidence_v3/merge_manifest.json",
+  "source_all50_evidence_merge_sha256": "9b896846e96ddb8a6f9552a351153c3051b42c923c88b8fa9152dbf7e39482c8",
+  "source_all50_evidence_consensus": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/cwe_all50_evidence_v3/dual_review_consensus.jsonl",
+  "source_all50_evidence_consensus_sha256": "ce7dbcb485727428bfbf231dd2b2e56e366b226f227319ff91d9f2c279d04850",
+  "packet_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/human_review/rq2_post_profile_human_review.jsonl",
+  "initial_blank_packet_sha256": "35d388d25c93201c52d0ef61344e35a78616e2b15ed635e8e36ccaa1f857e7d0",
+  "scheduler_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/human_review/author_review_scheduler.jsonl",
+  "scheduler_sha256": "ae6095c7ae878a7c1fca9c3a52c07f0a34073371701891c693b4d545550750d7",
+  "scheduler_tier_counts": {
+    "1": 19,
+    "2": 3,
+    "3": 44,
+    "4": 184
+  },
+  "label_definitions": {
+    "equivalent": "Both sources express the same field fact after conservative, documented normalization.",
+    "representation_discrepancy": "The sources use different syntax, schema, encoding, or compatible granularity, and neither is a strict information subset of the other.",
+    "incomplete": "One source is empty or is a compatible strict information subset of the other.",
+    "temporal_discrepancy": "The difference is specifically attributable to publication or update timing.",
+    "factual_conflict": "Comparable non-empty values make materially incompatible claims after conservative normalization.",
+    "uncertain": "The frozen evidence is insufficient to resolve identity, taxonomy, range semantics, or another construct choice."
+  },
+  "review_contract": {
+    "task": "nvd_ghsa_field_discrepancy_typing",
+    "allowed_labels": [
+      "equivalent",
+      "representation_discrepancy",
+      "incomplete",
+      "temporal_discrepancy",
+      "factual_conflict",
+      "uncertain"
+    ],
+    "allowed_confidence": [
+      "high",
+      "medium",
+      "low"
+    ],
+    "typing_only": true,
+    "frozen_evidence_only": true,
+    "annotator_and_reviewer_must_be_different_real_people": true,
+    "cohort": "rq2_post_profile_snapshot_v1",
+    "all_sealed_rows_required": true,
+    "non_human_labels_must_not_be_copied_into_human_fields": true
+  },
+  "blindness_contract": {
+    "packet_omits": [
+      "baseline_note",
+      "baseline_status",
+      "combined_audited_v1",
+      "combined_original_v1",
+      "consensus_label",
+      "current",
+      "cwe_taxonomy_v1",
+      "priority_signals",
+      "profile_difference",
+      "profile_direction",
+      "queue_reason",
+      "queue_tier",
+      "reference_resource_identity_audited_v1",
+      "reference_resource_identity_original_v1",
+      "reviewer_a",
+      "reviewer_b",
+      "reviewer_e",
+      "reviewer_f",
+      "sampling_stratum",
+      "strict_consensus"
+    ],
+    "scheduler_is_author_only": true,
+    "scheduler_contains_labels": false,
+    "packet_contains_scheduler_signals": false
+  },
+  "instructions": [
+    "Two different real people independently label every row from the packet only.",
+    "Neither reviewer may see model outputs, consensus labels, or the author scheduler.",
+    "An author resolves the independent decisions and signs every row.",
+    "Real-person identity and independence require verification outside this file.",
+    "This packet and validator cannot by themselves create or claim human gold."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "rq2_typing_human_review_v1",
+  "artifact_type": "rq2_typing_human_review_manifest",
+  "generated_at": "2026-07-18T19:31:05.351096+00:00",
+  "row_count": 1250,
+  "field_counts": {
+    "affected_versions": 250,
+    "cwe_ids": 250,
+    "published": 250,
+    "references": 250,
+    "severity": 250
+  },
+  "human_fields_blank_at_build": true,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "source_sealed_manifest": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/manifest.sealed.json",
+  "source_sealed_manifest_sha256": "b7bfd349c24c4b013d96dc71735d3f58fd4f187175f1e49d56e7955ee01871da",
+  "source_rows": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+  "source_rows_sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5",
+  "source_merge_manifest": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/merge_manifest.json",
+  "source_merge_manifest_sha256": "b51c7960263182cdcf9901a6d6d3714c8e6c982f585fba5e2a8b0fb3927fd0b7",
+  "source_non_human_consensus": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/dual_review_consensus.jsonl",
+  "source_non_human_consensus_sha256": "d9cdd7fc827be281e80e7f324c44b24f7416a40d5a0428b3cc4bf1a461695c63",
+  "packet_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/human_review/rq2_typing_holdout_human_review.jsonl",
+  "initial_blank_packet_sha256": "ed0be48a0f7cf375660ad1705fdf865d1496dcb19168e7a683fc37b0ccc9f8a5",
+  "scheduler_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/human_review/author_review_scheduler.jsonl",
+  "scheduler_sha256": "03f646562058c277a486ea206672bce026ef5072eb63c7e0cc54d99251b7d619",
+  "scheduler_tier_counts": {
+    "1": 103,
+    "2": 216,
+    "3": 931
+  },
+  "label_definitions": {
+    "equivalent": "Both sources express the same field fact after conservative, documented normalization.",
+    "representation_discrepancy": "The sources use different syntax, schema, encoding, or compatible granularity, and neither is a strict information subset of the other.",
+    "incomplete": "One source is empty or is a compatible strict information subset of the other.",
+    "temporal_discrepancy": "The difference is specifically attributable to publication or update timing.",
+    "factual_conflict": "Comparable non-empty values make materially incompatible claims after conservative normalization.",
+    "uncertain": "The frozen evidence is insufficient to resolve identity, taxonomy, range semantics, or another construct choice."
+  },
+  "review_contract": {
+    "task": "nvd_ghsa_field_discrepancy_typing",
+    "allowed_labels": [
+      "equivalent",
+      "representation_discrepancy",
+      "incomplete",
+      "temporal_discrepancy",
+      "factual_conflict",
+      "uncertain"
+    ],
+    "allowed_confidence": [
+      "high",
+      "medium",
+      "low"
+    ],
+    "typing_only": true,
+    "frozen_evidence_only": true,
+    "annotator_and_reviewer_must_be_different_real_people": true
+  },
+  "blindness_contract": {
+    "packet_omits": [
+      "baseline_note",
+      "baseline_status",
+      "consensus_label",
+      "reviewer_a",
+      "reviewer_b",
+      "sampling_stratum",
+      "strict_consensus"
+    ],
+    "scheduler_is_author_only": true,
+    "scheduler_contains_labels": false
+  },
+  "instructions": [
+    "Two different real people independently label every row from the packet only.",
+    "The author-only scheduler may control order but must not be shown to either reviewer.",
+    "An author resolves the two labels and signs each row; source-bound fields must not be edited.",
+    "The packet remains non-human provenance metadata; canonical promotion is a separate guarded step."
+  ]
+}

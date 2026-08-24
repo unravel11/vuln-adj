@@ -1,0 +1,77 @@
+{
+  "artifact_type": "affected_versions_source_reaudit_inputs",
+  "selection_contract": "ai_gold_status=final_determinate",
+  "selection_mode": "final_determinate",
+  "rows": 40,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "gold_input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/rq3_affected_versions.jsonl",
+    "sha256": "b961f8287ac284c82113609fefecb5525cb24311f61a8d2753ac65f988aab02b"
+  },
+  "evidence_input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/affected_versions_fc_manual_check.evidence.jsonl",
+    "sha256": "3d3133f84477e46f309b79453f292464c1ceb2dc303adbddd15fe0a210ea6d21"
+  },
+  "source_rows": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions_determinate/source_rows.jsonl",
+    "sha256": "c7a20d8d5e45f53d73cee019eb97f4d1bf3e8affd37ded454c1fa585b10fc00d"
+  },
+  "candidate_rows": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions_determinate/candidate_rows.jsonl",
+    "sha256": "0176f81ff979aa3abdb0dd787157f217a59cc7cabb66bdcf1115c2187e735bb1"
+  },
+  "prior_source_counts": {
+    "both": 17,
+    "ghsa": 9,
+    "neither": 2,
+    "nvd": 12
+  },
+  "prior_confidence_counts": {
+    "high": 21,
+    "medium": 19
+  },
+  "sample_ids": [
+    "affected_versions_fc_manual_check:002",
+    "affected_versions_fc_manual_check:005",
+    "affected_versions_fc_manual_check:011",
+    "affected_versions_fc_manual_check:014",
+    "affected_versions_fc_manual_check:015",
+    "affected_versions_fc_manual_check:016",
+    "affected_versions_fc_manual_check:018",
+    "affected_versions_fc_manual_check:020",
+    "affected_versions_fc_manual_check:022",
+    "affected_versions_fc_manual_check:023",
+    "affected_versions_fc_manual_check:026",
+    "affected_versions_fc_manual_check:029",
+    "affected_versions_fc_manual_check:037",
+    "affected_versions_fc_manual_check:038",
+    "affected_versions_fc_manual_check:039",
+    "affected_versions_fc_manual_check:040",
+    "affected_versions_fc_manual_check:043",
+    "affected_versions_fc_manual_check:046",
+    "affected_versions_fc_manual_check:048",
+    "affected_versions_fc_manual_check:050",
+    "affected_versions_fc_manual_check:051",
+    "affected_versions_fc_manual_check:052",
+    "affected_versions_fc_manual_check:057",
+    "affected_versions_fc_manual_check:058",
+    "affected_versions_fc_manual_check:061",
+    "affected_versions_fc_manual_check:063",
+    "affected_versions_fc_manual_check:065",
+    "affected_versions_fc_manual_check:069",
+    "affected_versions_fc_manual_check:070",
+    "affected_versions_fc_manual_check:071",
+    "affected_versions_fc_manual_check:072",
+    "affected_versions_fc_manual_check:078",
+    "affected_versions_fc_manual_check:079",
+    "affected_versions_fc_manual_check:082",
+    "affected_versions_fc_manual_check:091",
+    "affected_versions_fc_manual_check:092",
+    "affected_versions_fc_manual_check:093",
+    "affected_versions_fc_manual_check:094",
+    "affected_versions_fc_manual_check:095",
+    "affected_versions_fc_manual_check:100"
+  ],
+  "caution": "These rows were previously determinate under a non-uniform AI adjudication process. The strict re-audit must independently verify source support and may abstain or change the prior source."
+}

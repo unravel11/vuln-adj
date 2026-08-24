@@ -1,0 +1,87 @@
+{
+  "schema_version": "rq2_typing_contract_calibration_v2",
+  "artifact_type": "rq2_typing_contract_calibration_v2_manifest",
+  "sealed_at_ns": 1784407205751878806,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_calibration_only": true,
+  "disjoint_from_v1": true,
+  "selection_uses_non_human_consensus": true,
+  "valid_for_confirmatory_performance_claim": false,
+  "selected_rows": 42,
+  "selected_unique_cves": 42,
+  "excluded_v1_sample_ids": 60,
+  "selection_seed": "rq2-typing-contract-calibration-v2",
+  "stratum_targets": {
+    "severity_same_cvss_version_different_vector": 8,
+    "severity_cross_cvss_version_different_vector": 6,
+    "affected_same_normalized_range_package_mismatch": 8,
+    "affected_singleton_vs_interval": 7,
+    "affected_prerelease_boundary": 3,
+    "severity_exact_or_prefix_one_missing_score_repeat": 5,
+    "affected_one_sided_unbounded_repeat": 5
+  },
+  "stratum_counts": {
+    "affected_one_sided_unbounded_repeat": 5,
+    "affected_prerelease_boundary": 3,
+    "affected_same_normalized_range_package_mismatch": 8,
+    "affected_singleton_vs_interval": 7,
+    "severity_cross_cvss_version_different_vector": 6,
+    "severity_exact_or_prefix_one_missing_score_repeat": 5,
+    "severity_same_cvss_version_different_vector": 8
+  },
+  "inputs": {
+    "source": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+      "sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5"
+    },
+    "consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/dual_review_consensus.jsonl",
+      "sha256": "d9cdd7fc827be281e80e7f324c44b24f7416a40d5a0428b3cc4bf1a461695c63"
+    },
+    "v1_source": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v1/source_rows.jsonl",
+      "sha256": "74e0761da872e6378e84653ed8faff8982e1871c7cc5a1f75531e3ea9f4f1df0"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_contract_calibration_v2.md",
+      "sha256": "f4054bc52da137978ae733b024be442cc5305eddded37dfc695faa47c571fdf5"
+    }
+  },
+  "outputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/source_rows.jsonl",
+      "sha256": "c952ef90a4bb804eca759314e803454a02c0016383b47f607d5aad24498737d7"
+    },
+    "blind_worklist_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/blind/worklist_a.blind.jsonl",
+      "sha256": "3e91624f0260271ae46faafb757ea05456db49a194991f2b54b599fa91ef73a1"
+    },
+    "blind_worklist_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/blind/worklist_b.blind.jsonl",
+      "sha256": "df40382e1fc1347f74e4e2042ba18a782e2a940ecd3dc159bdadc8ec24beb55b"
+    }
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_backend": "codex-cli",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_a_pass_id": "rq2_contract_calibration_v2_reviewer_a",
+    "reviewer_b_pass_id": "rq2_contract_calibration_v2_reviewer_b",
+    "reviewer_a_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/reviewer_a.jsonl",
+    "reviewer_b_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/reviewer_b.jsonl",
+    "same_prompt_and_raw_values_for_both_reviewers": true,
+    "reviewer_b_order": "exact_reverse_of_a"
+  }
+}

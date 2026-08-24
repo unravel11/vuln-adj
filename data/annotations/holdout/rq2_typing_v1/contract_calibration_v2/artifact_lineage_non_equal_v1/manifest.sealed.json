@@ -1,0 +1,39 @@
+{
+  "schema_version": "artifact_lineage_non_equal_cohort_v1",
+  "artifact_type": "artifact_lineage_non_equal_cohort_manifest",
+  "generated_at": "2026-07-18T22:44:20Z",
+  "sealed": true,
+  "source": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/source_rows.jsonl",
+    "sha256": "c952ef90a4bb804eca759314e803454a02c0016383b47f607d5aad24498737d7"
+  },
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v2/artifact_lineage_non_equal_v1/cohort.jsonl",
+    "sha256": "fcecd960cd4bbdace4dacfc30f5d47d85441e53b08c63836f9eec19a73205e23"
+  },
+  "selection": {
+    "field": "affected_versions",
+    "both_claims_nonempty": true,
+    "one_subject_per_source": true,
+    "full_subject_identifiers_differ": true,
+    "raw_range_signatures_differ": true,
+    "prior_case_ids_excluded": [
+      "rq2_typing_holdout_v1:148"
+    ],
+    "selection_uses_reviewer_labels": false,
+    "selection_uses_non_human_consensus": false,
+    "upstream_source_conditioned_on_non_human_consensus": true
+  },
+  "selected_count": 5,
+  "selected_sample_ids": [
+    "rq2_typing_holdout_v1:016",
+    "rq2_typing_holdout_v1:026",
+    "rq2_typing_holdout_v1:086",
+    "rq2_typing_holdout_v1:737",
+    "rq2_typing_holdout_v1:864"
+  ],
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_diagnostic_only": true,
+  "post_unsealing": true
+}

@@ -1,0 +1,45 @@
+{
+  "artifact_type": "affected_versions_source_evidence_overlay",
+  "rows": 100,
+  "base_rows": 15,
+  "refreshed_rows": 85,
+  "selection_uses_ai_gold_status": true,
+  "feature_input_is_selection_aware": true,
+  "label_is_human": false,
+  "eligible_for_independent_holdout_claim": false,
+  "inputs": {
+    "base_evidence": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/affected_versions_fc_manual_check.evidence.jsonl",
+      "sha256": "3d3133f84477e46f309b79453f292464c1ceb2dc303adbddd15fe0a210ea6d21"
+    },
+    "refreshed_evidence": [
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions/evidence_refresh/source_rows.evidence.jsonl",
+        "sha256": "296b57c1e8a422c7b18a7c8aecc8659e829e3a657beb9efc85adf22260e456cd",
+        "rows": 45
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions_determinate/evidence_refresh/source_rows.evidence.jsonl",
+        "sha256": "5b26c44d8a17f73eca02cd291a5dd490282f94cf2ca860c5e42dae73601ea07c",
+        "rows": 40
+      }
+    ],
+    "selection_manifests": [
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions/selection_manifest.json",
+        "sha256": "9fa039f17515c1480fdbe04f17f503d8ead2e9d4927fb50c53ff4548b697c01d",
+        "rows": 45
+      },
+      {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions_determinate/selection_manifest.json",
+        "sha256": "1f2c51588af196b2f18068cdcfd31371fc2ba95faff0b38d8f4e8eaad838775a",
+        "rows": 40
+      }
+    ]
+  },
+  "output": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/ai_adjudicated_gold/source_reaudit/rq3_affected_versions/evidence_overlay_uniform/affected_versions_source_evidence_overlay.jsonl",
+    "sha256": "53908116d26d999007e01b1b07cd0b0a78d4338d884df1c84aa51fb579d2a32e"
+  },
+  "caution": "The 45 refreshed rows were selected using prior AI-gold status. This overlay is suitable for source-reaudit diagnostics, not an independent holdout claim."
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "rq2_reference_normalization_human_review_v1",
+  "generated_at": "2026-07-15T06:34:10.819604+00:00",
+  "row_count": 56,
+  "priority_rows": 24,
+  "secondary_rows": 32,
+  "signed_human_rows": 0,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "source_review_protocol_revision": 2,
+  "source_seal": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_impact_validation/reference_normalization_impact_manifest.sealed.json",
+  "source_seal_sha256": "8418c302fa7caa253c8319613350d23fc03839320e94e16b7fe5315789ca707c",
+  "source_worklist": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/reference_normalization_impact_validation/reference_identity_secondary_worklist.masked.jsonl",
+  "source_worklist_sha256": "be2209d55bbb19b822aaa23d74b0cd97f42499d1a6cc729f6b56008fc0ebad48",
+  "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/reference_normalization_impact_human_review/reference_normalization_impact_human_review.jsonl",
+  "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/reference_normalization_impact_human_review/reference_normalization_impact_human_review.csv",
+  "identity_definitions": {
+    "underlying_content_resource": "Treat URLs as the same resource when repository/revision/path or equivalent identifiers establish the same underlying content, even if one literal URL is malformed or does not resolve.",
+    "frozen_http_resource": "Treat URLs as the same resource only when the supplied frozen HTTP probes establish the same final resource or matching content.",
+    "other_explicit_definition": "Use another definition only when it is written explicitly in custom_identity_definition."
+  },
+  "status_mapping": {
+    "all_aliases_same_resource": "incomplete",
+    "one_or_more_not_same": "representation_discrepancy",
+    "insufficient": "uncertain"
+  },
+  "instructions": [
+    "The annotator and independent reviewer must work from this sealed evidence packet; Codex decisions are not prefilled.",
+    "Each human must choose and record a resource-identity definition before deciding every identity group.",
+    "The independent reviewer must use a different human_id from the annotator.",
+    "No row becomes canonical human gold until author_signoff=signed passes the validator; promotion is a separate step."
+  ]
+}

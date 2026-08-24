@@ -1,0 +1,458 @@
+{
+  "schema_version": "rq2_post_profile_unresolved_evidence_secondary_v1",
+  "artifact_type": "rq2_post_profile_unresolved_evidence_secondary_manifest_v1",
+  "sealed_at_ns": 1784452303847894891,
+  "sealed_at": "2026-07-19T09:11:43Z",
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "post_unsealing": true,
+  "development_diagnostic_only": true,
+  "selected_rows": 16,
+  "field_counts": {
+    "affected_versions": 12,
+    "references": 2,
+    "severity": 2
+  },
+  "excluded_cwe_rows": [
+    "rq2_post_profile_snapshot_v1:104",
+    "rq2_post_profile_snapshot_v1:214",
+    "rq2_post_profile_snapshot_v1:248"
+  ],
+  "evidence": {
+    "max_references_per_row": 6,
+    "rows_with_successful_nonempty_evidence": 16,
+    "successful_nonempty_evidence_rate": 1.0,
+    "fetch_status_counts": {
+      "ok": 50
+    }
+  },
+  "thresholds_fixed_before_evidence_fetch": {
+    "minimum_evidence_availability": 0.75,
+    "minimum_secondary_strict_resolution": 0.4,
+    "minimum_combined_candidate_coverage": 0.95
+  },
+  "inputs": {
+    "cohort_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/manifest.sealed.json",
+      "sha256": "3e2dfd05746d935de92430a19b61c5f744c5876df60d28246d252c5032d1acc2"
+    },
+    "main_merge_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/merge_manifest.json",
+      "sha256": "b389f386809238436c00a0a447f660b49522a389b780164fb68d7ef6958f72d5"
+    },
+    "main_consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/dual_review_consensus.jsonl",
+      "sha256": "1bc200caca1a761e1b28730dc6614e2d31b6cd81a7a307efbb500543f724b847"
+    },
+    "cwe_merge_manifest": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/cwe_all50_evidence_v3/merge_manifest.json",
+      "sha256": "9b896846e96ddb8a6f9552a351153c3051b42c923c88b8fa9152dbf7e39482c8"
+    },
+    "cwe_consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_post_profile_snapshot_v1/review/cwe_all50_evidence_v3/dual_review_consensus.jsonl",
+      "sha256": "ce7dbcb485727428bfbf231dd2b2e56e366b226f227319ff91d9f2c279d04850"
+    },
+    "source_worklist": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/blind/worklist_a.blind.jsonl",
+      "sha256": "b02c8aec604f4010c9b8c4f7fc9ee32656b0dffa5951f95595fa1610e5b9829e"
+    },
+    "predictions": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/predictions.sealed.jsonl",
+      "sha256": "6b388f29221973ff10162cb93ea6391fa64f6291694b933cd9030c46ef351e59"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_unresolved_evidence_review.md",
+      "sha256": "99757c90787bbff71f707bf63deb68cf00302c8061faa55550eb4aba0e500aa7"
+    },
+    "contract": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/annotation_guidelines/rq2_post_profile_unresolved_evidence_secondary_contract_v1.md",
+      "sha256": "cd7ca7809a6adacb5cb0c8ede7a780edcc18f16423a63cc43fc82c9e8cb99fa4"
+    },
+    "runner": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/run_expert_candidate_annotation.py",
+      "sha256": "e63d9ce65bf9cb7b01c9ba3636d6668d7a64c6dc8adf00a5ec5c26039007eeb3"
+    },
+    "fetcher": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/scripts/build_rq3_evidence_samples.py",
+      "sha256": "35b02ebcc7a62ba1e5cb6b3dc375d19ca45a2731a4b4318f90755d10b8e44c63"
+    },
+    "builder": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/experiments/rq2_discrepancy_typing/build_rq2_post_profile_unresolved_evidence_secondary.py",
+      "sha256": "d15e72d4fc89726710a675a55dfae683241f654de0f0e4f7ad69f903d81f058a"
+    },
+    "prior_reviewers": {
+      "main_reviewer_a": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reviewer_a.jsonl",
+        "sha256": "f7183f4a123618e7042aa6b81be562ce78386d00d5ba99eee7c7fa4af70caf95"
+      },
+      "main_reviewer_b": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/reviewer_b.jsonl",
+        "sha256": "29590fd02ebb0339407e67b045653cd6f380769e9175ef352e4f974cce833f66"
+      },
+      "cwe_reviewer_e": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v3/reviewer_e.jsonl",
+        "sha256": "3d903174a73b9d9c92868b945210c4a48839642c0052dd15957f2ed040ad2c0f"
+      },
+      "cwe_reviewer_f": {
+        "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/cwe_all50_evidence_v3/reviewer_f.jsonl",
+        "sha256": "3ac6d5c70df7005f6b2ef9eec0d18282b523f988f422246180aa5093fc462251"
+      }
+    }
+  },
+  "evidence_cache": [
+    {
+      "fetch_url": "https://access.redhat.com/errata/RHSA-2026:25097",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/6408d260472fed650333466a4225f17ffe0cb2c6bc951c07866784ee53ef5dbf.json",
+      "sha256": "0d6613a3f87512a26fa24d77777f0bddbae857f664672734e91d3d60ab05d3e2",
+      "source_url": "https://access.redhat.com/errata/RHSA-2026:25097"
+    },
+    {
+      "fetch_url": "https://access.redhat.com/errata/RHSA-2026:25098",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/22116ae32f743f09c6324613206bcd247e35b8815842b2bca4404647fc1c072f.json",
+      "sha256": "1254f00030c3fe5236e3d4e7be1b3568a46e4c796cd7c003fe6bd810dc4968ac",
+      "source_url": "https://access.redhat.com/errata/RHSA-2026:25098"
+    },
+    {
+      "fetch_url": "https://access.redhat.com/errata/RHSA-2026:5970",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/669d300fd69619323019c786601c28e09433dbffbd447a04a0c249b49c873bae.json",
+      "sha256": "0520ac58cd673e2c504213f4a69158bc4b312a56bdb3a9965db10fcceacbfd7f",
+      "source_url": "https://access.redhat.com/errata/RHSA-2026:5970"
+    },
+    {
+      "fetch_url": "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-7wff-wpr6-vmhm",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/4c09a9cb6038d40149b5a8ab7c3f9f2122d2046a3e21fa27ef5eaa1dc5a94e7e.json",
+      "sha256": "450210ff94b1e777bb5c451c40999d2b64cff99b71697af94b2f01c730a7e900",
+      "source_url": "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-7wff-wpr6-vmhm"
+    },
+    {
+      "fetch_url": "https://github.com/MessagePack-CSharp/MessagePack-CSharp/security/advisories/GHSA-cxmj-83gh-fp49",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/f1f9afcdb0e5f6fe871f1ba188d724269fc476e697414eed1a645a98671f337d.json",
+      "sha256": "5634e6fbdb5fb84993b4e5cfb914cf08e3225a6ab9d99db1fe1ef60df83caa46",
+      "source_url": "https://github.com/MessagePack-CSharp/MessagePack-CSharp/security/advisories/GHSA-cxmj-83gh-fp49"
+    },
+    {
+      "fetch_url": "https://github.com/anthropics/anthropic-sdk-python/commit/6599043eee6e86dce16953fcd1fd828052052be6.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/93dc645b70cfa7493b5aa1a906c97fbe08771c47a6cc587b7b657e437305d1d1.json",
+      "sha256": "07b507a4f7ecba3dec63f7d67a13064334ec3da7b829ec7c3a368ee128ef2816",
+      "source_url": "https://github.com/anthropics/anthropic-sdk-python/commit/6599043eee6e86dce16953fcd1fd828052052be6"
+    },
+    {
+      "fetch_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.87.0",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/89bd681eda2e3b7a6ffe8547a8812bab3febfc897c3f1051b7674e53818ad046.json",
+      "sha256": "fa988684ba86c3517960f5d891bcd91b39dc6861c2e76cf0cc746042afb5d164",
+      "source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.87.0"
+    },
+    {
+      "fetch_url": "https://github.com/anthropics/anthropic-sdk-python/security/advisories/GHSA-w828-4qhx-vxx3",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/cc7cc4e26f40a5562999d53b13d6b35f18848c49d253b39f6de936000b4e55cf.json",
+      "sha256": "78bc24f089302e6e90e46770360cc8ae8078de09c7c2df54b3467f018a690e44",
+      "source_url": "https://github.com/anthropics/anthropic-sdk-python/security/advisories/GHSA-w828-4qhx-vxx3"
+    },
+    {
+      "fetch_url": "https://github.com/apache/logging-log4j2/pull/4075.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/aa015b493d9b8a68a884dbe5e7e16ad4878cfd448e607aaddd27cc5f40bd0fd6.json",
+      "sha256": "fdbc38b6a6f55b886b0ef29443b2a3a4214c1b11a05f207039ee0a0d28c7c97a",
+      "source_url": "https://github.com/apache/logging-log4j2/pull/4075"
+    },
+    {
+      "fetch_url": "https://github.com/apostrophecms/apostrophe/commit/6c2b548dec2e3f7a82e8e16736603f4cd17525aa.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/b135b57d958ea4296c5f4c79b13cf7a1490856e237db3d91058a13ca4dec4ffd.json",
+      "sha256": "ee2b6be0a36d347ab2517cc3c84ab4704b211e54d64d7e86ea1d1c56bc60fe80",
+      "source_url": "https://github.com/apostrophecms/apostrophe/commit/6c2b548dec2e3f7a82e8e16736603f4cd17525aa"
+    },
+    {
+      "fetch_url": "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-c276-fj82-f2pq",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/4d3c88970b4b1c448970bd56b52b662f343e674043e1754249fbddefbb290498.json",
+      "sha256": "ee44858a268f56c8d7a98cc98f0a2442a4bfb1899cfebc291d218877dfa43e7c",
+      "source_url": "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-c276-fj82-f2pq"
+    },
+    {
+      "fetch_url": "https://github.com/craftcms/cms/commit/fb61a91357f5761c852400185ba931f51d82783d.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/64797b4c9becde8dd4d3cedcc8e729b4315e0f5e18fe2ec50cad744858233cfb.json",
+      "sha256": "bdc2934c099819661f7ab5626171a1f2f7c61412a726fc990de78eccd1336f4e",
+      "source_url": "https://github.com/craftcms/cms/commit/fb61a91357f5761c852400185ba931f51d82783d"
+    },
+    {
+      "fetch_url": "https://github.com/craftcms/cms/security/advisories/GHSA-jxm3-pmm2-9gf6",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/01de74390b35d16b06f79cd5120c4a27862fcc1cdea5f78545b09cf832264219.json",
+      "sha256": "979d382c70921c92d767d3d271fed5779516c6c8735588b03e603842fcf7909e",
+      "source_url": "https://github.com/craftcms/cms/security/advisories/GHSA-jxm3-pmm2-9gf6"
+    },
+    {
+      "fetch_url": "https://github.com/fog/fog-kubevirt/commit/8371e9ded99f9ec3e74caf2f283836109763e450.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/df3bfeb74535ccce2edd0ebcde6d63a92821bd2c3aba53a8c9d5f524d8e3a84f.json",
+      "sha256": "45f0031a97ce8c4109819ef22484c864a842fc342818a93ad066e398fcdd7f45",
+      "source_url": "https://github.com/fog/fog-kubevirt/commit/8371e9ded99f9ec3e74caf2f283836109763e450"
+    },
+    {
+      "fetch_url": "https://github.com/fog/fog-kubevirt/commit/9603d79a239a0f68bedfc679cd1b65fbf6ec4753.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/5492be4355873046167aae055a0da42a297ccbfb8d45c31b2ea7d678cd386010.json",
+      "sha256": "28766cf9e79f615fbfc1ba48fc9739d47c0695dcd453509fc680f6c085834051",
+      "source_url": "https://github.com/fog/fog-kubevirt/commit/9603d79a239a0f68bedfc679cd1b65fbf6ec4753"
+    },
+    {
+      "fetch_url": "https://github.com/fog/fog-kubevirt/pull/168.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/69e47fae8a73a7e44c0cbdc53b8792717fab878ebaa6c1de35d7857645e2a866.json",
+      "sha256": "7ac33d2fe4dad5f99679d06e22cd714a0b5d254b9d40ee7dd379d0f37fe811f1",
+      "source_url": "https://github.com/fog/fog-kubevirt/pull/168"
+    },
+    {
+      "fetch_url": "https://github.com/getgrav/grav-plugin-form/commit/6bffb4c98be468a155d1656544ec45bb4a443957.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/6582c607303bf2e43d9382746e9d54b396df41c39d90016e4de12f619c07beed.json",
+      "sha256": "1a8db1b405d2a1f58dda6e0779c91b2b575b0b7fe0d4632df3616f27ad492230",
+      "source_url": "https://github.com/getgrav/grav-plugin-form/commit/6bffb4c98be468a155d1656544ec45bb4a443957"
+    },
+    {
+      "fetch_url": "https://github.com/getgrav/grav/commit/5a12f9be8314682c8713e569e330f11805d0a663.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/b367764279032e42b91fd834304039e469c979774f6c903cf19b58881985b8a8.json",
+      "sha256": "53fe734ce976baa913ea9b76a73528d63fb588ef92c7a3dd4cae1efc8d3d7e28",
+      "source_url": "https://github.com/getgrav/grav/commit/5a12f9be8314682c8713e569e330f11805d0a663"
+    },
+    {
+      "fetch_url": "https://github.com/getgrav/grav/security/advisories/GHSA-c2q3-p4jr-c55f",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/0b7851df9b98addc989ac119baea5f222f180c0b8ce17e1899c9343afff5de59.json",
+      "sha256": "c5d4ee58522995a31cb6b1b0df26cf23c290e954ee19e1d98993b0b0821d7d4b",
+      "source_url": "https://github.com/getgrav/grav/security/advisories/GHSA-c2q3-p4jr-c55f"
+    },
+    {
+      "fetch_url": "https://github.com/gtsteffaniak/filebrowser/releases/tag/v1.2.2-stable",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/b3e60d1783c66ba58b16d25ef58947073e28169852e52aa537da730b83566dfb.json",
+      "sha256": "aa02467bb5a0ab8905f3457be883ebedb4578b3db759a77e93f0e87368006ac1",
+      "source_url": "https://github.com/gtsteffaniak/filebrowser/releases/tag/v1.2.2-stable"
+    },
+    {
+      "fetch_url": "https://github.com/gtsteffaniak/filebrowser/releases/tag/v1.3.1-beta",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/12950219f45331ab6554ee15de44e5876cf42f6534678c5732010ba0f7e7f194.json",
+      "sha256": "cbd5c2306175f0d7369f90e520567d081fcaf1ef03654b312d64b07a32eddcb7",
+      "source_url": "https://github.com/gtsteffaniak/filebrowser/releases/tag/v1.3.1-beta"
+    },
+    {
+      "fetch_url": "https://github.com/gtsteffaniak/filebrowser/security/advisories/GHSA-525j-95gf-766f",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/3c29338792be10ef37af8954e9b2ea0b9c7594011206c9ba675abcf6fcbeee7a.json",
+      "sha256": "3baf423c87d2d93e33b8e4ac71734eb737116dab3582fb0e67392d6f308518f3",
+      "source_url": "https://github.com/gtsteffaniak/filebrowser/security/advisories/GHSA-525j-95gf-766f"
+    },
+    {
+      "fetch_url": "https://github.com/keycloak/keycloak/commit/b6cd645683f469724cd588fac415fe09bd20a27a.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/11640652393e77b222fd7edf937300394ef82604353ee29c1466e74dcce87a19.json",
+      "sha256": "54d661d8f5a289cad013551b181462d4a7e9ada13b8d466132aa807a07c15b89",
+      "source_url": "https://github.com/keycloak/keycloak/commit/b6cd645683f469724cd588fac415fe09bd20a27a"
+    },
+    {
+      "fetch_url": "https://github.com/keycloak/keycloak/commit/c5bda802e98b412e42fa62ff6240669e9ea4a858.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/d684c332b0b65932d0789dee5523c1944a479286c8ccf91b978e47c85e934d97.json",
+      "sha256": "c79a8a0df7fc08904e4cb44e6ddee0f2d250e53c7dad55720b3272ec310c3a32",
+      "source_url": "https://github.com/keycloak/keycloak/commit/c5bda802e98b412e42fa62ff6240669e9ea4a858"
+    },
+    {
+      "fetch_url": "https://github.com/keycloak/keycloak/issues/49118",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/22643a4905635de59061a409057648de9195829247aa6e389cd35e897fb7c3a5.json",
+      "sha256": "02e9bfcd73cc0f1a6ad1b18c069ba97e593d2121ad821f143c509fa4097e5af0",
+      "source_url": "https://github.com/keycloak/keycloak/issues/49118"
+    },
+    {
+      "fetch_url": "https://github.com/keycloak/keycloak/pull/49129.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/4bb9c1f322361d7c8052e73d02fb18d3e23eeebb39b0a4a3e2a3c6e90f3ff75a.json",
+      "sha256": "c45b88b802a7e28a329f9139a48a7f331c01a87c52188cd24461ea56e3b1820b",
+      "source_url": "https://github.com/keycloak/keycloak/pull/49129"
+    },
+    {
+      "fetch_url": "https://github.com/librenms/librenms/releases/tag/26.3.0",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/eab8e3d5cad2d6714447d8bd8f652c246721b114567d2512f75870713ea03f98.json",
+      "sha256": "42f02cc11db537bd3f709ac5e7e3e19898f209549145852094dfee18194a3cb1",
+      "source_url": "https://github.com/librenms/librenms/releases/tag/26.3.0"
+    },
+    {
+      "fetch_url": "https://github.com/librenms/librenms/security/advisories/GHSA-5gm9-622f-qcg5",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/20af5e62eeb309236bcfc513c77b25b62e4c454637e43be271e6b5467885f39e.json",
+      "sha256": "58218a7b05055e40ec52f20ed1d64b62a46f096f471d70692f344ebc23920630",
+      "source_url": "https://github.com/librenms/librenms/security/advisories/GHSA-5gm9-622f-qcg5"
+    },
+    {
+      "fetch_url": "https://github.com/openclaw/openclaw/commit/dded569626b0d8e7bdab10b5e7528b6caf73a0f1.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/de5adfd22396b0a60acc0a8beaa9395fc3c4bbc6e148d14e8b8add4ab4e6e369.json",
+      "sha256": "03031a21a1f2ee049cabcf268de8c11dbb2cb8c6b831d2c365ae2e04d8974dcb",
+      "source_url": "https://github.com/openclaw/openclaw/commit/dded569626b0d8e7bdab10b5e7528b6caf73a0f1"
+    },
+    {
+      "fetch_url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-h3rm-6x7g-882f",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/0cc180e1d0c9b2549aec2d496f31719364cc90d43bb8a5a48df892d8afcb7661.json",
+      "sha256": "4c4a1d4baa94a1d40565b7b68060cae942b7016fa0c7fafb953dc94142a42855",
+      "source_url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-h3rm-6x7g-882f"
+    },
+    {
+      "fetch_url": "https://github.com/ory/keto/security/advisories/GHSA-c38g-mx2c-9wf2",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/628df6afc89c2bd329be94700aaeac56f1efb569ac7a99f5ae606938eafd7097.json",
+      "sha256": "2203b9ccc50c4436d9080d3c9a128e6e1182af5ee6eff5461d3301445771fa02",
+      "source_url": "https://github.com/ory/keto/security/advisories/GHSA-c38g-mx2c-9wf2"
+    },
+    {
+      "fetch_url": "https://github.com/projectcalico/calico/commit/0ca653db0ae7400ea9fb066daa7f45c902482271.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/0b292472844e0a558c3f5b851b24c076835b2e8a7da969a8db0a541720567856.json",
+      "sha256": "9bd55e43dc682e9888c2ef2089653fc63ad53b577b19aff0f4fed13d3337647c",
+      "source_url": "https://github.com/projectcalico/calico/commit/0ca653db0ae7400ea9fb066daa7f45c902482271"
+    },
+    {
+      "fetch_url": "https://github.com/projectcalico/calico/commit/cd73bc2cea0f4989772f2deb93909e7cfac927e0.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/5a0c9b0c4456777c5e0e48f2ceda8a0824c1d1ed1462a049cbef199f1f7a7b38.json",
+      "sha256": "2c52783356046af25d793928ca0bf09baca7576d756187839b86253b3897736c",
+      "source_url": "https://github.com/projectcalico/calico/commit/cd73bc2cea0f4989772f2deb93909e7cfac927e0"
+    },
+    {
+      "fetch_url": "https://github.com/projectcalico/calico/commit/da9ea3a13927a35e4022b787d17a005b2157d812.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/a81ac484eeaf049e9f01c376ef4a3412bcc6d7eedc66d71709715b734f9023d3.json",
+      "sha256": "0b721b3885519ee3e1650fd186d440f826096e14cb2b95b0e187c08f12f682de",
+      "source_url": "https://github.com/projectcalico/calico/commit/da9ea3a13927a35e4022b787d17a005b2157d812"
+    },
+    {
+      "fetch_url": "https://github.com/projectcalico/calico/pull/12502.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/c434dc1db87c893d4490392ba0e90f258e61c23bb1120700716f1fc91b847855.json",
+      "sha256": "fc948618e03cd3c25846d5a119bf665d3159802e69828a70d98d8395eacecfaa",
+      "source_url": "https://github.com/projectcalico/calico/pull/12502"
+    },
+    {
+      "fetch_url": "https://github.com/projectcalico/calico/pull/12526.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/e4c5c2db2e72fe9e883967651902a56cfb8e09f9839a38841d6f9ce39a52c282.json",
+      "sha256": "bc4091b4197cf0cfc097fbaf67d82cfdae090e239f6290f3aae63a7c18b24d42",
+      "source_url": "https://github.com/projectcalico/calico/pull/12526"
+    },
+    {
+      "fetch_url": "https://github.com/projectcalico/calico/pull/12527.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/ab39955a049c605a0e0f78fda4a0ea565ffc8018907a1c3131dfcdcc42c976c2.json",
+      "sha256": "7697dbe66df3a2f747ff28e7af4c498674a248f1bf129bb0706e4906ae637b8e",
+      "source_url": "https://github.com/projectcalico/calico/pull/12527"
+    },
+    {
+      "fetch_url": "https://github.com/siyuan-note/siyuan/commit/5ee00907f0b0c4aca748ce21ef1977bb98178e14.patch",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/378c69154ca7c8861e9830641c62329074cdf5b9910916775a5dbceecf0edff8.json",
+      "sha256": "447f399f1d58a909c8ce783844bc5df2bfe2a372a7395150c0352a65075f9820",
+      "source_url": "https://github.com/siyuan-note/siyuan/commit/5ee00907f0b0c4aca748ce21ef1977bb98178e14"
+    },
+    {
+      "fetch_url": "https://github.com/siyuan-note/siyuan/releases/tag/v3.6.1",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/3381b0730a4c17439b2741fa7b10fa9ef2dd3cc0a2ec0792d3b581f1d0093a00.json",
+      "sha256": "730633ce1721dc9d4695e833c18eefa061f08dac04227dff2a5314cd91a0ade1",
+      "source_url": "https://github.com/siyuan-note/siyuan/releases/tag/v3.6.1"
+    },
+    {
+      "fetch_url": "https://github.com/siyuan-note/siyuan/releases/tag/v3.6.4",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/4c0aab44e05ed513684fd08a6b342018d3b94a01efd3414311a4f68ad3ede017.json",
+      "sha256": "8b4c2c1f64749dc2f76497303366f30aaafb8a74362355e59a850949dcf5e986",
+      "source_url": "https://github.com/siyuan-note/siyuan/releases/tag/v3.6.4"
+    },
+    {
+      "fetch_url": "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-7m5h-w69j-qggg",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/d7f18f087853824d6f793047397c3e249f388e2c2aa1c5f535d09b4fd0ad82fc.json",
+      "sha256": "44ae28c2e631d4fba8eca6f8bac10ff4d64368ad90ec88f41b30f53750226fcf",
+      "source_url": "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-7m5h-w69j-qggg"
+    },
+    {
+      "fetch_url": "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qvvf-q994-x79v",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/b4d2cb3245da0d646af4cd683a3cd849bcae7605db3cd4acc853d1a70c3ddd12.json",
+      "sha256": "0ed37e749228ebfdfd6c6ddb1c6b2923aad3488969265dad9c0a95d1e86268fd",
+      "source_url": "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qvvf-q994-x79v"
+    },
+    {
+      "fetch_url": "https://lists.apache.org/thread/lkx8cl46t2bvkcwfcb2pd43ygc097lq4",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/a27438bf9029e59ed9a7cbaf532438b1f4592f386200f1a8d19f04cbe6f3d08f.json",
+      "sha256": "005434c438992a26df48a9d4631e9fc78704ba04647c58f691021d9a68f5aeb3",
+      "source_url": "https://lists.apache.org/thread/lkx8cl46t2bvkcwfcb2pd43ygc097lq4"
+    },
+    {
+      "fetch_url": "https://logging.apache.org/cyclonedx/vdr.xml",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/33a11c97898b3261b4992489ace577b15dbadbb77509c1369bf59dd7f582230e.json",
+      "sha256": "1b2595032da6275f237d39cfecd577c5e19648eabfe2b2d728614769c2e0271a",
+      "source_url": "https://logging.apache.org/cyclonedx/vdr.xml"
+    },
+    {
+      "fetch_url": "https://logging.apache.org/log4j/2.x/manual/appenders/network.html#SslConfiguration-attr-verifyHostName",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/54e7e4cddb3feb3b1094807fec427469bbbd2610aa62ee76b1df11e39051688e.json",
+      "sha256": "c562d2eca22a75af1fdbaa111264ad74ced0df3b749262a698be1def5f5e6c35",
+      "source_url": "https://logging.apache.org/log4j/2.x/manual/appenders/network.html#SslConfiguration-attr-verifyHostName"
+    },
+    {
+      "fetch_url": "https://logging.apache.org/security.html#CVE-2026-34477",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/ec66ab8cd8d9c08eaa3a0727961552f2608c62f63d46e5592e75ca51c1914389.json",
+      "sha256": "7634210fa5069f18ed797ae0f3baa16a3e826a2ba46c875674543ad468b508f0",
+      "source_url": "https://logging.apache.org/security.html#CVE-2026-34477"
+    },
+    {
+      "fetch_url": "https://projectblack.io/blog/librenms-authenticated-rce-and-xss/#xss-on-showconfig-page-2630",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/6d4a658483a6c7afd661eebdf14a2d4794013abe114186eb73dd3b6c78a03254.json",
+      "sha256": "ccdc0c4a759cc90475bd1cbeba37fc01d45d3f9ce3e7f0c5f7db50bfa84e6d72",
+      "source_url": "https://projectblack.io/blog/librenms-authenticated-rce-and-xss/#xss-on-showconfig-page-2630"
+    },
+    {
+      "fetch_url": "https://raw.githubusercontent.com/fog/fog-kubevirt/8adb03e07972d6e19a7713ecf2a827aa2cfe4b9e/CHANGELOG.md",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/2bb758cfdea54e3b464f8e51a7e6bc5f5d75a2b86101fd7d8e2bd13c81239dbb.json",
+      "sha256": "43ad074485c6e16598e1499bf5cf377ced68b5d5ad1c7505475c09694d42783e",
+      "source_url": "https://github.com/fog/fog-kubevirt/blob/8adb03e07972d6e19a7713ecf2a827aa2cfe4b9e/CHANGELOG.md?plain=1#L11"
+    },
+    {
+      "fetch_url": "https://raw.githubusercontent.com/rubysec/ruby-advisory-db/master/gems/fog-kubevirt/CVE-2026-1530.yml",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/c2cd2a34a42d2ae1ae707de320528b9161aed230e67f945f5c352c588f7bf291.json",
+      "sha256": "186f0a1106a8835e33f08551d81c38c95ae371b52b42760a38111d52315932a8",
+      "source_url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/fog-kubevirt/CVE-2026-1530.yml"
+    },
+    {
+      "fetch_url": "https://www.vulncheck.com/advisories/openclaw-approval-integrity-bypass-via-system-run-argv-rewriting",
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq2/post_profile_unresolved_evidence_secondary_v1/url_cache/06d972f4bbcd27215fbe0ca0e531fb9a8e531b26468ee7d74408087ed7342e64.json",
+      "sha256": "61d0fd4c19d750dc6420164372a5f9a947b0053764d7c62255df652666584cb5",
+      "source_url": "https://www.vulncheck.com/advisories/openclaw-approval-integrity-bypass-via-system-run-argv-rewriting"
+    }
+  ],
+  "outputs": {
+    "blind_worklist_g": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/blind/worklist_g.blind.jsonl",
+      "sha256": "e0644daa08345f45eec869121c2fcf264c804c3eba79ec7ed0dedc3fc44cff04"
+    },
+    "blind_worklist_h": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/blind/worklist_h.blind.jsonl",
+      "sha256": "f0e99494ec7b1561e3ba4ae41693f39732cd6056ed33defc4ef4a9d5bc501ab0"
+    },
+    "author_triage": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/author_triage.jsonl",
+      "sha256": "48f8ceaf2b3372d001560ff4fac210ba750b5a3794d51471cbd087e8a566c267",
+      "reviewer_visible": false
+    },
+    "reviewer_g": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/reviewer_g.jsonl",
+    "reviewer_h": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/reviewer_h.jsonl",
+    "reviewer_g_requests": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/reviewer_g.requests.jsonl",
+    "reviewer_h_requests": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_post_profile_snapshot_v1/unresolved_evidence_secondary_v1/reviewer_h.requests.jsonl"
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_backend": "codex-cli",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_g_pass_id": "rq2_post_profile_unresolved_evidence_v1_g",
+    "reviewer_h_pass_id": "rq2_post_profile_unresolved_evidence_v1_h",
+    "schedule": "input",
+    "opposite_input_order": true,
+    "citation_required_fields": [
+      "affected_versions",
+      "references"
+    ],
+    "resolution_rule": "strict G/H consensus only; prior decisions excluded; citation-required fields need one successful frozen URL per reviewer"
+  },
+  "boundary": {
+    "same_model_family": true,
+    "human_gold_claim_allowed": false,
+    "accuracy_claim_allowed": false,
+    "confirmatory_claim_allowed": false,
+    "temporal_generalization_claim_allowed": false,
+    "candidate_promotion_allowed": false,
+    "production_switch_allowed": false,
+    "threshold_relaxation_after_results_allowed": false
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "rq2_typing_contract_calibration_v1",
+  "artifact_type": "rq2_typing_contract_calibration_v1_manifest",
+  "sealed_at_ns": 1784406020755302977,
+  "label_is_human": false,
+  "eligible_for_human_gold_claim": false,
+  "development_calibration_only": true,
+  "selection_uses_non_human_consensus": true,
+  "valid_for_confirmatory_performance_claim": false,
+  "selected_rows": 60,
+  "selected_unique_cves": 60,
+  "selection_seed": "rq2-typing-contract-calibration-v1",
+  "stratum_targets": {
+    "severity_exact_vector_one_missing_score": 10,
+    "severity_prefix_vector_one_missing_score": 10,
+    "severity_different_vector_one_missing_score": 10,
+    "severity_missing_vector_one_missing_score": 1,
+    "affected_one_sided_unbounded_claim": 10,
+    "severity_unchanged_control": 10,
+    "affected_versions_unchanged_control": 9
+  },
+  "stratum_counts": {
+    "affected_one_sided_unbounded_claim": 10,
+    "affected_versions_unchanged_control": 9,
+    "severity_different_vector_one_missing_score": 10,
+    "severity_exact_vector_one_missing_score": 10,
+    "severity_missing_vector_one_missing_score": 1,
+    "severity_prefix_vector_one_missing_score": 10,
+    "severity_unchanged_control": 10
+  },
+  "blind_projection": "The exact frozen raw source values and contexts from the fresh holdout; no baseline, prior label, candidate label, or calibration stratum.",
+  "inputs": {
+    "source": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/source_rows.jsonl",
+      "sha256": "89aecc496c4ffc565596862a420f85e9d93f276029b5bdd54ab450c3abf57ac5"
+    },
+    "consensus": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/results/holdout/rq2_typing_v1/dual_review_consensus.jsonl",
+      "sha256": "d9cdd7fc827be281e80e7f324c44b24f7416a40d5a0428b3cc4bf1a461695c63"
+    },
+    "prompt": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/docs/prompts/rq2_typing_holdout_review.md",
+      "sha256": "2777be877b6194ed6ff9353a46615b46e16a7b09703b6476267b15e1a491debd"
+    }
+  },
+  "outputs": {
+    "source_rows": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v1/source_rows.jsonl",
+      "sha256": "74e0761da872e6378e84653ed8faff8982e1871c7cc5a1f75531e3ea9f4f1df0"
+    },
+    "blind_worklist_a": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v1/blind/worklist_a.blind.jsonl",
+      "sha256": "4ec7bb1339520097d05e0cb5182cc49a0f55ce29e501080988ee5fd863895693"
+    },
+    "blind_worklist_b": {
+      "path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v1/blind/worklist_b.blind.jsonl",
+      "sha256": "848b25a058eb5fcd858cd983020b696e3cbb804422fcf2ba0305337a0f68f42c"
+    }
+  },
+  "review_protocol": {
+    "runner_contract_mode": "strict",
+    "execution_backend": "codex-cli",
+    "execution_contract": {
+      "backend": "codex-cli",
+      "api_route": "codex_cli",
+      "path": "/home/xiaoyuliang/.codex/packages/standalone/releases/0.144.4-x86_64-unknown-linux-musl/bin/codex",
+      "version": "codex-cli 0.144.4",
+      "sha256": "2b3edc9cdfd1717fba3dbc92817205a8a2c7511d459e456d4817eeff6f78ed7a",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "max_output_tokens": null,
+      "sandbox": "read-only",
+      "ephemeral": true
+    },
+    "reviewer_a_pass_id": "rq2_contract_calibration_v1_reviewer_a",
+    "reviewer_b_pass_id": "rq2_contract_calibration_v1_reviewer_b",
+    "reviewer_a_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v1/reviewer_a.jsonl",
+    "reviewer_b_output": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/rq2_typing_v1/contract_calibration_v1/reviewer_b.jsonl",
+    "same_prompt_and_raw_values_for_both_reviewers": true,
+    "reviewer_b_order": "exact_reverse_of_a"
+  }
+}

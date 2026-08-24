@@ -1,0 +1,16 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/source_rows.jsonl",
+  "output_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/holdout/affected_versions_v1/evidence/source_rows.evidence.jsonl",
+  "cache_dir": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/holdout/affected_versions_v1/url_cache",
+  "row_count": 100,
+  "url_cache_hits": 56,
+  "url_fetches": 512,
+  "fetch_status_counts": {
+    "http_403": 8,
+    "http_404": 2,
+    "ok": 540,
+    "timeout": 15,
+    "url_error": 3
+  },
+  "max_text_chars": 5000
+}

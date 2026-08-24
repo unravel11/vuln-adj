@@ -1,0 +1,21 @@
+{
+  "schema_version": "rq2_cwe_taxonomy_human_review_v1",
+  "generated_at": "2026-07-15T05:01:45.790580+00:00",
+  "row_count": 17,
+  "priority_rows": 9,
+  "signed_human_rows": 0,
+  "label_is_human": false,
+  "source_seal": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/impact_holdout/cwe_taxonomy_impact_manifest.sealed.json",
+  "source_seal_sha256": "822319b11d6f3a17a71c54ce04ea4a6602ef17646c8f6aee389243d7952e8acb",
+  "source_worklist": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/impact_holdout/cwe_taxonomy_impact_worklist.blind.jsonl",
+  "source_worklist_sha256": "bdbad7fc0995f09d59152b96de8cbe0df5d425d534fec9789565b48e69f2c47a",
+  "source_priority_worklist": "/home/xiaoyuliang/code/vuln-adj/results/rq2_discrepancy_typing/cwe_taxonomy/impact_holdout/cwe_taxonomy_human_priority_worklist.blind.jsonl",
+  "source_priority_worklist_sha256": "2bb5ee98979e3db4f953cc0aa4c80335feec7aafb3b544da5ec016381fbb6da9",
+  "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/cwe_taxonomy_impact_human_review/cwe_taxonomy_impact_human_review.jsonl",
+  "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq2/cwe_taxonomy_impact_human_review/cwe_taxonomy_impact_human_review.csv",
+  "instructions": [
+    "The primary annotator should use the blind source worklist, not Codex consensus labels.",
+    "The independent reviewer must use a different human_id.",
+    "No row becomes canonical human gold until author_signoff=signed passes the validator."
+  ]
+}

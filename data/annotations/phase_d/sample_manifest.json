@@ -1,0 +1,32 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl",
+  "output_dir": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d",
+  "seed": 20260506,
+  "sample_selection_mode": "preserve_existing",
+  "samples": [
+    {
+      "name": "affected_versions_fc_manual_check",
+      "field": "affected_versions",
+      "baseline_status": "factual_conflict",
+      "requested_size": 100,
+      "candidate_count": 651,
+      "sampled_count": 100,
+      "preserved_existing_ids": true,
+      "purpose": "Manual false-positive check before tightening or freezing the affected_versions baseline.",
+      "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+      "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.csv"
+    },
+    {
+      "name": "severity_fc_adjudication_seed",
+      "field": "severity",
+      "baseline_status": "factual_conflict",
+      "requested_size": 80,
+      "candidate_count": 1749,
+      "sampled_count": 80,
+      "preserved_existing_ids": true,
+      "purpose": "Seed sample for severity factual-conflict adjudication gold construction.",
+      "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/severity_fc_adjudication_seed.jsonl",
+      "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/severity_fc_adjudication_seed.csv"
+    }
+  ]
+}

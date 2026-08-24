@@ -1,0 +1,18 @@
+{
+  "input_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/phase_d/affected_versions_fc_manual_check.jsonl",
+  "output_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/affected_versions_fc_manual_check.evidence.jsonl",
+  "cache_dir": "/home/xiaoyuliang/code/vuln-adj/data/evidence_cache/rq3/url_cache",
+  "row_count": 100,
+  "url_cache_hits": 585,
+  "url_fetches": 0,
+  "fetch_status_counts": {
+    "http_308": 2,
+    "http_403": 15,
+    "http_404": 3,
+    "ok": 402,
+    "skipped_non_text": 1,
+    "timeout": 30,
+    "url_error": 132
+  },
+  "max_text_chars": 5000
+}

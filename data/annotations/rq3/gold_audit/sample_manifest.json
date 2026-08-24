@@ -1,0 +1,29 @@
+{
+  "schema_version": "rq3_human_audit_v1",
+  "output_dir": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/gold_audit",
+  "datasets": [
+    {
+      "field": "severity",
+      "source_evidence_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/severity_fc_adjudication_seed.evidence.jsonl",
+      "silver_v2_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/llm_silver_v2/severity_fc_adjudication_seed.evidence.llm_draft.jsonl",
+      "row_count": 80,
+      "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/gold_audit/severity_adjudication_audit.jsonl",
+      "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/gold_audit/severity_adjudication_audit.csv"
+    },
+    {
+      "field": "affected_versions",
+      "source_evidence_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/affected_versions_fc_manual_check.evidence.jsonl",
+      "silver_v2_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/silver_v2/llm_silver_v2/affected_versions_fc_manual_check.evidence.llm_draft.jsonl",
+      "row_count": 100,
+      "jsonl_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/gold_audit/affected_versions_adjudication_audit.jsonl",
+      "csv_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/gold_audit/affected_versions_adjudication_audit.csv"
+    }
+  ],
+  "cautions": [
+    "These files are blank human-audit templates, not completed gold labels.",
+    "silver_v2 annotations are included only as provenance/context.",
+    "Old URL-only LLM drafts under data/annotations/phase_d/llm_drafts must not be used as evaluation labels.",
+    "Affected_versions audit must distinguish token support from semantic version-range adjudication."
+  ],
+  "readme_path": "/home/xiaoyuliang/code/vuln-adj/data/annotations/rq3/gold_audit/README.md"
+}
