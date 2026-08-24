@@ -1,59 +1,51 @@
-# Related Work Papers Archive
+# Related Work Evidence Archive
 
-更新时间：2026-05-24
+**更新时间**：2026-08-24
+**检索截止**：2026-08-24
 
-说明：
+本目录保存 NVD–GHSA 字段差异、漏洞元数据质量、冲突消解、拒判/转交和公开数据集相关论文。每个条目都有独立 `analysis_zh.md`；报告区分作者主张、全文可确认事实、读者推断和证据缺口。
 
-- 本目录用于保存 `docs/related_work_survey.md` 中提到的相关工作论文材料。
-- 优先保存可直接获取的全文 PDF；无法直接获取全文时，只保留可访问的落地页。
-- “已保存”只表示文件已落盘，不表示文献内容已人工核对完整性。
+## 当前证据状态
 
-## 当前结果
+- 纳入论文：`24`
+- 已取得并核验全文 PDF：`23`
+- 摘要/元数据级、全文未取得：`1`（`18_cvss_bayesian_tdsc_2018`）
+- 独立中文解析：`24/24`
+- 机器可读来源/页数/哈希清单：`literature_manifest.json`
+- 跨论文总结：`../related_work_synthesis_20260824.md`
+- JSS framing 与实验缺口：`../../paper/jss/FRAMING_AND_EXPERIMENT_GAP_REVIEW_20260824.md`
 
-- 已保存全文 PDF：`16` 篇
-- 同时保留落地页/HTML：`4` 个条目
-- 已定位但当前环境未成功保存：`0` 篇
+## 条目索引
 
-## 条目清单
+| ID | 简称 | 路线 | 证据 |
+|---|---|---|---|
+| 01 | VIEM | 文本–NVD 版本差异 | 全文 PDF |
+| 02 | Croft severity | 跨生命周期 severity | 全文 PDF |
+| 03 | Flaw Within | NVD 内部 CVSS 审计 | 全文 PDF |
+| 04 | Cleaning NVD | 单库多字段质量/修正 | 全文 PDF |
+| 05 | Affected Versions Benchmark | 同字段工具 benchmark | 全文 PDF |
+| 06 | CVSS User Study | 人因与评分构念 | 全文 PDF |
+| 07 | TOSEM Aspect Discrepancy | 直接竞争：文本 aspect 差异 | 全文 PDF |
+| 08 | LLM Aspect Discrepancy | LLM 抽取/差异 | 全文 PDF |
+| 09 | VuldiffFinder | 直接竞争：非结构化漏洞差异 | 全文 PDF |
+| 10 | GapFinder | CTI 语义不一致 | 全文 PDF |
+| 11 | CRH | 通用 truth discovery | 全文 PDF |
+| 12 | Truth Discovery Survey | 方法论综述 | 全文 PDF |
+| 13 | GHSA Review Pipeline | 平台审核/时序机制 | 全文 PDF |
+| 14 | VulZoo | 多源数据集 | 全文 PDF |
+| 15 | VEX Tools | 下游工具一致性 | 全文 PDF |
+| 16 | HSC | 层次选择性分类 | 全文 PDF |
+| 17 | NVD Chrome Reliability | affected-version 事实核查 | 全文 PDF |
+| 18 | Bayesian CVSS | 潜在真值/来源质量 | 摘要-only，closed access |
+| 19 | Automated Curation | 属性生成与人工成本 | 全文 PDF |
+| 20 | Anatomy of VDB | JSS 系统映射 | 全文 PDF |
+| 21 | VFCFinder | 修复链接补全 | 全文 PDF |
+| 22 | Data Quality for SV Datasets | 数据质量与模型敏感性 | 全文 PDF |
+| 23 | Learning to Defer | 系统级转交效用 | 全文 PDF |
+| 24 | CVEfixes | CVE–修复代码 lineage | 全文 PDF |
 
-1. `01_viem_usenix_2019`：已保存全文 PDF
-   来源：USENIX PDF
-2. `02_croft_saner_2022`：已保存全文 PDF
-   来源：arXiv 预印本；目录中额外保留了抓取过程中留下的落地页
-3. `03_flaw_within_cloudcom_2023`：已保存全文 PDF
-   来源：作者主页 PDF
-4. `04_cleaning_nvd_tdsc_2022`：已保存全文 PDF
-   来源：arXiv 预印本
-5. `05_affected_versions_arxiv_2025`：已保存全文 PDF
-   来源：arXiv
-6. `06_cvss_user_centric_sp_2024`：已保存全文 PDF
-   来源：arXiv 预印本
-7. `07_aspect_level_tosem_2023`：已保存全文 PDF
-   来源：当前目录已有 PDF；同时保留了抓取过程中留下的落地页
-8. `08_aspects_threat_intel_acm_2025`：已保存全文 PDF
-   来源：公开 preprint PDF
-9. `09_vuldifffinder_cose_2025`：已保存全文 PDF
-   来源：当前目录已有 PDF；同时保留了 ScienceDirect 摘要页
-10. `10_gapfinder_tifs_2021`：已保存全文 PDF
-    来源：作者主页 PDF
-11. `11_crh_sigmod_2014_tkde_2016`：已保存全文 PDF
-    来源：作者主页 PDF；目录中额外保留了抓取过程中留下的落地页
-12. `12_truth_discovery_survey_tbd_2024`：已保存全文 PDF
-    来源：当前目录已有 PDF
-13. `13_ghsa_review_pipeline_arxiv_2026`：已保存全文 PDF
-    来源：arXiv
-14. `14_vulzoo_arxiv_2024`：已保存全文 PDF
-    来源：arXiv
-15. `15_vexed_by_vex_tools_arxiv_2025`：已保存全文 PDF
-    来源：arXiv
-16. `16_hierarchical_selective_classification_neurips_2024`：已保存全文 PDF
-    来源：arXiv
+## 验证与边界
 
-## 验证方式
+运行 `python3 scripts/build_related_work_manifest.py` 会检查每篇全文目录恰有一个 PDF、逐篇解析包含十个必需章节，并重算 PDF 页数、文本词数、字节数和 SHA-256。该验证证明文件和报告完整，不证明论文结论正确、项目 framing 成立或当前可投稿。
 
-- 对当前目录中的 PDF 文件重新运行 `file` 后，应确认 `16` 个文件均被识别为 PDF。
-- 未对每篇 PDF 的页数、版本是否为最终出版版、附录是否完整做人工复核。
-
-## 后续建议
-
-- 若需要最终投稿引用，逐篇核对 PDF 是否为最终出版版、accepted version 或预印本，并把最终元数据同步到 `paper/cose/references.md`。
+PDF 继续按仓库 payload policy 保留在权威机器并被 Git 忽略；其字节由本清单和仓库总 payload manifest 共同绑定。最终投稿前需补取第 18 篇全文，并刷新 2025–2026 preprint 的出版元数据。

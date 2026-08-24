@@ -3704,3 +3704,70 @@
 - 下一步：
   - 作者决定是否把整理分支推送并经 review 合并；未明确授权前不 push。
   - 科学主线仍回到 T1 真人 reviewer/guide gate，完成前不启动 T2 正式比较。
+
+## 2026-08-24：完成相关工作证据库与 JSS framing 资格审计
+
+- 本次完成了什么：
+  - 在权威远端从 `codex/repo-hygiene-20260824@eb292e3` 新建
+    `codex/literature-framing-20260824`，不修改 `main`，不自动 push。
+  - 复核仓库已有 16 篇全文，按漏洞差异检测、字段/数据库质量、自动 curation、
+    公开数据集/修复证据、truth discovery 和拒判/learning-to-defer 路线补检 8 篇。
+  - 新取得 7 篇公开全文 PDF；`Can the Common Vulnerability Scoring System be
+    Trusted?` 当前只取得官方/DiVA 元数据和作者摘要，明确保持
+    `abstract_only_closed_access`，未补造全文实验细节。
+  - 为 24 篇全部建立独立中文解析，逐篇覆盖问题链、机制链、实验逻辑、结论强度、
+    局限、可复述版本、对本项目的可迁移点和审稿问题。
+  - 建立跨论文能力矩阵、same-task baseline/resource 清单和独立 JSS framing/
+    实验缺口审计；将旧 `related_work_survey.md` 降为权威入口，停止沿用其中
+    “与现有工作根本不同”等过强表述。
+  - 新增 manifest builder，对报告结构、每目录 PDF 数量、页数、文本词数、字节数和
+    SHA-256 做机器复核；同步更新仓库 retained-payload manifest。
+
+- 产物路径：
+  - `docs/related_work_papers/README.md`
+  - `docs/related_work_papers/*/analysis_zh.md`（24 篇）
+  - `docs/related_work_papers/literature_manifest.json`
+  - `docs/related_work_synthesis_20260824.md`
+  - `paper/jss/FRAMING_AND_EXPERIMENT_GAP_REVIEW_20260824.md`
+  - `scripts/build_related_work_manifest.py`
+  - `docs/repository_hygiene/retained_local_payloads.sha256.tsv`
+
+- 如何验证：
+  - 权威环境再次核对为 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`。
+  - `python3 scripts/build_related_work_manifest.py` 返回
+    `PASS papers=24 full_pdf=23 abstract_only=1`；23 个 PDF 均可由 `pdfinfo` 和
+    `pdftotext` 读取，manifest 绑定每个文件的 pages/bytes/text words/SHA-256。
+  - 新增 PDF 均保持 ignored local payload，仓库 retained-payload manifest 从
+    `4,361` 个文件、`2,296,239,806` bytes 更新为 `4,368` 个文件、
+    `2,302,121,200` bytes；独立 `--verify` 返回 PASS。
+  - 24 个解析均通过十个必需章节检查；JSON 由 builder 重建；`git diff --check`
+    通过。AppleDouble `._*` 传输垃圾在进入 Git 前删除。
+
+- 当前观察：
+  - TOSEM 2023 已明确区分 expression variation 与 semantic difference，并在后者中
+    分析 aspect absence/mismatch；VuldiffFinder 也已占据漏洞文本不一致检测。
+    因此不能把“首次做差异类型/检测”作为主贡献。
+  - CVSS Bayesian 摘要声称在其模型和五个数据库中 NVD 相对最好，这构成
+    “跨源差异等于 NVD 错误”的重要反例；因全文未取得，目前只作 provisional
+    约束，不引用定量细节。
+  - 当前最可守的差异是 action-oriented、field-specific type-first routing，加显式
+    abstention 与 identifiability/failure limits；但它仍只是 conditional framing。
+  - 文献共同要求把系统效用与分类准确率分开。只有 T1 真人构念和 T2 独立 action
+    utility 支持后，才能把 type-first routing 写成正向贡献。
+
+- 还没验证的点：
+  - 本轮是 targeted literature review，不是完整 systematic review；投稿前仍需按
+    索引库/引用图刷新检索，并核对 2025–2026 preprint 的最终出版状态。
+  - 第 18 篇全文、其 Bayesian 先验/来源依赖/敏感性和具体实验表尚未核实。
+  - 本轮没有产生 human label、T2 action label 或新的模型/裁决结果；PDF、解析和
+    manifest 完整不等于 taxonomy 有效、routing 有用或 submission-ready。
+
+- 下一步：
+  - 作者签署 T1 guideline、reviewer 资格/独立性与伦理/补偿记录，允许分发后由两位
+    真人完成 calibration/evaluation；不增加同模型 vote。
+  - T1 gold 冻结后、任何 T2 action label 前，冻结独立 action oracle、
+    `binary_raw_difference`/`binary_canonical_difference` 等 comparator、workload
+    unit、冲突 recall 和样本量/检验方案。
+  - 若 T1/T2 未过门禁，转为 taxonomy/identifiability failure study；若通过，再开始
+    JSS 正文。T3 只在保留正向 adjudication 主张时启动，T4 默认删除。
