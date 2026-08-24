@@ -3648,6 +3648,9 @@
     `docs/.DS_Store` 和误生成的 `ed -n 1,260p AGENTS.md`。13 个删除候选在删除前
     另存 tar，SHA-256 为
     `2319705661a8465c067acb4baf6a058dbb91442e4bbb219ed375219f914e79da`。
+  - `git count-objects` 另发现两个共 268 bytes 的 `tmp_obj_*` 临时对象；`git fsck`
+    未把它们识别为可达对象。没有运行 `gc`/`prune`，而是逐个移入恢复目录的
+    `git-temporary-objects/`，对象库复查为 `garbage: 0`。
   - 解决 `paper/cose/SUBMISSION_READINESS.md` 与
     `paper/cose/submission_readiness.md` 的大小写冲突：引用和 validator 均使用
     较新的小写版本，因此删除旧大写副本。
@@ -3676,6 +3679,8 @@
     测试通过。
   - T1 prepare-only 独立 validator 继续返回 PASS，且
     `distribution_allowed=false`、`human_labels=0`。
+  - `git fsck --no-dangling` 通过；移走两个临时对象后 `git count-objects`
+    返回 `garbage: 0`，tracked path 大小写冲突扫描和精确凭据扫描均通过。
   - 分步提交：`78c8f6d`（payload 边界）、`8ec0280`（核心数据/标注工具）、
     `dcf1a50`（RQ2 lineage/protocol）、`8f1437e`（RQ3/holdout 工具）、
     `b12dbdb`（历史 COSE 源码包）。
