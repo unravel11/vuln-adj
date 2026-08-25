@@ -9,8 +9,8 @@ claims, or submission.
 
 | Class | Item | Required by | Current evidence or status | Owner | Blocks submission? |
 |---|---|---|---|---|---|
-| Human governance | Two real independent trained analysts | RQ2/RQ3 human claims | Role record blank; no identity, expertise, compensation, conflict, or independence evidence | Authors | Yes |
-| Human governance | Ethics/recruitment determination and author distribution approval | Packet distribution | Blank; V3.1 manifest keeps `distribution_allowed=false` | Authors/institution | Yes |
+| Human governance | Two real independent trained analysts | RQ2/RQ3 human claims | Two doctoral students selected as intended trained analysts; practitioner expertise is not claimed. Private identity, doctoral-status, experience, compensation, conflict, consent, and independence evidence remains unsigned/unverified | Authors | Yes |
+| Human governance | Ethics/recruitment determination and author distribution approval | Packet distribution | Onboarding forms, hash-only approval record, action-only builder, and independent validator exist. Readiness is `BLOCKED` with 31 fine-grained unmet checks; V3.1 preparation manifest remains `distribution_allowed=false` | Authors/institution | Yes |
 | Scientific | V3.1 action-first/reason-second construct validation | RQ2 | Prepare-only calibration-1 20, calibration-2 reserve 20, and formal 120 packets validate; stage locks empty; human labels 0 | Authors and two reviewers | Yes |
 | Scientific | Frozen return validators and evaluator | Outcome-independent RQ2/RQ3 analysis | Implemented, hash-bound, unit-tested, and exercised end to end with temporary synthetic labels; this is mechanical readiness only | Authors | No longer a blocker |
 | Scientific | Shared no-manual-route falsification audit | Positive routing-safety framing | Fixed 34-case derived audit exists; no human labels; its 8.43% zero-event bound would be sample-conditional, not a population bound | Authors and two reviewers | Yes for positive framing |
@@ -26,9 +26,10 @@ claims, or submission.
 
 ## Earliest admissible path
 
-1. Approve the V3.1 action/reason guideline, document the two real analysts, record
-   ethics/recruitment disposition, and create a reviewed distribution manifest
-   revision scoped to reviewer A/B, calibration-1, and action only.
+1. Have the two selected doctoral students complete private onboarding forms;
+   record their non-identifying qualification summaries and signed-record hashes,
+   the ethics/recruitment disposition, and named-author approval. Then rerun the
+   existing revision-R1 gate scoped to reviewer A/B, calibration-1, action only.
 2. Run independent calibration-1 actions, validate and lock them, then release
    and lock calibration-1 reasons.
 3. Record the guideline diff. Use the presealed, CVE-disjoint calibration-2

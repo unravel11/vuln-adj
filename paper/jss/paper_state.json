@@ -9,9 +9,9 @@
   "authority": {
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
-    "branch": "codex/jss-v3-1-freeze-20260825",
-    "head": "d664f90dce37cfdadd14c399803d7caca8fcf046",
-    "head_semantics": "V3.1 protocol, tooling, label-free audit, and prepare-only packet freeze commit before governance-document synchronization",
+    "branch": "codex/jss-v3-1-calibration1-distribution-20260825",
+    "head": "0ce5ffd7844053fe0df1c6ef5ab5f0fb38c648ed",
+    "head_semantics": "Post-freeze doctoral-reviewer onboarding gate, action-only distribution tooling, and blocked readiness report before governance-document synchronization",
     "status": "clean",
     "manuscript": "paper/jss/manuscript.md"
   },
@@ -39,6 +39,7 @@
     "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md",
     "human_protocol": "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md",
     "human_packet_manifest": "data/annotations/rq2/t1_human_validation_v3_1/manifest.json",
+    "human_distribution_readiness": "data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/readiness_report.json",
     "safety_identifiability": "results/jss/t1_v31_safety_identifiability/analysis.json"
   },
   "claim_ceiling": [
@@ -53,11 +54,12 @@
   ],
   "open_blockers": [
     "V3.1 packets and analysis tooling are mechanically frozen, but distribution remains blocked and real-human labels remain zero.",
-    "The V3.1 guideline lacks author approval; reviewer identity, independence, role, compensation, conflicts, and ethics or recruitment disposition are unrecorded.",
+    "Two doctoral students are selected as intended trained analysts, but private identity, qualification, independence, consent, compensation, conflict, and ethics or recruitment evidence remains unsigned or unverified.",
+    "The action-only distribution gate is implemented and mechanically tested, but its readiness report is BLOCKED and no reviewer case bundle exists.",
     "Calibration-1 has not run; action and reason stage locks contain no real returns.",
     "The S2 title direction and contribution wording still require author lock after preserving both positive and boundary result routes.",
     "No JSS manuscript draft exists.",
     "Current JSS submission requirements and author metadata are not frozen."
   ],
-  "last_verified_at": "2026-08-25T17:29:38+08:00"
+  "last_verified_at": "2026-08-25T20:40:53+08:00"
 }

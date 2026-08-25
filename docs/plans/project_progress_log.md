@@ -3970,3 +3970,65 @@
     不发 reason、calibration-2、formal、另一 reviewer 或 internal 文件。
   - 两人完成 calibration-1 action→lock→reason 后，按冻结规则决定直接 formal、
     触发一次 calibration-2，或终止；任何结果都不追加样本或第三人救正向 framing。
+
+## 2026-08-25：建立双博士生入组与 calibration-1 action-only 分发门禁
+
+- 本次完成了什么：
+  - 用户指定两位博士生作为拟邀 reviewer。研究角色固定为
+    `doctoral_student_trained_analyst`，明确不声称 practitioner、维护从业者或
+    生产 advisory 运营经验；尚未核验的个人资格不写成事实。
+  - 从 preparation freeze tag 对应 HEAD `e98dff344473fcc906b80d59b64cb0d6324558e0`
+    建立并推送独立分支
+    `codex/jss-v3-1-calibration1-distribution-20260825`，不改写冻结 tag。
+  - 新增 Reviewer A/B 私密 onboarding 表和 author ethics/distribution 表；真实姓名、
+    签名与机构信息放在 Git 忽略的 `private/` 或机构批准位置，仓库只记录
+    non-identifying qualification summary、disposition 和文件 SHA-256。
+  - 实现 action-only distribution builder 与独立 fail-closed validator。只有两位
+    reviewer 的 calibration-1 action CSV、已批准 guideline 和独立 instructions
+    可进入各自 bundle；reason、calibration-2、formal、internal、policy、AI、
+    prior-review 和另一 reviewer 文件均为硬排除项。
+  - 将当前 approval template 运行成 readiness report；它保留用户已确认的角色设计，
+    但不把该确认冒充身份核验、独立性签字、伦理处置或作者签字。
+
+- 产物路径：
+  - `data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/`
+  - `experiments/rq2_discrepancy_typing/build_t1_human_validation_distribution_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/validate_t1_human_validation_distribution_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/test_t1_human_validation_distribution_v3_1.py`
+
+- 如何验证：
+  - 权威环境再次核对为 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`；分支起点与 V3.1 preparation freeze 一致。
+  - 新分发链聚焦测试 `7/7` 通过；权威远端 RQ2 全目录发现测试更新为
+    `411/411` 通过。
+  - 冻结 preparation packet validator 再次 PASS：calibration-1 `20`、
+    calibration-2 reserve `20`、formal `120`、`distribution_allowed=false`、
+    `human_labels=0`。
+  - readiness check 按设计退出 `2`，状态 `BLOCKED`，记录 31 个细粒度未满足项；
+    这些可归并为两份 reviewer 私密签署记录、伦理/招募处置、named-author 签字与
+    最终 action-only scope 解锁。
+  - readiness report 与 approval template SHA-256 分别为
+    `0598ed43...a7af` 与 `9faa5ba2...eb8`。
+  - `generated/` 不存在，没有复制或生成任何案例分发 bundle。完成记录分步提交为
+    `887c552`（工具、表单与 approval template）和 `0ce5ffd`（权威远端 blocked
+    readiness report），均已推送。
+
+- 当前观察：
+  - “双博士生”足以确定论文角色口径，但不足以证明两人确为不同真人、具备相关训练、
+    相互独立或已同意参与。将这些信息拆成私密证据和公开哈希可以兼顾审计与隐私。
+  - 工具已经证明 complete synthetic governance fixture 能生成两个严格 action-only
+    bundle，未知文件、reason packet、packet mutation 和 practitioner claim 均被拒绝；
+    该测试只证明分发代码路径，不是现实治理证据或人工标签。
+  - 当前论文阶段仍为 `S1_EVIDENCE_LOCKED`，投稿仍为 `NO_GO_FOR_SUBMISSION`。
+
+- 还没验证的点：
+  - 两位 reviewer 的真实身份、博士生状态、相关经验、独立性、冲突、补偿和同意尚未
+    由签署记录核验；作者与机构适用的 ethics/recruitment disposition 尚未记录。
+  - guideline 的 exact hash 已由用户授权继续准备，但 named-author sign-off 尚未落盘；
+    `distribution_allowed=false`、`human_labels=0`、case bundle 不存在。
+
+- 下一步：
+  - 两位博士生分别填写私密 onboarding 表，作者完成 ethics/distribution 表；计算三份
+    私密记录 SHA-256，并只把 hash 与非识别性摘要写入 approval record。
+  - readiness 通过后才运行 builder 和独立 validator；分别交付 Reviewer A/B 的
+    calibration-1 action CSV，不交付 reason 或任何未来阶段材料。

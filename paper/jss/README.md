@@ -3,7 +3,7 @@
 ## Status
 
 - Paper line: active, conservative JSS reframing
-- Repository branch: `codex/jss-v3-1-freeze-20260825`
+- Repository branch: `codex/jss-v3-1-calibration1-distribution-20260825`
 - Current paper stage: `S1_EVIDENCE_LOCKED`
 - Argument stage: `S2 candidate`, not yet locked
 - Submission readiness: `false`
@@ -56,6 +56,13 @@ The active blank packets are frozen at
 sets `distribution_allowed=false` and `human_labels=0`. V2 and V3 are
 retained unchanged as historical prepare-only material and must not be
 distributed for this route.
+
+The post-freeze distribution gate is maintained at
+`data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/`. Two doctoral
+students are the intended reviewers under the trained-analyst framing; no
+practitioner expertise is claimed. The onboarding forms and action-only
+builder/validator exist, but the readiness report remains `BLOCKED`, no case
+bundle has been created, and real-human labels remain zero.
 
 ## Route decision
 
