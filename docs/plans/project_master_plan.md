@@ -13,7 +13,7 @@
 | C：统一字段视图与差异检测 baseline | 已完成 |
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
-| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S1_EVIDENCE_LOCKED`；V3.1 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 calibration-1 action-only 包已生成并验证，但尚无返回标签；COSE 稿为历史证据线） |
+| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S1_EVIDENCE_LOCKED`；V3.1 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 calibration-1 action-only 包已生成并验证但尚无返回标签；结果中立 framing、相关工作/基线审计、英文 zero draft 和 2026-08-25 JSS checklist 已落盘，均未 `AUTHOR_LOCKED`；COSE 稿为历史证据线） |
 
 ---
 
@@ -137,6 +137,33 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
   action-only scope 获批；Codex 未独立核验这些作者侧事实。R2 readiness 为
   `READY`，A/B 各 20 行 action CSV bundle 已生成并经独立 validator 通过；reason、
   calibration-2、formal、internal、policy/AI 和另一 reviewer 材料仍被排除。
+
+### 2026-08-25 JSS 结果中立写作与 venue 准备
+
+- 状态：`ZERO_DRAFT_PRESENT_HUMAN_RESULTS_BLOCKED`；论文阶段继续为
+  `S1_EVIDENCE_LOCKED`，S2 仍需作者批准，投稿继续
+  `NO_GO_FOR_SUBMISSION`。
+- 在现场复核干净且 upstream `0/0` 的
+  `codex/jss-v3-1-calibration1-distribution-20260825@f41ba546...` 上创建独立
+  写作分支 `codex/jss-zero-draft-venue-20260825`。
+- 结果中立 framing 明确保留 positive 与 boundary/negative 两条分支；标题、RQ、
+  contribution 和 claim ceiling 均为 `CANDIDATE_FOR_AUTHOR_DECISION`，未擅自写成
+  `AUTHOR_LOCKED`。
+- 24 篇证据库继续保持 23 份全文 PDF + 1 个摘要/元数据条目。2026-08-25 官方
+  刷新把 affected-version benchmark 更新为 ASE 2025 正式论文、GHSA review
+  pipeline 更新为 MSR 2026 正式论文并记录复现仓库；这只校正文献元数据与定位，
+  不改变 V3.1 协议。
+- 英文 `paper/jss/manuscript.md` 已形成不依赖真人结果的 zero draft，覆盖
+  Introduction、Related Work、任务/语料、三策略、deterministic RQ1、V3.1、
+  Discussion 双分支与 threats；RQ2/RQ3、abstract 和 conclusion 保留显式真人结果
+  占位符，禁止 AI/synthetic 填充。
+- JSS 官方 Guide for Authors 已于 2026-08-25 核对并形成 checklist：摘要不超过
+  250 词、1--7 个关键词、3--5 条每条不超过 85 字符的 highlights、鼓励少于
+  36 页单栏/18 页双栏、要求 editable source、CRediT/资金/利益冲突/GenAI 声明，
+  数据政策按 Option C deposit+cite/link 或解释不能共享。尚未实例化 Elsevier
+  LaTeX template，live author-anonymization mode 仍需投稿前现场重核。
+- 本阶段不开放 reason、calibration-2 或 formal，不修改 frozen sample、策略、
+  threshold、evaluator 或 tag，也不新增实验。
 
 ---
 

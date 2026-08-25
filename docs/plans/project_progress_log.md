@@ -4091,3 +4091,85 @@
     uncertainty，不讨论、不用 AI。
   - 回收两份 CSV 后先运行 return validator 并锁定 action；只有锁定成功后才生成并交付
     calibration-1 reason 材料，再按冻结门禁决定进入 formal、启用一次 reserve，或停止。
+
+## 2026-08-25：完成真人结果之外的 JSS 结果中立 zero draft 与 venue 准备
+
+- 本次完成了什么：
+  - 使用 `ssh-vuln-adj` 在权威远端现场复核
+    `hostname=code-defender`、`pwd=/home/xiaoyuliang/code/vuln-adj`、分支
+    `codex/jss-v3-1-calibration1-distribution-20260825`、HEAD
+    `f41ba54637d185845610c6f700cc82a453bf0916`、clean 且相对 upstream `0/0`；
+    随后创建独立写作分支 `codex/jss-zero-draft-venue-20260825`。
+  - 审计 `paper/jss/`、总计划、进度日志、claim/evidence/question ledgers、24 篇
+    related-work 条目和本地 PDF 资产；确认仍为 23 份全文 PDF + 1 个
+    abstract/metadata-only 条目，未把缺失全文写成已下载。
+  - 写入结果中立的四个候选标题、neutral RQ1/RQ2/RQ3、贡献与 claim ceiling，
+    并冻结写作层的 positive 与 boundary/negative 两条结果分支；全部标为候选，
+    未标 `AUTHOR_LOCKED`。
+  - 以官方论文/会议页刷新最接近工作：条目 05 更新为 ASE 2025 Research Paper
+    （DOI `10.1109/ASE63991.2025.00244`）；条目 13 更新为 MSR 2026 Technical
+    Paper（DOI `10.1145/3793302.3793360`）并记录公开复现仓库。新增 closest-work、
+    public-dataset 和 same-task/closest-baseline 审计矩阵。
+  - 写成英文结果中立 zero draft，覆盖 Introduction、Related Work、任务定义、
+    Dataset/Corpus、deterministic RQ1、三种主策略、V3.1 human protocol、Discussion
+    双分支与 threats；RQ2/RQ3、abstract 和 conclusion 保留显式真人结果占位符。
+  - 使用 JSS 官方 Guide for Authors 核对当前 author guide、Elsevier template route、
+    格式、declaration、data/code 要求并写入 submission checklist。对当前页面未能
+    可靠确认的 author-anonymization mode 保留 `UNRESOLVED_RECHECK_LIVE`。
+
+- 产物路径：
+  - `paper/jss/FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`
+  - `docs/RELATED_WORK_AND_BASELINE_AUDIT_20260825.md`
+  - `paper/jss/manuscript.md`
+  - `paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md`
+  - `docs/related_work_papers/literature_manifest.json`
+  - `docs/related_work_papers/05_affected_versions_arxiv_2025/analysis_zh.md`
+  - `docs/related_work_papers/13_ghsa_review_pipeline_arxiv_2026/analysis_zh.md`
+  - `docs/related_work_synthesis_20260824.md`
+  - `paper/jss/PAPER_BRIEF.md`、`ARGUMENT_PLAN.md`、`README.md`、
+    `SUBMISSION_BLOCKERS.md`、`paper_state.json`
+  - `docs/plans/project_master_plan.md` 与本进度日志
+
+- 如何验证：
+  - related-work manifest builder 返回
+    `PASS papers=24 full_pdf=23 abstract_only=1`；paper-state 与 question-ledger
+    validator 均 PASS；更新脚本通过 `py_compile`，JSON 解析和
+    `git diff --check` 通过。
+  - RQ2 全目录回归为 `411 passed, 4 subtests passed`；V3.1 packet validator
+    继续报告 calibration-1/calibration-2/formal=`20/20/120`、
+    `distribution_allowed=false`、`human_labels=0`，R2 双 reviewer action-only
+    bundle validator PASS。强制 `--require-distribution-ready` 按设计以退出码 `2`
+    拒绝。
+  - 文献/基线包提交为 `3ee0369`，结果中立 framing/zero-draft/venue 包提交为
+    `b3ceddb`；本计划与日志同步由包含本节的后续 focused commit 承载。
+  - 最终还运行 `git fsck --no-dangling`、push 和 upstream/clean 复核；这些只证明
+    Git/结构状态，不提升论文科学结论。
+  - RQ1 数字逐项绑定
+    `results/jss/t1_routing_precheck_v1/analysis.json` 和
+    `data/processed/bootstrap/discrepancies/field_discrepancy_stats.json`，未从旧论文
+    文本反推。
+
+- 当前观察到的效果或统计：
+  - zero draft 已覆盖所有不依赖真人结果的主段落；只缺 RQ2/RQ3 实际结果、对应
+    Discussion/Conclusion 分支、最终 abstract/highlights 和作者侧声明。
+  - JSS 官方 guide 当前要求摘要不超过 250 词、1--7 个关键词、3--5 条每条不超过
+    85 字符的 highlights，鼓励 full paper 少于 36 页单栏/18 页双栏，并要求
+    editable source、CRediT、资金/利益冲突/GenAI 声明以及 Option C 数据
+    deposit+cite/link 或不能共享说明。
+  - 文献刷新提高了条目 05/13 的出版状态确定性，但没有改变 novelty ceiling、
+    frozen protocol 或任何科学结果。
+
+- 还没验证的点：
+  - 现实人工标签仍为 0；没有 RQ2 reliability、RQ3 policy alignment/safety、
+    human-gold 或 submission-ready 结论。
+  - 标题、RQ、贡献、正文、作者顺序/单位、资金、冲突、CRediT、伦理措辞、数据代码
+    deposit 和 GenAI declaration 都未获作者最终批准。
+  - Markdown zero draft 尚未转为 Elsevier LaTeX source，未构建 JSS PDF，也没有最终
+    参考文献一致性、页数、匿名化或逐页视觉检查。
+
+- 下一步：
+  - 真人流程保持暂停；等待作者恢复后只按已冻结 action→lock→reason 顺序处理返回。
+  - 在真人结果到来前不开放 reason、calibration-2 或 formal，不修改样本、策略、
+    threshold、evaluator 或 tag。
+  - 真人结果冻结后按门禁选择 positive 或 boundary 分支，补 RQ2/RQ3、abstract、
+    highlights、conclusion，再做 author approval、LaTeX/参考文献和最终 artifact gate。
