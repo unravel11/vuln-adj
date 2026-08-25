@@ -17,10 +17,10 @@ claims, or submission.
 | Scientific | Human-backed three-policy routing frontier | Central RQ3 framing | Label-free census only; no policy correctness, match, safety, or utility result | Authors | Yes |
 | Scientific | T3 human-backed adjudication comparison, if adjudication remains core | Positive adjudication-method claim | Current affected-version result is a non-human no-go | Authors | Conditional: yes if core, otherwise remove claim |
 | Scientific | Temporal cohort, if future generalization remains a claim | Temporal-validity claim | Strict event-time cohort unavailable | External data availability | Conditional: remove claim or wait |
-| Manuscript | JSS manuscript source | Complete paper | Brief, ledgers, and S2 candidate plan only | Authors | Yes |
-| Manuscript | Closest-work synthesis in the manuscript | Novelty/positioning | Literature inventory and per-paper notes exist; manuscript synthesis not written | Authors | Yes |
+| Manuscript | JSS manuscript source | Complete paper | Result-neutral English zero draft now covers Introduction, Related Work, corpus/RQ1, three strategies, V3.1, Discussion branches, and threats; it is not author approved and RQ2/RQ3 remain placeholders | Authors | Yes until human results and author revision |
+| Manuscript | Closest-work synthesis in the manuscript | Novelty/positioning | Zero draft and `docs/RELATED_WORK_AND_BASELINE_AUDIT_20260825.md` include the closest intersection, public resources, same-task baselines, and overlap risks; final citation reconciliation remains | Authors | No for zero-draft preparation; yes for final manuscript integrity |
 | Manuscript | COSE-to-JSS compression and evidence selection | Coherent JSS paper | Historical COSE draft remains a long, mixed-provenance evidence source | Authors | Yes |
-| Format/artifact | Current JSS guide, template, declarations, and artifact checks | Venue compliance | Complete current submission requirements not frozen | Authors | Yes at S6/S7 |
+| Format/artifact | Current JSS guide, template, declarations, and artifact checks | Venue compliance | Official Guide for Authors checked 2026-08-25 and checklist recorded; Markdown is not submission source, Elsevier template is not instantiated, author-anonymization mode requires live recheck, and no final artifact exists | Authors | Yes at S6/S7 |
 | Author metadata | Title, author order, affiliations, corresponding author, funding, conflicts, CRediT, data/code, and AI-use statements | Submission form/manuscript | Unresolved placeholders | Authors | Yes |
 | External action | Upload and submit | Submission | Not requested and not performed | Corresponding author | Yes |
 

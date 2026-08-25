@@ -9,10 +9,14 @@ conditional on two independent human action/reason passes. Failed reliability,
 conflicting reviewer preferences, safety-gate failures, abstention, and
 uncertain cases must remain visible.
 
-## Working title
+## Working title (candidate; not author locked)
 
 From Field Mismatch to Maintenance Action: Auditing NVD–GHSA Reconciliation
 Policies under Human Uncertainty
+
+Alternative result-neutral titles and the positive/boundary result branches are
+recorded in `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. The zero draft
+uses the recommended neutral candidate only as a disposable working title.
 
 ## One-sentence candidate argument
 
@@ -184,6 +188,12 @@ The allowed differential is:
 > using a strong field-aware comparator, explicit efficiency and safety arms,
 > action-first/reason-second independent human judgments, and a preserved
 > no-go path.
+
+Publication-status refresh: the affected-version benchmark is now recorded as
+an ASE 2025 Research Paper (DOI `10.1109/ASE63991.2025.00244`), and the GHSA
+review-pipeline paper as an MSR 2026 Technical Paper (DOI
+`10.1145/3793302.3793360`) with a public reproduction repository. These are
+post-protocol metadata/positioning corrections and do not change V3.1.
 
 ## Writing order
 

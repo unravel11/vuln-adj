@@ -7,16 +7,22 @@
 - Fallback venue: Information and Software Technology
 - Repository authority:
   `xiaoyuliang@100.101.249.5:/home/xiaoyuliang/code/vuln-adj`
-- Active branch: `codex/jss-v3-1-freeze-20260825`
+- Active writing branch: `codex/jss-zero-draft-venue-20260825`
+- Writing branch base verified at start:
+  `f41ba54637d185845610c6f700cc82a453bf0916` on 2026-08-25;
+  `hostname=code-defender`, authoritative path matched, worktree was clean,
+  and upstream divergence was `0/0` before branch creation
 - V3.1 evidence/tooling freeze commit:
   `d664f90dce37cfdadd14c399803d7caca8fcf046`
 - New-paper authority: this `paper/jss/` workspace
 - Historical source line: `paper/cose/`, retained but not edited as the JSS
   manuscript
 - Current stage: `S1_EVIDENCE_LOCKED`; S2 argument remains conditional
+- Draft status: result-neutral zero draft present; not author approved and not
+  sufficient to advance the S2 or S3 gate
 - Submission ready: no
 
-## Candidate thesis
+## Candidate thesis (not `AUTHOR_LOCKED`)
 
 For CVE-aligned NVD and GHSA records, a field mismatch is an observation, not a
 maintenance decision. The paper tests whether field-aware and type-first
@@ -41,6 +47,11 @@ safer, cheaper, or superior.
   do the current type-first efficiency arm and the abstention-aware safety arm
   align with independent human actions, including conflict escalation,
   abstention, and field-specific failure?
+
+The 2026-08-25 neutral wording, title alternatives, and positive/boundary result
+branches are maintained in
+`FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. They remain candidates
+for author decision.
 
 `cwe_ids` is outside the V3.1 human routing study. Existing CWE work remains
 retrospective or supplementary evidence and cannot repair a failed primary
@@ -188,3 +199,6 @@ Decision: `V3_1_PREPARATION_COMPLETE_DISTRIBUTION_BLOCKED`;
   hashes.
 - Recheck complete current JSS author and artifact requirements before the
   submission stages.
+- Approve or revise the zero draft and its provisional references; the current
+  Markdown draft intentionally withholds RQ2/RQ3 results, abstract, and
+  conclusion.

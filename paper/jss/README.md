@@ -3,9 +3,12 @@
 ## Status
 
 - Paper line: active, conservative JSS reframing
-- Repository branch: `codex/jss-v3-1-calibration1-distribution-20260825`
+- Active writing branch: `codex/jss-zero-draft-venue-20260825`
+- Frozen distribution parent: `codex/jss-v3-1-calibration1-distribution-20260825`
 - Current paper stage: `S1_EVIDENCE_LOCKED`
 - Argument stage: `S2 candidate`, not yet locked
+- Draft: result-neutral English zero draft present; not author approved and not
+  an S3 gate
 - Submission readiness: `false`
 - Primary venue: Journal of Systems and Software, conditional on V3.1 human
   construct and routing-frontier results
@@ -44,6 +47,12 @@ claims.
   authorization status, and stop conditions
 - `ARGUMENT_PLAN.md`: S2 candidate narrative, section jobs, and figure/table
   plan
+- `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`: title/RQ/contribution
+  candidates, claim ceiling, and positive/boundary branches
+- `manuscript.md`: non-authoritative zero draft with explicit RQ2/RQ3
+  placeholders
+- `JSS_SUBMISSION_CHECKLIST_20260825.md`: official-guide requirements checked
+  on 2026-08-25 and project dispositions
 - `SUBMISSION_BLOCKERS.md`: scientific, manuscript, artifact, metadata, and
   external-action blockers
 - `paper_state.json`: machine-checkable workflow state
