@@ -1,6 +1,9 @@
 # GHSA Review Pipeline：全文解析
 
-**证据等级**：全文 PDF，12 页；arXiv:2602.06009，作者标注 MSR 2026。最终出版状态需投稿前再核。
+**证据等级**：全文 PDF，12 页；开放全文来自 arXiv:2602.06009。2026-08-25
+已由 MSR 2026 官方 Technical Papers 页面核对，正式 DOI
+`10.1145/3793302.3793360`；作者公开复现仓库为
+`https://github.com/cmsegal/ghsa-review`。
 
 ## 1. 论文一句话定位
 
@@ -28,7 +31,7 @@ GHSA 既含 GitHub 原生 advisory，也吸收外部/NVD 记录；哪些记录�
 
 ## 7. 局限与风险
 
-平台内部操作不可见、时间戳语义可能变化、2026 预印本状态和 API 选择限制复现。review status 与字段级 curation depth 不能混同。
+平台内部操作不可见、时间戳语义可能变化和 API 选择仍限制解释。正式出版与公开复现仓库改善了可追溯性，但 review status 与字段级 curation depth 仍不能混同。
 
 ## 8. 可复述版本
 

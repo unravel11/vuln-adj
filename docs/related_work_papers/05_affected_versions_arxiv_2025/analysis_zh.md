@@ -1,6 +1,8 @@
 # Vulnerability-Affected Versions Identification：全文解析
 
-**证据等级**：全文 PDF，13 页；arXiv:2509.03876，2025 预印本。
+**证据等级**：全文 PDF，13 页；开放全文来自 arXiv:2509.03876。2026-08-25
+已由 ASE 2025 官方 paper page 核对为 Research Paper，正式 DOI
+`10.1109/ASE63991.2025.00244`；本地 PDF 哈希不因元数据更新而改变。
 
 ## 1. 论文一句话定位
 
@@ -28,7 +30,7 @@
 
 ## 7. 局限与风险
 
-预印本状态、C/C++ 范围、人工 gold 的可识别性、仓库/发布证据可得性和工具复现均限制外推。accuracy 数字不能与本项目 selective coverage 或 type agreement 直接比较。
+C/C++ 范围、人工 gold 的可识别性、仓库/发布证据可得性和工具复现均限制外推。accuracy 数字不能与本项目 selective coverage 或 type agreement 直接比较。正式 ASE 出版状态提高了引用确定性，但不改变任务合同差异。
 
 ## 8. 可复述版本
 

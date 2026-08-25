@@ -1,6 +1,6 @@
 # NVD–GHSA 字段差异研究：相关工作综合审计
 
-**检索截止**：2026-08-24
+**检索截止**：2026-08-24；2026-08-25 对最接近条目做出版状态刷新
 **证据规模**：24 篇；23 篇全文 PDF，1 篇摘要/元数据级 closed-access 临时解析。
 **任务边界**：已按 CVE-ID 对齐的 NVD–GHSA 结构化记录对；主字段为 `severity`、`published/date`、`references`、`affected_versions`，`cwe_ids` 为补充字段。
 
@@ -37,7 +37,7 @@
 | 02 | Croft severity | 三阶段来源差异与 downstream prediction impact | 单项目、无逐例真值、无字段路由 | PDF、数据/脚本 | 中高 |
 | 03 | Flaw Within | NVD 内部“描述近似、分数远离”候选 | 候选不等于错误，无跨源 | 作者 PDF | 中 |
 | 04 | Cleaning NVD | 多字段质量审计与修正 | 单库规则不是两源 evidence adjudication | arXiv PDF | 中 |
-| 05 | Affected Versions Benchmark | 1,128 漏洞、12 工具的同字段 benchmark | C/C++ 范围；任务是推断版本真值，不是差异类型 | PDF；工具需逐项复现 | 高（affected_versions） |
+| 05 | Affected Versions Benchmark（ASE 2025） | 1,128 漏洞、12 工具的同字段 benchmark | C/C++ 范围；任务是推断版本真值，不是差异类型 | 开放 PDF；正式 DOI `10.1109/ASE63991.2025.00244`；工具需逐项复现 | 高（affected_versions） |
 | 06 | CVSS 用户研究 | 真人/跨时间评分不一致证据 | 不给 NVD–GHSA gold | IEEE S&P PDF | 中 |
 | 07 | TOSEM aspect discrepancy | 七 aspect；expression variation vs semantic difference；absence vs mismatch | 已覆盖“差异类型”上位概念，无选源和 action | 全文 PDF | **很高** |
 | 08 | LLM aspect discrepancy | LLM 抽取与差异检测 | LLM 不等于 gold；出版元数据还需核 | preprint PDF | 高 |
@@ -45,7 +45,7 @@
 | 10 | GapFinder | 安全文本语义不一致 | 对象偏 CTI，无漏洞字段合同 | 全文 PDF | 低中 |
 | 11 | CRH | 联合来源权重与候选真值 | 两源/来源依赖下不可直接识别，无拒判 | 全文 PDF | 中 |
 | 12 | Truth Discovery Survey | 方法与假设地图 | 无统一复现，不是漏洞实证 | 全文 PDF | 低 |
-| 13 | GHSA Review Pipeline | GHSA 快/慢审核路径与时延 | reviewed 不等于字段正确 | arXiv PDF | 中（TD） |
+| 13 | GHSA Review Pipeline（MSR 2026） | GHSA 快/慢审核路径与时延 | reviewed 不等于字段正确 | 开放 PDF、正式 DOI `10.1145/3793302.3793360`、公开复现仓库 | 中（TD） |
 | 14 | VulZoo | 17 源聚合数据基础 | 聚合不等于冲突解决 | 短 PDF/数据资源 | 低 |
 | 15 | VEX Tools | 下游工具报告不一致及来源关联 | 关联非因果，无字段 action A/B | arXiv PDF | 中（动机） |
 | 16 | HSC | 不确定时退到粗粒度标签 | 本文五类不是 is-a 层次树 | PDF、代码 | 概念中 |
@@ -86,4 +86,4 @@
 
 ## 8. 证据边界
 
-本综合只证明文献资产已落盘并完成证据受限阅读，不证明本项目 taxonomy 正确、action routing 有效、human gold 已获得或论文可投稿。CVSS Bayesian 条目仍缺全文；2025–2026 preprint 的最终出版信息也需投稿前刷新。
+本综合只证明文献资产已落盘并完成证据受限阅读，不证明本项目 taxonomy 正确、action routing 有效、human gold 已获得或论文可投稿。CVSS Bayesian 条目仍缺全文。2026-08-25 已把条目 05 更新为 ASE 2025 正式论文、条目 13 更新为 MSR 2026 正式论文并记录复现仓库；其余 2025–2026 条目仍需投稿前做窄范围出版状态刷新。

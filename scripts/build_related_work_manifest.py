@@ -31,7 +31,7 @@ METADATA = [
     ("02_croft_saner_2022", "An Investigation into Inconsistency of Software Vulnerability Severity across Data Sources", 2022, "SANER", "https://arxiv.org/abs/2112.10356", "full_pdf"),
     ("03_flaw_within_cloudcom_2023", "The Flaw Within: Identifying CVSS Score Discrepancies in the NVD", 2023, "IEEE CloudCom", "https://people.scs.carleton.ca/~lianyingzhao/Inconsistency_NVD-authorscopy.pdf", "full_pdf"),
     ("04_cleaning_nvd_tdsc_2022", "Cleaning the NVD: Comprehensive Quality Assessment, Improvements, and Analyses", 2022, "IEEE TDSC", "https://arxiv.org/abs/2006.15074", "full_pdf"),
-    ("05_affected_versions_arxiv_2025", "Vulnerability-Affected Versions Identification: How Far Are We?", 2025, "arXiv preprint", "https://arxiv.org/abs/2509.03876", "full_pdf"),
+    ("05_affected_versions_arxiv_2025", "Vulnerability-Affected Versions Identification: How Far Are We?", 2025, "ASE 2025 Research Papers", "https://conf.researchr.org/details/ase-2025/ase-2025-papers/106/Vulnerability-Affected-Versions-Identification-How-Far-Are-We-", "full_pdf"),
     ("06_cvss_user_centric_sp_2024", "Shedding Light on CVSS Scoring Inconsistencies: A User-Centric Study", 2024, "IEEE S&P", "https://arxiv.org/abs/2308.15259", "full_pdf"),
     ("07_aspect_level_tosem_2023", "Aspect-level Information Discrepancies across Heterogeneous Vulnerability Reports", 2023, "ACM TOSEM", "https://doi.org/10.1145/3624734", "full_pdf"),
     ("08_aspects_threat_intel_acm_2025", "Vulnerability Aspects Extraction and Discrepancies Detection across Heterogeneous Threat Intelligence", 2025, "ACM/preprint", "https://doi.org/10.1145/3709018.3736330", "full_pdf"),
@@ -39,7 +39,7 @@ METADATA = [
     ("10_gapfinder_tifs_2021", "GapFinder: Finding Inconsistency of Security Information From Unstructured Text", 2021, "IEEE TIFS", "https://ieeexplore.ieee.org/document/9121316", "full_pdf"),
     ("11_crh_sigmod_2014_tkde_2016", "Conflicts to Harmony: A Framework for Resolving Conflicts in Heterogeneous Data by Truth Discovery", 2016, "IEEE TKDE", "https://doi.org/10.1109/TKDE.2016.2559481", "full_pdf"),
     ("12_truth_discovery_survey_tbd_2024", "A Survey on Truth Discovery: Concepts, Methods, Applications, and Opportunities", 2024, "IEEE Transactions on Big Data", "https://doi.org/10.1109/TBDATA.2024.3423677", "full_pdf"),
-    ("13_ghsa_review_pipeline_arxiv_2026", "Characterizing and Modeling the GitHub Security Advisories Review Pipeline", 2026, "arXiv/MSR", "https://arxiv.org/abs/2602.06009", "full_pdf"),
+    ("13_ghsa_review_pipeline_arxiv_2026", "Characterizing and Modeling the GitHub Security Advisories Review Pipeline", 2026, "MSR 2026 Technical Papers", "https://2026.msrconf.org/details/msr-2026-technical-papers/27/Characterizing-and-Modeling-the-GitHub-Security-Advisories-Review-Pipeline", "full_pdf"),
     ("14_vulzoo_arxiv_2024", "VulZoo: A Comprehensive Vulnerability Intelligence Dataset", 2024, "arXiv preprint", "https://arxiv.org/abs/2406.16347", "full_pdf"),
     ("15_vexed_by_vex_tools_arxiv_2025", "Vexed by VEX Tools: Consistency Evaluation of Container Vulnerability Scanners", 2025, "arXiv preprint", "https://arxiv.org/abs/2503.14388", "full_pdf"),
     ("16_hierarchical_selective_classification_neurips_2024", "Hierarchical Selective Classification", 2024, "NeurIPS", "https://arxiv.org/abs/2405.11533", "full_pdf"),
@@ -52,6 +52,20 @@ METADATA = [
     ("23_learning_to_defer_icml_2020", "Consistent Estimators for Learning to Defer to an Expert", 2020, "ICML", "https://proceedings.mlr.press/v119/mozannar20b.html", "full_pdf"),
     ("24_cvefixes_promise_2021", "CVEfixes: Automated Collection of Vulnerabilities and Their Fixes from Open-Source Software", 2021, "PROMISE", "https://arxiv.org/abs/2107.08760", "full_pdf"),
 ]
+
+ENTRY_EXTRAS = {
+    "05_affected_versions_arxiv_2025": {
+        "formal_doi": "10.1109/ASE63991.2025.00244",
+        "open_pdf_source_url": "https://arxiv.org/abs/2509.03876",
+        "publication_status_checked_on": "2026-08-25",
+    },
+    "13_ghsa_review_pipeline_arxiv_2026": {
+        "formal_doi": "10.1145/3793302.3793360",
+        "open_pdf_source_url": "https://arxiv.org/abs/2602.06009",
+        "artifact_url": "https://github.com/cmsegal/ghsa-review",
+        "publication_status_checked_on": "2026-08-25",
+    },
+}
 
 
 def sha256(path: Path) -> str:
@@ -105,6 +119,7 @@ def main() -> None:
             "evidence_level": evidence_level,
             "analysis_path": str(report.relative_to(ROOT)),
         }
+        entry.update(ENTRY_EXTRAS.get(directory, {}))
         if pdfs:
             pdf = pdfs[0]
             entry["pdf_path"] = str(pdf.relative_to(ROOT))
@@ -116,8 +131,8 @@ def main() -> None:
 
     payload = {
         "schema_version": 1,
-        "generated_at": "2026-08-24",
-        "search_cutoff": "2026-08-24",
+        "generated_at": "2026-08-25",
+        "search_cutoff": "2026-08-24; closest-work publication status refreshed 2026-08-25",
         "scope": "NVD-GHSA field discrepancies, vulnerability metadata quality, conflict resolution, abstention/deferral, and reproducible datasets",
         "evidence_summary": {
             "papers": len(entries),
