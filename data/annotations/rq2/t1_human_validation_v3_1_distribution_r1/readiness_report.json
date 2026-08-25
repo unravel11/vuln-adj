@@ -1,0 +1,53 @@
+{
+  "blockers": [
+    "guideline_approval: approval_basis is required",
+    "guideline_approval: approved_by is required",
+    "guideline_approval: named-author signature is not recorded",
+    "reviewer_governance.reviewer_a: real_person_identity_verified is not complete",
+    "reviewer_governance.reviewer_a: doctoral_status_verified is not complete",
+    "reviewer_governance.reviewer_a: independence_signed is not complete",
+    "reviewer_governance.reviewer_a: conflict_disclosed is not complete",
+    "reviewer_governance.reviewer_a: compensation_disclosed is not complete",
+    "reviewer_governance.reviewer_a: consent_signed is not complete",
+    "reviewer_governance.reviewer_a: relevant experience is not recorded",
+    "reviewer_governance.reviewer_a: private signed-record hash is missing",
+    "reviewer_governance.reviewer_b: real_person_identity_verified is not complete",
+    "reviewer_governance.reviewer_b: doctoral_status_verified is not complete",
+    "reviewer_governance.reviewer_b: independence_signed is not complete",
+    "reviewer_governance.reviewer_b: conflict_disclosed is not complete",
+    "reviewer_governance.reviewer_b: compensation_disclosed is not complete",
+    "reviewer_governance.reviewer_b: consent_signed is not complete",
+    "reviewer_governance.reviewer_b: relevant experience is not recorded",
+    "reviewer_governance.reviewer_b: private signed-record hash is missing",
+    "ethics_recruitment: determination is not recorded",
+    "ethics_recruitment: determination value is unresolved",
+    "ethics_recruitment: identifier_or_written_rationale is required",
+    "ethics_recruitment: recruitment_method is required",
+    "ethics_recruitment: information-sheet hash is missing",
+    "author_distribution_approval: approval is missing",
+    "author_distribution_approval: approved_by is required",
+    "author_distribution_approval: approved_at is required",
+    "author_distribution_approval: two_distinct_reviewers_verified is not complete",
+    "author_distribution_approval: scope_and_hashes_verified is not complete",
+    "author_distribution_approval: policy_output_blinding_commitment_signed is not complete",
+    "approval: distribution_allowed must be explicitly true"
+  ],
+  "bundle_created": false,
+  "distribution_allowed": false,
+  "human_gold": false,
+  "human_labels": 0,
+  "known_role_design": {
+    "practitioner_expertise_claimed": false,
+    "reviewer_count": 2,
+    "role_category": "doctoral_student_trained_analyst"
+  },
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v3.1",
+  "revision_id": "t1-v3.1-calibration-1-action-r1",
+  "schema_version": "t1_v31_distribution_readiness_v1",
+  "scope": {
+    "case_count_per_reviewer": 20,
+    "phase": "calibration_1",
+    "stage": "action"
+  },
+  "status": "BLOCKED"
+}
