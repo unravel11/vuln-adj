@@ -2,10 +2,12 @@
 
 Status: `S2_CANDIDATE_FOR_AUTHOR_APPROVAL`.
 
-The label-free routing census has passed the packet-design gate. That is not a
-positive empirical result: the argument remains conditional on two independent
-human action/reason passes. Failed reliability, conflicting reviewer
-preferences, abstention, and uncertain cases must remain visible.
+The label-free routing census and V3.1 safety-identifiability audit have passed
+their prepare-only gates. The packet, return, stage-lock, and evaluator workflow
+is frozen. None of that is a positive empirical result: the argument remains
+conditional on two independent human action/reason passes. Failed reliability,
+conflicting reviewer preferences, safety-gate failures, abstention, and
+uncertain cases must remain visible.
 
 ## Working title
 
@@ -54,7 +56,7 @@ quality, or causal explanation.
 Rhetorical job: test whether two real trained analysts can independently assign
 maintenance actions and, after action lock, discrepancy reasons.
 
-Admissible result after V3: raw agreement, nominal Krippendorff alpha,
+Admissible result after V3.1: raw agreement, nominal Krippendorff alpha,
 abstention/uncertain rates, disagreement matrices, and cross-reviewer
 action-reason association.
 
@@ -68,9 +70,10 @@ Rhetorical job: compare `field_aware_simple_v1`,
 `type_first_current_v1`, and `type_first_abstention_v1` against the two
 independent human action passes.
 
-Admissible result after V3: paired action-match differences on policy-
-disagreement rows, conflict-escalation behavior, abstention, agreement-control
-failures, and design-weighted sensitivity.
+Admissible result after V3.1: paired action-match differences on policy-
+disagreement rows, exact McNemar discordance, conflict/manual-route coverage,
+shared-no-manual misses, abstention, agreement-control failures, and
+design-weighted sensitivity.
 
 Forbidden upgrade: deployment benefit, elapsed-time savings, practitioner
 relevance without practitioner reviewers, or superiority when reviewers favor
@@ -82,7 +85,8 @@ different policies.
 |---|---|---|
 | Frozen-corpus field and policy census | E01, E07B | Available and bounded |
 | Strong-comparator efficiency-safety framing | E07B | Policy differences supported; correctness absent |
-| Action-first/reason-second human construct | E07C plus E08 | Blank packet ready; human evidence missing |
+| Action-first/reason-second human construct | E07E plus E08 | Mechanically frozen; human evidence missing |
+| Shared no-manual falsification and safety gate | E07D, E07E, E09 | Design fixed; human outcome missing |
 | Human-backed routing-policy frontier | E08 plus E09 | Missing |
 | Auditable reconciliation limits | E04–E06 | Available only as retrospective negative/failure evidence |
 
@@ -104,9 +108,10 @@ different policies.
    - Describe inputs, CVE alignment, fields, normalization, seven frozen arms,
      and the label-free 8,066-row census.
 5. Human Protocol
-   - Describe evaluation-first stable-hash sampling, constructed calibration,
-     action-stage lock, reason stage, dual independent review, blinding,
-     uncertainty, weights, and stop rules.
+   - Describe evaluation-first stable-hash sampling, bounded two-round
+     calibration, CVE-disjoint phases, action-stage lock, reason stage, dual
+     independent review, recursive allowlist blinding, uncertainty, weights,
+     the 34-case shared-no-manual audit, and stop rules.
 6. RQ1 Results
    - Report deterministic status, policy-output, and disagreement counts only.
 7. RQ2 Results
@@ -122,7 +127,7 @@ different policies.
     - Explain the frontier, field concentration, sampling design, reviewer
       role, source-blinding limits, action-reason anchoring, and snapshot scope.
 11. Conclusion
-    - Match only the result that survives the V3 gates.
+    - Match only the result that survives the V3.1 gates.
 
 ## Figure and table plan
 
@@ -134,6 +139,7 @@ different policies.
 | Figure 2: efficiency-safety frontier | How do conflict queue and total manual route differ? | E07B then E09 | Deterministic outputs before E09; no cost wording |
 | Table 3: human reliability | Can analysts use action and reason constructs? | E08 | Show every field and uncertain outcome |
 | Table 4: paired policy comparison | Which policies align with independent actions? | E09 | Reviewer-specific direction and CIs required |
+| Table 4b: safety falsification and coverage | Do the policies share misses, and does type-first lose manual coverage? | E09 | Both reviewers separate; `delta_manual=0.10`; sample-conditional audit boundary |
 | Table 5: bounded failure evidence | Where do existing reconciliation methods abstain or fail? | E05–E06 | Keep cohorts/provenance separate |
 
 No temporal-generalization figure is planned. Add one only if a new eligible
@@ -153,8 +159,13 @@ bilateral post-freeze cohort is frozen under the existing rule.
 - Cross-reviewer action-reason association is primary for explanatory
   structure; same-reviewer association is an upper bound.
 - A positive policy result requires consistent direction across both reviewers
-  and the frozen interval/test gate. Otherwise use ambiguity or boundary
-  framing.
+  and the frozen interval/test gate.
+- Positive efficiency-safety framing additionally requires at least 29 human
+  conflict actions per reviewer, no lower type-first manual coverage, a
+  one-sided simple-only loss upper bound below 0.10 for both reviewers, and no
+  contradictory systematic failure.
+- The 34-case shared-no-manual audit is a falsification opportunity, not a
+  population miss-rate estimator. Otherwise use ambiguity or boundary framing.
 
 ## Related-work positioning contract
 
@@ -176,13 +187,17 @@ The allowed differential is:
 
 ## Writing order
 
-1. Freeze the V3 evaluator and distribution controls.
-2. Complete calibration and both independent formal passes.
-3. Run pre-adjudication analyses and apply stop rules.
-4. Choose positive-frontier, decision-ambiguity, or negative framing.
-5. Draft Methods and Results, then Discussion and Threats.
-6. Draft Introduction and Related Work.
-7. Draft title, abstract, conclusion, highlights, and cover letter last.
+1. Author-approve V3.1 guideline, reviewer roles, ethics/recruitment, and the
+   calibration-1 action-only distribution revision.
+2. Complete calibration-1; use the presealed calibration-2 reserve only under
+   its frozen trigger.
+3. Complete both independent formal passes after calibration clears.
+4. Run pre-adjudication analyses and apply reliability, efficiency, and safety
+   stop rules.
+5. Choose positive-frontier, decision-ambiguity, or negative framing.
+6. Draft Methods and Results, then Discussion and Threats.
+7. Draft Introduction and Related Work.
+8. Draft title, abstract, conclusion, highlights, and cover letter last.
 
 ## S2 lock gate
 
@@ -190,11 +205,12 @@ The argument can move to `S2_ARGUMENT_LOCKED` only when:
 
 - the author approves the title direction, revised RQs, four fields, and
   explicit non-claims;
-- the V3 protocol, action/reason vocabulary, three main policies, sampling
+- the V3.1 protocol, action/reason vocabulary, three main policies, sampling
   cells, estimands, and stop rules are approved before human exposure;
 - the evaluator and return validators are frozen;
 - adjudication is recorded as secondary rather than a method rescue; and
 - no closest-related-work finding invalidates the differential.
 
-If V3 reliability or paired policy utility fails, the positive route stops.
-The paper may continue only with the failure retained and the thesis revised.
+If V3.1 reliability, paired policy utility, or either reviewer's safety gate
+fails, the positive route stops. The paper may continue only with the failure
+retained and the thesis revised.

@@ -3867,3 +3867,99 @@
   - 先做 20 行独立 calibration action→lock→reason；仅按冻结的 0.60 calibration
     门禁决定是否澄清 guideline，绝不改 120 行正式 selection。之后再启动正式
     action→lock→reason。
+
+## 2026-08-25：冻结 JSS V3.1 安全门禁、双轮校准与完整真人回收链
+
+- 本次完成了什么：
+  - 在权威环境 `code-defender:/home/xiaoyuliang/code/vuln-adj` 从干净
+    `3384d499aa45a6a6fc38aebada1535b07ad34033` 创建并推送
+    `codex/jss-v3-1-freeze-20260825`，未修改 `main`。
+  - 在零真人标签下冻结 `delta_manual=0.10` 安全口径。25 个
+    reviewer-specific human conflict actions 仅为可报告/排序下限；正向
+    efficiency-safety framing 要求每人至少 29 个、type-first 人工路由覆盖不低于
+    strong simple、simple-only loss 的单侧 95% 精确上界低于 0.10，且两人均通过。
+  - 保留 V3 正式 120 行，不按结果重抽；从中派生冻结 34 行
+    shared-no-manual audit（severity 15、affected_versions 19）。该层只提供共同
+    漏判的证伪机会，不作为总体漏判率估计。
+  - 将校准改为有界两轮：calibration-1 20 行；低于 0.60 或 guideline material
+    change 时才启用预密封 calibration-2 reserve 20 行；第二轮 action agreement
+    仍低于 0.60 时终止正式分发。正式、calibration-1、calibration-2 在阶段内
+    CVE-ID 唯一且阶段间两两不重叠。
+  - reviewer-visible JSON 从 denylist-only 加固为每一对象层的精确 allowlist；
+    severity context、version-range item、reference context、side、annotation、
+    top-level 和 CSV columns 均 fail closed。旧
+    `data/annotations/expert_candidate/review_packets/rq2_primary.review.jsonl`
+    被永久排除。
+  - 实现 V3.1 builder、独立 packet validator、JSONL/CSV return validator、双人
+    action→reason stage sealer，以及 pre-adjudication evaluator。evaluator 计算
+    raw agreement、nominal Krippendorff alpha、完整矩阵、reviewer-specific exact
+    McNemar b/c、CVE-blocked CI、manual coverage/loss upper、34 行 audit、
+    跨 reviewer action×reason、同人上界、权重敏感性、系统性失败候选和
+    adjudication-exclusion sensitivity。
+  - 生成 160 行内部 frame/mapping、34 行内部 safety audit、两位 reviewer 的
+    calibration-1/calibration-2/evaluation action/reason JSONL/CSV、role/stage
+    records 和 hash manifest。全部仍为 blank prepare-only。
+  - 新增 V3.1 JSS L1 评审，并同步 paper brief、argument plan、claim/evidence
+    ledgers、submission blockers、paper state 和总计划。
+
+- 产物路径：
+  - `experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md`
+  - `docs/annotation_guidelines/t1_action_reason_v3_1.md`
+  - `experiments/rq2_discrepancy_typing/analyze_t1_v31_safety_identifiability.py`
+  - `experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/validate_t1_human_validation_return_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/seal_t1_human_validation_stage_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/evaluate_t1_human_validation_v3_1.py`
+  - `results/jss/t1_v31_safety_identifiability/`
+  - `data/annotations/rq2/t1_human_validation_v3_1/`
+  - `paper/jss/JSS_V3_1_L1_GATE_REVIEW_20260825.md`
+
+- 如何验证：
+  - V3.1 核心脚本 `py_compile` 通过；V3.1 聚焦单元测试 `22/22` 通过，
+    连同 V3 回归测试共 `32/32` 通过。
+  - label-free safety analyzer 返回
+    `GO_FREEZE_V3_1_WITH_DELTA_0_10_AND_N29`；0.05/0.10/0.15 margin 在零
+    simple-only loss 时分别最少需要 59/29/19 个 conflict actions。
+  - packet validator 返回 PASS：calibration-1 `20`、calibration-2 reserve
+    `20`、formal `120`、`distribution_allowed=false`、`human_labels=0`；
+    强制 distribution-ready 以退出码 `2` 拒绝。
+  - 三阶段 CVE 数为 `20/20/120`，三个 pairwise overlap 均为 `0`；reviewer
+    目录扫描对 baseline/status/note、AI candidate、deterministic/discrepancy
+    type、policy actions、selection cell 和 weights 为零命中。
+  - 新命名 `harmless_new_hint`、`baseline_hint_v2`、嵌套
+    `ai_candidate`、`discrepancy_type` 负例均被 allowlist 拒绝。
+  - 在第二个临时目录从相同输入重建，31 个 packet 文件 byte-identical。
+  - 用明确标记为 synthetic、未提交的临时 2×120 action/reason fixture 完成四份
+    return validation、action lock、reason lock 与 evaluator end-to-end；随后删除
+    临时目录。该测试只验证代码路径，不是 human evidence。
+  - safety analysis、V3.1 manifest、protocol、guideline SHA-256 分别为
+    `fd0b1c97...bff40`、`58336984...e893`、`881e2180...e5b2`、
+    `a5dcf70d...bb6c`。
+  - 分步提交：`8bcaebb`（协议与安全设计）、`af4953c`（回收/锁定/评估工具）、
+    `d664f90`（label-free 结果与 prepare-only packet）；均已推送到权威分支。
+
+- 当前观察：
+  - 34 行 shared audit 若为 0 个真人 shared miss，合并单侧 95% 上界为
+    `0.0843`；severity 15 行与 affected 19 行分别为 `0.1810` 与 `0.1459`。
+    权重 Kish ESS 仅约 `10.10` 与 `11.78`，因此不能把合并值写成总体上界。
+  - 10% margin 比 15% 更可守，但把 positive floor 从 25 提到 29；这不增加
+    标注样本，只提高正向结论门槛。若真人正例不足，自动转 boundary 稿。
+  - 实验工程缺口已关闭。后续是否仍有 JSS P2 路径，主要由两名真人的构念可靠性、
+    paired efficiency 和 reviewer-specific safety 决定。
+
+- 还没验证的点：
+  - V3.1 guideline 仍为 draft；两名真人未登记，身份、独立性、经验、从业角色、
+    compensation/conflict、ethics/recruitment 和作者分发批准均为空。
+  - calibration 与 formal 都未分发；stage-lock record 为空；现实人工标签为
+    `0`，没有 reliability、match、safety、human-gold 或论文结果。
+  - JSS 正文、当前 author guide/template、作者元数据、最终 PDF 与 artifact gate
+    未完成；投稿继续 `NO_GO_FOR_SUBMISSION`。
+
+- 下一步：
+  - 作者批准或修改 V3.1 guideline，确认两名不同真人及“trained analyst”口径，
+    填完 role/independence 与 ethics/recruitment 记录。
+  - 只创建 calibration-1/action 的 reviewer-specific distribution revision；
+    不发 reason、calibration-2、formal、另一 reviewer 或 internal 文件。
+  - 两人完成 calibration-1 action→lock→reason 后，按冻结规则决定直接 formal、
+    触发一次 calibration-2，或终止；任何结果都不追加样本或第三人救正向 framing。

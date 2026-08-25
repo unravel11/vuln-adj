@@ -9,9 +9,10 @@
   "authority": {
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
-    "branch": "codex/jss-v3-routing-precheck-20260825",
-    "head": "24c62026794815f73cff395d088bcba4b0795d09",
-    "status": "dirty",
+    "branch": "codex/jss-v3-1-freeze-20260825",
+    "head": "d664f90dce37cfdadd14c399803d7caca8fcf046",
+    "head_semantics": "V3.1 protocol, tooling, label-free audit, and prepare-only packet freeze commit before governance-document synchronization",
+    "status": "clean",
     "manuscript": "paper/jss/manuscript.md"
   },
   "stage": "S1_EVIDENCE_LOCKED",
@@ -28,31 +29,35 @@
   "artifacts": {
     "evidence_ledger": "paper/jss/EVIDENCE_LEDGER.md",
     "claim_ledger": "paper/jss/CLAIM_LEDGER.md",
+    "question_finding_ledger": "paper/jss/QUESTION_FINDING_LEDGER.json",
     "paper_plan": "paper/jss/ARGUMENT_PLAN.md",
     "manuscript": null,
     "integrity_report": null,
-    "venue_review": null,
+    "venue_review": "paper/jss/JSS_V3_1_L1_GATE_REVIEW_20260825.md",
     "final_pdf": null,
     "artifact_validation": null,
-    "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md"
+    "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md",
+    "human_protocol": "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md",
+    "human_packet_manifest": "data/annotations/rq2/t1_human_validation_v3_1/manifest.json",
+    "safety_identifiability": "results/jss/t1_v31_safety_identifiability/analysis.json"
   },
   "claim_ceiling": [
-    "Report deterministic RQ1 distributions only for the frozen 8066-row NVD-GHSA corpus.",
+    "Report deterministic RQ1 distributions only for the frozen 8066-row CVE-aligned NVD-GHSA cohort.",
     "Treat all existing AI or Codex labels as non-human candidate or retrospective evidence.",
-    "Treat the label-free policy census as routing and identifiability evidence only, never correctness or utility.",
-    "Require two independent V3 action-first and reason-second human passes before any construct or policy-performance claim.",
+    "Treat label-free policy and safety-identifiability audits as design evidence only, never correctness, noninferiority, utility, or population miss-rate evidence.",
+    "Require two independent V3.1 action-first and reason-second human passes before construct or policy-performance claims.",
     "Treat field-aware simple as the main comparator, current type-first as the efficiency arm, and abstention-aware type-first as the safety arm.",
+    "Require both reviewers to clear the frozen reliability, efficiency, and safety gates for positive efficiency-safety framing; otherwise use the boundary or decision-ambiguity route.",
     "Do not call routing counts workload, saved time, or safety without human-backed evidence and explicit abstention accounting.",
-    "Report current adjudication results as bounded no-go or failure evidence unless a new frozen human-backed T3 is authorized.",
     "Do not claim temporal generalization without a newly eligible bilateral post-freeze cohort."
   ],
   "open_blockers": [
-    "V3 prepare-only packets pass integrity validation, but distribution is blocked and there are no reviewer identities, ethics/recruitment disposition, stage locks, or human labels.",
-    "V3 return validators and the pre-adjudication agreement and three-policy evaluator are not yet implemented or frozen.",
-    "The S2 title, revised RQs, three-policy frontier, and contribution boundary await author approval.",
+    "V3.1 packets and analysis tooling are mechanically frozen, but distribution remains blocked and real-human labels remain zero.",
+    "The V3.1 guideline lacks author approval; reviewer identity, independence, role, compensation, conflicts, and ethics or recruitment disposition are unrecorded.",
+    "Calibration-1 has not run; action and reason stage locks contain no real returns.",
+    "The S2 title direction and contribution wording still require author lock after preserving both positive and boundary result routes.",
     "No JSS manuscript draft exists.",
-    "Current JSS submission requirements and author metadata are not frozen.",
-    "The active isolated branch is intentionally dirty until the V3 preparation artifacts and governance updates are committed."
+    "Current JSS submission requirements and author metadata are not frozen."
   ],
-  "last_verified_at": "2026-08-25T01:30:00+08:00"
+  "last_verified_at": "2026-08-25T17:29:38+08:00"
 }

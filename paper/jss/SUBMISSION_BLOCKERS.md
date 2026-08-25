@@ -2,15 +2,18 @@
 
 Current decision: `NO_GO_FOR_SUBMISSION`.
 
-The label-free decision is only
-`CONDITIONAL_GO_FOR_V3_PACKET_DESIGN`. It does not weaken any submission gate.
+The V3.1 label-free decision is only
+`GO_FREEZE_V3_1_WITH_DELTA_0_10_AND_N29`. It authorizes a prepare-only
+protocol and analysis implementation, not packet distribution, human-backed
+claims, or submission.
 
 | Class | Item | Required by | Current evidence or status | Owner | Blocks submission? |
 |---|---|---|---|---|---|
 | Human governance | Two real independent trained analysts | RQ2/RQ3 human claims | Role record blank; no identity, expertise, compensation, conflict, or independence evidence | Authors | Yes |
-| Human governance | Ethics/recruitment determination and author distribution approval | Packet distribution | Blank; V3 manifest keeps `distribution_allowed=false` | Authors/institution | Yes |
-| Scientific | V3 action-first/reason-second construct validation | RQ2 | Prepare-only 20/120 packets validate; action/reason stage locks empty; human labels 0 | Authors and two reviewers | Yes |
-| Scientific | Frozen return validators and evaluator | Outcome-independent RQ2/RQ3 analysis | Protocol estimands and stop rules frozen; completion/import/adjudication/evaluation implementation still missing | Authors | Yes before distribution |
+| Human governance | Ethics/recruitment determination and author distribution approval | Packet distribution | Blank; V3.1 manifest keeps `distribution_allowed=false` | Authors/institution | Yes |
+| Scientific | V3.1 action-first/reason-second construct validation | RQ2 | Prepare-only calibration-1 20, calibration-2 reserve 20, and formal 120 packets validate; stage locks empty; human labels 0 | Authors and two reviewers | Yes |
+| Scientific | Frozen return validators and evaluator | Outcome-independent RQ2/RQ3 analysis | Implemented, hash-bound, unit-tested, and exercised end to end with temporary synthetic labels; this is mechanical readiness only | Authors | No longer a blocker |
+| Scientific | Shared no-manual-route falsification audit | Positive routing-safety framing | Fixed 34-case derived audit exists; no human labels; its 8.43% zero-event bound would be sample-conditional, not a population bound | Authors and two reviewers | Yes for positive framing |
 | Scientific | Human-backed three-policy routing frontier | Central RQ3 framing | Label-free census only; no policy correctness, match, safety, or utility result | Authors | Yes |
 | Scientific | T3 human-backed adjudication comparison, if adjudication remains core | Positive adjudication-method claim | Current affected-version result is a non-human no-go | Authors | Conditional: yes if core, otherwise remove claim |
 | Scientific | Temporal cohort, if future generalization remains a claim | Temporal-validity claim | Strict event-time cohort unavailable | External data availability | Conditional: remove claim or wait |
@@ -23,19 +26,26 @@ The label-free decision is only
 
 ## Earliest admissible path
 
-1. Implement and freeze V3 return, completeness, agreement, and policy-
-   comparison validators while every reviewer packet remains unopened.
-2. Approve the action/reason guideline, document the two real analysts, record
+1. Approve the V3.1 action/reason guideline, document the two real analysts, record
    ethics/recruitment disposition, and create a reviewed distribution manifest
-   revision.
-3. Run independent calibration actions, lock them, then calibration reasons;
-   apply the frozen calibration gate without changing formal selection.
-4. Run independent formal actions, lock them, then formal reasons.
-5. Freeze pre-adjudication results and apply the reliability and paired-policy
-   stop rules. Preserve abstain, uncertain, disagreement, and failed fields.
-6. Run blinded author adjudication only as secondary sensitivity and recompute
+   revision scoped to reviewer A/B, calibration-1, and action only.
+2. Run independent calibration-1 actions, validate and lock them, then release
+   and lock calibration-1 reasons.
+3. Record the guideline diff. Use the presealed, CVE-disjoint calibration-2
+   reserve only if raw action agreement is below 0.60 or the guideline changes
+   materially. A second action agreement below 0.60 terminates formal
+   distribution.
+4. If calibration clears, run independent formal actions, lock them, then
+   formal reasons.
+5. Freeze pre-adjudication results and apply reviewer-specific reliability,
+   exact paired efficiency, 34-case shared-miss, and `delta_manual=0.10`
+   safety gates. Preserve abstain, uncertain, disagreement, and failed fields.
+6. Require at least 29 human conflict actions per reviewer and both reviewers'
+   safety passes for positive efficiency-safety framing. Fewer than 25 for
+   either reviewer makes conflict recall interval-only.
+7. Run blinded author adjudication only as secondary sensitivity and recompute
    after excluding all adjudicated cases.
-7. Choose positive-frontier, decision-ambiguity, or negative framing; then
+8. Choose positive-frontier, decision-ambiguity, or negative framing; then
    draft and validate the JSS manuscript.
-8. Recheck venue, artifact, metadata, and author approval gates before any
+9. Recheck venue, artifact, metadata, and author approval gates before any
    external submission action.

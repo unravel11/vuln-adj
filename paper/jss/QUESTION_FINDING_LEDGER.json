@@ -1,0 +1,91 @@
+{
+  "schema_version": "1",
+  "paper_id": "vuln-adj-jss-type-first-audit-v1",
+  "questions": [
+    {
+      "question_id": "QF01",
+      "question": "Does the frozen formal sample contain a reviewer-blind opportunity to falsify both routing policies through shared no-manual misses?",
+      "origin": "REVIEWER_CHALLENGE",
+      "evidence_ids": [
+        "E07D",
+        "E07E"
+      ],
+      "data_statement": "Among the 120 formal cases, 34 cases have no-manual actions under both field_aware_simple_v1 and type_first_abstention_v1; they cover 15 severity and 19 affected-version cases.",
+      "finding": "The fixed formal set contains a shared-no-manual audit stratum without changing the formal allocation.",
+      "bounded_implication": "Future human conflict actions in these 34 cases can falsify a no-shared-miss assumption, but the stratum cannot identify a population shared-miss rate.",
+      "competing_explanations": [
+        "Both policies may correctly avoid manual review on these cases.",
+        "Both policies may share a blind spot that only human actions reveal.",
+        "The cell-stratified sample may not represent the population rate."
+      ],
+      "literature_position": "REFINE",
+      "literature_timing": "PRE_PROTOCOL",
+      "anomaly_status": "REPRODUCIBLE_ANOMALY",
+      "lineage_note": "V3 concentrated its main comparison on policy-disagreement rows; V3.1 retained the formal set and explicitly sealed the existing 34-case shared-no-manual subset.",
+      "answerability_disposition": "ANSWERABLE_FROM_FROZEN_EVIDENCE",
+      "authorization_status": "NOT_REQUIRED_EXISTING_EVIDENCE",
+      "protocol_status": "FROZEN",
+      "execution_status": "COMPLETED",
+      "claim_impact": "WEAKEN",
+      "manuscript_disposition": "RESULTS",
+      "stop_condition": "Stop the label-free analysis after case counts, hashes, cell coverage, effective sample size, and the sample-conditional claim boundary are sealed."
+    },
+    {
+      "question_id": "QF02",
+      "question": "Does type_first_abstention_v1 preserve reviewer-specific manual-route coverage relative to the strong simple comparator while improving the paired efficiency endpoint?",
+      "origin": "REVIEWER_CHALLENGE",
+      "evidence_ids": [
+        "E07D",
+        "E07E",
+        "E09"
+      ],
+      "data_statement": "No human action labels exist; the label-free feasibility audit shows that a zero-loss one-sided 95 percent upper bound below 0.10 needs at least 29 conflict actions per reviewer.",
+      "finding": null,
+      "bounded_implication": "Positive efficiency-safety framing is not currently supported and will require both reviewers to pass the frozen efficiency and safety gates.",
+      "competing_explanations": [
+        "Type-first may improve action alignment without losing manual-route coverage.",
+        "Any efficiency gain may be purchased through reviewer-confirmed missed escalations.",
+        "The number of human conflict actions may be too small to certify the selected margin."
+      ],
+      "literature_position": "REFINE",
+      "literature_timing": "PRE_PROTOCOL",
+      "anomaly_status": "NOT_ANOMALOUS",
+      "lineage_note": "The safety question was added before human exposure after the strong comparator and shared-blind-spot reviewer challenge.",
+      "answerability_disposition": "PROPOSE_NEW_EXPERIMENT",
+      "authorization_status": "PROPOSED",
+      "protocol_status": "FROZEN",
+      "execution_status": "NOT_STARTED",
+      "claim_impact": "SUPPORT_IF_VALIDATED",
+      "manuscript_disposition": "PENDING",
+      "stop_condition": "Use only the two frozen reviewer passes; positive framing requires both reviewers to clear the 29-action, non-lower-coverage, and 0.10 exact-upper gates, otherwise route to boundary or ambiguity without adding cases."
+    },
+    {
+      "question_id": "QF03",
+      "question": "Can two different trained analysts apply the maintenance-action construct reliably enough to support a routing comparison?",
+      "origin": "AUTHOR_DEFINED",
+      "evidence_ids": [
+        "E07E",
+        "E08"
+      ],
+      "data_statement": "V3.1 contains a presealed calibration-1 set, one conditional disjoint calibration-2 reserve, and 120 formal cases; no reviewer has received a packet.",
+      "finding": null,
+      "bounded_implication": "The construct remains unqualified until two real independent reviewers complete the bounded calibration and formal stages.",
+      "competing_explanations": [
+        "The guideline may support stable trained-analyst judgments.",
+        "Field context may be insufficient for a stable action construct.",
+        "Agreement may be driven by dominant labels rather than shared interpretation."
+      ],
+      "literature_position": "EXTEND",
+      "literature_timing": "PRE_PROTOCOL",
+      "anomaly_status": "NOT_ANOMALOUS",
+      "lineage_note": "V3.1 replaces the one-round V3 calibration with a single bounded revision-and-retry opportunity before formal exposure.",
+      "answerability_disposition": "PROPOSE_NEW_EXPERIMENT",
+      "authorization_status": "PROPOSED",
+      "protocol_status": "FROZEN",
+      "execution_status": "NOT_STARTED",
+      "claim_impact": "SUPPORT_IF_VALIDATED",
+      "manuscript_disposition": "PENDING",
+      "stop_condition": "Calibration-2 action raw agreement below 0.60 stops formal distribution; formal raw action agreement below 0.60 or nominal alpha below 0.40 forbids positive routing claims."
+    }
+  ]
+}

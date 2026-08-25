@@ -7,8 +7,9 @@
 - Fallback venue: Information and Software Technology
 - Repository authority:
   `xiaoyuliang@100.101.249.5:/home/xiaoyuliang/code/vuln-adj`
-- Active branch: `codex/jss-v3-routing-precheck-20260825`
-- Branch point: `5a0238750600e9eef78d3eb39c3d3810df5cd1d7`
+- Active branch: `codex/jss-v3-1-freeze-20260825`
+- V3.1 evidence/tooling freeze commit:
+  `d664f90dce37cfdadd14c399803d7caca8fcf046`
 - New-paper authority: this `paper/jss/` workspace
 - Historical source line: `paper/cose/`, retained but not edited as the JSS
   manuscript
@@ -41,7 +42,7 @@ safer, cheaper, or superior.
   align with independent human actions, including conflict escalation,
   abstention, and field-specific failure?
 
-`cwe_ids` is outside the V3 human routing study. Existing CWE work remains
+`cwe_ids` is outside the V3.1 human routing study. Existing CWE work remains
 retrospective or supplementary evidence and cannot repair a failed primary
 field.
 
@@ -54,10 +55,12 @@ field.
    type-first efficiency arm, and an abstention-aware safety arm. Current
    status: policies and full-corpus disagreement census are implemented; no
    correctness result exists.
-3. A low-human, action-first/reason-second construct test using 20 calibration
-   and 120 formal cases reviewed by two independent trained analysts. Current
-   status: protocol and blank prepare-only packets exist; reviewer identity,
-   distribution approval, and all human labels are missing.
+3. A low-human, action-first/reason-second construct test using calibration-1
+   20, a conditional disjoint calibration-2 reserve of 20, and 120 formal cases
+   reviewed by two independent trained analysts. Current status: protocol,
+   recursively blinded packets, return validators, stage locks, and evaluator
+   exist; reviewer identity, distribution approval, and all human labels are
+   missing.
 4. A bounded empirical account of when routing policies agree, disagree,
    abstain, or become statistically unidentifiable. Current status: the
    label-free identifiability precheck and older non-human failure evidence are
@@ -103,7 +106,7 @@ workload-reduction claim.
 - Frozen field view:
   `data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl`
   - rows: 8,066;
-  - field instances used by V3: 32,264;
+  - field instances used by the V3.1 route: 32,264;
   - SHA-256:
     `c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2`.
 - Label-free routing precheck:
@@ -113,18 +116,35 @@ workload-reduction claim.
   - action disagreements, simple versus abstention-aware: 2,332;
   - analysis SHA-256:
     `47428580744f0d83331c15b82a623a771f40a40d1ddcf59731fd83787553f7a8`.
-- V3 prepare-only packet:
-  `data/annotations/rq2/t1_human_validation_v3/`
-  - unique cases: 140;
-  - calibration/formal: 20/120;
+- V3.1 prepare-only packet:
+  `data/annotations/rq2/t1_human_validation_v3_1/`
+  - unique cases: 160;
+  - calibration-1/calibration-2 reserve/formal: 20/20/120;
   - formal allocation: severity 50, affected versions 50, published 10,
     references 10;
+  - all phase CVE-ID sets are internally unique and pairwise disjoint;
   - two independent reviewer orders and separate action/reason stages;
+  - recursive object-level key allowlists and a permanent exclusion for the
+    historical `rq2_primary.review.jsonl` candidate packet;
   - manifest SHA-256:
-    `f98c9084071cf8c78f4fec977449ff57f5a940fa5c8fa3a3bf19de185c67dfa9`;
+    `5833698444c9bf835cd82a6706326a91988804a14e24af4d6ee3ba29b433e893`;
   - integrity validator: pass;
   - distribution-ready validator: expected refusal;
   - `distribution_allowed=false`; real-human labels: 0.
+- V3.1 label-free safety-identifiability audit:
+  `results/jss/t1_v31_safety_identifiability/`
+  - fixed shared-no-manual audit: 34 formal cases (15 severity, 19 affected
+    versions);
+  - zero-event combined one-sided 95% upper: 0.0843, sample-conditional only;
+  - selected manual-loss margin: 0.10;
+  - per-reviewer conflict-action floor: 25 to rank/report, 29 for positive
+    framing when the exact upper bound also clears 0.10;
+  - analysis SHA-256:
+    `fd0b1c97fce376b4993e287eb00d4868cd9a13624473c93d31eaa7a170dbff40`.
+- V3 packet:
+  `data/annotations/rq2/t1_human_validation_v3/`
+  - retained unchanged as superseded prepare-only provenance;
+  - must not be distributed for the active route.
 - V2 packet:
   `data/annotations/rq2/t1_human_validation_v2/`
   - retained unchanged as historical prepare-only material;
@@ -136,14 +156,20 @@ workload-reduction claim.
 
 ## Experiment decision
 
-Decision: `CONDITIONAL_GO_FOR_V3_PREPARATION`; `NO_GO_FOR_SUBMISSION`.
+Decision: `V3_1_PREPARATION_COMPLETE_DISTRIBUTION_BLOCKED`;
+`NO_GO_FOR_SUBMISSION`.
 
-- The label-free gate was strong enough to justify V3 packet design.
-- One V3 human round supplies both action and reason labels; there is no second
+- The label-free gates were strong enough to justify V3.1 packet and evaluator
+  freeze, not a positive result.
+- One bounded V3.1 human process supplies both action and reason labels; there is no second
   separately recruited T2 annotation study.
-- Before distribution, freeze the analysis/evaluator implementation, approve
-  the guideline, document two real trained analysts and ethics/recruitment,
-  and create an explicitly approved distribution manifest revision.
+- Analysis/evaluator implementation is frozen and has passed mechanical
+  end-to-end testing with temporary synthetic labels. Before distribution,
+  approve the guideline, document two real trained analysts and
+  ethics/recruitment, and create an explicitly scoped manifest revision.
+- Positive efficiency-safety framing requires both reviewers to pass the
+  reliability, same-direction efficiency, and `delta_manual=0.10` safety
+  gates. Failure automatically selects the boundary/ambiguity route.
 - Preserve action/reason disagreement, abstention, and uncertainty. Author
   adjudication is secondary and policy-blinded.
 - Decide positive frontier versus decision-ambiguity framing only after both
@@ -158,7 +184,7 @@ Decision: `CONDITIONAL_GO_FOR_V3_PREPARATION`; `NO_GO_FOR_SUBMISSION`.
   either is an actual maintenance practitioner.
 - Record expertise, compensation, conflicts, recruitment, and any required
   institutional ethics determination before distribution.
-- Approve the V3 guideline and distribution revision after verifying packet
+- Approve the V3.1 guideline and distribution revision after verifying packet
   hashes.
 - Recheck complete current JSS author and artifact requirements before the
   submission stages.

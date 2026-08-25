@@ -1,5 +1,10 @@
 # JSS V3 一级评审报告
 
+Status: `SUPERSEDED_BY_JSS_V3_1_L1_GATE_REVIEW_20260825`.
+
+本文件保留 V3 决策历史；当前评审入口为
+`paper/jss/JSS_V3_1_L1_GATE_REVIEW_20260825.md`。
+
 ## 结论先行
 
 - 评审层级：`L1`
