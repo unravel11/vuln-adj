@@ -1,0 +1,661 @@
+{
+  "actions": [
+    "no_action",
+    "enrich_record",
+    "wait_for_sync",
+    "conflict_escalation",
+    "abstain"
+  ],
+  "calibration_proxy_coverage": {
+    "calibration_1": {
+      "deterministic_status_case_counts": {
+        "equivalent": 3,
+        "factual_conflict": 3,
+        "incomplete": 5,
+        "representation_discrepancy": 6,
+        "temporal_discrepancy": 3
+      },
+      "frozen_policy_action_case_counts": {
+        "abstain": 4,
+        "conflict_escalation": 3,
+        "enrich_record": 9,
+        "no_action": 9,
+        "wait_for_sync": 3
+      },
+      "proxies_do_not_prescribe_human_labels": true,
+      "rule_limit_abstention_proxy_cases": 3
+    },
+    "calibration_2": {
+      "deterministic_status_case_counts": {
+        "equivalent": 3,
+        "factual_conflict": 3,
+        "incomplete": 5,
+        "representation_discrepancy": 6,
+        "temporal_discrepancy": 3
+      },
+      "frozen_policy_action_case_counts": {
+        "abstain": 4,
+        "conflict_escalation": 3,
+        "enrich_record": 9,
+        "no_action": 9,
+        "wait_for_sync": 3
+      },
+      "proxies_do_not_prescribe_human_labels": true,
+      "rule_limit_abstention_proxy_cases": 3
+    }
+  },
+  "calibration_specs_per_round": [
+    {
+      "agreement": true,
+      "count": 2,
+      "field": "severity",
+      "id": "severity_equivalent_agreement",
+      "status": "equivalent"
+    },
+    {
+      "agreement": true,
+      "count": 1,
+      "field": "severity",
+      "id": "severity_incomplete_agreement",
+      "status": "incomplete"
+    },
+    {
+      "count": 1,
+      "field": "severity",
+      "id": "severity_conflict_agreement",
+      "pair": "conflict_escalation->conflict_escalation",
+      "status": "factual_conflict"
+    },
+    {
+      "count": 1,
+      "field": "severity",
+      "id": "severity_conflict_abstention",
+      "pair": "conflict_escalation->abstain",
+      "status": "factual_conflict"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_abstain_to_no_action",
+      "pair": "abstain->no_action"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_enrich_to_abstain",
+      "pair": "enrich_record->abstain"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_enrich_to_conflict",
+      "pair": "enrich_record->conflict_escalation"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_enrich_to_no_action",
+      "pair": "enrich_record->no_action"
+    },
+    {
+      "count": 1,
+      "field": "affected_versions",
+      "id": "affected_equivalent_no_action_to_abstain",
+      "pair": "no_action->abstain",
+      "status": "equivalent"
+    },
+    {
+      "count": 2,
+      "field": "published",
+      "id": "published_representation_control",
+      "status": "representation_discrepancy"
+    },
+    {
+      "count": 3,
+      "field": "published",
+      "id": "published_temporal_control",
+      "status": "temporal_discrepancy"
+    },
+    {
+      "count": 2,
+      "field": "references",
+      "id": "references_representation_control",
+      "status": "representation_discrepancy"
+    },
+    {
+      "count": 3,
+      "field": "references",
+      "id": "references_incomplete_control",
+      "status": "incomplete"
+    }
+  ],
+  "cautions": [
+    "Packets are blank preparation artifacts, not human labels.",
+    "URLs may reveal source identity, so blinding is partial.",
+    "Internal files must never be shared with reviewers.",
+    "The 34-case safety audit is sample-conditional, not a population bound.",
+    "Evaluation weights are sensitivity weights, not primary estimands."
+  ],
+  "claim_ceiling": {
+    "eligible_for_accuracy_claim": false,
+    "eligible_for_human_gold_claim": false,
+    "eligible_for_policy_superiority_claim": false,
+    "eligible_for_safety_noninferiority_claim": false,
+    "eligible_for_submission_readiness_claim": false,
+    "eligible_for_workload_reduction_claim": false
+  },
+  "counts": {
+    "calibration_1": 20,
+    "calibration_2_reserve": 20,
+    "evaluation": 120,
+    "maximum_cases_per_reviewer": 160,
+    "ordinary_cases_per_reviewer": 140,
+    "reviewers": 2,
+    "stages_per_used_case": 2,
+    "unique_cases": 160
+  },
+  "distribution_allowed": false,
+  "distribution_blockers": [
+    "The V3.1 guideline is draft and lacks author approval.",
+    "Reviewer role and independence record is incomplete.",
+    "Ethics and recruitment determination is incomplete.",
+    "Calibration-1 has not been run.",
+    "Action-to-reason stage locks have not been executed.",
+    "No stage-scoped author-approved distribution revision exists."
+  ],
+  "distribution_file_policy": {
+    "current_revision_allows_no_files": true,
+    "future_revision_must_select_exact_reviewer_phase_stage": true,
+    "permanently_excluded": [
+      "internal/*",
+      "manifest.json",
+      "ROLE_AND_INDEPENDENCE_RECORD.md",
+      "STAGE_LOCK_RECORD.md",
+      "reviewer_other_than_named_reviewer/*",
+      "future_stage_packets",
+      "data/annotations/expert_candidate/review_packets/rq2_primary.review.jsonl",
+      "data/annotations/rq2/t1_human_validation_v2/*",
+      "data/annotations/rq2/t1_human_validation_v3/*"
+    ],
+    "stage_scoped_candidate_files": {
+      "reviewer_a": {
+        "calibration_1": {
+          "action": [
+            "reviewer_a/calibration_1_action_packet.jsonl",
+            "reviewer_a/calibration_1_action_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ],
+          "reason": [
+            "reviewer_a/calibration_1_reason_packet.jsonl",
+            "reviewer_a/calibration_1_reason_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ]
+        },
+        "calibration_2": {
+          "action": [
+            "reviewer_a/calibration_2_action_packet.jsonl",
+            "reviewer_a/calibration_2_action_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ],
+          "reason": [
+            "reviewer_a/calibration_2_reason_packet.jsonl",
+            "reviewer_a/calibration_2_reason_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ]
+        },
+        "evaluation": {
+          "action": [
+            "reviewer_a/evaluation_action_packet.jsonl",
+            "reviewer_a/evaluation_action_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ],
+          "reason": [
+            "reviewer_a/evaluation_reason_packet.jsonl",
+            "reviewer_a/evaluation_reason_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ]
+        }
+      },
+      "reviewer_b": {
+        "calibration_1": {
+          "action": [
+            "reviewer_b/calibration_1_action_packet.jsonl",
+            "reviewer_b/calibration_1_action_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ],
+          "reason": [
+            "reviewer_b/calibration_1_reason_packet.jsonl",
+            "reviewer_b/calibration_1_reason_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ]
+        },
+        "calibration_2": {
+          "action": [
+            "reviewer_b/calibration_2_action_packet.jsonl",
+            "reviewer_b/calibration_2_action_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ],
+          "reason": [
+            "reviewer_b/calibration_2_reason_packet.jsonl",
+            "reviewer_b/calibration_2_reason_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ]
+        },
+        "evaluation": {
+          "action": [
+            "reviewer_b/evaluation_action_packet.jsonl",
+            "reviewer_b/evaluation_action_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ],
+          "reason": [
+            "reviewer_b/evaluation_reason_packet.jsonl",
+            "reviewer_b/evaluation_reason_packet.csv",
+            "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+          ]
+        }
+      }
+    }
+  },
+  "evaluation_strata": [
+    {
+      "cell": "disagreement|factual_conflict|conflict_escalation->abstain",
+      "evaluation_count": 25,
+      "evaluation_weight": 10.32,
+      "field": "severity",
+      "population_count": 258,
+      "selection_probability": 0.09689922480620156
+    },
+    {
+      "cell": "disagreement|representation_discrepancy|abstain->no_action",
+      "evaluation_count": 5,
+      "evaluation_weight": 1.0,
+      "field": "severity",
+      "population_count": 5,
+      "selection_probability": 1.0
+    },
+    {
+      "cell": "agreement|equivalent",
+      "evaluation_count": 5,
+      "evaluation_weight": 621.2,
+      "field": "severity",
+      "population_count": 3106,
+      "selection_probability": 0.0016097875080489374
+    },
+    {
+      "cell": "agreement|representation_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 634.6,
+      "field": "severity",
+      "population_count": 3173,
+      "selection_probability": 0.001575795776867318
+    },
+    {
+      "cell": "agreement|incomplete",
+      "evaluation_count": 5,
+      "evaluation_weight": 6.6,
+      "field": "severity",
+      "population_count": 33,
+      "selection_probability": 0.15151515151515152
+    },
+    {
+      "cell": "agreement|factual_conflict",
+      "evaluation_count": 5,
+      "evaluation_weight": 298.2,
+      "field": "severity",
+      "population_count": 1491,
+      "selection_probability": 0.00335345405767941
+    },
+    {
+      "cell": "disagreement|abstain->no_action",
+      "evaluation_count": 6,
+      "evaluation_weight": 11.833333333333334,
+      "field": "affected_versions",
+      "population_count": 71,
+      "selection_probability": 0.08450704225352113
+    },
+    {
+      "cell": "disagreement|enrich_record->abstain",
+      "evaluation_count": 6,
+      "evaluation_weight": 12.333333333333334,
+      "field": "affected_versions",
+      "population_count": 74,
+      "selection_probability": 0.08108108108108109
+    },
+    {
+      "cell": "disagreement|enrich_record->conflict_escalation",
+      "evaluation_count": 6,
+      "evaluation_weight": 30.666666666666668,
+      "field": "affected_versions",
+      "population_count": 184,
+      "selection_probability": 0.03260869565217391
+    },
+    {
+      "cell": "disagreement|enrich_record->no_action",
+      "evaluation_count": 6,
+      "evaluation_weight": 112.0,
+      "field": "affected_versions",
+      "population_count": 672,
+      "selection_probability": 0.008928571428571428
+    },
+    {
+      "cell": "disagreement|no_action->abstain",
+      "evaluation_count": 6,
+      "evaluation_weight": 127.5,
+      "field": "affected_versions",
+      "population_count": 765,
+      "selection_probability": 0.00784313725490196
+    },
+    {
+      "cell": "agreement|equivalent",
+      "evaluation_count": 5,
+      "evaluation_weight": 83.8,
+      "field": "affected_versions",
+      "population_count": 419,
+      "selection_probability": 0.011933174224343675
+    },
+    {
+      "cell": "agreement|representation_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 486.8,
+      "field": "affected_versions",
+      "population_count": 2434,
+      "selection_probability": 0.002054231717337716
+    },
+    {
+      "cell": "agreement|incomplete",
+      "evaluation_count": 5,
+      "evaluation_weight": 596.0,
+      "field": "affected_versions",
+      "population_count": 2980,
+      "selection_probability": 0.0016778523489932886
+    },
+    {
+      "cell": "agreement|factual_conflict",
+      "evaluation_count": 5,
+      "evaluation_weight": 93.4,
+      "field": "affected_versions",
+      "population_count": 467,
+      "selection_probability": 0.010706638115631691
+    },
+    {
+      "cell": "status|representation_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 1233.8,
+      "field": "published",
+      "population_count": 6169,
+      "selection_probability": 0.0008105041335710813
+    },
+    {
+      "cell": "status|temporal_discrepancy",
+      "evaluation_count": 5,
+      "evaluation_weight": 379.4,
+      "field": "published",
+      "population_count": 1897,
+      "selection_probability": 0.002635740643120717
+    },
+    {
+      "cell": "status|factual_conflict",
+      "evaluation_count": 3,
+      "evaluation_weight": 1.0,
+      "field": "references",
+      "population_count": 3,
+      "selection_probability": 1.0
+    },
+    {
+      "cell": "status|representation_discrepancy",
+      "evaluation_count": 4,
+      "evaluation_weight": 75.0,
+      "field": "references",
+      "population_count": 300,
+      "selection_probability": 0.013333333333333334
+    },
+    {
+      "cell": "status|incomplete",
+      "evaluation_count": 3,
+      "evaluation_weight": 2587.6666666666665,
+      "field": "references",
+      "population_count": 7763,
+      "selection_probability": 0.0003864485379363648
+    }
+  ],
+  "expected_input_hashes": {
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+  },
+  "field_counts": {
+    "calibration_1": {
+      "affected_versions": 5,
+      "published": 5,
+      "references": 5,
+      "severity": 5
+    },
+    "calibration_2": {
+      "affected_versions": 5,
+      "published": 5,
+      "references": 5,
+      "severity": 5
+    },
+    "evaluation": {
+      "affected_versions": 50,
+      "published": 10,
+      "references": 10,
+      "severity": 50
+    }
+  },
+  "freeze_date": "2026-08-25",
+  "human_gold": false,
+  "human_labels": 0,
+  "input_files": {
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2",
+    "docs/annotation_guidelines/t1_action_reason_v3_1.md": "a5dcf70d52f8e7124af1e2328fade4b5024696dc5911a74401988fb6d4efbb6c",
+    "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md": "881e2180b569fe2fb4e4b03c504389f79df261de0572b24f4f9fc2e09ad7e5b2",
+    "experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md": "a1b81a769499ffb96d53637f5548b29aff8370e00363c564f22008b019248ae9",
+    "experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3.py": "dbdb04e8188eed676c69381a899e77d3f27b2895d7e48fc8ac72a11950a232b5",
+    "experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3_1.py": "dcf8ce872e32e30f98d62ef3e77208c114b1dbc05d6faec26abe67200cdd8b33",
+    "experiments/rq2_discrepancy_typing/evaluate_t1_human_validation_v3_1.py": "2a32a3d28625d8a124dcf8485cf98ff7d87e8eab62d77169291fdbb88c3e35f8",
+    "experiments/rq2_discrepancy_typing/seal_t1_human_validation_stage_v3_1.py": "86dcca186fa2edf01c2d6818df68ffbfc19f8fca9430bca5eb8485585944ae0b",
+    "experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3_1.py": "a81c01a46925d84c92daa406f8a499852bead07cd86b39f7d089401cc1c4f0a6",
+    "experiments/rq2_discrepancy_typing/validate_t1_human_validation_return_v3_1.py": "eb04245c178cb56a59198b49e6de7cc91f21e40ae53b6acfd2e70f6c8d49958e",
+    "results/jss/t1_routing_precheck_v1/analysis.json": "47428580744f0d83331c15b82a623a771f40a40d1ddcf59731fd83787553f7a8",
+    "results/jss/t1_v31_safety_identifiability/analysis.json": "fd0b1c97fce376b4993e287eb00d4868cd9a13624473c93d31eaa7a170dbff40"
+  },
+  "internal_mapping": "internal/sealed_case_mapping.jsonl",
+  "internal_sampling_frame": "internal/frozen_sampling_frame.jsonl",
+  "lower_reference_policies": [
+    "binary_observed_non_equal",
+    "binary_canonical_non_equal"
+  ],
+  "main_policies": [
+    "field_aware_simple_v1",
+    "type_first_current_v1",
+    "type_first_abstention_v1"
+  ],
+  "output_sha256": {
+    "README.md": "d50b9f54bd8091d8c5d65fe62aa7c55d22bd97a4d950a1ab36ad1d3d3bd580bb",
+    "ROLE_AND_INDEPENDENCE_RECORD.md": "06ae65d2c4ee911c27fceb6d4a5eb190cadfcf1df80cddfe76092b7dd99e2f39",
+    "STAGE_LOCK_RECORD.md": "2fa2f6f96f10e7e0a4c7b910c3f27ab0bb728bda6273cd41ba140f82bcf0396b",
+    "internal/frozen_sampling_frame.jsonl": "5b02f49af7c8536e90c3aa66df07e14c15041662c6caa57e4427ba6a37bd599f",
+    "internal/sealed_case_mapping.jsonl": "a7bbd37cd800b11b688b524af5e1c876f3ec934a74bfc67baef9cf65ad172e61",
+    "internal/shared_no_manual_route_audit.jsonl": "c019ed73898ee1eb3809d297a26160049a7f7357ed00edc1ab0116838575d476",
+    "reviewer_a/calibration_1_action_packet.csv": "ee971abb7caaeb7096273fd9747add2cf1d3d367ce0b31a76583be635ee27d6d",
+    "reviewer_a/calibration_1_action_packet.jsonl": "ad3c602d8772863023243d66993345c2e156023dfe19c183333c328c52fbfa36",
+    "reviewer_a/calibration_1_reason_packet.csv": "66066a9114188d7f44d1d6c24cf2edeae9fdad92fa9ee0944437c823e46ae19a",
+    "reviewer_a/calibration_1_reason_packet.jsonl": "77fce2f5c087aa4dfdcff913320124ad0a6d0bbb9b1a9eef0094636f2f509be4",
+    "reviewer_a/calibration_2_action_packet.csv": "c6ebca99ccd3a6da82a26b1979a53c27e195c2d03f518c3c1e60c124d28349ba",
+    "reviewer_a/calibration_2_action_packet.jsonl": "c883c1d932455c16c1bf549e2812500d5ada324edf8011c82b621338a15c915d",
+    "reviewer_a/calibration_2_reason_packet.csv": "cdf302331f10cd55ed0afe46c8f6f99809f197ae08779e6ae68a647693a21ded",
+    "reviewer_a/calibration_2_reason_packet.jsonl": "e6de915b264fc6a7d966b9086e2255ec14f3c22cb9bf562c090ddf2a14f07ee3",
+    "reviewer_a/evaluation_action_packet.csv": "a9c2977c0ab5ea566735179ceef79ee35929857630c99065fdc0e881221ed1d0",
+    "reviewer_a/evaluation_action_packet.jsonl": "529679f4653e8eaf54729e472bf0d073247da980b8894c29d3f00d8a47d0f524",
+    "reviewer_a/evaluation_reason_packet.csv": "05c1ac90a573865aa0134873fbc516fb4bf7778c34c2d8d6cda83acf666194b0",
+    "reviewer_a/evaluation_reason_packet.jsonl": "a1b4d5c8388561a2df57b04a623ea1e4e9d1bd3efe553e8312a37cec6ddb5931",
+    "reviewer_b/calibration_1_action_packet.csv": "34dc6a651dded06ef55eb3b5a5a790e6d2e77c833ee445dc1e808ed34c9983e5",
+    "reviewer_b/calibration_1_action_packet.jsonl": "15297b05d75f16994cead84d0d90742c0e3a856e0269e0c0bd63d401e485121f",
+    "reviewer_b/calibration_1_reason_packet.csv": "195dcdab8d79e9621a3b38f8f5d8b8582a6042168052dbb88577ddb0456c7580",
+    "reviewer_b/calibration_1_reason_packet.jsonl": "6c0d837a83605a66dbdee908e469080e6d5092de5bdf8bfa1a525aee38055069",
+    "reviewer_b/calibration_2_action_packet.csv": "d0f66bbb7a9e9b725bc638c8db058a5ea9bd47fa2070a2427b6e7fa94c59fb3a",
+    "reviewer_b/calibration_2_action_packet.jsonl": "1ae1ad5734fdf271ef1477dd3ffd958a81e9ec9d5d0b43063f5637e7bfdac8ad",
+    "reviewer_b/calibration_2_reason_packet.csv": "e956874e917ed722e03980728d85e5ae2816248387c756deb58d9dd16beff210",
+    "reviewer_b/calibration_2_reason_packet.jsonl": "24cb86e80b978094d07a888b9ff691c79ac60ce61bee18f967ac680441ca9b3b",
+    "reviewer_b/evaluation_action_packet.csv": "b9be60e1a8c0954cb9a1fce59688ac124b716e3bfcf4eab7b035714524035ca1",
+    "reviewer_b/evaluation_action_packet.jsonl": "29c4c2c45ecff619531f0563489a2d4717206a707af7ace89591550f4a1981be",
+    "reviewer_b/evaluation_reason_packet.csv": "6251a019599c9855e3e522be84216f089d736000152ce46bd031def0277ecd62",
+    "reviewer_b/evaluation_reason_packet.jsonl": "9ba317089b08f7b65bc1e493aceb4234b676d5fe6c8690fa0eed77817f8c8cba"
+  },
+  "phase_cve_audit": {
+    "calibration_1": {
+      "cases": 20,
+      "cve_id_set_sha256": "b6697805b4f7b830aea3da1f51d60d4ef733d48c93f92570a1c4ea3e30e617c0"
+    },
+    "calibration_2": {
+      "cases": 20,
+      "cve_id_set_sha256": "d9b4a3751ef6e5858fa868e16fea109a60fa57b19de863be4c8ebd944482f806"
+    },
+    "evaluation": {
+      "cases": 120,
+      "cve_id_set_sha256": "26a25dca57c6e356d970fa20ea0789d3a0e5e14bc7cf411cd080c9a0e4dadd50"
+    }
+  },
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v3.1",
+  "reasons": [
+    "equivalent",
+    "representation_discrepancy",
+    "incomplete",
+    "temporal_discrepancy",
+    "factual_conflict",
+    "uncertain"
+  ],
+  "repository": {
+    "branch": "codex/jss-v3-1-freeze-20260825",
+    "head_before_packet_commit": "af4953cc10aaec654477c28b4a9aa68472aea33f"
+  },
+  "reviewer_packet_files": {
+    "reviewer_a": {
+      "calibration_1": {
+        "action": {
+          "csv": "reviewer_a/calibration_1_action_packet.csv",
+          "jsonl": "reviewer_a/calibration_1_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_a/calibration_1_reason_packet.csv",
+          "jsonl": "reviewer_a/calibration_1_reason_packet.jsonl"
+        }
+      },
+      "calibration_2": {
+        "action": {
+          "csv": "reviewer_a/calibration_2_action_packet.csv",
+          "jsonl": "reviewer_a/calibration_2_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_a/calibration_2_reason_packet.csv",
+          "jsonl": "reviewer_a/calibration_2_reason_packet.jsonl"
+        }
+      },
+      "evaluation": {
+        "action": {
+          "csv": "reviewer_a/evaluation_action_packet.csv",
+          "jsonl": "reviewer_a/evaluation_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_a/evaluation_reason_packet.csv",
+          "jsonl": "reviewer_a/evaluation_reason_packet.jsonl"
+        }
+      }
+    },
+    "reviewer_b": {
+      "calibration_1": {
+        "action": {
+          "csv": "reviewer_b/calibration_1_action_packet.csv",
+          "jsonl": "reviewer_b/calibration_1_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_b/calibration_1_reason_packet.csv",
+          "jsonl": "reviewer_b/calibration_1_reason_packet.jsonl"
+        }
+      },
+      "calibration_2": {
+        "action": {
+          "csv": "reviewer_b/calibration_2_action_packet.csv",
+          "jsonl": "reviewer_b/calibration_2_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_b/calibration_2_reason_packet.csv",
+          "jsonl": "reviewer_b/calibration_2_reason_packet.jsonl"
+        }
+      },
+      "evaluation": {
+        "action": {
+          "csv": "reviewer_b/evaluation_action_packet.csv",
+          "jsonl": "reviewer_b/evaluation_action_packet.jsonl"
+        },
+        "reason": {
+          "csv": "reviewer_b/evaluation_reason_packet.csv",
+          "jsonl": "reviewer_b/evaluation_reason_packet.jsonl"
+        }
+      }
+    }
+  },
+  "reviewer_visible_schema_allowlist": {
+    "action_annotation_keys": [
+      "action_label",
+      "action_rationale",
+      "action_uncertainty",
+      "reviewer_notes"
+    ],
+    "reason_annotation_keys": [
+      "reason_label",
+      "reason_rationale",
+      "reason_uncertainty",
+      "reviewer_notes"
+    ],
+    "side_keys": [
+      "field_context",
+      "package_names",
+      "reference_hosts",
+      "reference_urls",
+      "value"
+    ],
+    "top_level_keys": [
+      "annotation",
+      "case_id",
+      "cve_id",
+      "field",
+      "left",
+      "packet_position",
+      "phase",
+      "protocol_id",
+      "right",
+      "schema_version",
+      "stage"
+    ],
+    "unknown_keys_fail_closed_at_every_object_level": true
+  },
+  "safety_gate": {
+    "both_reviewers_must_pass": true,
+    "failure_route": "BOUNDARY_OR_DECISION_AMBIGUITY_MANUSCRIPT",
+    "positive_framing_floor_per_reviewer": 29,
+    "reporting_floor_per_reviewer": 25,
+    "simple_only_loss_margin": 0.1
+  },
+  "schema_version": "t1_action_reason_manifest_v3_1",
+  "seeds": {
+    "calibration_1_rank": "vuln-adj-t1-v3.1-calibration-1-20260825",
+    "calibration_2_rank": "vuln-adj-t1-v3.1-calibration-2-20260825",
+    "evaluation_rank": "vuln-adj-t1-v3-evaluation-20260825",
+    "reviewer_phase_stage_order": "vuln-adj-t1-v3.1-order-20260825",
+    "side_mask": "vuln-adj-t1-v3.1-side-mask-20260825"
+  },
+  "selection_order": "evaluation first; calibration_1 from unused CVEs; calibration_2 from CVEs unused by both earlier phases",
+  "shared_no_manual_route_audit": {
+    "cases": 34,
+    "field_counts": {
+      "affected_versions": 19,
+      "severity": 15
+    },
+    "internal_file": "internal/shared_no_manual_route_audit.jsonl",
+    "population_rate_identified": false,
+    "reviewer_case_id_set_sha256": "cefcbda93113a7c228bf00cc8c23f9df05f76da9f1a81ac4555b302532dcd818",
+    "reviewer_visible_flag_present": false,
+    "source_sample_id_set_sha256": "486f14e86f0a53bb648bdba34590db76e1e0abdc4a504c3f21593b9078f5c0f5"
+  },
+  "status": "PREPARATION_ONLY_NOT_FOR_DISTRIBUTION"
+}

@@ -1,0 +1,102 @@
+{
+  "analysis_type": "label_free_design_audit",
+  "claim_ceiling": {
+    "human_reliability_established": false,
+    "packet_distribution_authorized": false,
+    "policy_superiority_established": false,
+    "population_miss_rate_established": false,
+    "safety_noninferiority_established": false
+  },
+  "decision": "GO_FREEZE_V3_1_WITH_DELTA_0_10_AND_N29",
+  "human_labels": 0,
+  "inputs": {
+    "data/annotations/rq2/t1_human_validation_v3/internal/frozen_sampling_frame.jsonl": "63d125e073a413a80ef89aeecca9e887667f0de7c34a8ddfa5a20657563e112e",
+    "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+  },
+  "repository": {
+    "branch": "codex/jss-v3-1-freeze-20260825",
+    "head": "af4953cc10aaec654477c28b4a9aa68472aea33f"
+  },
+  "safety_gate": {
+    "candidate_margin_feasibility": [
+      {
+        "candidate_margin": 0.05,
+        "minimum_human_conflicts_if_zero_simple_only_losses": 59,
+        "positive_floor_29_can_certify_zero_loss": false,
+        "reporting_floor_25_can_certify_zero_loss": false
+      },
+      {
+        "candidate_margin": 0.1,
+        "minimum_human_conflicts_if_zero_simple_only_losses": 29,
+        "positive_floor_29_can_certify_zero_loss": true,
+        "reporting_floor_25_can_certify_zero_loss": false
+      },
+      {
+        "candidate_margin": 0.15,
+        "minimum_human_conflicts_if_zero_simple_only_losses": 19,
+        "positive_floor_29_can_certify_zero_loss": true,
+        "reporting_floor_25_can_certify_zero_loss": true
+      }
+    ],
+    "confidence_level_one_sided": 0.95,
+    "event": "human conflict_escalation where field-aware-simple is manual and type-first-abstention is no-manual",
+    "margin_selected_substantively_not_from_labels": true,
+    "minimum_conflict_actions_per_reviewer_for_positive_framing": 29,
+    "minimum_conflict_actions_per_reviewer_for_reporting": 25,
+    "selected_margin": 0.1,
+    "zero_event_upper_bound_checkpoints": {
+      "25": 0.11292814500684328,
+      "29": 0.09814462767729577,
+      "30": 0.09503385285530415,
+      "34": 0.08433964335062545,
+      "50": 0.058155079116972326,
+      "59": 0.049507609888226944
+    }
+  },
+  "schema_version": "t1_v31_safety_identifiability_v1",
+  "shared_no_manual_route_audit": {
+    "definition": "both field_aware_simple_v1 and type_first_abstention_v1 choose an action outside {conflict_escalation, abstain}",
+    "fields": {
+      "affected_versions": {
+        "kish_effective_sample_size": 11.779715976134895,
+        "population_cell_counts": {
+          "agreement|equivalent": 419,
+          "agreement|incomplete": 2980,
+          "agreement|representation_discrepancy": 1550,
+          "disagreement|enrich_record->no_action": 672
+        },
+        "selected_cases": 19,
+        "selected_cell_counts": {
+          "agreement|equivalent": 5,
+          "agreement|incomplete": 5,
+          "agreement|representation_discrepancy": 3,
+          "disagreement|enrich_record->no_action": 6
+        },
+        "source_sample_id_set_sha256": "ee94a1c3d21bd65a87dd01c1e2a0682e13287fc3b09ed84feda78362f2990a38",
+        "zero_event_one_sided_95pct_sample_conditional_upper": 0.1458685033122435
+      },
+      "severity": {
+        "kish_effective_sample_size": 10.103679938389918,
+        "population_cell_counts": {
+          "agreement|equivalent": 3106,
+          "agreement|incomplete": 33,
+          "agreement|representation_discrepancy": 3173
+        },
+        "selected_cases": 15,
+        "selected_cell_counts": {
+          "agreement|equivalent": 5,
+          "agreement|incomplete": 5,
+          "agreement|representation_discrepancy": 5
+        },
+        "source_sample_id_set_sha256": "efabcc20177cf87b831e9d73034e2fe49bbaaa59a3c86807b1691f982317f60d",
+        "zero_event_one_sided_95pct_sample_conditional_upper": 0.18103627252208473
+      }
+    },
+    "population_rate_identified": false,
+    "purpose": "falsification opportunity and boundary evidence",
+    "selected_cases": 34,
+    "source_sample_id_set_sha256": "486f14e86f0a53bb648bdba34590db76e1e0abdc4a504c3f21593b9078f5c0f5",
+    "zero_event_one_sided_95pct_sample_conditional_upper": 0.08433964335062545
+  },
+  "uses_any_human_labels": false
+}
