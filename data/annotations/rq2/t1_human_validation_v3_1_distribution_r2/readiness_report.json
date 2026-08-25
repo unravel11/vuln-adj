@@ -1,0 +1,22 @@
+{
+  "blockers": [],
+  "bundle_created": true,
+  "distribution_allowed": true,
+  "governance_evidence_level": "AUTHOR_ATTESTED_NOT_INDEPENDENTLY_VERIFIED",
+  "human_gold": false,
+  "human_labels": 0,
+  "known_role_design": {
+    "practitioner_expertise_claimed": false,
+    "reviewer_count": 2,
+    "role_category": "doctoral_student_trained_analyst"
+  },
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v3.1",
+  "revision_id": "t1-v3.1-calibration-1-action-r2",
+  "schema_version": "t1_v31_distribution_readiness_v2",
+  "scope": {
+    "case_count_per_reviewer": 20,
+    "phase": "calibration_1",
+    "stage": "action"
+  },
+  "status": "READY"
+}
