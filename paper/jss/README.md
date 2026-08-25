@@ -57,12 +57,14 @@ sets `distribution_allowed=false` and `human_labels=0`. V2 and V3 are
 retained unchanged as historical prepare-only material and must not be
 distributed for this route.
 
-The post-freeze distribution gate is maintained at
-`data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/`. Two doctoral
-students are the intended reviewers under the trained-analyst framing; no
-practitioner expertise is claimed. The onboarding forms and action-only
-builder/validator exist, but the readiness report remains `BLOCKED`, no case
-bundle has been created, and real-human labels remain zero.
+The active post-freeze distribution gate is maintained at
+`data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/`. The author
+attests that two different doctoral students will review independently without
+AI; no practitioner expertise is claimed, and the author-side conditions were
+not independently verified by Codex. R2 readiness is `READY`; separate
+calibration-1 action-only bundles have been generated and validated. No return
+or real-human label has yet been received. Detailed R1 was superseded before it
+generated any case bundle.
 
 ## Route decision
 

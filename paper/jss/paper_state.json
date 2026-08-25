@@ -10,8 +10,8 @@
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
     "branch": "codex/jss-v3-1-calibration1-distribution-20260825",
-    "head": "0ce5ffd7844053fe0df1c6ef5ab5f0fb38c648ed",
-    "head_semantics": "Post-freeze doctoral-reviewer onboarding gate, action-only distribution tooling, and blocked readiness report before governance-document synchronization",
+    "head": "0e967303fad4808dfe1c10d7e2cd6acfdd1ed6d2",
+    "head_semantics": "Minimal author-attested R2 gate, frozen action-only distribution tag, and READY bundle-generation record before governance-document synchronization",
     "status": "clean",
     "manuscript": "paper/jss/manuscript.md"
   },
@@ -39,7 +39,7 @@
     "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md",
     "human_protocol": "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md",
     "human_packet_manifest": "data/annotations/rq2/t1_human_validation_v3_1/manifest.json",
-    "human_distribution_readiness": "data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/readiness_report.json",
+    "human_distribution_readiness": "data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/readiness_report.json",
     "safety_identifiability": "results/jss/t1_v31_safety_identifiability/analysis.json"
   },
   "claim_ceiling": [
@@ -53,13 +53,13 @@
     "Do not claim temporal generalization without a newly eligible bilateral post-freeze cohort."
   ],
   "open_blockers": [
-    "V3.1 packets and analysis tooling are mechanically frozen, but distribution remains blocked and real-human labels remain zero.",
-    "Two doctoral students are selected as intended trained analysts, but private identity, qualification, independence, consent, compensation, conflict, and ethics or recruitment evidence remains unsigned or unverified.",
-    "The action-only distribution gate is implemented and mechanically tested, but its readiness report is BLOCKED and no reviewer case bundle exists.",
+    "V3.1 packets and analysis tooling are mechanically frozen; R2 permits only reviewer-scoped calibration-1 action distribution, and real-human labels remain zero.",
+    "The author attests that two distinct doctoral-student trained analysts satisfy the independent no-AI and author-side governance conditions; Codex did not independently verify those facts.",
+    "R2 calibration-1 action bundles exist and validate, but neither reviewer has returned a human action label and no action stage is locked.",
     "Calibration-1 has not run; action and reason stage locks contain no real returns.",
     "The S2 title direction and contribution wording still require author lock after preserving both positive and boundary result routes.",
     "No JSS manuscript draft exists.",
     "Current JSS submission requirements and author metadata are not frozen."
   ],
-  "last_verified_at": "2026-08-25T20:40:53+08:00"
+  "last_verified_at": "2026-08-25T21:01:19+08:00"
 }

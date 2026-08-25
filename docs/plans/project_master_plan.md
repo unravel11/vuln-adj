@@ -13,7 +13,7 @@
 | C：统一字段视图与差异检测 baseline | 已完成 |
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
-| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S1_EVIDENCE_LOCKED`；V3.1 prepare-only 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 trained-analyst 口径与入组门禁已建立，但尚未分发或产生真人标签；COSE 稿为历史证据线） |
+| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S1_EVIDENCE_LOCKED`；V3.1 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 calibration-1 action-only 包已生成并验证，但尚无返回标签；COSE 稿为历史证据线） |
 
 ---
 
@@ -126,16 +126,17 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
   stage-scoped file exclusion、return importer、双人 stage lock 和
   pre-adjudication evaluator 均已实现并通过权威远端机械验证与临时 synthetic
   end-to-end 测试。synthetic label 未进入仓库且不构成人工证据。
-- 当前 `distribution_allowed=false`、`human_labels=0`，强制
-  distribution-ready 校验按设计拒绝。分发前仍须批准 guideline，记录两位真人
-  身份与独立性、伦理/招募处置和作者批准。不得分发 V2/V3 或历史
+- 冻结 preparation manifest 有意保持 `distribution_allowed=false`、
+  `human_labels=0`，其强制 distribution-ready 校验继续按设计拒绝；实际分发仅能由
+  后冻结的 R2 reviewer-scoped gate 放行。不得分发 V2/V3 或历史
   `rq2_primary.review.jsonl`，不得按校准或正式结果改 selection、策略或门槛。
-- 用户已指定两位博士生作为拟邀 reviewer；角色统一限定为
-  `doctoral_student_trained_analyst`，不声称 practitioner expertise。独立的
-  `codex/jss-v3-1-calibration1-distribution-20260825` 分支新增私密入组表、非识别性
-  approval record、action-only builder 与独立 validator。当前 readiness 为
-  `BLOCKED`：31 个细粒度缺项归属于两份真实身份/独立性/同意记录、伦理与招募处置、
-  named-author 签字和最终 scope 解锁；因此没有生成任何案例分发目录。
+- 用户已指定两位博士生并明确默认治理条件满足；角色统一限定为
+  `doctoral_student_trained_analyst`，不声称 practitioner expertise。详细 R1 在
+  未生成案例前被最小 author-attested R2 取代。R2 仅记录两人不同、独立且不用 AI、
+  自愿参与/冲突/补偿与适用伦理要求由作者处理、冻结 guideline 与 calibration-1
+  action-only scope 获批；Codex 未独立核验这些作者侧事实。R2 readiness 为
+  `READY`，A/B 各 20 行 action CSV bundle 已生成并经独立 validator 通过；reason、
+  calibration-2、formal、internal、policy/AI 和另一 reviewer 材料仍被排除。
 
 ---
 
@@ -180,7 +181,7 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
 | `../../experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md` | JSS 零人工策略普查与第一阶段可识别性门禁 |
 | `../../experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md` | 当前双真人 action-first/reason-second、双轮校准和安全门禁协议 |
 | `../../results/jss/t1_v31_safety_identifiability/report.md` | V3.1 共享盲区与 0.05/0.10/0.15 margin 的无标签可识别性分析 |
-| `../../data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/README.md` | 两位博士生 trained-analyst 入组、私密记录与 calibration-1 action-only 分发门禁 |
+| `../../data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/README.md` | 两位博士生 trained-analyst 的最小作者声明与 calibration-1 action-only 分发门禁 |
 | `plan_b_cose.md` | 历史 COSE 计划，保留作追溯，不再是主动路线 |
 | `plan_a_fse_icse.md` | 历史 FSE/ICSE 计划，保留作追溯，不再是主动路线 |
 | `project_progress_log.md` | 已完成工作的详细记录（数据、脚本、统计数字） |
@@ -194,12 +195,10 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
 
 1. 作者确认 JSS 候选 title、修订后的 RQ1/RQ2/RQ3、V3.1 四字段和 CWE 不进入
    当前 routing 人工实验的边界；未确认前保持 `S2 candidate`。
-2. 两位拟邀博士生分别完成私密 onboarding form；作者记录资格、独立性、冲突、
-   compensation/consent、伦理与招募处置，并签署冻结 guideline/hash 与
-   calibration-1 action-only scope。角色不得升级为真实从业者。当前 distribution
-   revision 已实现但 readiness 仍为 `BLOCKED`，blank packets 仍为
-   `distribution_allowed=false`。
-3. 先完成 calibration-1 20 行的 action→lock→reason；若第一轮低于 0.60 或
+2. 分别把 R2 Reviewer A/B bundle 交给对应博士生；两人只填写 action CSV，独立
+   工作且不得使用 AI、讨论、查看 reason 或策略输出。角色不得升级为真实从业者。
+3. 回收两份 calibration-1 20 行 action 后先通过 return validator 并锁定；再开放
+   reason。若第一轮低于 0.60 或
    guideline material change，才使用预密封且 CVE-disjoint 的 calibration-2
    20 行。第二轮低于 0.60 直接停止正式分发。
 4. 校准通过后完成 120 行正式 action→lock→reason，保留全部 abstain、

@@ -4032,3 +4032,60 @@
     私密记录 SHA-256，并只把 hash 与非识别性摘要写入 approval record。
   - readiness 通过后才运行 builder 和独立 validator；分别交付 Reviewer A/B 的
     calibration-1 action CSV，不交付 reason 或任何未来阶段材料。
+
+## 2026-08-25：以最小作者声明放行 calibration-1 action-only 分发
+
+- 本次完成了什么：
+  - 用户以作者身份确认两位不同博士生、独立工作、不使用 AI，以及参与、冲突、补偿和
+    适用伦理要求等默认条件已由作者处理。论文角色保持
+    `doctoral_student_trained_analyst`，不声称 practitioner expertise；Codex 未独立
+    核验这些作者侧事实。
+  - 详细 R1 在生成任何案例材料前标记为
+    `SUPERSEDED_BEFORE_CASE_DISTRIBUTION`，改用最小、非识别性的 R2 author
+    attestation；不再要求 reviewer 分别填写逐项入组表。
+  - R2 只批准 Reviewer A/B 的 calibration-1 action 阶段。分别生成并验证两个 20 行
+    bundle；reason、calibration-2、formal、internal、policy/AI、另一 reviewer 材料
+    均未进入分发包。
+  - 创建 annotated tag
+    `jss-t1-human-validation-v3.1-calibration1-action-r2-20260825`，固定分发代码、
+    approval record 和冻结输入；生成结果由后续提交单独记录。
+
+- 产物路径：
+  - `data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/`
+  - `data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/readiness_report.json`
+  - `data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/generated/reviewer_a/`
+  - `data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/generated/reviewer_b/`
+  - `experiments/rq2_discrepancy_typing/build_t1_human_validation_distribution_v3_1.py`
+  - `experiments/rq2_discrepancy_typing/validate_t1_human_validation_distribution_v3_1.py`
+
+- 如何验证：
+  - 权威环境核对为 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`；分支为
+    `codex/jss-v3-1-calibration1-distribution-20260825`。
+  - R2 聚焦测试 `7/7` 通过；readiness 返回 `READY`；builder 和独立 validator
+    均通过。每个 reviewer bundle 只包含 `GUIDELINE.md`、`INSTRUCTIONS.md`、
+    `calibration_1_action_packet.csv` 和 `manifest.json`。
+  - approval record、readiness report、Reviewer A manifest、Reviewer B manifest 的
+    SHA-256 依次为 `7478f57e...d236`、`54478da6...8c4`、
+    `fb09f902...92a`、`12b01227...186`。
+  - Reviewer A/B ZIP 的 SHA-256 分别为 `8a78e820...07c` 与
+    `2cd9d27e...13b`。代码与 author-attestation 提交 `299a9c6`、READY 结果提交
+    `0e96730` 均已推送；tag 指向 `299a9c6`。
+
+- 当前观察：
+  - 分发治理已由“逐项表单核验”降为“作者声明”，降低了真人参与负担；相应证据等级为
+    `AUTHOR_ATTESTED_NOT_INDEPENDENTLY_VERIFIED`，论文不得把它写成独立核验事实。
+  - calibration-1 action 材料已经具备交付条件，但包生成和校验不等于真人完成标注。
+    当前 `human_labels=0`、`human_gold=false`。
+
+- 还没验证的点：
+  - 两位博士生尚未返回 action CSV；未验证完成度、合法标签、独立性执行情况、原始一致性
+    或 Krippendorff alpha，action stage 也未锁定。
+  - reason、calibration-2 和 formal 均未开放；不存在真人 reliability、routing safety、
+    policy performance 或 human-gold 结论。
+
+- 下一步：
+  - 每位博士生只收到自己的 calibration-1 action ZIP，独立填写 action、简短依据和
+    uncertainty，不讨论、不用 AI。
+  - 回收两份 CSV 后先运行 return validator 并锁定 action；只有锁定成功后才生成并交付
+    calibration-1 reason 材料，再按冻结门禁决定进入 formal、启用一次 reserve，或停止。
