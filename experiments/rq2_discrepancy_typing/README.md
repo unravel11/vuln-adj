@@ -12,7 +12,7 @@
 - field comparators
 - evaluation scripts
 
-## JSS V3 routing precheck and prepare-only human packet
+## JSS V3.1 routing precheck and staged human distribution
 
 The active low-human JSS route first runs a label-free full-corpus census of a
 strong field-aware simple comparator, the current type-first efficiency arm,
@@ -33,32 +33,39 @@ abstention-aware comparison has 2,332 action differences. The safety arm has
 abstention is counted. These are deterministic policy outputs, not human-
 validated correctness, safety, workload, or utility.
 
-V3 uses the same two independent trained analysts and the same 120 formal cases
-for action and reason judgments. Actions are completed and locked before reason
-packets are released.
+V3.1 uses the same two independent trained analysts and the same 120 formal
+cases for action and reason judgments. Actions are completed and locked before
+reason packets are released. The intended reviewers are two doctoral students;
+the paper therefore calls them trained analysts and does not claim practitioner
+expertise.
 
 ```bash
 python -m unittest discover \
   -s experiments/rq2_discrepancy_typing \
-  -p 'test_*t1_human_validation_packet_v3.py'
-python experiments/rq2_discrepancy_typing/build_t1_human_validation_packet_v3.py
-python experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3.py
-python experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3.py \
+  -p 'test_*t1_human_validation*v3_1.py'
+python experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3_1.py
+python experiments/rq2_discrepancy_typing/validate_t1_human_validation_packet_v3_1.py \
   --require-distribution-ready
+python experiments/rq2_discrepancy_typing/build_t1_human_validation_distribution_v3_1.py \
+  --check-only
 ```
 
 The normal validator must pass. The distribution-ready command must fail while
 the manifest remains prepare-only. Current outputs are under:
 
 - `results/jss/t1_routing_precheck_v1/`
-- `data/annotations/rq2/t1_human_validation_v3/`
+- `results/jss/t1_v31_safety_identifiability/`
+- `data/annotations/rq2/t1_human_validation_v3_1/`
+- `data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/`
 
-The V3 directory contains 20 calibration and 120 formal cases per reviewer,
-separate action/reason stages, and zero human labels. Do not distribute it
-until the guideline, reviewer roles, ethics/recruitment disposition, return
-validators, evaluator, and author-approved distribution revision are frozen.
-The older V2 packet is retained unchanged for audit and is not the active
-distribution route.
+The V3.1 directory contains 20 calibration-1, 20 presealed calibration-2
+reserve, and 120 formal cases per reviewer, with separate action/reason stages
+and zero human labels. The distribution revision records onboarding and fails
+closed until two private signed reviewer forms, the ethics/recruitment
+disposition, and named-author approval are hash-bound. It can build only the
+two reviewer-specific calibration-1 action CSV bundles. The older V2 and V3
+packets remain historical prepare-only artifacts and are not distribution
+routes.
 
 ## References normalization candidate diagnostic
 

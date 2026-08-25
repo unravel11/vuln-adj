@@ -1,0 +1,83 @@
+{
+  "author_distribution_approval": {
+    "approved": false,
+    "approved_at": "",
+    "approved_by": "",
+    "policy_output_blinding_commitment_signed": false,
+    "scope_and_hashes_verified": false,
+    "two_distinct_reviewers_verified": false
+  },
+  "distribution_allowed": false,
+  "ethics_recruitment": {
+    "determination": "pending",
+    "determination_recorded": false,
+    "identifier_or_written_rationale": "",
+    "information_sheet_sha256": null,
+    "recruitment_method": ""
+  },
+  "frozen_preparation": {
+    "commit": "e98dff344473fcc906b80d59b64cb0d6324558e0",
+    "manifest_path": "data/annotations/rq2/t1_human_validation_v3_1/manifest.json",
+    "manifest_sha256": "5833698444c9bf835cd82a6706326a91988804a14e24af4d6ee3ba29b433e893",
+    "tag": "jss-t1-human-validation-v3.1-preparation-freeze-20260825"
+  },
+  "guideline_approval": {
+    "approval_basis": "Author instructed the project to start with two doctoral-student reviewers on 2026-08-25; named sign-off remains pending.",
+    "approved": true,
+    "approved_at": "2026-08-25",
+    "approved_by": "author identity pending private record",
+    "sha256": "a5dcf70d52f8e7124af1e2328fade4b5024696dc5911a74401988fb6d4efbb6c",
+    "signature_recorded": false,
+    "source_path": "docs/annotation_guidelines/t1_action_reason_v3_1.md"
+  },
+  "human_gold": false,
+  "human_labels": 0,
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v3.1",
+  "reviewer_governance": {
+    "reviewer_a": {
+      "compensation_disclosed": false,
+      "conflict_disclosed": false,
+      "consent_signed": false,
+      "doctoral_status_verified": false,
+      "independence_signed": false,
+      "practitioner_expertise_claimed": false,
+      "private_record_sha256": null,
+      "real_person_identity_verified": false,
+      "relevant_experience_summary": "PENDING PRIVATE ONBOARDING",
+      "reviewer_id": "T1V31-A",
+      "role_category": "doctoral_student_trained_analyst"
+    },
+    "reviewer_b": {
+      "compensation_disclosed": false,
+      "conflict_disclosed": false,
+      "consent_signed": false,
+      "doctoral_status_verified": false,
+      "independence_signed": false,
+      "practitioner_expertise_claimed": false,
+      "private_record_sha256": null,
+      "real_person_identity_verified": false,
+      "relevant_experience_summary": "PENDING PRIVATE ONBOARDING",
+      "reviewer_id": "T1V31-B",
+      "role_category": "doctoral_student_trained_analyst"
+    }
+  },
+  "revision_id": "t1-v3.1-calibration-1-action-r1",
+  "role_design": {
+    "practitioner_expertise_claimed": false,
+    "reviewer_count": 2,
+    "role_category": "doctoral_student_trained_analyst",
+    "source_statement": "User selected two doctoral students as reviewers on 2026-08-25. Identity and qualification evidence have not yet been inspected."
+  },
+  "schema_version": "t1_v31_distribution_approval_v1",
+  "scope": {
+    "case_count_per_reviewer": 20,
+    "file_format": "csv",
+    "phase": "calibration_1",
+    "reviewers": [
+      "reviewer_a",
+      "reviewer_b"
+    ],
+    "stage": "action"
+  }
+}
+

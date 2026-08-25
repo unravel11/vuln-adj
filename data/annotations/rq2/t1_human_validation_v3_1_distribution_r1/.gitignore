@@ -1,0 +1,6 @@
+/generated/
+/private/*
+!/private/README.md
+/returns/*
+!/returns/README.md
+
