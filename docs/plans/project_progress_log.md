@@ -4062,15 +4062,17 @@
   - 权威环境核对为 `hostname=code-defender`、
     `pwd=/home/xiaoyuliang/code/vuln-adj`；分支为
     `codex/jss-v3-1-calibration1-distribution-20260825`。
-  - R2 聚焦测试 `7/7` 通过；readiness 返回 `READY`；builder 和独立 validator
-    均通过。每个 reviewer bundle 只包含 `GUIDELINE.md`、`INSTRUCTIONS.md`、
-    `calibration_1_action_packet.csv` 和 `manifest.json`。
+  - R2 聚焦测试 `7/7`、权威远端 RQ2 全目录发现测试 `411/411` 通过；readiness
+    返回 `READY`；builder 和独立 validator 均通过。每个 reviewer bundle 只包含
+    `GUIDELINE.md`、`INSTRUCTIONS.md`、`calibration_1_action_packet.csv` 和
+    `manifest.json`。
   - approval record、readiness report、Reviewer A manifest、Reviewer B manifest 的
     SHA-256 依次为 `7478f57e...d236`、`54478da6...8c4`、
     `fb09f902...92a`、`12b01227...186`。
   - Reviewer A/B ZIP 的 SHA-256 分别为 `8a78e820...07c` 与
     `2cd9d27e...13b`。代码与 author-attestation 提交 `299a9c6`、READY 结果提交
     `0e96730` 均已推送；tag 指向 `299a9c6`。
+  - 最终文档同步后，权威分支工作树干净且相对 origin 为 `0/0`。
 
 - 当前观察：
   - 分发治理已由“逐项表单核验”降为“作者声明”，降低了真人参与负担；相应证据等级为
