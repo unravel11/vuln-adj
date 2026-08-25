@@ -3917,16 +3917,18 @@
 
 - 如何验证：
   - V3.1 核心脚本 `py_compile` 通过；V3.1 聚焦单元测试 `22/22` 通过，
-    连同 V3 回归测试共 `32/32` 通过。
+    连同 V3 回归测试共 `32/32` 通过；权威远端 RQ2 全目录发现测试
+    `404/404` 通过。
   - label-free safety analyzer 返回
     `GO_FREEZE_V3_1_WITH_DELTA_0_10_AND_N29`；0.05/0.10/0.15 margin 在零
     simple-only loss 时分别最少需要 59/29/19 个 conflict actions。
   - packet validator 返回 PASS：calibration-1 `20`、calibration-2 reserve
     `20`、formal `120`、`distribution_allowed=false`、`human_labels=0`；
     强制 distribution-ready 以退出码 `2` 拒绝。
-  - 三阶段 CVE 数为 `20/20/120`，三个 pairwise overlap 均为 `0`；reviewer
-    目录扫描对 baseline/status/note、AI candidate、deterministic/discrepancy
-    type、policy actions、selection cell 和 weights 为零命中。
+  - 三阶段 CVE 数为 `20/20/120`，三个 pairwise overlap 均为 `0`；直接扫描
+    `reviewer_a/` 与 `reviewer_b/`，对 baseline/status/note、AI candidate、
+    deterministic/discrepancy type、policy actions、selection cell 和 weights
+    为零命中。
   - 新命名 `harmless_new_hint`、`baseline_hint_v2`、嵌套
     `ai_candidate`、`discrepancy_type` 负例均被 allowlist 拒绝。
   - 在第二个临时目录从相同输入重建，31 个 packet 文件 byte-identical。
@@ -3937,7 +3939,12 @@
     `fd0b1c97...bff40`、`58336984...e893`、`881e2180...e5b2`、
     `a5dcf70d...bb6c`。
   - 分步提交：`8bcaebb`（协议与安全设计）、`af4953c`（回收/锁定/评估工具）、
-    `d664f90`（label-free 结果与 prepare-only packet）；均已推送到权威分支。
+    `d664f90`（label-free 结果与 prepare-only packet）、`2cf2ea7`（JSS 治理与
+    论文状态对齐）；均已推送到权威分支。
+  - 最终权威远端 packet validator 再次通过，distribution-ready 检查按设计以
+    退出码 `2` 拒绝，`git fsck --no-dangling` 通过，工作树干净且分支相对
+    origin 为 `0/0`。本冻结节点使用 annotated tag
+    `jss-t1-human-validation-v3.1-preparation-freeze-20260825`。
 
 - 当前观察：
   - 34 行 shared audit 若为 0 个真人 shared miss，合并单侧 95% 上界为
