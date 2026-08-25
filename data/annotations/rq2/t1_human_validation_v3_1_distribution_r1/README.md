@@ -1,6 +1,10 @@
 # V3.1 Calibration-1 Distribution Revision R1
 
-Status: `ONBOARDING_PREPARED_DISTRIBUTION_BLOCKED`
+Status: `SUPERSEDED_BEFORE_CASE_DISTRIBUTION`
+
+This detailed onboarding design was superseded by revision R2 after the author
+requested a minimal attestation. R1 never generated or distributed a case
+bundle and remains only as governance provenance.
 
 The author has selected two doctoral students as the intended reviewers. They
 are treated as `doctoral_student_trained_analyst`; no practitioner or
@@ -33,4 +37,3 @@ python experiments/rq2_discrepancy_typing/validate_t1_human_validation_distribut
 
 The current check must exit `2`. Do not edit it to pass; complete the real
 governance evidence first.
-

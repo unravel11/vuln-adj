@@ -1,0 +1,47 @@
+{
+  "author_attestation": {
+    "attestation_basis": "The user explicitly stated that the default governance conditions are satisfied and requested the annotation cases on 2026-08-25.",
+    "attested_at": "2026-08-25",
+    "attested_by": "repository_author_via_task_instruction",
+    "evidence_level": "AUTHOR_ATTESTED_NOT_INDEPENDENTLY_VERIFIED",
+    "guideline_and_action_only_scope_approved": true,
+    "guideline_sha256": "a5dcf70d52f8e7124af1e2328fade4b5024696dc5911a74401988fb6d4efbb6c",
+    "independent_no_discussion_no_ai": true,
+    "institutional_ethics_requirements_handled": true,
+    "trained_analyst_not_practitioner": true,
+    "two_distinct_real_doctoral_reviewers": true,
+    "voluntary_conflict_compensation_handled": true
+  },
+  "distribution_allowed": true,
+  "frozen_preparation": {
+    "commit": "e98dff344473fcc906b80d59b64cb0d6324558e0",
+    "manifest_path": "data/annotations/rq2/t1_human_validation_v3_1/manifest.json",
+    "manifest_sha256": "5833698444c9bf835cd82a6706326a91988804a14e24af4d6ee3ba29b433e893",
+    "tag": "jss-t1-human-validation-v3.1-preparation-freeze-20260825"
+  },
+  "human_gold": false,
+  "human_labels": 0,
+  "protocol_id": "vuln-adj-jss-t1-human-validation-v3.1",
+  "reviewers": {
+    "reviewer_a": {
+      "reviewer_id": "T1V31-A",
+      "role_category": "doctoral_student_trained_analyst"
+    },
+    "reviewer_b": {
+      "reviewer_id": "T1V31-B",
+      "role_category": "doctoral_student_trained_analyst"
+    }
+  },
+  "revision_id": "t1-v3.1-calibration-1-action-r2",
+  "schema_version": "t1_v31_distribution_approval_v2",
+  "scope": {
+    "case_count_per_reviewer": 20,
+    "file_format": "csv",
+    "phase": "calibration_1",
+    "reviewers": [
+      "reviewer_a",
+      "reviewer_b"
+    ],
+    "stage": "action"
+  }
+}

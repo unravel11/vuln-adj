@@ -108,7 +108,7 @@ def validate_reviewer_bundle(
         "status": "DISTRIBUTION_APPROVED_CALIBRATION_1_ACTION_ONLY",
         "distribution_allowed": True,
         "reviewer": reviewer,
-        "reviewer_id": approval["reviewer_governance"][reviewer]["reviewer_id"],
+        "reviewer_id": approval["reviewers"][reviewer]["reviewer_id"],
         "phase": distribution.EXPECTED_PHASE,
         "stage": distribution.EXPECTED_STAGE,
         "case_count": distribution.EXPECTED_CASES,
@@ -133,7 +133,7 @@ def validate_reviewer_bundle(
         errors.append(f"{reviewer}: excluded-file declaration drift")
 
     source_csv = packet_dir / reviewer / "calibration_1_action_packet.csv"
-    source_guideline = PROJECT_ROOT / approval["guideline_approval"]["source_path"]
+    source_guideline = PROJECT_ROOT / distribution.GUIDELINE_PATH
     expected_sources = {
         distribution.relative(source_csv): distribution.sha256_file(source_csv),
         distribution.relative(source_guideline): distribution.sha256_file(
@@ -176,7 +176,7 @@ def validate_reviewer_bundle(
     ):
         errors.append(f"{reviewer}: distributed guideline content drift")
     expected_instructions = distribution.render_instructions(
-        approval["reviewer_governance"][reviewer]["reviewer_id"]
+        approval["reviewers"][reviewer]["reviewer_id"]
     )
     if (reviewer_dir / "INSTRUCTIONS.md").read_text(
         encoding="utf-8"

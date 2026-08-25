@@ -56,16 +56,17 @@ the manifest remains prepare-only. Current outputs are under:
 - `results/jss/t1_routing_precheck_v1/`
 - `results/jss/t1_v31_safety_identifiability/`
 - `data/annotations/rq2/t1_human_validation_v3_1/`
-- `data/annotations/rq2/t1_human_validation_v3_1_distribution_r1/`
+- `data/annotations/rq2/t1_human_validation_v3_1_distribution_r2/`
 
 The V3.1 directory contains 20 calibration-1, 20 presealed calibration-2
 reserve, and 120 formal cases per reviewer, with separate action/reason stages
-and zero human labels. The distribution revision records onboarding and fails
-closed until two private signed reviewer forms, the ethics/recruitment
-disposition, and named-author approval are hash-bound. It can build only the
-two reviewer-specific calibration-1 action CSV bundles. The older V2 and V3
-packets remain historical prepare-only artifacts and are not distribution
-routes.
+and zero human labels. Distribution revision R2 records a minimal author
+attestation rather than personal forms: two different doctoral students,
+trained-analyst rather than practitioner framing, independent work without AI,
+author-handled participation/conflict/ethics conditions, and the exact
+calibration-1 action-only scope. The attestation is not independently verified.
+R2 can build only the two reviewer-specific calibration-1 action CSV bundles.
+The older V2, V3, and superseded R1 materials are not distribution routes.
 
 ## References normalization candidate diagnostic
 
