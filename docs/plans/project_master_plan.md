@@ -13,27 +13,28 @@
 | C：统一字段视图与差异检测 baseline | 已完成 |
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
-| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；2026-08-26 已锁定结果中立标题、thesis、RQ1--RQ3、恰好三项贡献 ceiling 与 Branch P/B 合同；V3.1 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 calibration-1 action-only 包已生成并验证但尚无返回标签；英文 zero draft 与 JSS checklist 已落盘但正文未获作者批准；COSE 稿为历史证据线） |
+| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；2026-08-26 已按作者意见重新锁定 routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、恰好三项贡献 ceiling 与 Branch P/B 合同；V3.1 协议、packet、return/lock/evaluator 未改；真人流程暂停且返回标签仍为 0；英文 zero draft 与 JSS checklist 已同步但正文未获作者批准；COSE 稿为历史证据线） |
 
 ---
 
 ## 投稿策略
 
 ```
-全语料零人工 routing + V3.1 safety 可识别性门禁
-        ↓ 已通过，只授权 prepare-only 协议、packet 与 evaluator 冻结
-V3.1 双真人 action-first / reason-second（同一流程同时服务 RQ2/RQ3）
-        ↓ 通过构念与配对策略门禁
-强字段基线 vs type-first 效率臂 vs abstention 安全臂
-        ↓ 有可报告的人类支持结果
+RQ1 四字段 deterministic discrepancy census
+        ↓ 已有冻结语料和规则输出
+RQ2 三策略 conflict / abstain / total-manual-route 比较
+        ↓ 已有确定性 queue-allocation 结果，不等于正确性或安全性
+RQ3 双 trained-analyst action-first / reason-second 验证
+        ↓ 通过冻结门禁得到 reviewer-consistent differentiation，或保留 boundary
 JSS（主路线，条件式）
         ↓ 体量或契合度不合适
 IST（务实备选）
 ```
 
 - **当前主路线：JSS**。framing 是 NVD–GHSA 字段级差异的
-  action-oriented type-first routing、abstention 与可识别性/失败边界，不再主张
-  “首次发现漏洞数据库差异类型”。
+  decision-oriented field-level routing 与显式 conflict/abstain/manual-route
+  accounting；人工只承担 RQ3 的验证和边界识别，不是论文标题或独立研究对象。
+  不再主张“首次发现漏洞数据库差异类型”。
 - **IST** 是完成同一核心实证后、按体量和期刊契合度决定的备选，不是降低实验门槛。
 - **SANER Registered Reports** 只适用于另起的、结果尚未揭示的未来确认性阶段；
   不能包装已经揭封的当前实验。
@@ -42,9 +43,9 @@ IST（务实备选）
 - 历史 `plan_b_cose.md` 与 `plan_a_fse_icse.md` 继续保留，但不再决定
   2026-08-23 之后的主动投稿顺序。
 
-当前投稿判定为 `NO_GO_FOR_SUBMISSION`。只有 V3.1 双真人独立返回与冻结分析、
-JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部完成后，才允许
-重新评估。零人工门禁通过不能替代这些条件。
+当前投稿判定为 `NO_GO_FOR_SUBMISSION`。RQ1/RQ2 已有确定性证据，但只有 V3.1
+双真人独立返回与冻结 RQ3 分析、JSS 正文、当前格式要求、作者元数据和最终
+artifact gate 全部完成后，才允许重新评估。零人工门禁通过不能替代这些条件。
 
 ### 2026-08-23 JSS framing 与实验边界
 
@@ -185,6 +186,35 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
 - 本次不开放或读取 reason、calibration-2、formal/return 私密材料，不修改冻结
   protocol、sample、policy、threshold、evaluator 或 tag，也不执行新实验。
 
+### 2026-08-26 JSS routing-centric S2 重开与重新锁定
+
+- 状态：`S2_ARGUMENT_LOCKED`；上一版 Human-Gated S2 lock 已标记为 superseded
+  governance history，投稿仍为 `NO_GO_FOR_SUBMISSION`。
+- 作者指出人工不应成为论文主角并授权使用 Opus Max 复核。新只读会话使用
+  Claude Code `2.1.226`、`claude-opus-5`、effort `max`。首轮明确判定
+  `REBALANCE_AND_RELOCK`；Codex 随后指出其标题仍含 Human、把 label-free count
+  升级为 safety frontier、RQ2/RQ3 仍都依赖人工、且把 boundary preservation
+  当独立科学贡献。Max 二轮接受纠偏并返回 `ACCEPT_CORRECTIONS`。模型意见只作
+  治理 stress test，不是科学或真人证据。
+- 新标题为 _When Vulnerability Metadata Differ: Routing Trade-Offs across
+  Field-Level NVD–GHSA Strategies_。RQ1 只回答四字段 deterministic status
+  landscape；RQ2 回答三策略 action/conflict/abstain/total-manual-route 的确定性
+  分布与差异；RQ3 才使用两位 trained analysts 验证策略能否被一致区分，或定位
+  reliability/agreement/coverage/abstention/shared-miss boundary。
+- 恰好三项贡献重新锁为：四字段 deterministic census；显式 queue accounting 的
+  三策略 routing comparison；sample- and analyst-bounded validation or decision
+  boundary。action-first/reason-second、blinding 和 stop rules 保留为 Method
+  safeguards，不再单独占一项贡献。
+- RQ1/RQ2 的 8,066 对、32,264 field instances、2,332 action differences、
+  `-74` conflict 与 `+950` total manual route 均保持原冻结证据和 ceiling；这些
+  不是 correctness、workload、safety、utility 或 superiority。
+- 本次 framing 变更按 stage contract 重开 S2；完成 brief、argument/figure-table
+  plan、claim/evidence ledger、question ledger、zero draft、blocker/checklist 与
+  计划日志同步后重新关闭 S2。V3.1 的 sample、policy、threshold、packet、return/
+  lock/evaluator、tag 和 `distribution_allowed=false` 全部未改。
+- E08/E09、RQ3 结果、Branch P/B、abstract、conclusion、highlights、声明、最终
+  artifact 与 submission readiness 继续未锁定。真人流程保持暂停，标签仍为 0。
+
 ---
 
 ## 核心数据
@@ -212,7 +242,7 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
 | 计划贡献 | 当前证据状态 | 投稿前必须补齐 |
 |------|------|------|
 | 定义 CVE 对齐后的字段级差异检测与裁决任务 | 已有 NVD-GHSA 数据链路和 RQ1 描述性统计支撑 | 固化问题定义、分母和适用范围，避免从样本分布外推数据库质量 |
-| 建立强字段基线下的 maintenance-action routing frontier | 已冻结 strong simple、type-first current 和 type-first abstention 三条主臂，并对 8,066 行四字段全量普查；simple 与安全臂有 2,332 个 action differences，安全臂 conflict queue `-74` 但总人工路由 `+950`；V3.1 另冻结 34 行 shared-no-manual audit、`delta_manual=0.10` 双 reviewer 安全门禁、递归盲化、回收/锁定/evaluator | 两位真人在 V3.1 正式 120 行上独立 action-first/reason-second；按 reviewer 分别报告 exact paired 方向、CI、manual coverage、abstain、shared misses 和失败字段。无人工前不能称 correctness、noninferiority、utility、safety 或 workload reduction |
+| 建立强字段基线下的 deterministic maintenance-routing comparison | 已冻结 strong simple、type-first current 和 type-first abstention 三条主臂，并对 8,066 行四字段全量普查；simple 与 abstention-aware candidate 有 2,332 个 action differences，后者 conflict queue `-74` 但总人工路由 `+950`；V3.1 另冻结 34 行 shared-no-manual audit、`delta_manual=0.10` 双 reviewer manual-loss 门禁、递归盲化、回收/锁定/evaluator | RQ1/RQ2 的确定性结果已可写；RQ3 仍需两位真人在 V3.1 正式 120 行上独立 action-first/reason-second，并按 reviewer 分别报告 exact paired 方向、CI、manual coverage、abstain、shared misses 和失败字段。无人工前不能称 correctness、noninferiority、utility、safety 或 workload reduction |
 | 提出 EQ/RD/INC/TD/FC 五分类体系及字段规则 | taxonomy、规则 baseline、标注规范和 RQ2 AI candidate 已实现。旧 fresh A/B、C tiebreak 和 D/E evidence stage 形成逐级 fail-closed 链路并由 staged frontier 给出停止同模型升级的 no-go。profile seal 后官方快照把 event-time 与 snapshot-external 资格分开：strict event-time 为 0，5,948 个 snapshot-external CVE 中冻结 250 条双 pass，得到 231 条 selective strict candidates；密封主评估仍只有 1 条 strict profile difference 支持 candidate。事后 3 条与全 50 条 CWE 审计分别得到 `3/3` 与 `49/50` strict；最终 16 条非 CWE 冻结证据双审只有 `4/16` strict，staged coverage 虽为 `0.952` 仍因 resolution 门槛失败。无标签 paired envelope 将任何未来 gold 下的总体准确率差界定在 `±3/250=±0.012`；exact-test identifiability 证明当前三条差异没有 `alpha=0.05` 的检验容量。完整 eligible universe 的 prediction census 又得到六个独立预测向量但仅 34 个差异 CVE，并证明分层样本的 `3/250` 不能直接作为总体率。lineage graph 另把 affected 拆为 artifact identity、product dependency、migration、release ordering、branch ancestry、catalog coordination 和 set containment。当前贡献是可审计 taxonomy、预密封预测、时间资格分层、证据合同、provenance/frontier stop rule、可识别性/效应与检验容量上界、全量预测普查和拒判/恢复门禁，不是已验证规则准确率提升 | 不再把已揭封字段或差异子集上的同模型 evidence pass 当作确认。现实人类需签署旧全量 1,250 行包、新 cohort 250 行包、CWE 17 行与 References 56 行，并优先复核新 cohort 的原 19 条 A/B 未决、3 条 profile differences、最终仍未决的 12 条和 CWE field-complete 的 1 条未决。后续 strict cohort 应先冻结 profile 并对 eligible universe 做 prediction census，再把分歧富集 paired comparison 与概率抽样 absolute evaluation 分层；gold 后有效 discordance 和 exact power 必须单独规划。只有 construct 与现实人工门禁通过，才允许确认性比较或生产候选切换 |
 | 提出带 abstain 的确定性证据驱动裁决框架 | RQ3 已把不确定性、证据 provenance、盲 worklist、预测预密封、双 Agent 独立性门禁和拒判显式落盘。v1 暴露任务混评；v2 随后预注册独立 typing/FC-source 端点、结构化 literal-quote 证据和代码哈希门禁，并再次得到低覆盖/无方法增益结果。v2 strict type coverage 为 `41%`，strict FC-source 仅为 `9%`；其中 9 条来源共识有 5 条由两位 reviewer 引用同一个 URL，只有 2 条由双方都引用 primary/ecosystem evidence。揭封后的候选和留一 cohort 模型均未通过稳定提升门槛 | 当前可贡献的是可审计评估框架、拒判机制、任务拆分、证据依赖审计和 failure/protocol taxonomy，不是已验证有效的 affected_versions 裁决算法。后续优先补现实人类金标和来源权威合同；在跨 cohort 门槛通过前不消耗新 v3，任何未来确认性方法仍需独立新 cohort |
 | 构建字段级检测与裁决评测集 | 模板、AI expert candidate、风险工作集、交互式 Codex 裁决账本、不可伪装 human-gold 的 schema/guard、两个 CVE-disjoint holdout，以及一个 prediction-sealed `250` 行 snapshot-external development cohort 均已落盘；CWE 17 条、references 56 条、fresh-CVE typing 全部 1,250 行和 post-profile 全部 250 行均有 annotator→独立 reviewer→author sign-off 三阶段空白包 | 现实人类 annotator、独立 reviewer 与 author sign-off；旧 typing 包当前 `1,250 pending / 0 signed`，post-profile 包 `250 pending / 0 signed`，CWE 包 `17 pending / 0 signed`，references 包 `56 pending / 0 signed`。package validator 已将两套 full-cohort readiness 纳入独立 blocker，空白包不能通过签署/完成门禁，ID 字符串也不能证明真人身份。全项目现实人类签署仍为 `0`，不能称 human-gold，也不能把 AI/Codex 指标写成最终人工性能 |
@@ -224,7 +254,7 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
 | 文档 | 内容 |
 |------|------|
 | `../../paper/jss/PAPER_BRIEF.md` | 当前 JSS 论文目标、RQ、贡献上限和实验决定 |
-| `../../paper/jss/ARGUMENT_PLAN.md` | 当前 S2 候选论证、章节职责和图表计划 |
+| `../../paper/jss/ARGUMENT_PLAN.md` | 当前 S2 已锁定论证、章节职责和图表计划 |
 | `../../experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md` | JSS 零人工策略普查与第一阶段可识别性门禁 |
 | `../../experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md` | 当前双真人 action-first/reason-second、双轮校准和安全门禁协议 |
 | `../../results/jss/t1_v31_safety_identifiability/report.md` | V3.1 共享盲区与 0.05/0.10/0.15 margin 的无标签可识别性分析 |
@@ -240,21 +270,20 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
 
 当前最紧迫的事：
 
-1. 作者确认 JSS 候选 title、修订后的 RQ1/RQ2/RQ3、V3.1 四字段和 CWE 不进入
-   当前 routing 人工实验的边界；未确认前保持 `S2 candidate`。
-2. 分别把 R2 Reviewer A/B bundle 交给对应博士生；两人只填写 action CSV，独立
-   工作且不得使用 AI、讨论、查看 reason 或策略输出。角色不得升级为真实从业者。
-3. 回收两份 calibration-1 20 行 action 后先通过 return validator 并锁定；再开放
-   reason。若第一轮低于 0.60 或
-   guideline material change，才使用预密封且 CVE-disjoint 的 calibration-2
-   20 行。第二轮低于 0.60 直接停止正式分发。
-4. 校准通过后完成 120 行正式 action→lock→reason，保留全部 abstain、
-   uncertain、disagreement、shared miss 和失败字段；不追加样本或第三人救结果。
-5. 按 reviewer-specific reliability、paired efficiency 和
-   `delta_manual=0.10` safety 门禁决定 positive frontier、decision ambiguity
-   或 negative study；
-   author adjudication 仅作次要敏感性。若保留正向 adjudication 贡献，再另冻 T3；
-   否则把现有 no-go 放入 bounded failure analysis。
+1. 真人流程保持暂停时，优先把 deterministic RQ1/RQ2、Related Work、Dataset、
+   Method、Threats、artifact manifest 和可编辑投稿源推进到“只差 RQ3 真人结果”，
+   不新增实验或预写正向结论。
+2. RQ3 暂停期间不得开放 reason、calibration-2、formal 或私密 return 材料，不改
+   sample、policy、threshold、evaluator、tag 或分支门禁。
+3. 作者恢复真人流程后，分别把 R2 Reviewer A/B calibration-1 action bundle 交给
+   对应 trained analyst；两人独立工作且不得使用 AI、讨论、查看 reason 或策略输出。
+4. 回收两份 calibration-1 action 后先通过 return validator 并锁定，再按冻结触发器
+   决定是否开放 reason 和 calibration-2；两轮低于 0.60 则终止 formal 分发并进入
+   Branch B。
+5. 只有校准通过才完成 120 行 formal action→lock→reason。随后按 reviewer-specific
+   reliability、paired direction、event floor、coverage 和 `delta_manual=0.10`
+   manual-loss 门禁选择 Branch P 或 B；不追加样本或第三人救结果，author
+   adjudication 仅作次要敏感性。
 
 以下 2026-07-19 详细队列保留为历史执行与人工包索引；它们不得覆盖上述
 2026-08-23 JSS 主线优先级：

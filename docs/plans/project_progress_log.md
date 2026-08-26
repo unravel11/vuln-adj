@@ -4248,3 +4248,96 @@
   - 真人恢复后严格按已冻结 action→lock→reason 门禁执行；根据 E08/E09 选择 Branch
     P 或 B。若两轮 calibration 都显示统一 action vocabulary 跨字段不稳定，重开 S2；
     其他负面/混合结果直接进入 Branch B，不事后救结果。
+
+## 2026-08-26：按作者意见将 JSS S2 重心从人工协议调整为 routing
+
+- 本次完成了什么：
+  - 使用 `ssh-vuln-adj` 现场复核权威远端：`hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`、分支
+    `codex/jss-zero-draft-venue-20260825`、pre-rebalance HEAD
+    `c2adecf5090ddc64ef9597140cb2d0423af279af`、clean、upstream `0/0`。
+  - 作者指出“人工不应成为论文主角”并同意重新使用 Opus Max。新开只读 Claude
+    Code `2.1.226` session `91195c45-1a4c-45f7-a0ea-54871ffb0b98`，模型
+    `claude-opus-5`、effort `max`；只允许 Read/Grep/Glob，禁止 edit/write/Bash/web，
+    排除 `.env`、private reviewer、reason、calibration-2、formal 和实验目录。最终
+    raw JSONL SHA-256 为
+    `c6fdc745f5dd44e7453ccf59a70f6f7684a50ff6b2d1ad826148a95d74314266`。
+  - Max 首轮给出 `REBALANCE_AND_RELOCK`，但仍把 Human 放在标题、把 label-free
+    queue count 称为 safety frontier、让 RQ2/RQ3 都依赖人工，并把 boundary
+    preservation 当独立科学贡献。Codex 在同一 session 质询后，Max 返回
+    `ACCEPT_CORRECTIONS`，同意“RQ1/RQ2 确定性 + RQ3 analyst validation”的结构。
+    该模型讨论只作治理 stress test，不是科学证据、独立真人评审或 human gold。
+  - 按 stage contract 因 title/thesis/RQ/contribution ceiling 发生 material change
+    重开 S2，并同步完成 argument、question/evidence、section/figure-table、related-
+    work differential、non-claim、minimum-story 和 Branch P/B stop rule 后重新锁定
+    `S2_ARGUMENT_LOCKED`。第一版 `FRAMING_LOCK_RECORD_20260826.md` 标记为
+    superseded history，不抹掉其 provenance。
+  - 当前标题锁为 _When Vulnerability Metadata Differ: Routing Trade-Offs across
+    Field-Level NVD–GHSA Strategies_。RQ1 只写四字段 deterministic status；RQ2
+    写三策略 action/conflict/abstain/total-manual-route 的确定性差异；RQ3 才使用
+    两名 trained analysts 验证 reviewer-consistent strategy differentiation 或暴露
+    reliability/agreement/coverage/abstention/shared-miss boundary。
+  - 恰好三项贡献锁为：四字段 deterministic census；显式 queue accounting 的
+    三策略 routing comparison；sample- and analyst-bounded validation or decision
+    boundary。action-first/reason-second、blinding 和 stop rules 仍是必要 Method
+    safeguards，但不再单独占一项贡献。
+  - 同步 zero draft：RQ1 与 RQ2 现在各有独立、结果中立的 deterministic Results
+    单元，唯一真人结果占位符位于 RQ3；abstract/conclusion 仍不预写结果。
+  - 论文 framing 提交为 `4f24667`（`paper: rebalance JSS framing around routing`）。
+
+- 产物路径：
+  - `paper/jss/FRAMING_REBALANCE_LOCK_RECORD_20260826.md`
+  - `paper/jss/FRAMING_LOCK_RECORD_20260826.md`（superseded history）
+  - `paper/jss/FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`
+  - `paper/jss/PAPER_BRIEF.md`
+  - `paper/jss/ARGUMENT_PLAN.md`
+  - `paper/jss/CLAIM_LEDGER.md`
+  - `paper/jss/EVIDENCE_LEDGER.md`
+  - `paper/jss/QUESTION_FINDING_LEDGER.json`
+  - `paper/jss/manuscript.md`
+  - `paper/jss/paper_state.json`
+  - `paper/jss/README.md`
+  - `paper/jss/SUBMISSION_BLOCKERS.md`
+  - `paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md`
+  - `docs/plans/project_master_plan.md` 与本进度日志
+
+- 如何验证：
+  - `paper_state.json` validator 最终 PASS；question-finding ledger 首次因两个
+    `manuscript_disposition` 使用了非合同枚举而失败，改回允许的 `PENDING` 后最终
+    PASS。两个 JSON 均通过标准解析。
+  - 独立 consistency checker PASS：六个当前入口的 title/thesis 一致；五个 S2
+    结构文件的 RQ1--RQ3 和三项 contribution identity 一致；当前 lock 恰好三项
+    contribution；旧 Human-Gated title 未泄漏到 brief/argument/manuscript/README；
+    `paper_state` 保持 argument locked、draft not approved；E08/E09 保持 missing；
+    唯一真人 Results placeholder 只位于 RQ3。
+  - related-work manifest 重建继续为
+    `PASS papers=24 full_pdf=23 abstract_only=1`。
+  - V3.1 packet validator PASS，仍为 calibration-1/calibration-2/formal
+    `20/20/120`、`distribution_allowed=false`、`human_labels=0`；R2 distribution
+    validator 继续 PASS，只包含两份 reviewer-scoped calibration-1 action bundle；
+    强制 distribution-ready 校验按设计报 blocked 并退出 `2`。
+  - `pytest experiments/rq2_discrepancy_typing -q` 为
+    `411 passed, 4 subtests passed in 6.03s`；`git diff --check` PASS。
+  - 上述机械 PASS 只证明同步、结构和冻结链未被文档修改破坏，不证明 scientific
+    validity、RQ3 结果或 submission readiness。
+
+- 当前观察到的效果或统计：
+  - 论文不再由人工协议定义身份。RQ1/RQ2/C1/C2 在真人暂停期间仍可完整撰写；人工
+    只承担 RQ3/C3 的验证或边界选择。
+  - 既有 8,066 对、32,264 field instances、2,332 action differences、
+    abstention-aware 相对 strong comparator 的 `-74` conflict 与 `+950` total
+    manual route 均未改变，只降到 deterministic queue-allocation ceiling。
+  - 现实人工标签仍为 `0`；E08/E09 仍为 `MISSING_OR_UNRESOLVED`，Branch P/B 未选。
+
+- 还没验证的点：
+  - 两位 trained analysts 尚未返回 calibration-1 action；reason、calibration-2 和
+    formal 均未开放。不存在可靠性、策略区分、coverage、shared-miss、human-gold、
+    practitioner 或 safety 结论。
+  - zero draft prose 尚未作者逐段批准，未转 Elsevier LaTeX，未构建 JSS PDF，未完成
+    artifact manifest/PID、声明、参考文献一致性、匿名化与逐页视觉检查。
+
+- 下一步：
+  - 真人流程继续暂停；在此期间只推进 submission-level artifact manifest、
+    Elsevier LaTeX skeleton 和不依赖 RQ3 的正文/表格，不预写 Branch P。
+  - 真人恢复后严格按冻结 action→lock→reason 门禁执行，仅依据 E08/E09 选择 Branch
+    P 或 B；不改样本、策略、threshold、evaluator 或 tag。
