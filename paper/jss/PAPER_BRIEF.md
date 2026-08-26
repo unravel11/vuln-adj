@@ -17,8 +17,8 @@
 - New-paper authority: this `paper/jss/` workspace
 - Historical source line: `paper/cose/`, retained but not edited as the JSS
   manuscript
-- Author-locked title: _When Vulnerability Metadata Differ: A Human-Gated Study
-  of Field-Level Routing between NVD and GHSA_
+- Author-locked title: _When Vulnerability Metadata Differ: Routing Trade-Offs
+  across Field-Level NVD–GHSA Strategies_
 - Current stage: `S2_ARGUMENT_LOCKED`
 - Draft status: result-neutral zero draft present; not author approved and not
   sufficient to advance the S3 gate
@@ -26,34 +26,38 @@
 
 ## Author-locked one-sentence thesis
 
-For CVE-aligned NVD–GHSA record pairs, comparing a strong field-aware strategy
-with type-first efficiency and safety variants reveals a deterministic routing
-trade-off whose validity depends on whether two independent trained analysts can
-reliably assign maintenance actions before assigning discrepancy reasons.
+For CVE-aligned NVD–GHSA record pairs across four fields, three frozen routing
+strategies produce different conflict-escalation, abstention, and total
+manual-route allocations; independent trained-analyst judgments test whether
+those deterministic differences correspond to differentiated maintenance
+actions or expose an empirical decision boundary.
 
-This result-neutral thesis was author-locked on 2026-08-26 after a read-only
-Claude L1 challenge recorded in `FRAMING_LOCK_RECORD_20260826.md`. The model
-review is not scientific evidence. The frozen label-free census establishes
-only that the policies make different decisions and that the fixed human budget
-can sample those differences; it does not establish that any policy is correct,
-safer, cheaper, or superior.
+This routing-centric thesis was author-locked on 2026-08-26 after a fresh
+read-only Claude Opus Max challenge recorded in
+`FRAMING_REBALANCE_LOCK_RECORD_20260826.md`. The first lock is retained as
+superseded history in `FRAMING_LOCK_RECORD_20260826.md`. Neither model review is
+scientific evidence. The frozen label-free census establishes only that the
+policies make different decisions; it does not establish that any policy is
+correct, safer, cheaper, or superior.
 
 ## Research questions
 
-- RQ1 — Deterministic landscape: Across 8,066 CVE-aligned NVD–GHSA record
-  pairs, how do deterministic field statuses and frozen routing-policy outputs
-  distribute for severity, affected versions, publication date, and references?
-- RQ2 — Analyst decision construct: To what extent do two independent trained
-  analysts agree when assigning maintenance actions and, after action lock,
-  discrepancy reasons to the same frozen field pairs, and where do they remain
-  uncertain or disagree?
-- RQ3 — Policy alignment and boundary: Relative to a strong field-aware simple
-  strategy, how do a current type-first strategy and an abstention-aware
-  type-first strategy align with each analyst's actions, and what efficiency,
-  coverage, abstention, and shared-miss boundaries are observed?
+- RQ1 — Deterministic discrepancy landscape: Across 8,066 CVE-aligned
+  NVD–GHSA record pairs, how do deterministic field statuses distribute for
+  severity, affected versions, publication date, and references?
+- RQ2 — Deterministic routing comparison: How do three frozen routing
+  strategies—a strong field-aware simple comparator, a current type-first
+  candidate, and an abstention-aware type-first candidate—allocate field
+  instances across actions, and where do their conflict-escalation, abstention,
+  and total manual-route outputs differ across fields and statuses?
+- RQ3 — Analyst-bounded validation: When two independent trained analysts
+  assign maintenance actions to the same frozen formal cases, do their
+  judgments differentiate the three routing strategies in a consistent
+  direction, and where do reliability, agreement, coverage, abstention, or
+  shared-miss boundaries emerge?
 
-The exact 2026-08-26 lock, rejected title alternatives, and positive/boundary
-result branches are maintained in
+The exact current 2026-08-26 lock, title history, and positive/boundary result
+branches are maintained in
 `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. Branch selection remains
 unlocked until valid E08/E09 results clear or fail the frozen gates.
 
@@ -63,27 +67,31 @@ field.
 
 ## Author-locked contributions mapped to evidence
 
-1. **Reproducible four-field deterministic census.** A snapshot-bounded census
-   of 8,066 CVE-aligned NVD–GHSA record pairs and 32,264 field instances, with
-   deterministic statuses and routing outputs for severity, affected versions,
-   publication date, and references. Supported for the frozen corpus only.
-2. **Three-strategy comparison with explicit efficiency–safety accounting.** A
-   frozen comparison among a strong field-aware simple comparator, a type-first
-   efficiency arm, and an abstention-aware safety arm. The deterministic output
-   census exists; validity and human alignment remain missing in E08/E09.
-3. **Action-first/reason-second dual-analyst protocol with a preserved boundary
-   path.** A mechanically frozen V3.1 protocol with 20 calibration-1 cases, a
-   conditional disjoint 20-case reserve, 120 formal cases, recursive blinding,
-   stage locks, and outcome-independent stop rules. Valid E08/E09 returns will
-   license either the reviewer-consistent frontier branch or the preserved
-   empirical-boundary branch; no human-backed result exists yet.
+1. **Reproducible four-field deterministic census.** A snapshot- and
+   pipeline-bounded census of 8,066 CVE-aligned NVD–GHSA pairs and 32,264 field
+   instances, with deterministic statuses for severity, affected versions,
+   publication date, and references.
+2. **Decision-oriented three-strategy routing comparison.** A frozen comparison
+   with explicit conflict-escalation, abstention, and total-manual-route
+   accounting. The 74-fewer-conflicts/950-more-manual-routes contrast is a
+   deterministic queue-allocation result, not correctness, workload, safety,
+   utility, or superiority.
+3. **Sample- and analyst-bounded validation or decision boundary.** Two
+   independent trained analysts work under frozen calibration, action-stage
+   lock, recursive blinding, formal-sample, and stop-rule gates. Valid E08/E09
+   can support either reviewer-consistent strategy differentiation or an
+   observed reliability, agreement, coverage, abstention, shared-miss, or
+   identifiability boundary; no human-backed outcome exists yet.
+
+Action-first/reason-second ordering is an essential Method safeguard for
+contribution 3, not a standalone research contribution.
 
 ## Frozen policy interpretation
 
 - `field_aware_simple_v1` is the main strong comparator. It is a hand-written
   field-specific strategy, not a claim about actual maintainer practice.
-- `type_first_current_v1` is the efficiency candidate.
-- `type_first_abstention_v1` is the safety candidate.
+- `type_first_current_v1` is the current type-first candidate.
+- `type_first_abstention_v1` is the abstention-aware type-first candidate.
 - raw and canonical non-equality are lower-reference arms only.
 - `conflict_escalation` is the conflict queue.
 - `conflict_escalation + abstain` is the total manual-review route.
@@ -92,8 +100,8 @@ On the 8,066-row label-free census, the simple and abstention-aware policies
 differ on 2,332 field actions. The abstention-aware policy produces 74 fewer
 conflict escalations but 950 more total manual-review routes than the simple
 comparator. These are deterministic policy outputs, not unnecessary work or
-saved labor. They motivate an efficiency-safety frontier; they do not support a
-workload-reduction claim.
+saved labor. They establish a deterministic queue-allocation trade-off; they do
+not support a workload-reduction, safety, utility, or superiority claim.
 
 ## Explicit non-claims
 
@@ -179,9 +187,10 @@ Decision: `V3_1_PREPARATION_COMPLETE_DISTRIBUTION_BLOCKED`;
   end-to-end testing with temporary synthetic labels. Before distribution,
   approve the guideline, document two real trained analysts and
   ethics/recruitment, and create an explicitly scoped manifest revision.
-- Positive efficiency-safety framing requires both reviewers to pass the
-  reliability, same-direction efficiency, and `delta_manual=0.10` safety
-  gates. Failure automatically selects the boundary/ambiguity route.
+- Positive reviewer-consistent strategy differentiation requires both reviewers
+  to pass the reliability, same-direction paired comparison, event-floor,
+  coverage, and `delta_manual=0.10` manual-loss gates. Failure automatically
+  selects the boundary/ambiguity route.
 - Preserve action/reason disagreement, abstention, and uncertainty. Author
   adjudication is secondary and policy-blinded.
 - Decide positive frontier versus decision-ambiguity framing only after both
@@ -200,5 +209,5 @@ Decision: `V3_1_PREPARATION_COMPLETE_DISTRIBUTION_BLOCKED`;
 - Recheck complete current JSS author and artifact requirements before the
   submission stages.
 - Approve or revise the zero draft and its provisional references; the current
-  Markdown draft intentionally withholds RQ2/RQ3 results, abstract, and
+  Markdown draft intentionally withholds RQ3 results, abstract, and
   conclusion.

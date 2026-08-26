@@ -10,8 +10,8 @@
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
     "branch": "codex/jss-zero-draft-venue-20260825",
-    "head": "b675128338154d21e90686a4b6a5591ae1ac0110",
-    "head_semantics": "Clean and 0/0 upstream-synchronized pre-lock writing HEAD verified live on 2026-08-26; final branch HEAD must be read from Git rather than inferred from this self-referential state file",
+    "head": "c2adecf5090ddc64ef9597140cb2d0423af279af",
+    "head_semantics": "Clean and 0/0 upstream-synchronized pre-rebalance writing HEAD verified live on 2026-08-26; final branch HEAD must be read from Git rather than inferred from this self-referential state file",
     "status": "clean",
     "manuscript": "paper/jss/manuscript.md"
   },
@@ -33,12 +33,14 @@
     "paper_plan": "paper/jss/ARGUMENT_PLAN.md",
     "manuscript": "paper/jss/manuscript.md",
     "integrity_report": null,
-    "venue_review": "paper/jss/JSS_V3_1_L1_GATE_REVIEW_20260825.md",
+    "venue_review": null,
+    "historical_venue_review": "paper/jss/JSS_V3_1_L1_GATE_REVIEW_20260825.md",
     "final_pdf": null,
     "artifact_validation": null,
     "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md",
     "framing_candidates": "paper/jss/FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md",
-    "framing_lock_record": "paper/jss/FRAMING_LOCK_RECORD_20260826.md",
+    "framing_lock_record": "paper/jss/FRAMING_REBALANCE_LOCK_RECORD_20260826.md",
+    "superseded_framing_lock_record": "paper/jss/FRAMING_LOCK_RECORD_20260826.md",
     "venue_checklist": "paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md",
     "related_work_audit": "docs/RELATED_WORK_AND_BASELINE_AUDIT_20260825.md",
     "human_protocol": "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md",
@@ -47,12 +49,12 @@
     "safety_identifiability": "results/jss/t1_v31_safety_identifiability/analysis.json"
   },
   "claim_ceiling": [
-    "Report deterministic RQ1 distributions only for the frozen 8066-row CVE-aligned NVD-GHSA cohort.",
+    "Report deterministic RQ1 status distributions and RQ2 strategy-output comparisons only for the frozen 8066-row CVE-aligned NVD-GHSA cohort.",
     "Treat all existing AI or Codex labels as non-human candidate or retrospective evidence.",
     "Treat label-free policy and safety-identifiability audits as design evidence only, never correctness, noninferiority, utility, or population miss-rate evidence.",
-    "Require two independent V3.1 action-first and reason-second human passes before construct or policy-performance claims.",
-    "Treat field-aware simple as the main comparator, current type-first as the efficiency arm, and abstention-aware type-first as the safety arm.",
-    "Require both reviewers to clear the frozen reliability, efficiency, and safety gates for positive efficiency-safety framing; otherwise use the boundary or decision-ambiguity route.",
+    "Require valid V3.1 returns from two independent trained analysts before any RQ3 construct or analyst-backed strategy claim.",
+    "Treat field-aware simple as the main comparator, current type-first as the current candidate, and abstention-aware type-first as the abstention-aware candidate.",
+    "Require both reviewers to clear the frozen reliability, paired-direction, event-floor, coverage, and manual-loss gates for Branch P; otherwise use the boundary or decision-ambiguity route.",
     "Do not call routing counts workload, saved time, or safety without human-backed evidence and explicit abstention accounting.",
     "Do not claim temporal generalization without a newly eligible bilateral post-freeze cohort."
   ],
@@ -61,9 +63,9 @@
     "The author attests that two distinct doctoral-student trained analysts satisfy the independent no-AI and author-side governance conditions; Codex did not independently verify those facts.",
     "R2 calibration-1 action bundles exist and validate, but neither reviewer has returned a human action label and no action stage is locked.",
     "Calibration-1 has not run; action and reason stage locks contain no real returns.",
-    "The result-neutral title, thesis, RQ1-RQ3, exactly three contribution ceilings, and Branch P/B stop contract are author locked; E08/E09 and empirical branch selection remain unresolved.",
-    "A result-neutral zero draft exists but its prose is not author approved; RQ2/RQ3, abstract, conclusion, highlights, and final references remain blocked by human results and later author decisions.",
+    "The routing-centric title, thesis, deterministic RQ1/RQ2, analyst-bounded RQ3, exactly three contribution ceilings, and Branch P/B stop contract are author locked; E08/E09 and empirical branch selection remain unresolved.",
+    "A result-neutral zero draft exists but its prose is not author approved; RQ3, abstract, conclusion, highlights, and final references remain blocked by human results and later author decisions.",
     "The JSS Guide for Authors was checked on 2026-08-25, but the Elsevier submission template, live anonymization handling, final data/code deposit, and author metadata remain unresolved."
   ],
-  "last_verified_at": "2026-08-26T11:16:18+08:00"
+  "last_verified_at": "2026-08-26T16:30:00+08:00"
 }

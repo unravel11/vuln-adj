@@ -32,7 +32,7 @@
     },
     {
       "question_id": "QF02",
-      "question": "Does type_first_abstention_v1 preserve reviewer-specific manual-route coverage relative to the strong simple comparator while improving the paired efficiency endpoint?",
+      "question": "Does type_first_abstention_v1 preserve reviewer-specific manual-route coverage relative to the strong simple comparator while clearing the paired strategy-differentiation gate?",
       "origin": "REVIEWER_CHALLENGE",
       "evidence_ids": [
         "E07D",
@@ -41,7 +41,7 @@
       ],
       "data_statement": "No human action labels exist; the label-free feasibility audit shows that a zero-loss one-sided 95 percent upper bound below 0.10 needs at least 29 conflict actions per reviewer.",
       "finding": null,
-      "bounded_implication": "Positive efficiency-safety framing is not currently supported and will require both reviewers to pass the frozen efficiency and safety gates.",
+      "bounded_implication": "Reviewer-consistent Branch P is not currently supported and will require both reviewers to pass the frozen paired-direction, event-floor, coverage, and manual-loss gates.",
       "competing_explanations": [
         "Type-first may improve action alignment without losing manual-route coverage.",
         "Any efficiency gain may be purchased through reviewer-confirmed missed escalations.",
@@ -50,7 +50,7 @@
       "literature_position": "REFINE",
       "literature_timing": "PRE_PROTOCOL",
       "anomaly_status": "NOT_ANOMALOUS",
-      "lineage_note": "The safety question was added before human exposure after the strong comparator and shared-blind-spot reviewer challenge.",
+      "lineage_note": "The manual-loss and coverage question was added before human exposure after the strong comparator and shared-blind-spot reviewer challenge; it is now a validity gate within routing-centric RQ3.",
       "answerability_disposition": "PROPOSE_NEW_EXPERIMENT",
       "authorization_status": "PROPOSED",
       "protocol_status": "FROZEN",
@@ -61,7 +61,7 @@
     },
     {
       "question_id": "QF03",
-      "question": "Can two different trained analysts apply the maintenance-action construct reliably enough to support a routing comparison?",
+      "question": "Can two different trained analysts apply the maintenance-action construct reliably enough to support the frozen RQ3 routing comparison?",
       "origin": "AUTHOR_DEFINED",
       "evidence_ids": [
         "E07E",

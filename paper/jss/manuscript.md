@@ -1,23 +1,26 @@
-# When Vulnerability Metadata Differ: A Human-Gated Study of Field-Level Routing between NVD and GHSA
+# When Vulnerability Metadata Differ: Routing Trade-Offs across Field-Level NVD–GHSA Strategies
 
 > **ZERO DRAFT -- NOT AUTHOR APPROVED -- NOT SUBMISSION READY**
 >
 > This English zero draft is intentionally result-neutral. The title, thesis,
 > RQ1--RQ3, exactly three contribution ceilings, and dual result branches were
-> author locked at S2 on 2026-08-26; the prose itself is not author approved.
-> RQ2 and RQ3 contain explicit placeholders because no real-human return
-> exists. Citations and venue formatting remain provisional. The authoritative
+> author locked at S2 on 2026-08-26 and then relocked after an author-triggered
+> routing-centric rebalance; the prose itself is not author approved. RQ3
+> contains an explicit placeholder because no real-human return exists.
+> Citations and venue formatting remain provisional. The authoritative
 > claim/evidence boundaries are `PAPER_BRIEF.md`, `EVIDENCE_LEDGER.md`,
 > `CLAIM_LEDGER.md`, `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`,
-> and `FRAMING_LOCK_RECORD_20260826.md`.
+> and `FRAMING_REBALANCE_LOCK_RECORD_20260826.md`. The earlier
+> `FRAMING_LOCK_RECORD_20260826.md` is superseded history.
 
 ## Abstract
 
 **[WITHHELD UNTIL HUMAN RESULTS]** JSS requires a factual abstract of at most
-250 words. Writing the principal RQ2/RQ3 results or conclusion now would
-prejudge the human study. The final abstract must report the frozen corpus,
-the action-first/reason-second protocol, both reviewer-specific outcomes, the
-selected positive or boundary branch, and the explicit non-claims.
+250 words. Writing the RQ3 result or conclusion now would prejudge the human
+study. The final abstract must report the frozen corpus, deterministic RQ1/RQ2
+findings, the action-first/reason-second validation protocol, both
+reviewer-specific outcomes, the selected positive or boundary branch, and the
+explicit non-claims.
 
 **Candidate keywords (not author approved):** vulnerability metadata;
 vulnerability databases; discrepancy analysis; human judgment; abstention;
@@ -64,65 +67,67 @@ comparator rather than only raw string inequality.
 We study four fields in a frozen corpus of 8,066 CVE-aligned NVD--GHSA record
 pairs: severity, affected versions, publication date, and references. We first
 report a deterministic, label-free census of 32,264 field instances. We then
-freeze three main routing strategies: a strong field-aware simple comparator, a
-current type-first efficiency candidate, and an abstention-aware type-first
-safety candidate. Finally, a V3.1 protocol asks two independent doctoral-student
-trained analysts to assign maintenance actions before seeing or assigning
-discrepancy reasons. The action stage is locked before the reason stage. The
-same formal judgments are intended to test the decision construct and compare
-the three strategies without defining the action oracle from the taxonomy.
+compare three frozen routing strategies: a strong field-aware simple comparator,
+a current type-first candidate, and an abstention-aware type-first candidate.
+Finally, as a validation instrument rather than the paper's research object, a
+V3.1 protocol asks two independent doctoral-student trained analysts to assign
+maintenance actions before seeing or assigning discrepancy reasons. The action
+stage is locked before the reason stage so the taxonomy does not define its own
+action reference.
 
 The study is organized around three neutral research questions:
 
-- **RQ1 -- Deterministic landscape.** Across 8,066 CVE-aligned NVD–GHSA
-  record pairs, how do deterministic field statuses and frozen routing-policy
-  outputs distribute for severity, affected versions, publication date, and
-  references?
-- **RQ2 -- Analyst decision construct.** To what extent do two independent
-  trained analysts agree when assigning maintenance actions and, after action
-  lock, discrepancy reasons to the same frozen field pairs, and where do they
-  remain uncertain or disagree?
-- **RQ3 -- Policy alignment and boundary.** Relative to the strong
-  field-aware simple strategy, how do a current type-first strategy and an
-  abstention-aware type-first strategy align with each analyst's actions, and
-  what efficiency, coverage, abstention, and shared-miss boundaries are
-  observed?
+- **RQ1 -- Deterministic discrepancy landscape.** Across 8,066 CVE-aligned
+  NVD–GHSA record pairs, how do deterministic field statuses distribute for
+  severity, affected versions, publication date, and references?
+- **RQ2 -- Deterministic routing comparison.** How do three frozen routing
+  strategies—a strong field-aware simple comparator, a current type-first
+  candidate, and an abstention-aware type-first candidate—allocate field
+  instances across actions, and where do their conflict-escalation, abstention,
+  and total manual-route outputs differ across fields and statuses?
+- **RQ3 -- Analyst-bounded validation.** When two independent trained analysts
+  assign maintenance actions to the same frozen formal cases, do their
+  judgments differentiate the three routing strategies in a consistent
+  direction, and where do reliability, agreement, coverage, abstention, or
+  shared-miss boundaries emerge?
 
-The study adopts the following result-neutral thesis: For CVE-aligned
-NVD–GHSA record pairs, comparing a strong field-aware strategy with type-first
-efficiency and safety variants reveals a deterministic routing trade-off whose
-validity depends on whether two independent trained analysts can reliably assign
-maintenance actions before assigning discrepancy reasons.
+The study adopts the following result-neutral thesis: For CVE-aligned NVD–GHSA
+record pairs across four fields, three frozen routing strategies produce
+different conflict-escalation, abstention, and total manual-route allocations;
+independent trained-analyst judgments test whether those deterministic
+differences correspond to differentiated maintenance actions or expose an
+empirical decision boundary.
 
-At the present evidence cutoff, only the descriptive RQ1 and protocol claims
-are available. The strategies make different deterministic decisions, but no
-strategy is known to be correct, safer, cheaper, or superior. The manuscript
+At the present evidence cutoff, deterministic RQ1 and RQ2 findings and protocol
+claims are available. The strategies make different deterministic decisions,
+but no strategy is known to be correct, safer, cheaper, or superior. RQ3
 therefore preserves two result branches. If both reviewers independently clear
-the frozen construct, paired-direction, and safety gates, the paper can report
-a sample- and analyst-bounded routing frontier. Otherwise, the paper reports a
-boundary or negative result about decision ambiguity and retains all failed
-gates, disagreements, abstentions, and uncertain outcomes.
+the frozen reliability, paired-direction, event-floor, coverage, and manual-loss
+gates, the paper can report sample- and analyst-bounded strategy
+differentiation. Otherwise, it reports the observed decision or identifiability
+boundary and retains all failed gates, disagreements, abstentions, and uncertain
+outcomes.
 
 The author-locked contributions, subject to this ceiling, are exactly three:
 
-1. **a reproducible four-field deterministic census:** a snapshot-bounded
-   census of 8,066 CVE-aligned NVD--GHSA record pairs and 32,264 field
-   instances, with deterministic statuses and routing outputs for severity,
-   affected versions, publication date, and references;
-2. **a three-strategy comparison with explicit efficiency--safety accounting:**
-   a frozen strong field-aware comparator, type-first efficiency arm, and
-   abstention-aware safety arm whose deterministic outputs differ, while any
-   human-alignment, correctness, safety, or superiority conclusion remains
-   blocked on E08/E09; and
-3. **an action-first/reason-second dual-analyst protocol with a preserved
-   boundary path:** a mechanically frozen V3.1 protocol, blinding and stage-lock
-   chain, and outcome-independent stop rules that require valid human returns
-   to select either a reviewer-consistent routing-frontier result or an
-   empirical boundary.
+1. **a reproducible four-field deterministic census:** a snapshot- and
+   pipeline-bounded census of 8,066 CVE-aligned NVD--GHSA pairs and 32,264 field
+   instances, with deterministic statuses for severity, affected versions,
+   publication date, and references;
+2. **a decision-oriented three-strategy routing comparison:** a frozen
+   comparison with explicit conflict-escalation, abstention, and total-manual-
+   route accounting, including a deterministic 74-fewer-conflicts/950-more-
+   manual-routes contrast that is not correctness, workload, safety, utility,
+   or superiority; and
+3. **a sample- and analyst-bounded validation or decision boundary:** a frozen
+   two-analyst evaluation whose valid returns support either reviewer-consistent
+   strategy differentiation or the observed reliability, agreement, coverage,
+   abstention, shared-miss, or identifiability boundary.
 
-The retrospective reconciliation-limit material supports the discussion but is
-not counted as a fourth contribution. The human-backed result branch is the
-outcome of contributions 2 and 3, not a contribution claimed before evidence.
+Action-first/reason-second ordering, recursive blinding, stage locks, and stop
+rules are Method safeguards supporting contribution 3, not a standalone
+contribution. The retrospective reconciliation-limit material supports the
+discussion but is not counted as a fourth contribution.
 
 We do not rank NVD and GHSA by global quality or authority, treat deterministic
 statuses as truth, claim practitioner behavior, infer labor time from routing
@@ -193,8 +198,9 @@ unstructured semantic inconsistency as an automatic detection task. Their
 existence rules out a `first discrepancy taxonomy` contribution. Our locked
 differential is instead the structured-input maintenance decision: independent
 actions are collected before reasons, the main comparator is field-aware rather
-than raw inequality, abstention has an explicit manual-route cost, and a failed
-human or safety gate is retained as a valid boundary outcome.
+than raw inequality, abstention is counted explicitly as manual routing, and a
+failed reliability, coverage, or manual-loss gate is retained as a valid
+boundary outcome.
 
 ### 3.2 Metadata quality, curation, and affected versions
 
@@ -262,10 +268,11 @@ important open-world matching cases.
 
 `field_aware_simple_v1` is the main strong comparator. It maps field-specific
 conditions directly to maintenance actions without using the full type-first
-mapping. `type_first_current_v1` is the efficiency candidate. It maps the
-current deterministic status to an action and does not explicitly abstain.
-`type_first_abstention_v1` is the safety candidate; it routes selected uncertain
-or insufficiently identifiable conditions to `abstain`.
+mapping. `type_first_current_v1` is the current type-first candidate. It maps
+the current deterministic status to an action and does not explicitly abstain.
+`type_first_abstention_v1` is the abstention-aware type-first candidate; it
+routes selected uncertain or insufficiently identifiable conditions to
+`abstain`.
 
 Four additional arms bound the comparison. `binary_observed_non_equal` and
 `binary_canonical_non_equal` escalate raw and canonical non-equality,
@@ -283,7 +290,7 @@ that a status or action is correct. The output census was used only to determine
 whether a fixed human sample could contain policy-disagreement and
 shared-no-manual cases without changing the already frozen study objective.
 
-## 5. V3.1 Human Protocol
+## 5. Analyst-Bounded Validation Protocol
 
 ### 5.1 Reviewer role and bounded calibration
 
@@ -323,20 +330,20 @@ the approved guideline, instructions, and calibration-1 action CSV.
 
 Pre-adjudication analysis reports reviewer-specific raw action agreement,
 nominal Krippendorff alpha, uncertainty, disagreement matrices, and reason
-agreement. Cross-reviewer action--reason association is primary; same-reviewer
-association is secondary. RQ3 uses paired action matches on strategy-
-disagreement rows, exact McNemar discordance, blocked intervals, manual-route
-coverage, abstention, and design-weighted sensitivity. Reviewer results are not
-pooled to manufacture a direction.
+agreement as RQ3 validity diagnostics. Cross-reviewer action--reason association
+is primary; same-reviewer association is secondary. RQ3 uses paired action
+matches on strategy-disagreement rows, exact McNemar discordance, blocked
+intervals, manual-route coverage, abstention, and design-weighted sensitivity.
+Reviewer results are not pooled to manufacture a direction.
 
 The formal set also contains a fixed 34-case shared-no-manual audit (15 severity
 and 19 affected-version cases). It is a falsification opportunity: a human
 conflict action can reveal a shared miss. It is not a population miss-rate
-sample. Positive efficiency--safety framing requires, for each reviewer, at
-least 29 human conflict actions, no lower type-first manual coverage, a one-sided
-simple-only-loss upper bound below `delta_manual=0.10`, the frozen paired
-direction, and no contradictory systematic failure. If either reviewer fails,
-the positive route stops.
+sample. Branch P requires, for each reviewer, at least 29 human conflict
+actions, no lower type-first manual coverage, a one-sided simple-only-loss upper
+bound below `delta_manual=0.10`, the frozen paired direction, and no
+contradictory systematic failure. If either reviewer fails, the positive route
+stops. Passing these study gates would not establish operational safety.
 
 ### 5.5 Adjudication
 
@@ -347,7 +354,7 @@ agreement or reverse a failed policy gate.
 
 ## 6. Results
 
-### 6.1 RQ1 -- Deterministic landscape
+### 6.1 RQ1 -- Deterministic discrepancy landscape
 
 The deterministic census contains 8,066 observations for each of the four
 fields. Severity was classified as 3,106 equivalent, 3,178 representation
@@ -359,6 +366,15 @@ representation discrepancies, 7,763 incomplete instances, and three factual
 conflicts. These counts are rule outputs, not verified factual labels or
 database-quality measurements.
 
+**Answer to RQ1.** The frozen field rules produce a heterogeneous landscape.
+Representation differences dominate severity and publication date, while
+incomplete values dominate references; affected versions are distributed
+across representation, incomplete, equivalent, and conflict statuses. This
+answer is limited to the frozen corpus, field contracts, and deterministic
+implementations.
+
+### 6.2 RQ2 -- Deterministic routing comparison
+
 The strong field-aware and abstention-aware type-first strategies made different
 actions on 2,332 instances: 263 severity, 1,766 affected-version, zero
 publication-date, and 303 reference instances. Across the complete corpus, the
@@ -366,40 +382,28 @@ abstention-aware strategy produced 1,706 conflict escalations versus 1,780 for
 the strong comparator, a difference of -74. When abstentions were also counted
 as manual routes, the corresponding totals were 4,126 and 3,176, a difference
 of +950. The two deterministic summaries therefore move in opposite
-directions. They motivate a frontier question; they do not demonstrate saved
-work, safety, or utility.
+directions. They establish a queue-allocation trade-off; they do not demonstrate
+saved work, safety, utility, or superiority.
 
-**Answer to RQ1.** The frozen rules and strategies produce a heterogeneous,
-field-concentrated landscape. Most strategy disagreement lies in affected
-versions, while the publication-date actions are identical between the two
-reported strategies. This answer is limited to the frozen corpus, field
-contracts, and deterministic implementations.
+**Answer to RQ2.** The frozen strategies allocate the same field instances
+differently, with most disagreement concentrated in affected versions and none
+between the two reported strategies for publication date. A smaller conflict
+queue coexists with a larger total manual route once abstention is counted. This
+is a deterministic output comparison, not a ranking of operational value.
 
-### 6.2 RQ2 -- Analyst decision construct
+### 6.3 RQ3 -- Analyst-bounded validation
 
-**[REAL-HUMAN RESULTS PLACEHOLDER -- DO NOT FILL WITH AI OR SYNTHETIC DATA]**
+**[REAL-HUMAN RESULTS PLACEHOLDER -- DO NOT PRESELECT A RESULT BRANCH OR FILL
+WITH AI/SYNTHETIC DATA]**
 
-Required content after both formal stages are valid and locked:
+Required content after E08/E09 are valid:
 
 - reviewer A and B action distributions, including abstain;
-- raw action agreement and nominal Krippendorff alpha overall and by field;
-- reason distributions, uncertainty, agreement, and disagreement matrices;
-- cross-reviewer action--reason association and same-reviewer upper bound;
-- calibration path actually used and any pre-formal guideline diff;
-- explicit retention of failed fields, uncertain outcomes, and disagreement.
-
-Permitted result sentence template: “Under the frozen V3.1 information
-contract, the two trained analysts [observed result], with [interval/uncertainty]
-and the largest disagreement in [field].” Do not use `human gold`,
-`practitioner consensus`, or an adjudicated agreement statistic as the primary
-independent result.
-
-### 6.3 RQ3 -- Policy alignment and boundary
-
-**[REAL-HUMAN RESULTS PLACEHOLDER -- DO NOT PRESELECT A POSITIVE BRANCH]**
-
-Required content after E09 is valid:
-
+- raw action agreement and nominal Krippendorff alpha overall and by field as
+  validity diagnostics;
+- reason distributions, uncertainty, disagreement matrices, cross-reviewer
+  action--reason association, and the same-reviewer upper bound;
+- the calibration path actually used and any pre-formal guideline diff;
 - paired action-match differences and exact discordance for each reviewer;
 - agreement controls separated from policy-disagreement rows;
 - conflict queue, abstention, and total manual-route coverage;
@@ -408,28 +412,30 @@ Required content after E09 is valid:
   `delta_manual=0.10` gate;
 - design-weighted sensitivity, effective sample size, and adjudication-exclusion
   sensitivity;
-- systematic field-specific failure candidates.
+- explicit retention of failed fields, uncertain outcomes, disagreements, and
+  systematic field-specific failure candidates.
 
 **Branch P template:** use only if both reviewers clear every frozen positive
 gate and support the same direction. State the result for this sample and these
-trained analysts; do not claim time savings, deployment safety, or universal
-superiority.
+trained analysts; do not claim human gold, practitioner consensus, time savings,
+deployment safety, or universal superiority.
 
-**Branch B template:** use if construct reliability, paired direction, event
-count, coverage, or safety fails. Report that the tested deterministic
-strategies did not support a stable positive routing conclusion under the
-frozen contract, then identify the observed ambiguity or failure without
-changing fields, cases, strategies, or thresholds.
+**Branch B template:** use if calibration terminates or a reliability, paired-
+direction, event-floor, coverage, or manual-loss gate fails. Report that the
+tested deterministic strategies did not support stable reviewer-consistent
+differentiation under the frozen contract, then identify the observed boundary
+without changing fields, cases, strategies, thresholds, or labels.
 
 ## 7. Discussion
 
-### 7.1 What RQ1 already establishes
+### 7.1 What RQ1 and RQ2 already establish
 
-RQ1 establishes that representation and routing choices are consequential at
-the level of deterministic output. In particular, a smaller conflict queue can
-coexist with a larger total manual route once abstention is counted. This
-distinction prevents an accounting artifact in which abstention is treated as
-free. It does not determine which queue is operationally preferable.
+RQ1 establishes the snapshot-bounded discrepancy landscape. RQ2 establishes
+that routing choices are consequential at the level of deterministic output: a
+smaller conflict queue can coexist with a larger total manual route once
+abstention is counted. This distinction prevents an accounting artifact in
+which abstention is treated as free. It does not determine which queue is
+operationally preferable.
 
 ### 7.2 Interpretation under the positive branch
 
@@ -473,12 +479,13 @@ frozen before human exposure. Reviewer-specific results and exact paired
 comparisons reduce, but do not remove, dependence on the chosen loss and action
 contract.
 
-**Conclusion validity.** A limited number of human conflict actions may make a
-positive safety claim statistically unidentifiable. The frozen 25/29 floors and
-one-sided upper bound control the permitted branch rather than guaranteeing a
-positive result. Weighted sensitivity can have low effective sample size and
-does not replace the primary paired analysis. Multiple field-level summaries
-are descriptive unless a correction or confirmatory hierarchy was frozen.
+**Conclusion validity.** A limited number of human conflict actions may make
+Branch P statistically unidentifiable. The frozen 25/29 floors and one-sided
+manual-loss upper bound control the permitted branch rather than guaranteeing a
+positive result or operational safety. Weighted sensitivity can have low
+effective sample size and does not replace the primary paired analysis.
+Multiple field-level summaries are descriptive unless a correction or
+confirmatory hierarchy was frozen.
 
 **External validity.** The corpus contains CVE-aligned NVD and reviewed GHSA
 records under one snapshot and pipeline. It excludes unmatched, no-CVE,
@@ -498,10 +505,11 @@ and institutional disposition.
 
 **[WITHHELD UNTIL RESULT BRANCH SELECTION]**
 
-The final conclusion must first restate the snapshot-bounded RQ1 finding, then
-give either the reviewer-consistent Branch P result or the preserved Branch B
-boundary. It must not claim database authority, practitioner behavior, labor
-savings, population safety, temporal generalization, or submission readiness.
+The final conclusion must first restate the snapshot-bounded RQ1/RQ2 findings,
+then give either the reviewer-consistent Branch P result or the preserved Branch
+B boundary for RQ3. It must not claim database authority, practitioner behavior,
+labor savings, population safety, temporal generalization, or submission
+readiness.
 
 ## Provisional References Requiring Final BibTeX Reconciliation
 

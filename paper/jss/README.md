@@ -6,13 +6,14 @@
 - Active writing branch: `codex/jss-zero-draft-venue-20260825`
 - Frozen distribution parent: `codex/jss-v3-1-calibration1-distribution-20260825`
 - Current paper stage: `S2_ARGUMENT_LOCKED`
-- Argument stage: result-neutral title, thesis, RQ1--RQ3, exactly three
-  contribution ceilings, and Branch P/B contract author locked on 2026-08-26
+- Argument stage: routing-centric title/thesis, deterministic RQ1/RQ2,
+  analyst-bounded RQ3, exactly three contribution ceilings, and Branch P/B
+  contract author locked on 2026-08-26
 - Draft: result-neutral English zero draft present; not author approved and not
   an S3 gate
 - Submission readiness: `false`
-- Primary venue: Journal of Systems and Software, conditional on V3.1 human
-  construct and routing-frontier results
+- Primary venue: Journal of Systems and Software, conditional on V3.1
+  analyst-bounded validation and a defensible Branch P or B result
 - Practical fallback: Information and Software Technology
 
 The 2026-07-19 COSE package remains a historical evidence line. It is not the
@@ -23,20 +24,22 @@ not clear the missing real-human, scientific, manuscript, or metadata gates.
 
 Title:
 
-> When Vulnerability Metadata Differ: A Human-Gated Study of Field-Level
-> Routing between NVD and GHSA
+> When Vulnerability Metadata Differ: Routing Trade-Offs across Field-Level
+> NVD–GHSA Strategies
 
 One-sentence thesis:
 
-> For CVE-aligned NVD–GHSA record pairs, comparing a strong field-aware strategy
-> with type-first efficiency and safety variants reveals a deterministic routing
-> trade-off whose validity depends on whether two independent trained analysts
-> can reliably assign maintenance actions before assigning discrepancy reasons.
+> For CVE-aligned NVD–GHSA record pairs across four fields, three frozen routing
+> strategies produce different conflict-escalation, abstention, and total
+> manual-route allocations; independent trained-analyst judgments test whether
+> those deterministic differences correspond to differentiated maintenance
+> actions or expose an empirical decision boundary.
 
-The thesis is deliberately result-neutral. The three exact contributions and
-RQ wording are recorded in `FRAMING_LOCK_RECORD_20260826.md`. Branch P/B,
-taxonomy reliability, and downstream policy alignment remain blocked on
-independent real-human evidence.
+The thesis is deliberately result-neutral. RQ1/RQ2 are deterministic and RQ3 is
+the single analyst-bounded validation question. The current lock is recorded in
+`FRAMING_REBALANCE_LOCK_RECORD_20260826.md`; the first human-centered lock is
+retained as superseded history. Branch P/B and every analyst-backed result
+remain blocked on independent real-human evidence.
 
 ## Workspace map
 
@@ -51,10 +54,11 @@ independent real-human evidence.
   plan
 - `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`: title/RQ/contribution
   decision history, locked claim ceiling, and positive/boundary branches
-- `FRAMING_LOCK_RECORD_20260826.md`: author authorization, Claude L1 challenge,
-  exact S2 lock, explicitly unlocked items, and reopening rule
-- `manuscript.md`: non-authoritative zero draft with explicit RQ2/RQ3
-  placeholders
+- `FRAMING_REBALANCE_LOCK_RECORD_20260826.md`: current author authorization,
+  Claude Opus Max challenge, exact routing-centric S2 lock, and reopening rule
+- `FRAMING_LOCK_RECORD_20260826.md`: superseded first lock retained as governance
+  history
+- `manuscript.md`: non-authoritative zero draft with an explicit RQ3 placeholder
 - `JSS_SUBMISSION_CHECKLIST_20260825.md`: official-guide requirements checked
   on 2026-08-25 and project dispositions
 - `SUBMISSION_BLOCKERS.md`: scientific, manuscript, artifact, metadata, and
@@ -92,10 +96,11 @@ generated any case bundle.
    reason-second on the 120 formal cases, locking each action stage first.
 5. Freeze pre-adjudication evidence without dropping abstain, uncertain,
    disagreement, or failed fields; then apply the frozen stop rules.
-6. Compare the strong field-aware comparator, current type-first efficiency
-   arm, and abstention-aware safety arm against both independent action passes.
-   Positive framing requires both reviewers to clear the reviewer-specific
-   `delta_manual=0.10` safety gate; otherwise use the boundary route.
+6. Compare the strong field-aware comparator, current type-first candidate, and
+   abstention-aware candidate against both independent action passes. Branch P
+   requires both reviewers to clear every reviewer-specific paired-direction,
+   event-floor, coverage, and `delta_manual=0.10` manual-loss gate; otherwise
+   use the boundary route.
 7. Keep the existing affected-version adjudication work only as bounded
    negative/failure evidence unless a separately frozen human-backed T3 is
    authorized.

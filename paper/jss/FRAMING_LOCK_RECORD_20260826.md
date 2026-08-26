@@ -1,9 +1,16 @@
 # JSS S2 Framing Lock Record
 
+> **SUPERSEDED FOR CURRENT FRAMING.** This record preserves the first
+> 2026-08-26 S2 lock and its Claude high-effort provenance. After the author
+> questioned the prominence of the human study, S2 was reopened and relocked
+> under the routing-centric architecture in
+> `FRAMING_REBALANCE_LOCK_RECORD_20260826.md`. The title, thesis, RQs, and
+> contributions below are historical and must not be used as the current lock.
+
 ## Decision
 
 - Date: 2026-08-26 (Asia/Singapore)
-- Decision: `AUTHOR_LOCKED_RESULT_NEUTRAL_S2`
+- Decision: `SUPERSEDED_ARGUMENT_LOCK`
 - Resulting stage: `S2_ARGUMENT_LOCKED`
 - Author authorization: the author explicitly asked Codex to start Claude,
   discuss the framing, and decide it directly.

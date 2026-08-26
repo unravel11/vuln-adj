@@ -12,9 +12,9 @@ submission readiness.
 
 | Requirement | Official requirement checked | Current project status | Gate |
 |---|---|---|---|
-| Scope and evidence | JSS covers software-engineering methods, maintenance/evolution, human/social aspects, and requires evidence for claims. | Candidate fit is maintenance-oriented empirical software engineering; central human evidence is missing. | **Blocked by E08/E09**. |
+| Scope and evidence | JSS covers software-engineering methods, maintenance/evolution, human/social aspects, and requires evidence for claims. | Candidate fit is maintenance-oriented empirical software engineering; deterministic RQ1/RQ2 evidence exists, while RQ3 analyst validation is missing. | **Blocked by E08/E09 for the complete paper**. |
 | Length | Full papers are encouraged below 36 single-column or 18 double-column pages; longer manuscripts need justification. | No JSS-formatted PDF exists. | Check at S6. |
-| Editable source | Entire submission must use editable source; PDF alone is not acceptable. Word should be single-column; double-column is allowed for LaTeX. | S2 argument is author locked, but the current zero draft is Markdown and human-dependent results remain missing. | Convert after branch selection and author revision; S2 lock alone does not justify a final submission source. |
+| Editable source | Entire submission must use editable source; PDF alone is not acceptable. Word should be single-column; double-column is allowed for LaTeX. | S2 argument is author locked, but the current zero draft is Markdown and RQ3 remains missing. | Convert after branch selection and author revision; S2 lock alone does not justify a final submission source. |
 | LaTeX template | The guide encourages Elsevier's LaTeX template and requires all relevant editable sources. | No current JSS/Elsevier template has been instantiated. | Open format blocker, not a scientific blocker. |
 | Section numbering | Clearly numbered sections/subsections; abstract excluded from numbering. | Zero draft follows numbered-section planning but is not templated. | Pending conversion. |
 
@@ -26,9 +26,9 @@ template package has been downloaded or validated until that action occurs.
 
 | Item | Official requirement | Current status |
 |---|---|---|
-| Title | Concise and informative; avoid uncommon abbreviations/formulae. | Candidate titles exist; none is author locked. |
+| Title | Concise and informative; avoid uncommon abbreviations/formulae. | Routing-centric title is author locked at S2; final front-matter approval remains author owned. |
 | Authors and affiliations | Names/order must match the submission system; full affiliations and corresponding-author details are required. | Author-owned and unresolved. |
-| Abstract | Concise, factual, standalone, at most 250 words; normally no references. | Intentionally withheld until RQ2/RQ3 results exist. |
+| Abstract | Concise, factual, standalone, at most 250 words; normally no references. | Intentionally withheld until the RQ3 result branch exists. |
 | Keywords | 1--7 English keywords. | Title is author locked; keywords remain candidate and must match the result-dependent abstract. |
 | Highlights | Separate editable file; 3--5 bullets; each at most 85 characters including spaces. | Intentionally withheld because novel results are not yet known. |
 | Graphical abstract | Encouraged, not recorded as mandatory. | Not planned before result branch selection. |
