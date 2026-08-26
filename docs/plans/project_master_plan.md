@@ -1,6 +1,6 @@
 # 项目总计划
 
-**更新时间**：2026-08-25
+**更新时间**：2026-08-26
 
 ---
 
@@ -13,7 +13,7 @@
 | C：统一字段视图与差异检测 baseline | 已完成 |
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
-| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S1_EVIDENCE_LOCKED`；V3.1 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 calibration-1 action-only 包已生成并验证但尚无返回标签；结果中立 framing、相关工作/基线审计、英文 zero draft 和 2026-08-25 JSS checklist 已落盘，均未 `AUTHOR_LOCKED`；COSE 稿为历史证据线） |
+| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；2026-08-26 已锁定结果中立标题、thesis、RQ1--RQ3、恰好三项贡献 ceiling 与 Branch P/B 合同；V3.1 协议、packet、return/lock/evaluator 已冻结；两位博士生 reviewer 的 calibration-1 action-only 包已生成并验证但尚无返回标签；英文 zero draft 与 JSS checklist 已落盘但正文未获作者批准；COSE 稿为历史证据线） |
 
 ---
 
@@ -164,6 +164,26 @@ JSS 正文、当前格式要求、作者元数据和最终 artifact gate 全部�
   LaTeX template，live author-anonymization mode 仍需投稿前现场重核。
 - 本阶段不开放 reason、calibration-2 或 formal，不修改 frozen sample、策略、
   threshold、evaluator 或 tag，也不新增实验。
+
+### 2026-08-26 JSS 结果中立 S2 argument lock
+
+- 状态：`S2_ARGUMENT_LOCKED`；投稿仍为 `NO_GO_FOR_SUBMISSION`。
+- 作者明确授权 Codex 启动 Claude、讨论后直接决定 framing。Claude Code
+  `2.1.226`、`claude-opus-5`、high effort 在同一只读会话中完成 L1 挑战；首轮
+  将 S2 结构锁误同于结果分支锁而给出 `DO_NOT_LOCK`，经阶段合同挑战后修正为
+  `LOCK_AS_S2`。该模型意见仅为治理 stress test，不是科学证据或真人评审。
+- 锁定标题为 _When Vulnerability Metadata Differ: A Human-Gated Study of
+  Field-Level Routing between NVD and GHSA_；同步锁定一条结果中立 thesis、中性
+  RQ1/RQ2/RQ3、恰好三项贡献、非主张、related-work differential、section/figure-
+  table plan 与 positive/boundary 双分支 stop rule。
+- E08/E09、RQ2/RQ3 结果、Branch P/B 选择、abstract、conclusion、highlights、
+  reconciliation-limit placement、作者/伦理/CRediT/data-code/GenAI 声明、最终
+  artifact 与 submission readiness 全部继续未锁定。
+- 若 calibration-1 与触发后的 calibration-2 均失败，并证明统一 action vocabulary
+  在四字段间不稳定，则重开 S2，把 RQ2/RQ3 收缩为 field-specific maintenance
+  decisions；其他负面或混合结果直接选择 Branch B，不事后改样本、策略或门槛。
+- 本次不开放或读取 reason、calibration-2、formal/return 私密材料，不修改冻结
+  protocol、sample、policy、threshold、evaluator 或 tag，也不执行新实验。
 
 ---
 

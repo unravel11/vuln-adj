@@ -4173,3 +4173,78 @@
     threshold、evaluator 或 tag。
   - 真人结果冻结后按门禁选择 positive 或 boundary 分支，补 RQ2/RQ3、abstract、
     highlights、conclusion，再做 author approval、LaTeX/参考文献和最终 artifact gate。
+
+## 2026-08-26：作者授权后锁定 JSS 结果中立 S2 argument
+
+- 本次完成了什么：
+  - 使用 `ssh-vuln-adj` 在权威远端现场复核 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`、分支
+    `codex/jss-zero-draft-venue-20260825`、pre-lock HEAD
+    `b675128338154d21e90686a4b6a5591ae1ac0110`、clean 且相对 upstream
+    `0/0`。
+  - 根据作者“启动 Claude 讨论后直接定下来”的明确授权，启动 Claude Code
+    `2.1.226`。`claude-opus-5`、high effort 在 session
+    `ed24b4b7-45d5-4b74-91fd-15925019971c` 中只读检查限定的 JSS 治理、文献和
+    zero-draft 文件；禁止 edit/write/Bash/web，并明确排除 `.env`、private reviewer、
+    reason、calibration-2 和 formal 包。
+  - Claude 首轮接受具体标题、thesis、RQ、三项贡献与 `P2_VIABLE_CONDITIONAL`
+    判断，但把 S2 结构锁误同于结果分支锁而给出 `DO_NOT_LOCK`。在同一会话中按
+    paper stage contract 追问后，它修正为 `LOCK_AS_S2`：可以锁定双分支兼容的
+    argument architecture，同时让所有 E08/E09-dependent claims 继续 `ABSTAIN`。
+    该交换只作为治理 stress test，不作为科学证据或独立真人评审。
+  - 作者锁定标题 _When Vulnerability Metadata Differ: A Human-Gated Study of
+    Field-Level Routing between NVD and GHSA_、一条结果中立 thesis、中性
+    RQ1/RQ2/RQ3，以及恰好三项贡献：四字段 deterministic census、显式
+    efficiency--safety accounting 的三策略比较、带 boundary path 的
+    action-first/reason-second 双 analyst 协议。
+  - 同步 thesis/RQ/contribution-to-evidence map、claim ceiling、section 与
+    figure-table plan、related-work differential、positive/boundary stop rule、入口状态、
+    submission blocker、checklist、claim/evidence ledger 和 machine-readable
+    paper state；阶段从 `S1_EVIDENCE_LOCKED` 推进为 `S2_ARGUMENT_LOCKED`。
+  - RQ2/RQ3 结果、Branch P/B 选择、abstract、conclusion、highlights、zero-draft
+    prose approval、reconciliation-limit placement、作者声明和最终 artifact 全部继续
+    未锁定；没有代填真人结果。
+
+- 产物路径：
+  - `paper/jss/FRAMING_LOCK_RECORD_20260826.md`
+  - `paper/jss/FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`
+  - `paper/jss/PAPER_BRIEF.md`
+  - `paper/jss/ARGUMENT_PLAN.md`
+  - `paper/jss/CLAIM_LEDGER.md`
+  - `paper/jss/EVIDENCE_LEDGER.md`
+  - `paper/jss/manuscript.md`
+  - `paper/jss/paper_state.json`
+  - `paper/jss/README.md`
+  - `paper/jss/SUBMISSION_BLOCKERS.md`
+  - `paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md`
+  - `docs/plans/project_master_plan.md` 与本进度日志
+
+- 如何验证：
+  - 对同步后的 `paper_state.json` 和 `QUESTION_FINDING_LEDGER.json` 运行
+    `paper-writing-orchestrator` validators，要求均 PASS；解析全部修改 JSON，运行
+    `git diff --check` 和锁定术语/数量一致性扫描。
+  - 重建 related-work manifest，要求继续为 `24 papers / 23 full PDF /
+    1 abstract-only`；运行 `experiments/rq2_discrepancy_typing` 回归，确认文档治理
+    改动未改变冻结 pipeline。
+  - 重新运行 V3.1 packet 与 R2 distribution validators；这些机械检查只证明文件、
+    协议和门禁状态，没有证明论文主张、人工构念或投稿准备度。
+
+- 当前观察到的效果或统计：
+  - 标题、thesis、RQ1--RQ3、三项 contribution ceiling 与双分支合同现在有唯一
+    author-locked 版本，满足 S2 的 argument、question-to-evidence、section/figure-
+    table、related-work、non-claim、minimum-story 和 stop-rule 要求。
+  - `human_labels=0`；S2 lock 不改变 E08/E09 的
+    `MISSING_OR_UNRESOLVED` 状态，也不选择 positive branch。
+
+- 还没验证的点：
+  - 两位博士生没有返回 calibration-1 action；reason、calibration-2 和 formal 均未
+    开放。不存在真人 reliability、policy alignment、safety 或 human-gold 结果。
+  - zero draft prose 尚未作者逐段批准，未转 Elsevier LaTeX，未构建 JSS PDF，未完成
+    artifact manifest/PID、声明、参考文献一致性、匿名化与逐页视觉检查。
+
+- 下一步：
+  - 真人流程继续暂停时，可建立论文级 artifact manifest 与 Elsevier LaTeX 骨架，但
+    不填 RQ2/RQ3、abstract 或 conclusion 的结果内容。
+  - 真人恢复后严格按已冻结 action→lock→reason 门禁执行；根据 E08/E09 选择 Branch
+    P 或 B。若两轮 calibration 都显示统一 action vocabulary 跨字段不稳定，重开 S2；
+    其他负面/混合结果直接进入 Branch B，不事后救结果。
