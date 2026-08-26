@@ -4,6 +4,19 @@
 **Primary source**: Journal of Systems and Software, Guide for Authors,
 https://www.sciencedirect.com/journal/journal-of-systems-and-software/publish/guide-for-authors
 
+**Supporting official sources checked**: 2026-08-26
+
+- Elsevier LaTeX instructions:
+  https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions
+- Elsevier research-data guidelines and data statement:
+  https://www.elsevier.com/en-in/researcher/author/tools-and-resources/research-data/data-guidelines
+  and
+  https://www.elsevier.com/en-in/researcher/author/tools-and-resources/research-data/data-statement
+- JSS official journal/Open Science page:
+  https://shop.elsevier.com/journals/journal-of-systems-and-software/0164-1212
+- CTAN `elsarticle` record:
+  https://ctan.org/texarchive/macros/latex/contrib/elsarticle
+
 **Current decision**: `NO_GO_FOR_SUBMISSION`. This checklist records current
 official requirements and project status; it does not establish compliance or
 submission readiness.
@@ -14,13 +27,15 @@ submission readiness.
 |---|---|---|---|
 | Scope and evidence | JSS covers software-engineering methods, maintenance/evolution, human/social aspects, and requires evidence for claims. | Candidate fit is maintenance-oriented empirical software engineering; deterministic RQ1/RQ2 evidence exists, while RQ3 analyst validation is missing. | **Blocked by E08/E09 for the complete paper**. |
 | Length | Full papers are encouraged below 36 single-column or 18 double-column pages; longer manuscripts need justification. | No JSS-formatted PDF exists. | Check at S6. |
-| Editable source | Entire submission must use editable source; PDF alone is not acceptable. Word should be single-column; double-column is allowed for LaTeX. | S2 argument is author locked, but the current zero draft is Markdown and RQ3 remains missing. | Convert after branch selection and author revision; S2 lock alone does not justify a final submission source. |
-| LaTeX template | The guide encourages Elsevier's LaTeX template and requires all relevant editable sources. | No current JSS/Elsevier template has been instantiated. | Open format blocker, not a scientific blocker. |
+| Editable source | Entire submission must use editable source; PDF alone is not acceptable. Word should be single-column; double-column is allowed for LaTeX. | A flat editable `elsarticle` zero-draft source exists alongside Markdown; RQ3 and author-owned content remain missing. | Source mechanics are prepared; final result-bearing and author-approved source remains blocked. |
+| LaTeX template | The guide encourages Elsevier's LaTeX template and requires all relevant editable sources. Elsevier's instructions identify `elsarticle` and warn that Editorial Manager does not process subfolders reliably. | Flat source instantiated with installed Elsevier-maintained `elsarticle` 3.5; template provenance recorded. | Mechanical template blocker cleared for the zero draft, not for the final paper. |
 | Section numbering | Clearly numbered sections/subsections; abstract excluded from numbering. | Zero draft follows numbered-section planning but is not templated. | Pending conversion. |
 
-No separate JSS-specific `.tex` template was identified on the guide page; the
-official route points to Elsevier's LaTeX instructions/templates. Do not claim a
-template package has been downloaded or validated until that action occurs.
+No separate JSS-specific `.tex` class was identified on the guide page; the
+official route points to Elsevier's `elsarticle` instructions. The official
+downloadable example bundle was inspected in `/tmp` and not vendored. The
+installed maintained class is version 3.5. This establishes a source route, not
+the journal's author-anonymization mode.
 
 ## 2. Front matter and separate files
 
@@ -60,16 +75,16 @@ availability/usability review is separate from paper acceptance.
 | Dataset deposit/citation | Deposit and cite/link the research data, or give a reason it cannot be shared. | Repository contains local payload and hashes, but no public archival PID/URL is frozen. |
 | Code/software citation | Cite software/code with creator, title, venue/repository, date/version, identifier, and type where applicable. | Git history exists; no archival release/PID is frozen. |
 | Protocol/codebook | Share or explain restrictions for V3.1 protocols, codebooks, and anonymized returns. | Protocol/tooling exists; real returns do not. Reviewer-private material must remain private. |
-| Reproducibility snapshot | Bind manuscript tables to exact data/code/results and provide a runnable path. | Source hashes and validators exist; JSS artifact snapshot not built. |
+| Reproducibility snapshot | Bind manuscript tables to exact data/code/results and provide a runnable path. | No-human allowlist manifest, source hashes, table generator, checked CSV/LaTeX tables, and validator exist. Human/private stages are explicitly excluded. |
 | Open Science review | Optional additional availability/usability review described by JSS; it does not affect acceptance. | Not requested or performed. |
 
 ## 5. Tables, figures, references, and supplementary material
 
 | Item | Official requirement | Current status |
 |---|---|---|
-| Tables | Editable text, consecutively numbered/cited, captions and notes, no unnecessary duplication. | Planned only; human-result tables intentionally absent. |
+| Tables | Editable text, consecutively numbered/cited, captions and notes, no unnecessary duplication. | Three editable deterministic tables are generated from one label-free source and render within the text block. Human-result tables remain intentionally absent. |
 | Figures | Separately supplied, cited, numbered, logically named, with captions. | Planned only; no final result figure exists. |
-| References | Consistent at submission; all in-text citations and reference-list entries must correspond; DOI use encouraged. | Zero draft uses explicit citation placeholders and is not reference-complete. |
+| References | Consistent at submission; all in-text citations and reference-list entries must correspond; DOI use encouraged. | The zero draft has citation/BibTeX closure for 17 cited sources and a claim-level evidence map. One item remains explicitly abstract/metadata-only. Result-dependent and final artifact citations require later recheck. |
 | Dataset/software references | Cite datasets/software as first-class references, not only the describing paper. | Pending public artifact decision. |
 | Supplementary files | Upload and describe any supplementary materials. | Scope unresolved; do not expose private reviewer materials. |
 | Copyright permission | Obtain permission for third-party copyrighted material. | No third-party figure reuse is currently planned. |
@@ -102,3 +117,17 @@ availability/usability review is separate from paper acceptance.
 The live guide scrape used for this checklist did not yield a reliable explicit
 statement of JSS's current author-anonymization mode. Treat anonymity handling
 as `UNRESOLVED_RECHECK_LIVE`, not as single- or double-anonymized by inference.
+
+## 7. Result-independent build checkpoint
+
+The editable zero draft compiles with `elsarticle` 3.5 and
+`elsarticle-harv`. The checked temporary PDF has 22 pages and SHA-256
+`0b88cda988422b2fc3b2fba1a9840ea7335f2deffcf4371db37847594908d269`.
+The final log has no matched undefined-citation/reference warnings, other
+LaTeX/package warnings, or overfull boxes. All 22 pages were rendered and
+visually inspected; table, declaration, and reference pages received an
+additional full-resolution check.
+
+This checkpoint does not tick the final-PDF item above. The PDF contains result
+and author placeholders, uses preparation metadata, and is neither
+author-approved nor submission-ready.

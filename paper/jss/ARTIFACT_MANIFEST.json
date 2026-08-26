@@ -1,0 +1,199 @@
+{
+  "artifact_type": "jss_no_human_zero_draft_package",
+  "base_authority_head": "2334ecf5c07608873a0438127344954175fb4d48",
+  "base_head_semantics": "clean upstream-synchronized authority before this no-human package; the final branch HEAD must be read from Git",
+  "built_on": "2026-08-26",
+  "claim_boundary": {
+    "contains_human_results": false,
+    "eligible_for_accuracy_claim": false,
+    "eligible_for_policy_superiority_claim": false,
+    "eligible_for_workload_reduction_claim": false,
+    "human_labels": 0,
+    "submission_ready": false,
+    "uses_ai_as_human_gold": false
+  },
+  "excluded_material": [
+    "all analyst returns and reviewer-private materials",
+    "reason-stage packets",
+    "calibration-2 packets",
+    "formal packets",
+    "AI/Codex candidate labels"
+  ],
+  "files": [
+    {
+      "bytes": 33533711,
+      "path": "data/processed/bootstrap/discrepancies/nvd_ghsa_field_views.jsonl",
+      "role": "frozen_input",
+      "sha256": "c4bb405399bd0050c206b63ece95771c4f566a9a3968f123a16cf02a3b5cc3a2"
+    },
+    {
+      "bytes": 14817,
+      "path": "results/jss/t1_routing_precheck_v1/analysis.json",
+      "role": "deterministic_result",
+      "sha256": "47428580744f0d83331c15b82a623a771f40a40d1ddcf59731fd83787553f7a8"
+    },
+    {
+      "bytes": 1368,
+      "path": "results/jss/t1_routing_precheck_v1/analysis.md",
+      "role": "deterministic_result",
+      "sha256": "ede0aaca11952d6ad403d17e89bab9cc19c4c678fea14789ea8762a4d71d15c7"
+    },
+    {
+      "bytes": 1804,
+      "path": "results/jss/t1_routing_precheck_v1/manifest.json",
+      "role": "deterministic_result",
+      "sha256": "b9e24cbdc1b7a9c5774f533f9e778a3ba9f72d421c19a0abceb72da44029580f"
+    },
+    {
+      "bytes": 18169,
+      "path": "docs/related_work_papers/literature_manifest.json",
+      "role": "literature_audit",
+      "sha256": "060bbfdaa01986b626853f40606df77ff7f66c5ee55953ffb8b0bb24faa29e31"
+    },
+    {
+      "bytes": 10350,
+      "path": "docs/RELATED_WORK_AND_BASELINE_AUDIT_20260825.md",
+      "role": "literature_audit",
+      "sha256": "14681861a3c392b22a9208c4013489ff2077be297dc0b099ffdb2f002f898f2c"
+    },
+    {
+      "bytes": 5180,
+      "path": "paper/jss/CITATION_EVIDENCE_MAP_20260826.md",
+      "role": "citation_contract",
+      "sha256": "1b03c4ba36c32f144d6b34f5cbce08304fccf99e581e0014c1e6d9de3ca6c375"
+    },
+    {
+      "bytes": 2593,
+      "path": "paper/jss/TABLE_EVIDENCE_CONTRACT.md",
+      "role": "table_contract",
+      "sha256": "4cfbf2653fa628a6ba8f6120f8fed01db5dfede1e85a1ccff97bfa0c1604d8d4"
+    },
+    {
+      "bytes": 2525,
+      "path": "paper/jss/ACADEMIC_PROSE_AUDIT_20260826.md",
+      "role": "prose_audit",
+      "sha256": "084ee73a51e9584319cb6c3c86981be9d7b39b5f7ffa05eb624e05e0b9a27cf4"
+    },
+    {
+      "bytes": 13163,
+      "path": "paper/jss/EVIDENCE_LEDGER.md",
+      "role": "paper_governance",
+      "sha256": "1ab71e9d92793a7d3aeb8ccd729dab412b0d81ebc259b0d64672ced2f2308792"
+    },
+    {
+      "bytes": 6873,
+      "path": "paper/jss/CLAIM_LEDGER.md",
+      "role": "paper_governance",
+      "sha256": "e0ca0a209f7333ed2f43693868eed53ca127c6019d77f64aa61e677285697b34"
+    },
+    {
+      "bytes": 5465,
+      "path": "paper/jss/paper_state.json",
+      "role": "paper_governance",
+      "sha256": "ad6aab5e85e372c3d4aa2dbb64b0df4d517ee00e2a0ff938e0b05f1451441835"
+    },
+    {
+      "bytes": 10781,
+      "path": "paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md",
+      "role": "venue_check",
+      "sha256": "cda4e66d7423aec441ce07f123bd62252cfc4802d7bc8c04e7c36798474ef282"
+    },
+    {
+      "bytes": 30163,
+      "path": "paper/jss/manuscript.md",
+      "role": "zero_draft",
+      "sha256": "015e54c2b5f61c155e043d545f5c322fb7f3755c590dbd32ac874ddd6644db62"
+    },
+    {
+      "bytes": 28039,
+      "path": "paper/jss/latex/main.tex",
+      "role": "latex_source",
+      "sha256": "f7b00b27fb34c62a126c5f829748834854b2a0329c51e55eb411826768b10fa2"
+    },
+    {
+      "bytes": 7553,
+      "path": "paper/jss/latex/references.bib",
+      "role": "latex_source",
+      "sha256": "24278139c3adce454d5501249691ff7912911278f8dc1b808943f0fca9c7e2df"
+    },
+    {
+      "bytes": 1523,
+      "path": "paper/jss/latex/TEMPLATE_PROVENANCE.md",
+      "role": "latex_source",
+      "sha256": "af28e8f3f9c11419c1acd56421d34900f20d501e50b387d408c47f2c955ab090"
+    },
+    {
+      "bytes": 1050,
+      "path": "paper/jss/latex/README.md",
+      "role": "latex_source",
+      "sha256": "bbe31b3eb16995e926c9adaae8f9d8f2ebcc4b438647498adb538ae1ab998ff7"
+    },
+    {
+      "bytes": 174,
+      "path": "paper/jss/latex/rq1_status_counts.csv",
+      "role": "table_data",
+      "sha256": "c2b04687b5b906ddf129f731efb0a8b40c68bf4cebe539bf134620d2f7f5fd51"
+    },
+    {
+      "bytes": 242,
+      "path": "paper/jss/latex/rq2_strategy_actions.csv",
+      "role": "table_data",
+      "sha256": "5c5f947d9075641e5cff203baaccad48f1d877e22e479cf249993de2ef713772"
+    },
+    {
+      "bytes": 195,
+      "path": "paper/jss/latex/rq2_pairwise_disagreements.csv",
+      "role": "table_data",
+      "sha256": "cb74cbcdbe96f5c8b93d8b20e7c81b3477d5423d05dfb98f3c9463b0d006afbb"
+    },
+    {
+      "bytes": 887,
+      "path": "paper/jss/latex/table_rq1_status_counts.tex",
+      "role": "table_source",
+      "sha256": "c23f7a98c19cbb4ba09e72b601cc560c2c47b05f55963aa97d493eca18acb1fc"
+    },
+    {
+      "bytes": 892,
+      "path": "paper/jss/latex/table_rq2_strategy_actions.tex",
+      "role": "table_source",
+      "sha256": "9df3cebe91c8cf18fce620c4a3be12c610fbbe9fb25c8643b6a3cac8dac6765b"
+    },
+    {
+      "bytes": 804,
+      "path": "paper/jss/latex/table_rq2_pairwise_disagreements.tex",
+      "role": "table_source",
+      "sha256": "d683bb0f455aff5296b0492d55943d6d073c8c56e4bd4f24dd22be2a2eb5fccc"
+    },
+    {
+      "bytes": 2161,
+      "path": "paper/jss/latex/BUILD_REPORT.md",
+      "role": "build_evidence",
+      "sha256": "7a47790933f3650229c94e3481f3cb6a3418bd905deddb787a9750166ebfef46"
+    },
+    {
+      "bytes": 9998,
+      "path": "experiments/paper_artifacts/build_jss_deterministic_tables.py",
+      "role": "reproducer",
+      "sha256": "df786c070ed567cc442f856d2d9d5d0b1f4fe54c7734516be478da18b3e08154"
+    },
+    {
+      "bytes": 5094,
+      "path": "experiments/paper_artifacts/build_jss_artifact_manifest.py",
+      "role": "reproducer",
+      "sha256": "afbe213e1cc55466d9b26b4889a04292d3d0e9c00cf08622cb1d818996573326"
+    },
+    {
+      "bytes": 6872,
+      "path": "experiments/paper_artifacts/validate_jss_no_human_package.py",
+      "role": "validator",
+      "sha256": "350f6129f56c8462410219dea6e5667df2767f6c175c97c6cb0d2f574acee4e5"
+    }
+  ],
+  "schema_version": "1",
+  "source_scope": {
+    "field_instances": 32264,
+    "fields": 4,
+    "rows": 8066,
+    "snapshot_and_pipeline_bounded": true
+  }
+}

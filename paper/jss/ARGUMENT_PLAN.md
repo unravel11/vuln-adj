@@ -176,6 +176,13 @@ E04--E06 remain supporting retrospective failure evidence.
 | Table 4b: manual-loss and shared-miss audit | Where do coverage or shared-blind-spot gates fail? | E09 | RQ3; both reviewers separate; sample-conditional boundary |
 | Table 5: bounded failure evidence | Where do older reconciliation methods abstain or fail? | E05–E06 | Keep cohorts/provenance separate |
 
+The current result-independent zero draft instantiates the deterministic census
+as three editable tables: RQ1 status counts, three-strategy action allocations,
+and pairwise action disagreements. Splitting the original combined RQ2 table
+improves exact lookup without changing its locked evidence role. The planned
+figures remain uninstantiated; no redundant chart was added before an
+author/result-dependent figure decision.
+
 No temporal-generalization figure is planned. Add one only if a new eligible
 bilateral post-freeze cohort is frozen under the existing rule.
 
@@ -222,6 +229,11 @@ The allowed differential is:
 This is a task-contract differential, not proof that prior work lacks all
 routing, discrepancy, abstention, or human-evaluation ideas. Publication-status
 metadata refreshed after protocol freeze does not change V3.1.
+
+The cited zero-draft subset and its evidence levels are frozen in
+`paper/jss/CITATION_EVIDENCE_MAP_20260826.md` and
+`paper/jss/latex/references.bib`. The targeted 24-paper archive remains broader
+than the cited subset.
 
 ## Writing order
 

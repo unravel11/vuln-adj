@@ -4407,3 +4407,92 @@
   - 由作者审阅本次英文措辞；在作者逐段批准前不把零稿提升为 S3 candidate final。
   - 真人流程继续暂停；可继续完善不依赖 RQ3 的投稿源与 artifact manifest，但不预写
     Branch P，也不改变冻结人工协议。
+
+## 2026-08-26：完成 JSS“只差真人结果”的 no-human 写作与投稿源包
+
+- 本次完成了什么：
+  - 在权威远端复核工作基线为 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`、分支
+    `codex/jss-zero-draft-venue-20260825`、pre-package HEAD
+    `2334ecf5c07608873a0438127344954175fb4d48`、clean 且 upstream `0/0`；该
+    HEAD 只作为本包的输入基线，不冒充最终提交状态。
+  - 完成结果中立的英文 Markdown zero draft 和可编译的 Elsevier `elsarticle`
+    LaTeX zero draft。标题、RQ1/RQ2、前两项贡献保持 deterministic routing 主线；
+    真人只位于 RQ3/C3，Abstract、RQ3 结果、Conclusion、作者信息与声明保留明确
+    占位，不预选 Branch P/B。
+  - 核对 24 篇 related-work 资产（23 篇全文 PDF、1 篇 abstract/metadata-only），
+    建立 17 个实际引用条目的 BibTeX 与 citation-evidence map；每项明确可支持内容、
+    不支持内容和证据等级，没有把下载状态或 metadata-only 条目写成已读全文。
+  - 从 label-free `analysis.json` 生成三张可追溯的 RQ1/RQ2 CSV 与 LaTeX 表；新增
+    构建器会拒绝 label-bearing/unsafe 输入并校验分项总数。未增加重复图形，也未新增
+    结果导向实验。
+  - 核对 Elsevier 官方 LaTeX、research-data 与 data-statement 说明及 JSS 官方
+    Open Science 页面；投稿源保持平铺目录。JSS guide 的已核对日期仍为
+    `2026-08-25`，`2026-08-26` 只记录 supporting official sources，未把当日 403
+    误写为重新抓取成功。
+  - 建立 28 文件 allowlist 的 no-human artifact manifest 和独立 validator，显式排除
+    analyst returns、private materials、reason、calibration-2、formal 与 AI labels。
+  - 按 `academic-humanizer` 的语义保持合同复核 Markdown 与 LaTeX：统一 trained
+    analyst、strategy/action/abstention/total-manual-route 术语，压缩防御式重复；没有
+    改写事实边界、冻结数值或把机械 PASS 提升为科学结论。
+
+- 产物路径：
+  - `paper/jss/manuscript.md`
+  - `paper/jss/latex/main.tex`
+  - `paper/jss/latex/references.bib`
+  - `paper/jss/latex/TEMPLATE_PROVENANCE.md`
+  - `paper/jss/latex/BUILD_REPORT.md`
+  - `paper/jss/CITATION_EVIDENCE_MAP_20260826.md`
+  - `paper/jss/TABLE_EVIDENCE_CONTRACT.md`
+  - `paper/jss/ACADEMIC_PROSE_AUDIT_20260826.md`
+  - `paper/jss/ARTIFACT_MANIFEST.json`
+  - `experiments/paper_artifacts/build_jss_deterministic_tables.py`
+  - `experiments/paper_artifacts/build_jss_artifact_manifest.py`
+  - `experiments/paper_artifacts/validate_jss_no_human_package.py`
+  - `experiments/paper_artifacts/tests/test_build_jss_deterministic_tables.py`
+  - `paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md`
+  - `paper/jss/CLAIM_LEDGER.md`、`paper/jss/EVIDENCE_LEDGER.md`、
+    `paper/jss/paper_state.json`、`docs/plans/project_master_plan.md` 与本日志
+
+- 如何验证：
+  - 表格构建器测试为 `2 passed in 0.01s`；RQ2 全量回归为
+    `411 passed, 4 subtests passed in 5.99s`。
+  - no-human package validator 为 `PASS: 7 no-human package checks`：输入 hash 与
+    label-free 状态、S2/投稿门禁、占位符、17-key 引用闭包、六个表格产物、28 文件
+    manifest 和未提交生成 PDF/TeX products 均通过。
+  - `paper_state.json` 与 question-finding ledger 的项目 validator 均 PASS；新增脚本
+    `py_compile`、两个 JSON 标准解析和 `git diff --check` 均 PASS。
+  - V3.1 packet/distribution validator 继续 PASS：`20/20/120`、
+    `distribution_allowed=false`、`human_labels=0`，只存在两份 reviewer-scoped
+    calibration-1 action bundle；强制 `--require-distribution-ready` 按设计阻塞并退出
+    `2`。
+  - `elsarticle` 3.5 zero draft 通过 `latexmk` 构建为 22 页 US Letter 临时 QA PDF，
+    SHA-256 为
+    `0b88cda988422b2fc3b2fba1a9840ea7335f2deffcf4371db37847594908d269`；日志未发现
+    undefined citation/reference、LaTeX/package warning 或 overfull box。22 页均完成
+    render-and-inspect，未见裁切、重叠、空白或重复页；PDF 只留在 `/tmp`，未提交。
+  - 上述验证只证明写作源、引用、确定性表格和冻结边界在机械上闭合，不证明 RQ3、
+    scientific validity、policy superiority、workload reduction 或 submission readiness。
+
+- 当前观察到的效果或统计：
+  - RQ1 的输入为 8,066 个 NVD–GHSA 对、32,264 个字段实例；四字段精确分布已进入
+    Markdown 与 LaTeX 表格。
+  - 三策略 total manual route 分别为 field-aware simple `3,176`、current type-first
+    `2,403`、abstention-aware `4,126`。相对 field-aware simple，abstention-aware
+    仅可报告 deterministic allocation 的 `-74` conflict escalation 与 `+950` total
+    manual route；不能据此声称更正确、更安全或节省人工。
+  - 论文阶段保持 `S2_ARGUMENT_LOCKED`，`draft_present=false`、
+    `artifact_verified=false`、`submission_ready=false`；真人标签仍为 `0`。
+
+- 还没验证的点：
+  - 两名 trained analysts 的 calibration-1 action 尚未返回；reason、calibration-2 与
+    formal 未开放。因此 RQ3、可靠性、shared miss、coverage 和 Branch P/B 均未知。
+  - 最终作者信息、逐段批准、AI disclosure、anonymization、data/code deposit PID 与
+    提交时 JSS guide 复核仍由作者完成；当前 PDF 是临时 QA 产物，不是投稿稿。
+
+- 下一步：
+  - 真人暂停期间不再补大实验；只接受作者对题目、正文、表格、引用与 artifact
+    边界的局部审阅修订。
+  - 真人恢复后严格按冻结 action-first 门禁收集两位 trained analysts 的真实结果，
+    再填 RQ3、选择 Branch P 或 B，并完成最终 Abstract/Conclusion、artifact PID 和
+    submission-level 审核。

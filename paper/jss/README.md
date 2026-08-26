@@ -9,8 +9,10 @@
 - Argument stage: routing-centric title/thesis, deterministic RQ1/RQ2,
   analyst-bounded RQ3, exactly three contribution ceilings, and Branch P/B
   contract author locked on 2026-08-26
-- Draft: result-neutral English zero draft present; not author approved and not
-  an S3 gate
+- Draft: result-neutral English Markdown and editable `elsarticle` zero draft
+  present; exact RQ1/RQ2 tables and 17-key BibTeX source validate; temporary
+  22-page PDF compiled and visually checked; not author approved and not an S3
+  gate
 - Submission readiness: `false`
 - Primary venue: Journal of Systems and Software, conditional on V3.1
   analyst-bounded validation and a defensible Branch P or B result
@@ -59,6 +61,15 @@ remain blocked on independent real-human evidence.
 - `FRAMING_LOCK_RECORD_20260826.md`: superseded first lock retained as governance
   history
 - `manuscript.md`: non-authoritative zero draft with an explicit RQ3 placeholder
+- `latex/main.tex`: flat editable Elsevier/JSS zero-draft source with explicit
+  abstract, RQ3, conclusion, metadata, and declaration placeholders
+- `latex/references.bib` and `CITATION_EVIDENCE_MAP_20260826.md`: checked
+  citation source and per-citation evidence ceiling
+- `TABLE_EVIDENCE_CONTRACT.md` and `latex/*.csv` / `latex/table_*.tex`:
+  label-free deterministic table contract, data, and editable table sources
+- `ARTIFACT_MANIFEST.json` and `experiments/paper_artifacts/`: no-human
+  allowlist manifest, reproducible table builder, and fail-closed validator
+- `latex/BUILD_REPORT.md`: temporary PDF build and 22-page visual-QA evidence
 - `JSS_SUBMISSION_CHECKLIST_20260825.md`: official-guide requirements checked
   on 2026-08-25 and project dispositions
 - `SUBMISSION_BLOCKERS.md`: scientific, manuscript, artifact, metadata, and
@@ -82,6 +93,16 @@ not independently verified by Codex. R2 readiness is `READY`; separate
 calibration-1 action-only bundles have been generated and validated. No return
 or real-human label has yet been received. Detailed R1 was superseded before it
 generated any case bundle.
+
+## Result-independent package
+
+The no-human package binds the deterministic analysis, checked citations,
+editable tables, Markdown/LaTeX zero draft, and build report. It intentionally
+excludes analyst returns, private reviewer materials, reason-stage packets,
+calibration-2 packets, formal packets, and AI/Codex labels. Its manifest states
+`contains_human_results=false`, `human_labels=0`, and
+`submission_ready=false`. A clean build or validator PASS is mechanical evidence
+only.
 
 ## Route decision
 

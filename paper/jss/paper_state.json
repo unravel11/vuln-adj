@@ -4,14 +4,15 @@
   "target_venue": {
     "name": "Journal of Systems and Software",
     "family": "jss",
-    "requirements_checked_on": "2026-08-25"
+    "requirements_checked_on": "2026-08-25",
+    "supporting_official_sources_checked_on": "2026-08-26"
   },
   "authority": {
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
     "branch": "codex/jss-zero-draft-venue-20260825",
-    "head": "c2adecf5090ddc64ef9597140cb2d0423af279af",
-    "head_semantics": "Clean and 0/0 upstream-synchronized pre-rebalance writing HEAD verified live on 2026-08-26; final branch HEAD must be read from Git rather than inferred from this self-referential state file",
+    "head": "2334ecf5c07608873a0438127344954175fb4d48",
+    "head_semantics": "Clean and 0/0 upstream-synchronized pre-package writing HEAD verified live on 2026-08-26; final branch HEAD must be read from Git rather than inferred from this self-referential state file",
     "status": "clean",
     "manuscript": "paper/jss/manuscript.md"
   },
@@ -32,11 +33,16 @@
     "question_finding_ledger": "paper/jss/QUESTION_FINDING_LEDGER.json",
     "paper_plan": "paper/jss/ARGUMENT_PLAN.md",
     "manuscript": "paper/jss/manuscript.md",
+    "latex_source": "paper/jss/latex/main.tex",
+    "citation_evidence_map": "paper/jss/CITATION_EVIDENCE_MAP_20260826.md",
+    "table_evidence_contract": "paper/jss/TABLE_EVIDENCE_CONTRACT.md",
+    "latex_build_report": "paper/jss/latex/BUILD_REPORT.md",
+    "artifact_manifest": "paper/jss/ARTIFACT_MANIFEST.json",
     "integrity_report": null,
     "venue_review": null,
     "historical_venue_review": "paper/jss/JSS_V3_1_L1_GATE_REVIEW_20260825.md",
     "final_pdf": null,
-    "artifact_validation": null,
+    "artifact_validation": "experiments/paper_artifacts/validate_jss_no_human_package.py",
     "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md",
     "framing_candidates": "paper/jss/FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md",
     "framing_lock_record": "paper/jss/FRAMING_REBALANCE_LOCK_RECORD_20260826.md",
@@ -64,8 +70,8 @@
     "R2 calibration-1 action bundles exist and validate, but neither reviewer has returned a human action label and no action stage is locked.",
     "Calibration-1 has not run; action and reason stage locks contain no real returns.",
     "The routing-centric title, thesis, deterministic RQ1/RQ2, analyst-bounded RQ3, exactly three contribution ceilings, and Branch P/B stop contract are author locked; E08/E09 and empirical branch selection remain unresolved.",
-    "A result-neutral zero draft exists but its prose is not author approved; RQ3, abstract, conclusion, highlights, and final references remain blocked by human results and later author decisions.",
-    "The JSS Guide for Authors was checked on 2026-08-25, but the Elsevier submission template, live anonymization handling, final data/code deposit, and author metadata remain unresolved."
+    "A result-neutral Markdown and Elsevier LaTeX zero draft exists but its prose is not author approved; RQ3, abstract, conclusion, highlights, and final public dataset/software citations remain blocked by human results and later author decisions.",
+    "The JSS Guide for Authors was checked on 2026-08-25 and supporting official Elsevier/CTAN sources on 2026-08-26; the editable elsarticle source compiles and its temporary 22-page PDF was visually checked, but live anonymization handling, final data/code deposit, author metadata, declarations, and the final result-bearing PDF remain unresolved."
   ],
   "last_verified_at": "2026-08-26T11:50:28+08:00"
 }

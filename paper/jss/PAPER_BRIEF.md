@@ -20,7 +20,9 @@
 - Author-locked title: _When Vulnerability Metadata Differ: Routing Trade-Offs
   across Field-Level NVD–GHSA Strategies_
 - Current stage: `S2_ARGUMENT_LOCKED`
-- Draft status: result-neutral zero draft present; not author approved and not
+- Draft status: result-neutral Markdown and editable `elsarticle` zero draft
+  present; deterministic tables, checked BibTeX, no-human manifest, clean
+  temporary build, and full-page visual QA exist; not author approved and not
   sufficient to advance the S3 gate
 - Submission ready: no
 
@@ -173,6 +175,15 @@ not support a workload-reduction, safety, utility, or superiority claim.
   `results/paper_cose/cose_package_manifest.json`
   - mechanical snapshot only;
   - `submission_ready=false`.
+- Result-independent JSS package:
+  `paper/jss/ARTIFACT_MANIFEST.json`
+  - exact RQ1/RQ2 CSV and editable LaTeX tables regenerate from E07B;
+  - citation-to-BibTeX closure covers 17 cited sources under explicit evidence
+    ceilings;
+  - `elsarticle` 3.5 compiles a temporary 22-page PDF with no matched warnings
+    or overfull boxes; all pages were visually inspected;
+  - `contains_human_results=false`, `human_labels=0`, and
+    `submission_ready=false`.
 
 ## Experiment decision
 
@@ -208,6 +219,6 @@ Decision: `V3_1_PREPARATION_COMPLETE_DISTRIBUTION_BLOCKED`;
   hashes.
 - Recheck complete current JSS author and artifact requirements before the
   submission stages.
-- Approve or revise the zero draft and its provisional references; the current
-  Markdown draft intentionally withholds RQ3 results, abstract, and
-  conclusion.
+- Approve or revise the Markdown/LaTeX zero draft and checked cited subset; the
+  current source intentionally withholds RQ3 results, the final abstract, and
+  the conclusion branch.

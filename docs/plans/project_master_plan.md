@@ -13,7 +13,7 @@
 | C：统一字段视图与差异检测 baseline | 已完成 |
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
-| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；2026-08-26 已按作者意见重新锁定 routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、恰好三项贡献 ceiling 与 Branch P/B 合同；V3.1 协议、packet、return/lock/evaluator 未改；真人流程暂停且返回标签仍为 0；英文 zero draft 与 JSS checklist 已同步但正文未获作者批准；COSE 稿为历史证据线） |
+| F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、三项 contribution ceiling 与 Branch P/B 合同不变；Markdown/`elsarticle` zero draft、17-key citation closure、三张确定性表、no-human artifact manifest、22 页临时 PDF 编译与逐页 QA 已完成；真人流程暂停且标签仍为 0，正文未获作者批准，E08/E09 与最终投稿门禁未完成） |
 
 ---
 
@@ -215,6 +215,43 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 - E08/E09、RQ3 结果、Branch P/B、abstract、conclusion、highlights、声明、最终
   artifact 与 submission readiness 继续未锁定。真人流程保持暂停，标签仍为 0。
 
+### 2026-08-26 JSS 只差真人结果的 no-human package
+
+- 状态保持 `S2_ARGUMENT_LOCKED` 和 `NO_GO_FOR_SUBMISSION`；没有把可编译零稿
+  误记为 S3、最终 artifact 或投稿就绪。
+- 24 篇 targeted related-work archive 继续为 23 份全文 PDF + 1 个
+  abstract/metadata-only 条目；正文实际引用的 17 项已形成独立 BibTeX 与
+  claim-level citation/evidence map。最接近的 TOSEM discrepancy、
+  VuldiffFinder、severity inconsistency、affected-version benchmark、
+  learning-to-defer、GHSA pipeline 与公开数据/repair-link 资源均有明确“支持/
+  不支持”边界；未发现需要改变冻结协议的新 same-task human-action baseline。
+- `paper/jss/latex/main.tex` 已按官方 Elsevier `elsarticle` 路线建立为同层平铺的
+  可编辑零稿。RQ1/RQ2 已接入三张由
+  `results/jss/t1_routing_precheck_v1/analysis.json` 生成的 CSV/LaTeX 表：
+  field-status census、三策略 action allocation、三组 pairwise disagreement。
+  RQ3、final abstract、conclusion branch、author metadata 和 declarations 继续是
+  显式占位。
+- 表格生成器拒绝任何带 label 或 human/correctness eligibility 的分析输入，并校验
+  每字段/每策略总量。`pubtab==1.0.1` 隔离试跑暴露 standalone preview 与当前
+  TeX Live 2026 的 caption/minipage 兼容失败，最终以原生可审计生成器和真实
+  `elsarticle` 上下文完成排版验证；失败预览未被当成通过证据。
+- 官方 JSS Guide 检查日期保持 2026-08-25；2026-08-26 另核对 Elsevier LaTeX、
+  research-data/data-statement、JSS Open Science 与 CTAN `elsarticle` 官方来源。
+  author-anonymization mode 继续为 `UNRESOLVED_RECHECK_LIVE`。
+- 临时 PDF 使用 `elsarticle` 3.5、`latexmk` 4.88 和
+  `elsarticle-harv` 编译：22 页、SHA-256
+  `0b88cda988422b2fc3b2fba1a9840ea7335f2deffcf4371db37847594908d269`，
+  最终日志无匹配 warning、undefined citation/reference 或 overfull box。22 页全部
+  渲染检查，表格、声明和参考文献页另做原分辨率复核；PDF 只留在 `/tmp`。
+- no-human manifest 只绑定确定性输入/结果、文献/引用、Markdown/LaTeX、表格、
+  build report 和 reproducer/validator，明确排除 reviewer return、private、
+  reason、calibration-2、formal 与 AI/Codex label。其 claim boundary 为
+  `contains_human_results=false`、`human_labels=0`、
+  `submission_ready=false`。
+- 当前只剩两类实质工作：E08/E09 真人返回与结果分支；作者侧逐段审稿、身份/单位、
+  declarations、public archive/PID/license、最终匿名化重核和 result-bearing final
+  PDF。机械 PASS 不替代这些门禁。
+
 ---
 
 ## 核心数据
@@ -255,6 +292,10 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 |------|------|
 | `../../paper/jss/PAPER_BRIEF.md` | 当前 JSS 论文目标、RQ、贡献上限和实验决定 |
 | `../../paper/jss/ARGUMENT_PLAN.md` | 当前 S2 已锁定论证、章节职责和图表计划 |
+| `../../paper/jss/latex/main.tex` | 结果中立的平铺 Elsevier/JSS 可编辑零稿 |
+| `../../paper/jss/CITATION_EVIDENCE_MAP_20260826.md` | 17 项正文引用的逐项证据上限与重叠风险 |
+| `../../paper/jss/TABLE_EVIDENCE_CONTRACT.md` | RQ1/RQ2 表格的单位、总量、缺失值和 claim ceiling |
+| `../../paper/jss/ARTIFACT_MANIFEST.json` | 排除真人/私密材料的 no-human package 哈希清单 |
 | `../../experiments/rq2_discrepancy_typing/T1_ROUTING_PRECHECK_PROTOCOL_V1.md` | JSS 零人工策略普查与第一阶段可识别性门禁 |
 | `../../experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md` | 当前双真人 action-first/reason-second、双轮校准和安全门禁协议 |
 | `../../results/jss/t1_v31_safety_identifiability/report.md` | V3.1 共享盲区与 0.05/0.10/0.15 margin 的无标签可识别性分析 |
@@ -270,16 +311,16 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 
 当前最紧迫的事：
 
-写作状态（2026-08-26）：`paper/jss/manuscript.md` 已完成一次
-`academic-humanizer` 约束下的证据保持型改写，清理正文中的项目治理措辞、工具痕迹、
-novelty 自辩和跨章节重复免责声明。标题、thesis、RQ1--RQ3、三项贡献的证据边界、
-冻结数字、策略、样本、协议和 Branch P/B 门禁均未改变；Abstract、RQ3、Conclusion
-及作者声明仍保留明确占位。该工作是 `S2_ARGUMENT_LOCKED` 内的语言修订，不构成
-真人证据、作者逐段批准、S3 推进或投稿就绪。
+写作状态（2026-08-26）：`paper/jss/manuscript.md` 与
+`paper/jss/latex/main.tex` 已完成 `academic-humanizer` 约束下的证据保持型同步；
+17 项引用、三张确定性表、no-human manifest、临时 PDF 编译和 22 页视觉 QA 已落盘
+或记录。标题、thesis、RQ1--RQ3、三项贡献的证据边界、冻结数字、策略、样本、协议和
+Branch P/B 门禁均未改变；final Abstract、RQ3、Conclusion、author declarations/PID
+仍保留明确占位。阶段仍是 `S2_ARGUMENT_LOCKED`，不是作者批准稿、S3、最终 artifact
+或投稿就绪。
 
-1. 真人流程保持暂停时，优先把 deterministic RQ1/RQ2、Related Work、Dataset、
-   Method、Threats、artifact manifest 和可编辑投稿源推进到“只差 RQ3 真人结果”，
-   不新增实验或预写正向结论。
+1. no-human package 已推进到“只差 RQ3 真人结果与作者侧最终材料”；真人暂停期间
+   不新增无目的实验、不预写正向结论，只允许修复可验证的引用/排版/manifest 缺陷。
 2. RQ3 暂停期间不得开放 reason、calibration-2、formal 或私密 return 材料，不改
    sample、policy、threshold、evaluator、tag 或分支门禁。
 3. 作者恢复真人流程后，分别把 R2 Reviewer A/B calibration-1 action bundle 交给
