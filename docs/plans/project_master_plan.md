@@ -270,6 +270,13 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 
 当前最紧迫的事：
 
+写作状态（2026-08-26）：`paper/jss/manuscript.md` 已完成一次
+`academic-humanizer` 约束下的证据保持型改写，清理正文中的项目治理措辞、工具痕迹、
+novelty 自辩和跨章节重复免责声明。标题、thesis、RQ1--RQ3、三项贡献的证据边界、
+冻结数字、策略、样本、协议和 Branch P/B 门禁均未改变；Abstract、RQ3、Conclusion
+及作者声明仍保留明确占位。该工作是 `S2_ARGUMENT_LOCKED` 内的语言修订，不构成
+真人证据、作者逐段批准、S3 推进或投稿就绪。
+
 1. 真人流程保持暂停时，优先把 deterministic RQ1/RQ2、Related Work、Dataset、
    Method、Threats、artifact manifest 和可编辑投稿源推进到“只差 RQ3 真人结果”，
    不新增实验或预写正向结论。

@@ -4341,3 +4341,69 @@
     Elsevier LaTeX skeleton 和不依赖 RQ3 的正文/表格，不预写 Branch P。
   - 真人恢复后严格按冻结 action→lock→reason 门禁执行，仅依据 E08/E09 选择 Branch
     P 或 B；不改样本、策略、threshold、evaluator 或 tag。
+
+## 2026-08-26：完成 JSS zero draft 的证据保持型 humanizer 改写
+
+- 本次完成了什么：
+  - 使用 `ssh-vuln-adj` 在权威远端现场复核 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`、分支
+    `codex/jss-zero-draft-venue-20260825`、pre-edit HEAD
+    `097c2ccf023335d5a8420eb95fcfc4ae926187f2`、clean 且 upstream `0/0`。
+  - 按 `paper-writing-orchestrator` 的 `TARGETED_REVISION` 与
+    `academic-humanizer` 的 edit contract，对 `paper/jss/manuscript.md` 做全文最小
+    语义保持改写：移除正文中的 author-lock 历史、贡献计数辩护、Codex 未验证措辞、
+    当前 distribution-bundle 状态和 novelty reviewer-rebuttal；把重复的
+    correctness/workload/safety/utility 限定压缩到首次影响解释的位置或 Threats。
+  - 将本文角色统一为 trained analyst，并保留 `Reviewer A`/`Reviewer B` 作为 artifact
+    中已声明的角色名；主方法统一使用 routing strategy，`policy-disagreement` 等冻结
+    artifact 标签不改。
+  - 保留 zero-draft banner、Abstract/RQ3/Conclusion 与作者声明的显式占位；没有填入
+    真人标签、选择 Branch P/B、开放 reason/calibration-2/formal，或修改 sample、
+    strategy、threshold、evaluator、tag 和冻结数据。
+
+- 产物路径：
+  - `paper/jss/manuscript.md`
+  - `docs/plans/project_master_plan.md`
+  - `docs/plans/project_progress_log.md`
+
+- 如何验证：
+  - 将权威远端当前 `paper_state.json` 与 `QUESTION_FINDING_LEDGER.json` 复制到本地
+    skill validator 输入，`validate_paper_state.py` 与
+    `validate_question_finding_ledger.py` 均 PASS；阶段仍为
+    `S2_ARGUMENT_LOCKED`，`draft_present=false`。
+  - 自定义 semantic/process guard PASS：标题、完整 RQ1--RQ3 block、author-locked
+    thesis 与 HEAD 逐字一致；References/Declarations 受保护区逐字一致；唯一
+    `REAL-HUMAN RESULTS PLACEHOLDER` 仍只位于 RQ3。
+  - 冻结值与标识继续存在：`8,066`、`32,264`、`2,332`、`1,706`、`1,780`、
+    `-74`、`4,126`、`3,176`、`+950`、`20/20/120`、34-case、`25/29`、
+    `delta_manual=0.10` 及三条主策略代码名。
+  - 仅作写作候选定位的机械扫描中，否定式候选由 `61` 降为 `37`，流程/工具候选由
+    `10` 降为 `1`；剩余一处是 JSS 作者声明中的 Codex 占位，属于受保护的 author-side
+    disclosure。该扫描不构成质量评分、作者身份判断或科学验证。
+  - 未发现 hedge stacking 或仓库禁止的作者心理元话语。`git diff --check` 与
+    manuscript semantic/process guard 均 PASS。
+  - V3.1 packet validator PASS：calibration-1/calibration-2/formal 仍为
+    `20/20/120`、`distribution_allowed=false`、`human_labels=0`；R2 check-only 为
+    `READY`，distribution validator PASS；强制 distribution-ready 按设计退出 `2`。
+  - `pytest experiments/rq2_discrepancy_typing -q` 为
+    `411 passed, 4 subtests passed in 6.02s`。这些机械检查不证明 semantic truth、
+    RQ3 结果、人工构念有效性或投稿就绪。
+
+- 当前观察到的效果或统计：
+  - Introduction 的三项贡献改为直接陈述，Related Work 改为正向任务定位，Methods
+    不再混入 Codex/当前 bundle 状态，RQ2 的 deterministic allocation 与未观察到的
+    operational outcomes 只保留一次清楚边界。
+  - 论文仍以 routing 为主：RQ1/RQ2 是确定性分析，人工仅承担 RQ3 的 analyst-bounded
+    validation/boundary 选择。当前阶段保持 `S2_ARGUMENT_LOCKED`，
+    `draft_present=false`，不是作者批准稿。
+
+- 还没验证的点：
+  - E08/E09 仍缺失，真人标签仍为 `0`；不存在 analyst reliability、strategy
+    differentiation、coverage、shared-miss、human-gold、practitioner 或 safety 结论。
+  - Abstract、RQ3、Conclusion、完整参考文献、作者声明、Elsevier LaTeX/PDF、artifact
+    PID/manifest、匿名化和逐页视觉检查仍未完成或未获作者批准。
+
+- 下一步：
+  - 由作者审阅本次英文措辞；在作者逐段批准前不把零稿提升为 S3 candidate final。
+  - 真人流程继续暂停；可继续完善不依赖 RQ3 的投稿源与 artifact manifest，但不预写
+    Branch P，也不改变冻结人工协议。
