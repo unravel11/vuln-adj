@@ -1,6 +1,9 @@
 # JSS Argument Plan
 
-Status: `S2_CANDIDATE_FOR_AUTHOR_APPROVAL`.
+Status: `S2_ARGUMENT_LOCKED` on 2026-08-26. The title, result-neutral thesis,
+RQ1--RQ3, exactly three contribution ceilings, section/figure-table plan,
+related-work differential, non-claims, and dual-branch stop rule are locked.
+Branch P/B selection and all E08/E09-dependent text remain unlocked.
 
 The label-free routing census and V3.1 safety-identifiability audit have passed
 their prepare-only gates. The packet, return, stage-lock, and evaluator workflow
@@ -9,21 +12,21 @@ conditional on two independent human action/reason passes. Failed reliability,
 conflicting reviewer preferences, safety-gate failures, abstention, and
 uncertain cases must remain visible.
 
-## Working title (candidate; not author locked)
+## Author-locked title
 
-From Field Mismatch to Maintenance Action: Auditing NVD–GHSA Reconciliation
-Policies under Human Uncertainty
+When Vulnerability Metadata Differ: A Human-Gated Study of Field-Level Routing
+between NVD and GHSA
 
-Alternative result-neutral titles and the positive/boundary result branches are
-recorded in `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. The zero draft
-uses the recommended neutral candidate only as a disposable working title.
+Rejected alternatives and the positive/boundary result branches are recorded in
+`FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. The title direction may not
+change without reopening S2.
 
-## One-sentence candidate argument
+## Author-locked one-sentence thesis
 
-A CVE-aligned field mismatch is not itself a conflict verdict; comparing a
-strong field-aware strategy with efficiency- and safety-oriented type-first
-policies reveals a testable routing frontier whose validity depends on
-independent human actions and explicit abstention.
+For CVE-aligned NVD–GHSA record pairs, comparing a strong field-aware strategy
+with type-first efficiency and safety variants reveals a deterministic routing
+trade-off whose validity depends on whether two independent trained analysts can
+reliably assign maintenance actions before assigning discrepancy reasons.
 
 ## Narrative spine
 
@@ -47,6 +50,10 @@ Steps 5 and the positive interpretation of step 4 remain unobserved.
 
 ### RQ1 — Deterministic landscape
 
+Locked question: Across 8,066 CVE-aligned NVD–GHSA record pairs, how do
+deterministic field statuses and frozen routing-policy outputs distribute for
+severity, affected versions, publication date, and references?
+
 Rhetorical job: establish the frozen corpus, deterministic statuses, policy
 outputs, and policy-disagreement cells.
 
@@ -56,6 +63,10 @@ Forbidden upgrade: human truth, correctness, unnecessary work, database
 quality, or causal explanation.
 
 ### RQ2 — Human decision construct
+
+Locked question: To what extent do two independent trained analysts agree when
+assigning maintenance actions and, after action lock, discrepancy reasons to the
+same frozen field pairs, and where do they remain uncertain or disagree?
 
 Rhetorical job: test whether two real trained analysts can independently assign
 maintenance actions and, after action lock, discrepancy reasons.
@@ -68,7 +79,12 @@ Forbidden upgrade: treating author-adjudicated agreement as independent
 agreement or treating same-reviewer action-reason association as causal
 explanation.
 
-### RQ3 — Routing frontier
+### RQ3 — Policy alignment and boundary
+
+Locked question: Relative to a strong field-aware simple strategy, how do a
+current type-first strategy and an abstention-aware type-first strategy align
+with each analyst's actions, and what efficiency, coverage, abstention, and
+shared-miss boundaries are observed?
 
 Rhetorical job: compare `field_aware_simple_v1`,
 `type_first_current_v1`, and `type_first_abstention_v1` against the two
@@ -83,16 +99,17 @@ Forbidden upgrade: deployment benefit, elapsed-time savings, practitioner
 relevance without practitioner reviewers, or superiority when reviewers favor
 different policies.
 
-## Contribution-to-evidence map
+## Author-locked contribution-to-evidence map
 
-| Candidate contribution | Required evidence | Current disposition |
+| Author-locked contribution | Required evidence | Current disposition |
 |---|---|---|
-| Frozen-corpus field and policy census | E01, E07B | Available and bounded |
-| Strong-comparator efficiency-safety framing | E07B | Policy differences supported; correctness absent |
-| Action-first/reason-second human construct | E07E plus E08 | Mechanically frozen; human evidence missing |
-| Shared no-manual falsification and safety gate | E07D, E07E, E09 | Design fixed; human outcome missing |
-| Human-backed routing-policy frontier | E08 plus E09 | Missing |
-| Auditable reconciliation limits | E04–E06 | Available only as retrospective negative/failure evidence |
+| **C1. Reproducible four-field deterministic census** | E01, E07B | Available and bounded to the frozen snapshot/pipeline; no human evidence required for descriptive counts |
+| **C2. Three-strategy comparison with explicit efficiency–safety accounting** | E07B plus E08/E09 for human alignment | Deterministic differences available; correctness, safety, and superiority remain absent |
+| **C3. Action-first/reason-second dual-analyst protocol with a preserved boundary path** | E07D–E07F plus E08/E09 | Protocol and stop rules are frozen; human construct, policy alignment, and branch outcome remain missing |
+
+E04--E06 remain supporting retrospective failure evidence rather than a fourth
+contribution. The 34-case falsification audit is part of C2/C3's safety contract,
+not a standalone empirical contribution before human returns.
 
 ## Section outline
 
@@ -206,21 +223,29 @@ post-protocol metadata/positioning corrections and do not change V3.1.
    stop rules.
 5. Choose positive-frontier, decision-ambiguity, or negative framing.
 6. Draft Methods and Results, then Discussion and Threats.
-7. Draft Introduction and Related Work.
-8. Draft title, abstract, conclusion, highlights, and cover letter last.
+7. Revise the existing Introduction and Related Work against the locked
+   argument and observed result branch.
+8. Keep the locked title; draft abstract, conclusion, highlights, and cover
+   letter only after branch selection.
 
-## S2 lock gate
+## S2 lock record and reopening rule
 
-The argument can move to `S2_ARGUMENT_LOCKED` only when:
+The author explicitly authorized a direct framing decision on 2026-08-26 after
+a read-only Claude L1 challenge. The decisive review turn agreed that the
+result-neutral architecture survives Branch P and Branch B; its model judgment
+does not supply scientific evidence. The lock is recorded in
+`FRAMING_LOCK_RECORD_20260826.md`.
 
-- the author approves the title direction, revised RQs, four fields, and
-  explicit non-claims;
-- the V3.1 protocol, action/reason vocabulary, three main policies, sampling
-  cells, estimands, and stop rules are approved before human exposure;
-- the evaluator and return validators are frozen;
-- adjudication is recorded as secondary rather than a method rescue; and
-- no closest-related-work finding invalidates the differential.
+S2 locks the title, thesis, RQ wording, four fields, three contribution ceilings,
+explicit non-claims, three main policies, sampling/estimand contract, section and
+figure-table roles, related-work differential, and dual-branch stop rule. It
+does not lock RQ2/RQ3 findings, result headings, abstract, conclusion, branch
+selection, reconciliation-limit placement, declarations, or submission status.
 
-If V3.1 reliability, paired policy utility, or either reviewer's safety gate
-fails, the positive route stops. The paper may continue only with the failure
-retained and the thesis revised.
+Reopen S2 if calibration-1 and the triggered calibration-2 both fail and show
+that the unified action vocabulary is unstable across the four fields; in that
+case revise RQ2/RQ3 from unified maintenance actions to field-specific
+maintenance decisions and contract C3 accordingly. Also reopen under the normal
+stage contract if the thesis, RQs, contribution ceiling, target venue, evidence
+population, comparison set, or frozen protocol changes materially. Other
+negative or mixed human outcomes select Branch B without reopening S2.

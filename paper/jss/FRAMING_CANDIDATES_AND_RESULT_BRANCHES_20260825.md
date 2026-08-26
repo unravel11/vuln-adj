@@ -1,13 +1,25 @@
 # JSS Framing Candidates and Result-Neutral Branches
 
-**Status**: `CANDIDATE_FOR_AUTHOR_DECISION`; none of the title, thesis, RQ, or
-contribution candidates in this file is `AUTHOR_LOCKED`.
+**Status**: `AUTHOR_LOCKED_RESULT_NEUTRAL_S2` as of 2026-08-26. The title,
+one-sentence thesis, RQ1--RQ3, exactly three contribution ceilings, explicit
+non-claims, and the dual result-branch contract are locked. The empirical
+selection of Branch P or Branch B remains blocked on E08/E09.
+
+**Decision record**: `paper/jss/FRAMING_LOCK_RECORD_20260826.md`. The author
+explicitly delegated the framing decision after a read-only Claude L1 challenge;
+the model review is advisory governance evidence, not scientific evidence.
 
 **Evidence cutoff**: repository evidence through 2026-08-25 and a post-protocol
 publication-status refresh on 2026-08-25. The refresh did not alter the frozen
 V3.1 sample, policies, thresholds, packet, evaluator, or tag.
 
-## 1. Result-neutral center
+## 1. Author-locked result-neutral center
+
+**Author-locked one-sentence thesis:** For CVE-aligned NVD–GHSA record pairs,
+comparing a strong field-aware strategy with type-first efficiency and safety
+variants reveals a deterministic routing trade-off whose validity depends on
+whether two independent trained analysts can reliably assign maintenance
+actions before assigning discrepancy reasons.
 
 The stable research object is a frozen set of CVE-aligned NVD--GHSA record
 pairs. A field mismatch is an observed difference, not by itself a factual
@@ -21,7 +33,7 @@ result. The paper does not need a policy win to report the deterministic
 landscape, the analyst decision construct, disagreement, uncertainty, or the
 identifiability limits of automatic reconciliation.
 
-## 2. Candidate titles
+## 2. Title decision
 
 | ID | Candidate title | Best fit | Risk / author decision |
 |---|---|---|---|
@@ -30,15 +42,15 @@ identifiability limits of automatic reconciliation.
 | T3 | Field-Level Vulnerability Metadata Routing under Analyst Disagreement and Abstention | Boundary branch | Less specific in the title; NVD--GHSA must then be explicit in the abstract. |
 | T4 | Comparing Field-Aware and Type-First Routing for NVD--GHSA Metadata Differences | Positive branch only after both reviewer-specific gates pass | Do not use a superiority verb such as `improves`, `reduces`, or `outperforms`. |
 
-Recommended candidate before human results: **T2**. This is a recommendation,
-not an author lock.
+**Author-locked title: T2 -- _When Vulnerability Metadata Differ: A Human-Gated
+Study of Field-Level Routing between NVD and GHSA_.** T1, T3, and T4 are retained
+only as rejected decision history. Changing the title direction reopens S2.
 
-## 3. Neutral research questions
+## 3. Author-locked neutral research questions
 
-- **RQ1 -- Deterministic landscape.** Across the frozen 8,066 CVE-aligned
-  NVD--GHSA record pairs, how are deterministic field statuses and routing
-  outputs distributed for severity, affected versions, publication date, and
-  references?
+- **RQ1 -- Deterministic landscape.** Across 8,066 CVE-aligned NVD–GHSA record
+  pairs, how do deterministic field statuses and frozen routing-policy outputs
+  distribute for severity, affected versions, publication date, and references?
 - **RQ2 -- Analyst decision construct.** To what extent do two independent
   trained analysts agree when assigning maintenance actions and, after action
   lock, discrepancy reasons to the same frozen field pairs, and where do they
@@ -52,15 +64,18 @@ not an author lock.
 The wording deliberately asks `how` and `to what extent`. It does not presuppose
 reliability, superiority, non-inferiority, safety, or workload reduction.
 
-## 4. Candidate contributions and claim ceiling
+## 4. Author-locked contributions and claim ceiling
 
-| Candidate contribution | Evidence available now | Evidence still required | Maximum wording |
+| Author-locked contribution | Evidence available now | Evidence still required | Maximum wording |
 |---|---|---|---|
-| Frozen field and policy census | E01, E07B | None for descriptive counts | A reproducible, snapshot-bounded census of 8,066 aligned rows and 32,264 four-field instances. |
-| Three-strategy comparison design | E07B, E07D, E07E | E08/E09 for human-supported comparison | The strategies are frozen and make different outputs; no strategy is currently known to be more correct, efficient, or safe. |
-| Action-first/reason-second analyst protocol | E07E, E07F | Valid independent returns and stage locks in E08 | A mechanically frozen V3.1 protocol and distribution gate, not a validated human construct. |
-| Empirical policy alignment or boundary | None yet | E08 and E09 under all frozen gates | Promote only the branch licensed by both reviewers' results; preserve disagreement, uncertain, abstain, and failed gates. |
-| Reconciliation-limit account | E04--E06 | None for the bounded retrospective account | Report tested cohort/protocol failures and evidence dependence; do not claim a successful adjudication method or a universal limit. |
+| **C1. Reproducible four-field deterministic census.** | E01, E07B | None for descriptive counts | A snapshot- and pipeline-bounded census of 8,066 CVE-aligned pairs and 32,264 field instances, with deterministic statuses and routing outputs. No database-quality, ground-truth, broader-prevalence, causal, or correctness claim. |
+| **C2. Three-strategy comparison with explicit efficiency--safety accounting.** | E07B | E08/E09 for human-supported alignment | A frozen strong field-aware comparator, type-first efficiency arm, and abstention-aware safety arm whose deterministic outputs differ. The observed 74-fewer-conflict/950-more-manual-route contrast is not correctness, workload, safety, or superiority. |
+| **C3. Action-first/reason-second dual-analyst protocol with a preserved boundary path.** | E07D, E07E, E07F | E08/E09 for construct reliability, policy alignment, and branch selection | A mechanically frozen V3.1 protocol, blinding and stage-lock chain, and outcome-independent stop rules. Valid returns license either Branch P or Branch B; before them there is no construct-validity, reliability, policy-utility, or submission-readiness claim. |
+
+The retrospective reconciliation-limit material in E04--E06 is supporting
+discussion evidence, not a fourth contribution. Human-backed policy alignment
+or an empirical boundary is the result disposition of C2/C3, not an additional
+contribution counted before results.
 
 Hard claim ceiling:
 
@@ -104,15 +119,17 @@ The deterministic census remains descriptive and reproducible. The study can
 still show where policies differ and which human-evidence conditions are needed
 before those differences can support a maintenance recommendation.
 
-## 6. Author-owned decisions
+## 6. Remaining author-owned decisions
 
-- select or revise one title candidate;
-- approve the RQ wording and the trained-analyst scope;
 - decide whether the retrospective reconciliation-limit section remains in the
   main paper or moves to supplementary material;
 - after real returns, select Branch P or Branch B strictly from the frozen gates;
 - approve author order, affiliations, funding, conflicts, CRediT, data/code,
   ethics wording, and the generative-AI declaration.
 
-Until those decisions are recorded, the repository remains
-`S1_EVIDENCE_LOCKED` with an S2 candidate and a non-authoritative zero draft.
+The repository is `S2_ARGUMENT_LOCKED`. This lock does not approve the zero-draft
+prose, supply E08/E09, select a result branch, or establish submission readiness.
+If the frozen calibration process shows that the unified action vocabulary is
+not stable across the four fields, or if the thesis, RQs, contribution ceiling,
+target venue, evidence population, or comparison set changes materially, reopen
+S2 rather than silently rewriting the lock.

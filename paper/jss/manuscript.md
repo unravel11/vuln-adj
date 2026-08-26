@@ -2,12 +2,14 @@
 
 > **ZERO DRAFT -- NOT AUTHOR APPROVED -- NOT SUBMISSION READY**
 >
-> This English zero draft is intentionally result-neutral. The title is a
-> recommended candidate, not `AUTHOR_LOCKED`. RQ2 and RQ3 contain explicit
-> placeholders because no real-human return exists. Citations and venue
-> formatting remain provisional. The authoritative claim/evidence boundaries
-> are `PAPER_BRIEF.md`, `EVIDENCE_LEDGER.md`, `CLAIM_LEDGER.md`, and
-> `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`.
+> This English zero draft is intentionally result-neutral. The title, thesis,
+> RQ1--RQ3, exactly three contribution ceilings, and dual result branches were
+> author locked at S2 on 2026-08-26; the prose itself is not author approved.
+> RQ2 and RQ3 contain explicit placeholders because no real-human return
+> exists. Citations and venue formatting remain provisional. The authoritative
+> claim/evidence boundaries are `PAPER_BRIEF.md`, `EVIDENCE_LEDGER.md`,
+> `CLAIM_LEDGER.md`, `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`,
+> and `FRAMING_LOCK_RECORD_20260826.md`.
 
 ## Abstract
 
@@ -72,16 +74,25 @@ the three strategies without defining the action oracle from the taxonomy.
 
 The study is organized around three neutral research questions:
 
-- **RQ1 -- Deterministic landscape.** Across the frozen 8,066 CVE-aligned
-  NVD--GHSA record pairs, how are deterministic field statuses and routing
-  outputs distributed for the four fields?
+- **RQ1 -- Deterministic landscape.** Across 8,066 CVE-aligned NVD–GHSA
+  record pairs, how do deterministic field statuses and frozen routing-policy
+  outputs distribute for severity, affected versions, publication date, and
+  references?
 - **RQ2 -- Analyst decision construct.** To what extent do two independent
-  trained analysts agree on maintenance actions and, after action lock,
-  discrepancy reasons, and where do they remain uncertain or disagree?
+  trained analysts agree when assigning maintenance actions and, after action
+  lock, discrepancy reasons to the same frozen field pairs, and where do they
+  remain uncertain or disagree?
 - **RQ3 -- Policy alignment and boundary.** Relative to the strong
-  field-aware simple strategy, how do the current and abstention-aware
-  type-first strategies align with each analyst's actions, and what efficiency,
-  coverage, abstention, and shared-miss boundaries are observed?
+  field-aware simple strategy, how do a current type-first strategy and an
+  abstention-aware type-first strategy align with each analyst's actions, and
+  what efficiency, coverage, abstention, and shared-miss boundaries are
+  observed?
+
+The study adopts the following result-neutral thesis: For CVE-aligned
+NVD–GHSA record pairs, comparing a strong field-aware strategy with type-first
+efficiency and safety variants reveals a deterministic routing trade-off whose
+validity depends on whether two independent trained analysts can reliably assign
+maintenance actions before assigning discrepancy reasons.
 
 At the present evidence cutoff, only the descriptive RQ1 and protocol claims
 are available. The strategies make different deterministic decisions, but no
@@ -92,19 +103,26 @@ a sample- and analyst-bounded routing frontier. Otherwise, the paper reports a
 boundary or negative result about decision ambiguity and retains all failed
 gates, disagreements, abstentions, and uncertain outcomes.
 
-The candidate contributions, subject to this ceiling, are:
+The author-locked contributions, subject to this ceiling, are exactly three:
 
-1. a reproducible, snapshot-bounded census of four structured fields and seven
-   frozen routing/reference strategies over 8,066 aligned records;
-2. a comparison design centered on a strong field-aware strategy, separate
-   type-first efficiency and abstention-aware safety arms, and explicit
-   conflict-queue versus total-manual-route accounting;
-3. a frozen action-first/reason-second protocol for two independent trained
-   analysts, including bounded calibration, uncertainty, stage locks, and a
-   pre-adjudication analysis; and
-4. after valid human returns, either a reviewer-consistent routing-frontier
-   result or a preserved empirical boundary showing where deterministic
-   typing does not identify stable maintenance action.
+1. **a reproducible four-field deterministic census:** a snapshot-bounded
+   census of 8,066 CVE-aligned NVD--GHSA record pairs and 32,264 field
+   instances, with deterministic statuses and routing outputs for severity,
+   affected versions, publication date, and references;
+2. **a three-strategy comparison with explicit efficiency--safety accounting:**
+   a frozen strong field-aware comparator, type-first efficiency arm, and
+   abstention-aware safety arm whose deterministic outputs differ, while any
+   human-alignment, correctness, safety, or superiority conclusion remains
+   blocked on E08/E09; and
+3. **an action-first/reason-second dual-analyst protocol with a preserved
+   boundary path:** a mechanically frozen V3.1 protocol, blinding and stage-lock
+   chain, and outcome-independent stop rules that require valid human returns
+   to select either a reviewer-consistent routing-frontier result or an
+   empirical boundary.
+
+The retrospective reconciliation-limit material supports the discussion but is
+not counted as a fourth contribution. The human-backed result branch is the
+outcome of contributions 2 and 3, not a contribution claimed before evidence.
 
 We do not rank NVD and GHSA by global quality or authority, treat deterministic
 statuses as truth, claim practitioner behavior, infer labor time from routing
@@ -172,7 +190,7 @@ Sun et al. (2023) are the most direct novelty constraint. Their TOSEM study
 aligns heterogeneous reports, extracts seven vulnerability aspects, and studies
 aspect-level discrepancy types and detection. Li et al. (2025) likewise treats
 unstructured semantic inconsistency as an automatic detection task. Their
-existence rules out a `first discrepancy taxonomy` contribution. Our candidate
+existence rules out a `first discrepancy taxonomy` contribution. Our locked
 differential is instead the structured-input maintenance decision: independent
 actions are collected before reasons, the main comparator is field-aware rather
 than raw inequality, abstention has an explicit manual-route cost, and a failed

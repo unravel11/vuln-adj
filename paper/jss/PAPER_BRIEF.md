@@ -17,65 +17,66 @@
 - New-paper authority: this `paper/jss/` workspace
 - Historical source line: `paper/cose/`, retained but not edited as the JSS
   manuscript
-- Current stage: `S1_EVIDENCE_LOCKED`; S2 argument remains conditional
+- Author-locked title: _When Vulnerability Metadata Differ: A Human-Gated Study
+  of Field-Level Routing between NVD and GHSA_
+- Current stage: `S2_ARGUMENT_LOCKED`
 - Draft status: result-neutral zero draft present; not author approved and not
-  sufficient to advance the S2 or S3 gate
+  sufficient to advance the S3 gate
 - Submission ready: no
 
-## Candidate thesis (not `AUTHOR_LOCKED`)
+## Author-locked one-sentence thesis
 
-For CVE-aligned NVD and GHSA records, a field mismatch is an observation, not a
-maintenance decision. The paper tests whether field-aware and type-first
-policies occupy a reproducible efficiency-safety frontier when two independent
-trained analysts assign maintenance actions first and discrepancy reasons
-second.
+For CVE-aligned NVD–GHSA record pairs, comparing a strong field-aware strategy
+with type-first efficiency and safety variants reveals a deterministic routing
+trade-off whose validity depends on whether two independent trained analysts can
+reliably assign maintenance actions before assigning discrepancy reasons.
 
-This remains a candidate thesis. The frozen label-free census establishes that
-the policies make different decisions and that the fixed human budget can
-sample those differences. It does not establish that any policy is correct,
+This result-neutral thesis was author-locked on 2026-08-26 after a read-only
+Claude L1 challenge recorded in `FRAMING_LOCK_RECORD_20260826.md`. The model
+review is not scientific evidence. The frozen label-free census establishes
+only that the policies make different decisions and that the fixed human budget
+can sample those differences; it does not establish that any policy is correct,
 safer, cheaper, or superior.
 
 ## Research questions
 
-- RQ1 — Deterministic landscape: Across 8,066 CVE-aligned NVD–GHSA rows, how
-  do field statuses and frozen routing-policy outputs distribute for severity,
-  affected versions, publication date, and references?
-- RQ2 — Human decision construct: How consistently do two independent trained
-  analysts assign maintenance actions and, after action lock, discrepancy
-  reasons to a frozen sample of field pairs?
-- RQ3 — Routing frontier: Relative to a strong field-aware simple policy, how
-  do the current type-first efficiency arm and the abstention-aware safety arm
-  align with independent human actions, including conflict escalation,
-  abstention, and field-specific failure?
+- RQ1 — Deterministic landscape: Across 8,066 CVE-aligned NVD–GHSA record
+  pairs, how do deterministic field statuses and frozen routing-policy outputs
+  distribute for severity, affected versions, publication date, and references?
+- RQ2 — Analyst decision construct: To what extent do two independent trained
+  analysts agree when assigning maintenance actions and, after action lock,
+  discrepancy reasons to the same frozen field pairs, and where do they remain
+  uncertain or disagree?
+- RQ3 — Policy alignment and boundary: Relative to a strong field-aware simple
+  strategy, how do a current type-first strategy and an abstention-aware
+  type-first strategy align with each analyst's actions, and what efficiency,
+  coverage, abstention, and shared-miss boundaries are observed?
 
-The 2026-08-25 neutral wording, title alternatives, and positive/boundary result
-branches are maintained in
-`FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. They remain candidates
-for author decision.
+The exact 2026-08-26 lock, rejected title alternatives, and positive/boundary
+result branches are maintained in
+`FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`. Branch selection remains
+unlocked until valid E08/E09 results clear or fail the frozen gates.
 
 `cwe_ids` is outside the V3.1 human routing study. Existing CWE work remains
 retrospective or supplementary evidence and cannot repair a failed primary
 field.
 
-## Candidate contributions mapped to evidence
+## Author-locked contributions mapped to evidence
 
-1. A reproducible descriptive audit over 8,066 CVE-aligned NVD–GHSA records,
-   with field-level status and policy-output counts. Current status: supported
-   for the frozen corpus only.
-2. A frozen comparison among a strong field-aware simple comparator, a
-   type-first efficiency arm, and an abstention-aware safety arm. Current
-   status: policies and full-corpus disagreement census are implemented; no
-   correctness result exists.
-3. A low-human, action-first/reason-second construct test using calibration-1
-   20, a conditional disjoint calibration-2 reserve of 20, and 120 formal cases
-   reviewed by two independent trained analysts. Current status: protocol,
-   recursively blinded packets, return validators, stage locks, and evaluator
-   exist; reviewer identity, distribution approval, and all human labels are
-   missing.
-4. A bounded empirical account of when routing policies agree, disagree,
-   abstain, or become statistically unidentifiable. Current status: the
-   label-free identifiability precheck and older non-human failure evidence are
-   available; human-backed conclusions are missing.
+1. **Reproducible four-field deterministic census.** A snapshot-bounded census
+   of 8,066 CVE-aligned NVD–GHSA record pairs and 32,264 field instances, with
+   deterministic statuses and routing outputs for severity, affected versions,
+   publication date, and references. Supported for the frozen corpus only.
+2. **Three-strategy comparison with explicit efficiency–safety accounting.** A
+   frozen comparison among a strong field-aware simple comparator, a type-first
+   efficiency arm, and an abstention-aware safety arm. The deterministic output
+   census exists; validity and human alignment remain missing in E08/E09.
+3. **Action-first/reason-second dual-analyst protocol with a preserved boundary
+   path.** A mechanically frozen V3.1 protocol with 20 calibration-1 cases, a
+   conditional disjoint 20-case reserve, 120 formal cases, recursive blinding,
+   stage locks, and outcome-independent stop rules. Valid E08/E09 returns will
+   license either the reviewer-consistent frontier branch or the preserved
+   empirical-boundary branch; no human-backed result exists yet.
 
 ## Frozen policy interpretation
 
@@ -190,7 +191,6 @@ Decision: `V3_1_PREPARATION_COMPLETE_DISTRIBUTION_BLOCKED`;
 
 ## Author-owned unresolved decisions
 
-- Approve or revise the candidate title and RQ wording before S2 lock.
 - Recruit two different qualified real trained analysts and document whether
   either is an actual maintenance practitioner.
 - Record expertise, compensation, conflicts, recruitment, and any required

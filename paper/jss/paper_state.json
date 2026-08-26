@@ -10,16 +10,16 @@
     "kind": "repository",
     "workspace": "/home/xiaoyuliang/code/vuln-adj",
     "branch": "codex/jss-zero-draft-venue-20260825",
-    "head": "f41ba54637d185845610c6f700cc82a453bf0916",
-    "head_semantics": "Clean and 0/0 upstream-synchronized writing-branch base verified live before creating the independent zero-draft branch; final branch HEAD must be read from Git rather than inferred from this self-referential state file",
+    "head": "b675128338154d21e90686a4b6a5591ae1ac0110",
+    "head_semantics": "Clean and 0/0 upstream-synchronized pre-lock writing HEAD verified live on 2026-08-26; final branch HEAD must be read from Git rather than inferred from this self-referential state file",
     "status": "clean",
     "manuscript": "paper/jss/manuscript.md"
   },
-  "stage": "S1_EVIDENCE_LOCKED",
+  "stage": "S2_ARGUMENT_LOCKED",
   "gates": {
     "authority_resolved": true,
     "evidence_locked": true,
-    "argument_locked": false,
+    "argument_locked": true,
     "draft_present": false,
     "integrity_checked": false,
     "venue_reviewed": false,
@@ -38,6 +38,7 @@
     "artifact_validation": null,
     "submission_readiness": "paper/jss/SUBMISSION_BLOCKERS.md",
     "framing_candidates": "paper/jss/FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md",
+    "framing_lock_record": "paper/jss/FRAMING_LOCK_RECORD_20260826.md",
     "venue_checklist": "paper/jss/JSS_SUBMISSION_CHECKLIST_20260825.md",
     "related_work_audit": "docs/RELATED_WORK_AND_BASELINE_AUDIT_20260825.md",
     "human_protocol": "experiments/rq2_discrepancy_typing/T1_HUMAN_VALIDATION_PROTOCOL_V3_1.md",
@@ -60,9 +61,9 @@
     "The author attests that two distinct doctoral-student trained analysts satisfy the independent no-AI and author-side governance conditions; Codex did not independently verify those facts.",
     "R2 calibration-1 action bundles exist and validate, but neither reviewer has returned a human action label and no action stage is locked.",
     "Calibration-1 has not run; action and reason stage locks contain no real returns.",
-    "The S2 title direction and contribution wording still require author lock after preserving both positive and boundary result routes.",
-    "A result-neutral zero draft exists but is not author approved; RQ2/RQ3, abstract, conclusion, and final references remain blocked by human results and author decisions.",
+    "The result-neutral title, thesis, RQ1-RQ3, exactly three contribution ceilings, and Branch P/B stop contract are author locked; E08/E09 and empirical branch selection remain unresolved.",
+    "A result-neutral zero draft exists but its prose is not author approved; RQ2/RQ3, abstract, conclusion, highlights, and final references remain blocked by human results and later author decisions.",
     "The JSS Guide for Authors was checked on 2026-08-25, but the Elsevier submission template, live anonymization handling, final data/code deposit, and author metadata remain unresolved."
   ],
-  "last_verified_at": "2026-08-25T23:30:00+08:00"
+  "last_verified_at": "2026-08-26T11:16:18+08:00"
 }

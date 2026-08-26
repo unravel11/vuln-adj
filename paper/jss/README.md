@@ -5,8 +5,9 @@
 - Paper line: active, conservative JSS reframing
 - Active writing branch: `codex/jss-zero-draft-venue-20260825`
 - Frozen distribution parent: `codex/jss-v3-1-calibration1-distribution-20260825`
-- Current paper stage: `S1_EVIDENCE_LOCKED`
-- Argument stage: `S2 candidate`, not yet locked
+- Current paper stage: `S2_ARGUMENT_LOCKED`
+- Argument stage: result-neutral title, thesis, RQ1--RQ3, exactly three
+  contribution ceilings, and Branch P/B contract author locked on 2026-08-26
 - Draft: result-neutral English zero draft present; not author approved and not
   an S3 gate
 - Submission readiness: `false`
@@ -18,37 +19,40 @@ The 2026-07-19 COSE package remains a historical evidence line. It is not the
 editable authority for this JSS paper, and its `127/127` mechanical checks do
 not clear the missing real-human, scientific, manuscript, or metadata gates.
 
-## Working framing
+## Author-locked framing
 
-Working title:
+Title:
 
-> From Field Mismatch to Maintenance Action: Auditing NVD–GHSA Reconciliation
-> Policies under Human Uncertainty
+> When Vulnerability Metadata Differ: A Human-Gated Study of Field-Level
+> Routing between NVD and GHSA
 
-Candidate thesis:
+One-sentence thesis:
 
-> A CVE-aligned field mismatch is not itself a conflict verdict; comparing a
-> strong field-aware strategy with efficiency- and safety-oriented type-first
-> policies reveals a testable routing frontier whose validity depends on
-> independent human actions and explicit abstention.
+> For CVE-aligned NVD–GHSA record pairs, comparing a strong field-aware strategy
+> with type-first efficiency and safety variants reveals a deterministic routing
+> trade-off whose validity depends on whether two independent trained analysts
+> can reliably assign maintenance actions before assigning discrepancy reasons.
 
-The thesis is deliberately conditional. The taxonomy and downstream-routing
-parts require independent real-human evidence before they can become paper
-claims.
+The thesis is deliberately result-neutral. The three exact contributions and
+RQ wording are recorded in `FRAMING_LOCK_RECORD_20260826.md`. Branch P/B,
+taxonomy reliability, and downstream policy alignment remain blocked on
+independent real-human evidence.
 
 ## Workspace map
 
-- `PAPER_BRIEF.md`: target, candidate thesis, RQs, contribution ceiling, and
+- `PAPER_BRIEF.md`: target, locked thesis, RQs, contribution ceiling, and
   experiment decision
 - `EVIDENCE_LEDGER.md`: current, retrospective, candidate, invalid, and
   missing evidence
 - `CLAIM_LEDGER.md`: exact permitted and prohibited claim upgrades
 - `QUESTION_FINDING_LEDGER.json`: reviewer challenges, evidence,
   authorization status, and stop conditions
-- `ARGUMENT_PLAN.md`: S2 candidate narrative, section jobs, and figure/table
+- `ARGUMENT_PLAN.md`: S2-locked narrative, section jobs, and figure/table
   plan
 - `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`: title/RQ/contribution
-  candidates, claim ceiling, and positive/boundary branches
+  decision history, locked claim ceiling, and positive/boundary branches
+- `FRAMING_LOCK_RECORD_20260826.md`: author authorization, Claude L1 challenge,
+  exact S2 lock, explicitly unlocked items, and reopening rule
 - `manuscript.md`: non-authoritative zero draft with explicit RQ2/RQ3
   placeholders
 - `JSS_SUBMISSION_CHECKLIST_20260825.md`: official-guide requirements checked

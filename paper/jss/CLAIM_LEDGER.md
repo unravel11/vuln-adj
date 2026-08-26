@@ -2,6 +2,7 @@
 
 | Claim ID | Intended location | Exact claim or decision | Evidence IDs | Allowed strength | Prohibited upgrade | Status |
 |---|---|---|---|---|---|---|
+| C00 | Paper-wide governance | The result-neutral title, one-sentence thesis, RQ1--RQ3, exactly three contribution ceilings, non-claims, and Branch P/B stop contract were author locked on 2026-08-26 | E13, bounded by E01, E07B, E07D--E07F, and E11 | Governance decision and writing architecture only | Do not infer E08/E09, construct validity, policy performance, branch selection, or submission readiness from the S2 lock or Claude challenge | `SUPPORTED` |
 | C01 | RQ1 Results | The frozen corpus contains 8,066 CVE-aligned NVD–GHSA rows and 32,264 field instances in the four-field routing census | E01, E07B | Descriptive, snapshot- and pipeline-bounded | Do not call statuses or actions ground truth or infer global database quality | `SUPPORTED` |
 | C02 | RQ1 Results | The strong simple and abstention-aware policies make different actions on 2,332 field instances | E07B | Label-free policy-output census | Do not call either action correct or the differences errors | `SUPPORTED` |
 | C03 | RQ1/Discussion | The abstention-aware arm has 74 fewer conflict escalations but 950 more total manual-review routes than the strong simple arm on this corpus | E07B | Deterministic routing-count trade-off | Do not call this saved workload, extra labor, safety, or utility | `SUPPORTED` |
