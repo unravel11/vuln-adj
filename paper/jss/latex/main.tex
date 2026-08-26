@@ -1,0 +1,560 @@
+\documentclass[preprint,review,12pt,authoryear]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\journal{Journal of Systems and Software}
+\biboptions{authoryear}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{When Vulnerability Metadata Differ: Routing Trade-Offs across Field-Level NVD--GHSA Strategies}
+
+\author{[Author information to be completed]}
+\affiliation{organization={[Affiliation to be completed]},
+             addressline={[Address to be completed]},
+             city={[City]},
+             country={[Country]}}
+
+\begin{abstract}
+\textbf{[Result-neutral placeholder.]}
+The final abstract will report the frozen corpus, the deterministic RQ1 and RQ2
+findings, the action-first/reason-second validation protocol, both
+analyst-specific outcomes, and the selected positive or boundary branch. No
+analyst-backed result is available in this zero draft.
+\end{abstract}
+
+\begin{keyword}
+vulnerability metadata \sep vulnerability databases \sep discrepancy analysis
+\sep maintenance routing \sep abstention \sep trained-analyst judgment
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Public vulnerability records support remediation prioritization, affected
+software identification, and links from advisories to supporting evidence. The
+National Vulnerability Database (NVD) and the GitHub Advisory Database (GHSA)
+both publish structured records indexed by Common Vulnerabilities and Exposures
+(CVE) identifiers \citep{NVDDevelopers2026,GitHubAdvisoryDatabase2026}. Aligned
+records can nevertheless encode severity, affected versions, publication time,
+or references differently. A difference alone does not identify its
+maintenance consequence. Distinct strings can denote the same value, one record
+can contain a strict subset of another, timestamps can mark different
+publication events, and the visible evidence can be insufficient to identify a
+factual conflict.
+
+Earlier studies establish several parts of this problem. VIEM extracted version
+information from public vulnerability reports and compared it with NVD
+\citep{Dong2019VIEM}. \citet{Croft2022Severity} studied severity inconsistency
+across the Firefox vulnerability-reporting lifecycle and examined the effect of
+label-source choice on downstream prediction. \citet{Sun2023Aspect} defined
+aspect-level discrepancies across heterogeneous reports, while
+\citet{Li2025VuldiffFinder} addressed semantic inconsistency in unstructured
+vulnerability information. Other work audits NVD quality, estimates source
+quality, automates vulnerability curation, or evaluates affected-version tools
+\citep{Anwar2022CleaningNVD,Johnson2018CVSS,Okutan2023Curation,Chen2025AffectedVersions}.
+These studies cover discrepancy existence, detection, and metadata quality.
+The workflow considered here begins after a structured NVD--GHSA field
+difference has already been observed and asks how that difference is routed.
+
+Escalating every unequal value collapses representation, incompleteness,
+temporal lag, and factual conflict into one action. Field-specific rules avoid
+that collapse but can still encode assumptions that have not been validated.
+A type-first strategy assigns actions after a deterministic discrepancy status,
+but the resulting status cannot also define the action reference used to
+evaluate the strategy. The comparison therefore uses action judgments obtained
+independently of strategy output, retains uncertainty, and includes a
+field-aware comparator rather than relying on raw inequality.
+
+The study uses a frozen corpus of 8,066 CVE-aligned NVD--GHSA record pairs and
+four fields: severity, affected versions, publication date, and references. It
+first reports a label-free census of 32,264 field instances. It then compares
+three frozen routing strategies: a field-aware simple comparator, a current
+type-first candidate, and an abstention-aware type-first candidate. A separate
+V3.1 protocol is prepared to evaluate the strategies with maintenance actions
+assigned by two independent doctoral-student trained analysts. The protocol
+collects actions before discrepancy reasons so that the discrepancy taxonomy
+does not directly define the action reference.
+
+The research questions are:
+
+\begin{description}[leftmargin=1.7cm,style=nextline]
+\item[RQ1] Across 8,066 CVE-aligned NVD--GHSA record pairs, how do deterministic
+field statuses distribute for severity, affected versions, publication date,
+and references?
+\item[RQ2] How do a field-aware simple comparator, a current type-first
+candidate, and an abstention-aware type-first candidate allocate field
+instances across actions, and where do their conflict-escalation, abstention,
+and total manual-route outputs differ?
+\item[RQ3] When two independent trained analysts assign maintenance actions to
+the same frozen formal cases, do their judgments differentiate the three
+routing strategies in a consistent direction, and where do reliability,
+agreement, coverage, abstention, or shared-miss boundaries emerge?
+\end{description}
+
+The result-neutral thesis is that three frozen routing strategies produce
+different conflict-escalation, abstention, and total manual-route allocations
+on four fields of CVE-aligned NVD--GHSA records. Independent trained-analyst
+judgments are reserved for testing whether those deterministic differences
+correspond to differentiated maintenance actions or expose an empirical
+decision boundary.
+
+The study makes three bounded contributions:
+
+\begin{enumerate}
+\item a reproducible, snapshot-bounded census of 8,066 CVE-aligned record pairs
+and 32,264 field instances, with deterministic statuses for four fields;
+\item a three-strategy routing comparison with separate conflict-escalation,
+abstention, and total-manual-route accounting; and
+\item a frozen two-analyst evaluation that can support either consistent
+strategy differentiation by both analysts or a reported reliability,
+agreement, coverage, abstention, shared-miss, or identifiability boundary.
+\end{enumerate}
+
+RQ1 and RQ2 are supported by deterministic evidence. RQ3 retains a positive and
+a boundary branch pending valid analyst returns. The positive branch requires
+both analysts to clear the frozen reliability, paired-direction, event-floor,
+coverage, and manual-loss gates. Otherwise, the boundary branch reports the
+failed gates, disagreements, abstentions, and uncertain outcomes.
+
+\section{Background and Task Definition}
+\label{sec:background}
+
+\subsection{Research object}
+
+The unit of alignment is a CVE identifier shared by an NVD record and a reviewed
+GHSA record under the frozen data pipeline. The unit of analysis is a field
+instance: a CVE, a field, the NVD value, and the GHSA value. CVE alignment is an
+upstream identifier relation. It is not independent semantic adjudication and
+does not cover records without a usable CVE identifier, ambiguous multi-CVE
+mappings, or true no-match cases.
+
+The four primary fields are severity, affected versions, publication date, and
+references. CWE identifiers are outside the low-human V3.1 study. Each primary
+field has a different identity contract. Severity comparison distinguishes
+missing scores, representation differences, and materially different values.
+Affected-version comparison depends on package or product identity and range
+semantics. Publication dates can refer to different source events. Reference
+comparison is set- and URL-sensitive and can expose aliases, source additions,
+or inaccessible evidence.
+
+\subsection{Observation, reason, and action}
+
+The deterministic pipeline assigns one of five statuses when its field-specific
+rules permit: equivalent (EQ), representation discrepancy (RD), incomplete
+(INC), temporal discrepancy (TD), or factual conflict (FC). The analyst protocol
+also permits \emph{uncertain}. These labels describe candidate reasons for an
+observed difference; they are not source-truth labels.
+
+Maintenance action is recorded separately as no action, enrich record, wait for
+sync, conflict escalation, or abstain. Conflict escalation places a case in a
+conflict queue. Abstention also routes a case to manual review without asserting
+that a factual conflict exists. Total manual route is therefore defined as
+conflict escalation plus abstention. This quantity counts strategy outputs; it
+does not measure elapsed labor, monetary cost, or observed operational workload.
+
+\subsection{Separation from source adjudication}
+
+The task asks what should happen next under the visible record context. It does
+not require an analyst to declare either source globally authoritative.
+Abstention and uncertainty remain admissible when the visible material cannot
+support an action or reason. Earlier evidence-driven source-adjudication
+experiments are retained only as bounded failure evidence because their
+non-human cohorts and abstentions cannot supply the independent action reference
+required for RQ3.
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Vulnerability-report and database discrepancies}
+
+\citet{Dong2019VIEM} extracted software-version information from public reports
+and compared the extracted values with NVD. \citet{Croft2022Severity} measured
+severity disagreement across Bugzilla, Mozilla advisories, and NVD, then
+examined how label-source choice affected prediction. These studies motivate
+field-specific analysis, but neither supplies four-field NVD--GHSA maintenance
+actions.
+
+\citet{Sun2023Aspect} provide the closest task-level overlap: their study aligns
+heterogeneous reports, extracts seven vulnerability aspects, and analyzes
+aspect-level discrepancy types and detection. VuldiffFinder also treats
+unstructured semantic inconsistency as a detection task
+\citep{Li2025VuldiffFinder}. The present task concerns the next workflow step:
+routing differences between structured NVD and GHSA records to maintenance
+actions. Actions precede reasons in the analyst protocol, the main comparator is
+field-aware, and abstention is included in total manual routing.
+
+\subsection{Metadata quality, curation, and affected versions}
+
+NVD-focused work has assessed completeness and consistency, proposed automatic
+corrections, and modeled uncertainty in severity sources
+\citep{Anwar2022CleaningNVD,Johnson2018CVSS}. Automated curation maps text to
+structured attributes and evaluates the resulting predictions
+\citep{Okutan2023Curation}. These studies evaluate metadata or attribute
+generation rather than the routing of a difference between two structured
+sources.
+
+Affected-version analysis requires release histories, branches, backports, and
+artifact identity. \citet{Chen2025AffectedVersions} benchmarked 12 tools on
+1,128 C/C++ vulnerabilities under a common task contract. It is the closest
+same-field benchmark identified in the literature audit. Its task is
+affected-version identification rather than cross-source routing, and the tools
+have not been reproduced on the present corpus. The study therefore defines an
+external task boundary; it is not reported as a performance baseline for the
+present field rules.
+
+\subsection{Selective prediction and human routing}
+
+Selective prediction and learning to defer formalize the choice between an
+automatic prediction and routing to another decision maker.
+\citet{Mozannar2020Defer} jointly learn a classifier and rejector from labels and
+expert decisions under a system loss. The analogy is useful because deferral
+depends on the automatic component and the downstream decision maker. The
+present strategies are deterministic and frozen before analyst exposure; no
+rejector is learned. Learning to defer is therefore a theoretical neighbor, not
+a reproduced same-task baseline.
+
+\subsection{Public resources and GHSA process}
+
+VulZoo aggregates multiple vulnerability-intelligence sources
+\citep{Ruan2024VulZoo}; CVEfixes links CVEs to fixes and code
+\citep{Bhandari2021CVEfixes}; VFCFinder pairs advisories with candidate patches
+\citep{Dunlap2024VFCFinder}; and data-quality studies audit vulnerability
+datasets and their construction \citep{Croft2023DataQuality}. These resources
+can support aggregation, repair linkage, and quality auditing. They do not
+provide same-contract NVD--GHSA maintenance-action labels or an independent
+correctness oracle. The broader vulnerability-database literature also treats
+data sources, schemas, quality, and downstream uses as distinct concerns
+\citep{Li2023Anatomy}.
+
+\citet{Segal2026GHSA} characterize the GHSA review pipeline, identify two
+review-latency regimes, and release data and analysis code. That evidence
+provides process context for publication-date differences. It does not establish
+field correctness or temporal generalization for the frozen snapshot used here.
+
+\subsection{Positioning}
+
+Discrepancy detection, metadata-quality assessment, attribute generation,
+affected-version benchmarking, and human deferral are established but separate
+tasks. The present contract combines four structured fields, a maintenance
+action vocabulary, three frozen routing strategies, and two independent
+action-first/reason-second trained-analyst passes. Its empirical differential is
+action-oriented routing with explicit abstention and a field-aware comparator;
+it is not a claim to be the first discrepancy taxonomy.
+
+\section{Corpus and Deterministic Analysis}
+\label{sec:corpus}
+
+\subsection{Data sources and alignment}
+
+The frozen pipeline normalizes NVD and reviewed GHSA records and aligns them by
+CVE identifier. The resulting field view contains 8,066 aligned record pairs
+and four fields per pair, yielding 32,264 field instances. The field-view
+SHA-256 is:
+\begin{center}
+\texttt{c4bb405399bd0050c206b63ece95771c4}\\
+\texttt{f566a9a3968f123a16cf02a3b5cc3a2}.
+\end{center}
+The corpus supports statements about this snapshot and pipeline. It is not a
+probability sample of all vulnerability records, and CVE alignment excludes
+open-world matching cases.
+
+\subsection{Frozen strategies and reference arms}
+
+The field-aware simple comparator maps field-specific conditions directly to
+maintenance actions. The current type-first candidate maps the deterministic
+status to an action and does not explicitly abstain. The abstention-aware
+type-first candidate routes selected conditions with insufficient
+identifiability to abstention.
+
+Four additional arms bound the design. Raw and canonical non-equality provide
+binary lower references. An always-manual arm sends every instance to conflict
+escalation, and an abstain-all arm sends every instance to abstention. These
+four arms are reference cases rather than main same-contract competitors.
+
+\subsection{Reproducibility and sampling use}
+
+The label-free analyzer and an independent verifier bind the field view,
+strategy implementation, counts, and sampling capacity. Their agreement
+establishes mechanical reproducibility of the deterministic outputs; it does not
+establish the semantic validity of the rules. The census was also used to check
+whether a fixed analyst sample could contain strategy-disagreement and
+shared-no-manual cases without changing the study objective.
+
+\section{Analyst-Bounded Validation Protocol}
+\label{sec:protocol}
+
+\subsection{Analyst role and bounded calibration}
+
+The protocol specifies two independent doctoral students trained as analysts
+for this study, denoted Reviewer A and Reviewer B in the artifacts. It requires
+independent work without AI assistance. The construct is trained-analyst
+judgment; practitioner behavior is outside its scope.
+
+V3.1 contains 20 calibration-1 cases, a CVE-disjoint 20-case calibration-2
+reserve, and 120 formal cases. Calibration-2 is opened only if calibration-1
+action agreement is below 0.60 or the guideline changes materially. A second
+action agreement below 0.60 terminates formal distribution. The formal
+allocation is 50 severity, 50 affected-version, 10 publication-date, and 10
+reference cases. Cases are unique within phases, and the phase CVE sets are
+pairwise disjoint.
+
+\subsection{Action first, reason second}
+
+Each analyst first assigns an action using the visible record pair and allowed
+context. The return is validated and the action stage is hash-locked before a
+reason packet is released. The analyst then assigns EQ, RD, INC, TD, FC, or
+uncertain. This order prevents the project's reason taxonomy from directly
+defining the action used for strategy evaluation. The same person sees the same
+case twice, so same-analyst action--reason association is treated as an upper
+bound rather than the primary association.
+
+\subsection{Blinding and file governance}
+
+Analyst-visible objects use recursive allowlists. Strategy outputs,
+deterministic statuses, selection cells, weights, AI candidates, prior reviews,
+the other analyst's materials, and future-stage packets are excluded. URLs can
+reveal source identity, so the protocol is strategy-blinded but not perfectly
+source-blinded.
+
+\subsection{Estimands and stop rules}
+
+Pre-adjudication analysis reports analyst-specific raw action agreement,
+nominal Krippendorff alpha, uncertainty, disagreement matrices, and reason
+agreement as RQ3 validity diagnostics. Cross-analyst action--reason association
+is primary; same-analyst association is secondary. Paired action matches on
+strategy-disagreement rows, exact McNemar discordance, blocked intervals,
+manual-route coverage, abstention, and design-weighted sensitivity are computed
+separately for each analyst.
+
+The formal set contains a fixed 34-case shared-no-manual audit: 15 severity and
+19 affected-version cases. An analyst conflict-escalation action on one of these
+cases identifies a shared miss within the sample. The inference remains limited
+to those 34 cases. The positive branch requires each analyst to provide at least
+29 conflict actions, no lower type-first manual coverage, a one-sided
+simple-only-loss upper bound below \(\delta_{\mathrm{manual}}=0.10\), the frozen
+paired direction, and no systematic contradictory failure. A failure for either
+analyst selects the boundary branch.
+
+\subsection{Adjudication}
+
+Author adjudication, if performed, is strategy-blinded, secondary, and reported
+after the pre-adjudication results. Sensitivity analysis excludes every
+adjudicated case. Adjudication cannot repair low independent agreement or
+reverse a failed strategy gate.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{RQ1: Deterministic discrepancy landscape}
+
+\input{table_rq1_status_counts.tex}
+
+Table~\ref{tab:rq1-status} reports 8,066 observations for each field. Severity
+contains 3,106 equivalent, 3,178 representation-discrepancy, 33 incomplete, and
+1,749 factual-conflict outputs. Affected versions contain 425 equivalent, 3,936
+representation-discrepancy, 3,054 incomplete, and 651 factual-conflict outputs.
+Publication date contains 6,169 representation and 1,897 temporal discrepancies.
+References contain 300 representation discrepancies, 7,763 incomplete
+instances, and three factual-conflict outputs. These counts are deterministic
+rule outputs, not verified factual labels or database-quality measurements.
+
+\textbf{Answer to RQ1.} Status allocations differ by field in the frozen census.
+Representation discrepancies have the largest count for severity and publication
+date, incomplete values have the largest count for references, and
+affected-version instances are distributed across equivalent, representation,
+incomplete, and factual-conflict statuses.
+
+\subsection{RQ2: Deterministic routing comparison}
+
+\input{table_rq2_strategy_actions.tex}
+\input{table_rq2_pairwise_disagreements.tex}
+
+Table~\ref{tab:rq2-actions} reports action allocations for all three main
+strategies. The field-aware simple comparator routes 3,176 instances manually,
+the current type-first candidate routes 2,403, and the abstention-aware
+type-first candidate routes 4,126. These are strategy-output counts; the current
+type-first candidate has no abstention action under the frozen mapping.
+
+The three pairwise comparisons in Table~\ref{tab:rq2-disagreements} differ on
+2,555, 2,332, and 2,420 field instances, respectively. For the focal
+field-aware-simple versus abstention-aware comparison, the 2,332 action
+differences comprise 263 severity, 1,766 affected-version, no publication-date,
+and 303 reference instances. The abstention-aware strategy emits 1,706 conflict
+escalations compared with 1,780 for the field-aware comparator, a difference of
+\(-74\). Once abstentions are included, its total manual route is 4,126 compared
+with 3,176, a difference of \(+950\).
+
+\textbf{Answer to RQ2.} The frozen strategies allocate the same 32,264 field
+instances differently. Most disagreement in the focal comparison occurs in
+affected versions, and the two strategies agree on publication-date actions.
+A smaller conflict queue coexists with a larger total manual route when
+abstention is counted. The census does not measure labor, safety, correctness,
+or operational utility.
+
+\subsection{RQ3: Analyst-bounded validation}
+
+\textbf{[REAL-HUMAN RESULTS PLACEHOLDER.]}
+No RQ3 result is available. This subsection must not be populated with
+AI-generated, synthetic, calibration-only, or author-imputed labels.
+
+After valid returns, this subsection will report both analysts separately:
+action distributions including abstention; raw agreement and nominal
+Krippendorff alpha overall and by field; reason distributions, uncertainty, and
+disagreement matrices; cross-analyst and same-analyst action--reason
+associations; the calibration path used; paired action-match differences and
+exact discordance; conflict, abstention, and total-manual-route coverage; the
+34-case shared-no-manual audit; the reviewer-specific event and
+\(\delta_{\mathrm{manual}}\) gates; weighted sensitivity; and an
+adjudication-exclusion sensitivity.
+
+The positive branch is admissible only if both analysts clear every frozen
+gate and support the same direction. Otherwise, the boundary branch reports the
+observed reliability, paired-direction, event-floor, coverage, manual-loss, or
+identifiability boundary without changing fields, cases, strategies,
+thresholds, or labels.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the deterministic results establish}
+
+RQ1 describes the snapshot-bounded allocation of rule-based discrepancy
+statuses. RQ2 shows that conflict escalation and total manual routing can move
+in opposite directions once abstention is included. Reporting both quantities
+keeps abstentions visible in the routing comparison. These results establish
+allocation differences; they do not identify which strategy is more accurate
+or useful.
+
+\subsection{Positive-branch interpretation}
+
+\textbf{[CONDITIONAL TEXT.]}
+If both analysts clear the frozen gates, the final discussion will interpret the
+result as a bounded comparison under independent trained-analyst actions. It
+will report which fields carry the observed differentiation and whether
+abstention changes coverage under the frozen contract. The interpretation will
+remain about action alignment and manual-route coverage, not source correctness,
+maintenance effort, or deployment safety.
+
+\subsection{Boundary-branch interpretation}
+
+\textbf{[CONDITIONAL TEXT.]}
+If a gate fails, the final discussion will retain the disagreement or
+insufficient event count as an empirical result. Any interpretation---for
+example, insufficient visible information, field-dependent ambiguity, unstable
+action semantics, or a shared blind spot---will be selected only when the
+observed matrices and cases support it. Failure of the positive branch will not
+be generalized to all vulnerability-metadata routing.
+
+\subsection{Limits of automated reconciliation}
+
+Historical non-human adjudication cohorts in the repository were frequently
+unresolved or dependent on available evidence under the tested protocols.
+Those results explain the retained abstention action. They are not merged with
+V3.1 analyst outcomes, presented as a successful adjudication method, or used to
+rank NVD and GHSA.
+
+\section{Threats to Validity}
+\label{sec:threats}
+
+\paragraph{Construct validity.}
+Maintenance actions are study constructs rather than logs of production curator
+behavior. The analysts are trained for this study and are not represented as
+practitioners. Action-first ordering reduces direct taxonomy circularity but
+does not eliminate repeated-case anchoring. URLs may reveal source identity.
+Uncertainty and pre-adjudication agreement are reported, and low calibration or
+formal reliability blocks a positive strategy claim.
+
+\paragraph{Internal validity.}
+The deterministic field rules can be semantically wrong even when their
+implementation is reproducible. Sampling is stratified around strategy
+comparison and contains a fixed shared-no-manual audit; it is not an
+unqualified random sample of all instances. Strategies, sampling cells,
+thresholds, and analyses were frozen before analyst exposure. Analyst-specific
+paired comparisons reduce dependence on pooled judgments but remain conditional
+on the action and loss contract.
+
+\paragraph{Conclusion validity.}
+A limited number of analyst conflict-escalation actions may leave the positive
+branch statistically unidentified. The frozen 25/29 reporting thresholds and
+one-sided manual-loss upper bound control the permitted interpretation; they do
+not guarantee a positive result or operational safety. Weighted sensitivity can
+have low effective sample size and does not replace the primary paired
+comparison. Field-level summaries remain descriptive unless a confirmatory
+hierarchy or correction was frozen.
+
+\paragraph{External validity.}
+The corpus contains CVE-aligned NVD and reviewed GHSA records from one snapshot
+and pipeline. It excludes unmatched records, records without a CVE, ambiguous
+multi-CVE mappings, and broader advisory sources. Results may not transfer to
+future snapshots, unreviewed GHSAs, other data sources, or practitioner
+workflows. Existing snapshot-external data do not form a bilateral post-freeze
+temporal cohort.
+
+\paragraph{Reproducibility and artifact validity.}
+Hashes, manifests, validators, and independent mechanical verifiers bind files
+and computations. Their scope is mechanical reproducibility. Analyst returns
+can contain private or sensitive information; any public artifact must separate
+anonymized analysis data from analyst-private material and follow the final
+author and institutional disposition.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\textbf{[CONCLUSION PLACEHOLDER.]}
+The final conclusion will restate the bounded RQ1 and RQ2 findings and report
+either the analyst-consistent positive result or the preserved RQ3 boundary.
+
+\section*{Data availability}
+
+\textbf{[AUTHOR TO COMPLETE.]}
+The final statement must provide the public repository and persistent
+identifier for shareable research data, or explain why particular data cannot
+be shared. Private analyst materials must not be included in a public deposit.
+
+\section*{Code availability}
+
+\textbf{[AUTHOR TO COMPLETE.]}
+The final statement must identify an archival software version, persistent
+identifier, and license.
+
+\section*{Funding}
+
+\textbf{[AUTHOR TO COMPLETE.]}
+
+\section*{Declaration of competing interest}
+
+\textbf{[AUTHOR TO COMPLETE.]}
+
+\section*{CRediT authorship contribution statement}
+
+\textbf{[AUTHOR TO COMPLETE.]}
+
+\section*{Human participation and ethics}
+
+\textbf{[AUTHOR/INSTITUTION TO COMPLETE.]}
+The final statement must report the applicable institutional determination,
+recruitment, consent, compensation, and conflict conditions accurately.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+
+\textbf{[AUTHOR TO REVIEW AND COMPLETE USING THE CURRENT JOURNAL WORDING.]}
+Codex assisted preparation and editing of this zero draft. The final declaration
+must identify the tool and purpose, describe author review and editing, and
+state that the authors retain responsibility for the article.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\end{document}

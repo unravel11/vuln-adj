@@ -7,8 +7,9 @@
 > ceilings, and dual result branches follow the S2 records in `PAPER_BRIEF.md`,
 > `EVIDENCE_LEDGER.md`, `CLAIM_LEDGER.md`,
 > `FRAMING_CANDIDATES_AND_RESULT_BRANCHES_20260825.md`, and
-> `FRAMING_REBALANCE_LOCK_RECORD_20260826.md`. Citations and venue formatting
-> remain provisional.
+> `FRAMING_REBALANCE_LOCK_RECORD_20260826.md`. The checked citation source is
+> `paper/jss/latex/references.bib`; the editable venue-source representation is
+> `paper/jss/latex/main.tex`.
 
 ## Abstract
 
@@ -223,7 +224,17 @@ processes. We use this study to interpret date discrepancies, while field
 correctness and temporal generalization remain outside the evidence supplied by
 our snapshot.
 
-### 3.5 Positioning summary
+### 3.5 Public data and repair-link resources
+
+VulZoo aggregates multiple vulnerability-intelligence sources; CVEfixes links
+CVEs to fixes and code; VFCFinder pairs advisories with candidate patches; and
+data-quality studies audit vulnerability datasets and their construction. These
+resources support aggregation, repair linkage, and quality auditing. They do not
+provide same-contract NVD--GHSA maintenance-action labels or an independent
+correctness oracle. They are cited as related resources and have not been run as
+baselines on the frozen corpus.
+
+### 3.6 Positioning summary
 
 Across the audited literature, discrepancy detection, metadata-quality audit,
 attribute generation, affected-version benchmarking, and human deferral are
@@ -336,6 +347,16 @@ agreement or reverse a failed strategy gate.
 
 ### 6.1 RQ1 -- Deterministic discrepancy landscape
 
+| Field | EQ | RD | INC | TD | FC | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Severity | 3,106 | 3,178 | 33 | 0 | 1,749 | 8,066 |
+| Affected versions | 425 | 3,936 | 3,054 | 0 | 651 | 8,066 |
+| Publication date | 0 | 6,169 | 0 | 1,897 | 0 | 8,066 |
+| References | 0 | 300 | 7,763 | 0 | 3 | 8,066 |
+
+These values are generated from the same label-free census as
+`paper/jss/latex/table_rq1_status_counts.tex`.
+
 The deterministic census contains 8,066 observations for each of the four
 fields. Severity was classified as 3,106 equivalent, 3,178 representation
 discrepancy, 33 incomplete, and 1,749 factual conflict. Affected versions
@@ -354,6 +375,23 @@ statuses. These rule-based counts describe the frozen corpus and field
 contracts.
 
 ### 6.2 RQ2 -- Deterministic routing comparison
+
+| Strategy | No action | Enrich | Wait | Conflict | Abstain | Manual total | All |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Field-aware simple | 15,182 | 12,009 | 1,897 | 1,780 | 1,396 | 3,176 | 32,264 |
+| Type-first current | 17,114 | 10,850 | 1,897 | 2,403 | 0 | 2,403 | 32,264 |
+| Type-first abstention-aware | 15,465 | 10,776 | 1,897 | 1,706 | 2,420 | 4,126 | 32,264 |
+
+| Strategy pair | Severity | Affected versions | Publication date | References | Total |
+|---|---:|---:|---:|---:|---:|
+| Simple vs current | 5 | 2,247 | 0 | 303 | 2,555 |
+| Simple vs abstention-aware | 263 | 1,766 | 0 | 303 | 2,332 |
+| Current vs abstention-aware | 258 | 2,159 | 0 | 3 | 2,420 |
+
+The current type-first strategy routes 2,403 instances manually, all as conflict
+escalations under its frozen mapping. The field-aware and abstention-aware
+strategies route 3,176 and 4,126 instances manually, respectively. These counts
+describe policy outputs; they do not identify a correct strategy.
 
 The strong field-aware and abstention-aware type-first strategies made different
 actions on 2,332 instances: 263 severity, 1,766 affected-version, zero
@@ -457,8 +495,8 @@ analyses were frozen before human exposure. Analyst-specific results and exact
 paired comparisons reduce, but do not remove, dependence on the chosen loss and
 action contract.
 
-**Conclusion validity.** A limited number of analyst conflict-escalation actions may make
-Branch P statistically unidentifiable. The frozen 25/29 floors and one-sided
+**Conclusion validity.** A limited number of analyst conflict-escalation actions
+may make Branch P statistically unidentifiable. The frozen 25/29 floors and one-sided
 manual-loss upper bound control the permitted branch rather than guaranteeing a
 positive result or operational safety. Weighted sensitivity can have low
 effective sample size and does not replace the primary paired analysis.
@@ -488,32 +526,13 @@ report either the analyst-consistent Branch P result or the preserved Branch B
 boundary for RQ3. Its interpretation will remain within the scope defined in
 Section 8.
 
-## Provisional References Requiring Final BibTeX Reconciliation
+## References
 
-- Croft, R., Babar, M.A., Li, L., 2022. An Investigation into Inconsistency of
-  Software Vulnerability Severity across Data Sources. SANER, 338--348.
-  https://doi.org/10.1109/SANER53432.2022.00050
-- Li, Q., Tang, W., Chen, X., Ren, H., 2025. VuldiffFinder: Discovering
-  Inconsistencies in Unstructured Vulnerability Information. Computers &
-  Security 154, 104447. https://doi.org/10.1016/j.cose.2025.104447
-- Mozannar, H., Sontag, D., 2020. Consistent Estimators for Learning to Defer
-  to an Expert. Proceedings of Machine Learning Research 119, 7076--7087.
-  https://proceedings.mlr.press/v119/mozannar20b.html
-- Sun, J., Xing, Z., Xia, X., Lu, Q., Xu, X., Zhu, L., 2023. Aspect-Level
-  Information Discrepancies across Heterogeneous Vulnerability Reports:
-  Severity, Types and Detection Methods. ACM Transactions on Software
-  Engineering and Methodology 33(2), Article 49.
-  https://doi.org/10.1145/3624734
-- Chen, X., Liu, C., Cao, J., et al., 2025. Vulnerability-Affected Versions
-  Identification: How Far Are We? ASE 2025, 2970--2982.
-  https://doi.org/10.1109/ASE63991.2025.00244
-- Segal, C., Segal, P., Banjar, C.E., et al., 2026. Characterizing and
-  Modeling the GitHub Security Advisories Review Pipeline. MSR 2026.
-  https://doi.org/10.1145/3793302.3793360
-
-The final manuscript must add the remaining cited works, datasets, and software
-as complete references and verify every author, title, venue, year, pagination,
-DOI, version, and access date against primary sources.
+The checked BibTeX source is `paper/jss/latex/references.bib`. Claim-level source
+scope and the one abstract/metadata-only item are recorded in
+`paper/jss/CITATION_EVIDENCE_MAP_20260826.md`. The LaTeX build validates
+citation-to-reference closure; the final public dataset and software citations
+remain conditional on the author-approved archive and persistent identifiers.
 
 ## Required Declarations (Author-Owned Placeholders)
 

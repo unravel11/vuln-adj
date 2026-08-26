@@ -1,0 +1,4 @@
+Pair,Severity,Affected versions,Publication date,References,Total
+Simple vs current,5,2247,0,303,2555
+Simple vs abstention-aware,263,1766,0,303,2332
+Current vs abstention-aware,258,2159,0,3,2420
