@@ -219,6 +219,86 @@ Pipeline*（MSR 2026，DOI
 `accepted_disposition_time` 必须分开，不能把 GHSA Git mirror commit time 当作内部
 审核时间。
 
+### 3.12 Dong et al.：NVD affected-version 变更历史已经被规模化分析
+
+Dong 等人的 *Towards the Detection of Inconsistencies in Public Security
+Vulnerability Reports*（USENIX Security 2019，
+[官方全文](https://www.usenix.org/system/files/sec19-dong.pdf)）用 VIEM 从 CVE 描述和
+外部报告中抽取产品与版本，并与 NVD 结构化条目比较。其 78,296 个 CVE、70,569 份
+报告的主分析已系统覆盖 affected-version overclaim / underclaim。更直接的是，论文
+还对 5,000 个版本不一致的 CVE 使用 NVD change history，提取条目创建时间及版本
+增加/删除时间，并比较外部报告何时已可见。
+
+因此，“第一次用 NVD change history 研究 vulnerable-version 更新”和“比较版本
+信息何时进入 NVD”都不能再写。该工作没有以公开 submission / accepted disposition
+锚定更新原因，也没有恢复每次修改的完整 old/new payload、区分同步 lineage，或把
+同一修改前后状态送入扫描器。它占据的是大规模不一致与更新时间分析，不是本协议
+要求的 accepted-event replay；但它使单纯的时间统计明显不够。
+
+### 3.13 Leung et al.：reference 后增时间和下游工具比较已有强邻近工作
+
+Leung 等人的 *A Data-Driven Automated Approach to Trace Vulnerabilities*
+（本轮找到的作者稿仍标为 `Received: date / Accepted: date`，
+[全文](https://arcyleung.pages.dev/vul_traceability.pdf)，故不把它写成已确认发表论文）
+分析 63 个 CVE 的 NVD change-history events、描述和外部 references。作者稿报告
+559 个变更事件中 `Added Reference` 占 71.7%，后加 reference 在 11/63 个漏洞中带来
+新的 traceability information；随后以人工 oracle 比较 DICTionary analyzer、Mend
+和 Snyk 的组件识别结果。
+
+这不是 provider-accepted correction 研究，也没有逐事件 before/after 重跑在线
+工具；其工具比较与 change-history 时间分析也是两个相邻但未绑定的分析。然而它
+已经强邻近“reference 后增何时带来新的下游可用信息”。所以本项目不能只报告新增
+reference 数量或新信息比例，Task B 必须证明同一个 route-bound accepted event
+确实改变冻结外部 CVE-to-VFC consumer 的输出，并明确其发布状态核查边界。
+
+### 3.14 Dietrich et al.：accepted GHSA affected 修正与 SCA 盲点已被连在一起
+
+Dietrich 等人的 *On the Security Blind Spots of Software Composition Analysis*
+（SCORED 2024，DOI
+[`10.1145/3689944.3696165`](https://doi.org/10.1145/3689944.3696165)，
+[作者/机构全文](https://labs.oracle.com/pls/apex/f?p=LABS%3A0%3A11173695178339%3AAPPLICATION_PROCESS%3DGETDOC_INLINE%3A%3A%3ADOC_ID%3A4480)）
+检测 Maven 中克隆或 shaded 的脆弱组件，用 PoV 验证暴露，并比较 Grype、
+OWASP Dependency-Check、Snyk 和 Steady 的漏报。论文报告由结果产生的 10 个 GHSA
+修改通过 accepted PR 落地；它还明确说明 GHSA 随后演化会使依赖数据库的 SCA 工具
+报告更多这些组件，从而影响复现实验结果。
+
+这是当前最危险的重合项。它已经把“可执行暴露证据 → GHSA accepted affected-data
+修改 → SCA 结果将随数据库更新改变”连了起来。因此本项目不能把“accepted GHSA
+修正会影响 scanner”写成贡献。该论文没有枚举一个冻结时间窗内的全部修正，也没有
+为每个 PR 恢复 proposal/main before/after、量化跨源传播延迟，或用同一配对状态
+实际重跑两个性质不同的消费者。若本项目最后只做 affected 字段和一个 scanner，
+即使样本更多，也应视为与该工作增量不足；保留路线必须依靠系统事件账本、as-of
+replay、lineage 和 reference consumer 的联合结果。
+
+### 3.15 Mohayeji et al.：GHSA 驱动 Dependabot 的可执行下游已被大规模研究
+
+Mohayeji 等人的 *Investigating the Resolution of Vulnerable Dependencies with
+Dependabot Security Updates*（MSR 2023，DOI
+[`10.1109/MSR59073.2023.00042`](https://doi.org/10.1109/MSR59073.2023.00042)，
+[正式论文页面](https://research.tue.nl/en/publications/investigating-the-resolution-of-vulnerable-dependencies-with-depe/)）
+研究 JavaScript 项目如何接收和处理 Dependabot security updates。方法使用 2021-03-27
+取得的 1,063 条 GHSA 记录，把 2019--2020 年 Dependabot PR 的 parent / merge commit
+分别作为有漏洞与已修复的项目状态，并运行版本范围匹配；论文还指出 dependency
+files 或 GHSA 数据变化会触发 Dependabot 重扫，且在合并态发现 133 个仍未清除 alert
+的案例，随后复现实为 Dependabot 处理多范围时的 bug。
+
+更重要的是，Agaronian 的 2021 年前身硕士论文
+[*On Resolution of Vulnerable Dependencies with Dependabot Security Updates in
+JavaScript Projects*](https://research.tue.nl/en/studentTheses/on-resolution-of-vulnerable-dependencies-with-dependabot-security/)
+记录了更完整的方法：当前 GHSA snapshot 无法解释 479 个历史 update 后，作者从旧
+commit、Dependabot/Renovate PR、讨论和 NVD 中人工恢复 8 个被修改、撤下或重发的
+package advisory；附录为 `ws`、`kind-of` 等范围变化建立修改日期前后的时间特例，
+再将无法关联的 update 降到 28（0.6%）。因此，“第一次发现 current GHSA 不能直接
+解释过去”以及“第一次用下游 update 痕迹恢复旧 affected range”也已有直接先例。
+
+这项工作仍不是 provider-accepted correction 的全量研究：它从 downstream traces
+为特定分析补回少数历史 records，没有枚举公开 accepted PR，没有绑定 proposal 与
+main adoption delta，没有跨数据库 lineage，也没有第二个 reference consumer。它
+一方面占据“GHSA 范围驱动真实 dependency alert / update”的下游合同，另一方面把
+本项目门槛提高为：必须做系统、route-bound、可机械复核的 as-of replay，并与
+current-snapshot replay 配对比较；只再跑一次通用 scanner，或只展示几个手工恢复
+案例，贡献不足。
+
 ## 4. 横向比较矩阵
 
 符号含义：`是` 表示论文直接交付；`部分` 表示只覆盖邻近构件；`否` 表示本轮核查
@@ -238,6 +318,10 @@ Pipeline*（MSR 2026，DOI
 | ASE 2026 cross-version exploits | affected | before artifact + 19 个公开 NVD old/new | 19 个时间吻合更新；无 GHSA accepted | 部分 | 未发现 | exploit applicability / DB accuracy | 是 |
 | Cathedral/Bazaar | CVSS | 是 | 否 | 评分 timeline | NVD--CNA follow delay | 否 | 未复核 |
 | GHSA review pipeline | advisory review | review timestamps | reviewed disposition | 否 | NVD-first / GRA path | 否 | 是 |
+| Dong et al. USENIX 2019 | affected | change-history version updates | 否 | 部分 | NVD 与外部报告时间 | 否 | 未复核 |
+| Leung et al. author manuscript | references/traceability | change-history events | 否 | 部分 | reference 后增时间 | DICTionary/Mend/Snyk 横截面 | 未复核 |
+| Dietrich et al. SCORED 2024 | affected/shaded packages | GHSA contribution pair | 是 | 否 | 仅预期数据库同步 | 多个 SCA + PoV | 是 |
+| Agaronian 2021 / Mohayeji et al. MSR 2023 | affected | 项目 parent/merge；8 个包的旧 advisory 恢复 | 否 | 部分（downstream traces） | GHSA 驱动 Dependabot | alert/update lifecycle | thesis 是 |
 | 本协议候选合同 | affected + references | 必须 | 必须 | 必须 | 必须 | SCA + known-VFC 两任务 | 必须 |
 
 ## 5. 文献真正留下的差异，以及不能再写的贡献
@@ -245,7 +329,8 @@ Pipeline*（MSR 2026，DOI
 不能再写的贡献包括：首次发现漏洞数据库不一致；首次发现 affected versions 有错；
 首次证明脏数据改变经验研究结果；首次研究漏洞记录更新；首次画数据库信息传播图；
 首次计算 NVD 与上游谁先更新；首次自动寻找 fixing commits；首次向 GHSA 或 NVD
-提交版本/reference 修正。这些说法分别被上述工作直接或强邻近覆盖。
+提交版本/reference 修正；首次说明 accepted GHSA affected-data 修改会改变 SCA
+可见性。这些说法分别被上述工作直接或强邻近覆盖。
 
 当前只剩一个组合式、而且风险很高的差异：**以公开 accepted correction 为事件
 锚点，恢复修正前后在各来源当时可见的状态，显式保存交易时间、记录时间和观察
@@ -361,6 +446,16 @@ event ledger + historical replay + explicit lineage + two downstream consumers�
   https://arxiv.org/abs/2607.05670
 - Segal et al., GHSA review pipeline artifact:
   https://github.com/cmsegal/ghsa-review
+- Dong et al., USENIX Security 2019:
+  https://www.usenix.org/system/files/sec19-dong.pdf
+- Leung et al., author manuscript (publication status unconfirmed):
+  https://arcyleung.pages.dev/vul_traceability.pdf
+- Dietrich et al., SCORED 2024:
+  https://doi.org/10.1145/3689944.3696165
+- Mohayeji et al., MSR 2023:
+  https://doi.org/10.1109/MSR59073.2023.00042
+- Agaronian, TU/e master thesis 2021:
+  https://research.tue.nl/en/studentTheses/on-resolution-of-vulnerable-dependencies-with-dependabot-security/
 - NIST NVD technical updates:
   https://www.nist.gov/itl/nvd
 - GitHub Advisory Database contribution contract:
