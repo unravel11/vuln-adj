@@ -4551,3 +4551,80 @@
     manifest；然后密封 outcome-independent 100-CVE E0 manifest。
   - 先通过 current replay gate，再读取历史差异；失败即按协议收缩字段或
     `NO_GO`，不改 checkpoint、sample 或 threshold。
+
+## 2026-08-31：完成 E0 三来源历史重放资格门
+
+- 本次完成了什么：
+  - 在权威远端再次核对 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`，在隔离分支
+    `codex/temporal-provenance-pilot-20260831` 执行；结果运行 HEAD 为 `dd13130`。
+  - 完成并冻结 GHSA、CVE List、FKIE NVD Git 源 pin 和 outcome-independent E0：
+    当前对齐 universe 为 `2,635` 个合格 ID，按固定 SHA-256 排序选出 `100` 个 CVE；
+    官方 NVD 当前 API 一次批量请求返回 `100/100`。
+  - 对三来源分别物化 2024-01-01、2025-01-01、2026-05-31 和冻结 current，共
+    `1,200` 个 source/checkpoint states；原始记录以内容寻址 blobs 保留，得到
+    `751` 个唯一 raw blobs。所有读取均使用冻结 commit；CVE List 完整运输 clone
+    后续 HEAD 漂到 `269bfaa...`，但冻结 HEAD 与三个 checkpoint commit 对象均存在，
+    未用新 HEAD 替代冻结状态。
+  - 增加与主 projector 隔离的最小解析器，按第二个固定 seed 选择 20 个 CVE，复核
+    三来源四时点的 raw digest 与 loss-sensitive affected/reference 结构；分析器只有在
+    current gate 与独立复核同时通过时才打开 historical summary。
+  - 完成逐篇相关工作资格矩阵。新增重点边界包括：`Cleaning the NVD` 已占据多字段
+    rectification + 下游统计影响；历史描述 before/after 已被 TOSEM 补全研究使用；
+    ASE 2026 公开可核的是 19 个与作者报告时间吻合的 NVD CPE updates，而非 20 个
+    NVD/GHSA accepted corrections，且冻结 2024--2025 窗口内只有 12 个。NVD Change
+    History alone 不满足本项目的 public accepted-disposition 条件。
+
+- 产物路径：
+  - `experiments/temporal_provenance/source_pins_v1.json`
+  - `experiments/temporal_provenance/e0_sample_v1.json`
+  - `experiments/temporal_provenance/materialize_e0_git_states.py`
+  - `experiments/temporal_provenance/verify_e0_git_states.py`
+  - `experiments/temporal_provenance/analyze_e0_replay.py`
+  - `experiments/temporal_provenance/test_verify_e0_git_states.py`
+  - `docs/related_work_temporal_provenance_qualification_20260831.md`
+  - `docs/temporal_provenance_e0_replay_result_20260831.md`
+  - 远端 ignored raw/processed/results：
+    `data/raw/temporal_provenance/pilot_v1/`、
+    `data/processed/temporal_provenance/pilot_v1/e0_git_states/`、
+    `data/processed/temporal_provenance/pilot_v1/e0_nvd_current/`、
+    `results/temporal_provenance/pilot_v1/e0_replay/`
+
+- 如何验证：
+  - 权威远端 `python3 -m unittest discover -s experiments/temporal_provenance
+    -p 'test_*.py' -v` 为 `16/16 PASS`；全部 pilot Python 文件 `py_compile` 通过。
+  - 三来源 current Git presence 均为 `100/100`；官方 NVD 与 FKIE mirror 的 current
+    exact projection、CPE semantics、reference semantics 均为 `100/100`，mismatch
+    为 `0`。
+  - 独立解析器为 `pass`：20 个 CVE、`240` 个 present states、失败 `0`；E0 analysis
+    返回 `pass_e0_replay`。
+  - 一次性记录五个关键远端 manifest/result 文件的 SHA-256，见
+    `docs/temporal_provenance_e0_replay_result_20260831.md`。该清单只绑定本次运行，
+    不增加语义证据。
+
+- 当前观察到的效果或统计：
+  - GHSA 当前选中路径在 2024/2025 checkpoint 分别为 `97/100`、`98/100` 可见；所有
+    present record 都在当时 aliases 中包含目标 CVE。该结果证明 current CVE--GHSA
+    mapping 不能直接回填历史，不是 GHSA 准确率。
+  - GHSA 2024→2025 的 raw affected/reference changes 为 `8/13`（共同可见 `97`），
+    2025→2026-05-31 为 `3/4`（共同可见 `98`）。这些只是未分类 state drift。
+  - CVE List 2024→2025 affected/reference 均为 `99/100`；FKIE NVD 同期
+    references 为 `99/100`；NVD 2026-05-31→current 新 top-level affected 为
+    `99/100`。这些高密度变化首先按 initial population/schema/bulk/sync 风险处理，
+    不能计为自然 correction 或传播率。
+
+- 还没验证的点：
+  - 两个主字段各自是否存在至少 50 个满足公开 disposition、稳定 before/after、
+    完整 lineage 的 accepted corrections 仍未知。普通 NVD Change History 事件和
+    作者声称已确认但无公开 disposition 的更新均不能自动入主集合。
+  - Task A 与 Task B 的 50-event executable gate、paired output change、external
+    benchmark/mapping overlap、bulk dominance 和最终 closest-work differential 均未
+    通过；当前状态不是 `GO_FOR_CONFIRMATORY_DESIGN`，更不是可投稿。
+
+- 下一步：
+  - 按冻结窗口枚举 GitHub Advisory Database 的公开 merged correction PR，连接
+    PR disposition、main parent/child、七日稳定性与 affected/reference semantic diff；
+    bot sync、bulk/schema/backfill 与无 PR 主分支变化完整保留但分类排除。
+  - 将 ASE 2026 的 12 个窗口内 NVD updates 只作外部可观察验证候选；没有公开 NVD
+    disposition 证据时分类为 `ordinary_provider_change_no_public_acceptance`，不为凑数
+    降低事件合同。

@@ -14,7 +14,7 @@
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
 | F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、三项 contribution ceiling 与 Branch P/B 合同不变；Markdown/`elsarticle` zero draft、17-key citation closure、三张确定性表、no-human artifact manifest、22 页临时 PDF 编译与逐页 QA 已完成；真人流程暂停且标签仍为 0，正文未获作者批准，E08/E09 与最终投稿门禁未完成） |
-| G：时间 provenance 新方向资格验证 | **进行中**（`Q0_PROTOCOL_FROZEN`；只验证“被维护方公开接受的字段修正是否可历史重放，并能否在 affected-range 扫描和 fix-reference 识别两个不同下游任务中形成可测传播”；旧 JSS 路线与资产原样保留，本阶段尚未取得实验结果，也未决定替换旧路线） |
+| G：时间 provenance 新方向资格验证 | **进行中**（`E0_REPLAY_PASS`；100-CVE 三来源历史物化、当前 NVD 100/100 语义回放和 20-CVE/240-state 独立结构复核已通过，只允许进入 accepted-event discovery；两字段事件数、两项下游任务和贡献门仍未知，旧 JSS 路线与资产原样保留） |
 
 ---
 
@@ -50,8 +50,9 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 
 ### 2026-08-31 时间 provenance 新方向资格验证
 
-- 状态：`Q0_PROTOCOL_FROZEN`；这是与旧 JSS routing 稿隔离的资格验证，不是对
-  旧稿的静默改题，也不是新论文 `GO`。
+- 状态：`E0_REPLAY_PASS`；这是与旧 JSS routing 稿隔离的资格验证，不是对旧稿的
+  静默改题，也不是新论文 `GO`。E0 只通过历史重放工程门，当前决定为
+  `ADVANCE_TO_ACCEPTED_EVENT_DISCOVERY`。
 - 候选问题不是泛泛统计“数据库会变化”，而是：被维护方公开接受的
   `affected` 或 fix-reference 修正，是否能在可审计的历史快照中重放，并是否会改变
   两类不同下游产物——离线 SCA 告警集合与已知修复提交的 reference coverage。
@@ -79,6 +80,12 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 - 冻结协议与字段合同：`docs/plans/temporal_provenance_pilot_v1.md`、
   `docs/annotation_guidelines/accepted_correction_event_contract_v1.md`；实现与结果隔离在
   `experiments/temporal_provenance/` 和 `results/temporal_provenance/pilot_v1/`。
+- E0 结果：三来源 current presence 均为 `100/100`；官方 NVD 与 FKIE 镜像的 CPE、
+  references 语义均为 `100/100`；独立解析器固定 20 个 CVE 并复核三来源四时点共
+  `240` 个 present states，失败为 `0`。GHSA 当前选中路径在 2024/2025 时点分别
+  只有 `97/100` 与 `98/100` 可见，证明 current mapping 不能直接倒灌历史。CVE List
+  与 NVD 的若干 `99/100` transition 只作为 bulk/schema/sync 风险信号，不计 accepted
+  correction。完整边界见 `docs/temporal_provenance_e0_replay_result_20260831.md`。
 
 ### 2026-08-23 JSS framing 与实验边界
 

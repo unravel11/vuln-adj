@@ -179,7 +179,11 @@ accepted version labels。artifact 没有 GHSA submission、PR、review 或 acce
 artifact 提供 before CPE JSON 和逐版本 NVD 表，但没有 after snapshot 或独立
 `corrections.csv`。精确双状态必须由 artifact before 与 NVD Change History 的
 old/new payload 连接构造。按本项目已冻结的发现窗口，只有 2025 年的 12 个更新可作
-候选；2026-04-29 的 7 个只能留作窗口外验证，不能为增加样本而修改协议。
+外部可观察候选；2026-04-29 的 7 个只能留作窗口外验证，不能为增加样本而修改
+协议。更重要的是，NVD history 只记录 NVD 的 change event 与 old/new payload，
+不公开贡献者或 submission/ticket disposition；论文转述的确认邮件也未作为 artifact
+发布。因此这 12 个事件本身仍不满足本项目冻结合同的 public accepted-disposition
+条件，只能用于验证 before/after 连接和 Task A，不能计入 50-event 主门槛。
 
 因此，“提出 affected-version 真值”“发现 NVD 遗漏版本”“把证据交给 NVD 并获得
 更新”都不是我们的新贡献。可能留下的部分，是在这些已接受更新之后继续追踪 NVD、
