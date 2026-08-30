@@ -4496,3 +4496,58 @@
   - 真人恢复后严格按冻结 action-first 门禁收集两位 trained analysts 的真实结果，
     再填 RQ3、选择 Branch P 或 B，并完成最终 Abstract/Conclusion、artifact PID 和
     submission-level 审核。
+
+## 2026-08-31：冻结时间 provenance 新方向资格验证协议
+
+- 本次完成了什么：
+  - 在权威远端复核 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`、原分支
+    `codex/jss-zero-draft-venue-20260825`、HEAD
+    `07f758b3eadcabf8441b95c3871148a1f546c7ef`、clean、upstream `0/0`；随后从同一
+    HEAD 建立隔离分支 `codex/temporal-provenance-pilot-20260831`。
+  - 根据最接近文献和现有资产审计，将候选问题从泛泛的“数据库差异/受影响版本”
+    收窄为“公开 accepted correction 的历史重放与多下游传播”。主字段固定为
+    affected package/range 与 fix references；只做 affected_versions 或只数快照变化
+    均不能通过贡献门。
+  - 在任何 pilot 数据采集和结果生成前冻结 100-CVE E0、三个 checkpoint、
+    2024--2025 accepted-disposition interval、两个下游任务、lineage、claim ceiling、
+    `99.5%` replay、`5%` payload loss、每字段/任务 50 个合格事件的停止门。
+  - 冻结 accepted-correction 事件合同：普通同步、schema/bulk change、backfill、
+    mirror rollback、timestamp-only change 和无公开 acceptance 的变更不能冒充
+    correction；缺失历史状态时 fail closed，禁止用当前值回填过去。
+  - 旧 JSS routing 路线、论文、真人协议和结果资产均未修改或删除；新方向当前只到
+    `Q0_PROTOCOL_FROZEN`，尚未取得实验结果，也未决定替换旧路线。
+
+- 产物路径：
+  - `docs/plans/temporal_provenance_pilot_v1.md`
+  - `docs/annotation_guidelines/accepted_correction_event_contract_v1.md`
+  - `experiments/temporal_provenance/README.md`
+  - `docs/plans/project_master_plan.md` 与本进度日志
+
+- 如何验证：
+  - 协议、合同、总计划和进度日志在同一提交中同步；固定日期、样本、字段、任务、
+    停止门和主张上限均可文本核查。
+  - 本阶段没有运行数据处理或下游工具，因此没有把计划或机械结构误记成科学结果。
+  - 提交前执行 `git diff --check`；推送后在权威远端 fast-forward 并复核 clean 状态。
+
+- 当前观察到的效果或统计：
+  - 已有 NVD Change History 日期窗探针可返回事件，但旧单数 `cveId` 参数当前返回
+    404；批量接口与具体 payload 仍需在 acquisition 阶段固定并验证。
+  - GHSA Git 历史可恢复文件状态，但 commit time 只是公开镜像事务时间，且已知存在
+    backfill、批量 sync 与短时 rollback；这些现实直接进入合同，而未被隐藏。
+  - 当前仓库只有 current snapshot 和同日 acquisition delta，没有可直接支持新问题
+    的历史事件账本；所以当前仍无可报告的 temporal effect。
+
+- 还没验证的点：
+  - 100 个 E0 CVE 的当前回放一致率、三个 checkpoint 的可恢复率、accepted event
+    数量、两项下游任务的有效重叠与 paired output changes 均未知。
+  - FKIE NVD 衍生 Git 镜像能否在冻结样本上与官方当前 API/Change History 达到门槛
+    未验证；其历史不能预先写成 NVD 官方快照。
+  - 文献 differential 仍需形成独立的逐篇证据矩阵；协议中的候选 gap 不是 novelty
+    结论。
+
+- 下一步：
+  - 在权威远端 acquire 并 pin GHSA、CVE List 与 NVD 历史源，生成 raw provenance
+    manifest；然后密封 outcome-independent 100-CVE E0 manifest。
+  - 先通过 current replay gate，再读取历史差异；失败即按协议收缩字段或
+    `NO_GO`，不改 checkpoint、sample 或 threshold。

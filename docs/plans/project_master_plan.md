@@ -1,6 +1,6 @@
 # 项目总计划
 
-**更新时间**：2026-08-26
+**更新时间**：2026-08-31
 
 ---
 
@@ -14,6 +14,7 @@
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
 | F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、三项 contribution ceiling 与 Branch P/B 合同不变；Markdown/`elsarticle` zero draft、17-key citation closure、三张确定性表、no-human artifact manifest、22 页临时 PDF 编译与逐页 QA 已完成；真人流程暂停且标签仍为 0，正文未获作者批准，E08/E09 与最终投稿门禁未完成） |
+| G：时间 provenance 新方向资格验证 | **进行中**（`Q0_PROTOCOL_FROZEN`；只验证“被维护方公开接受的字段修正是否可历史重放，并能否在 affected-range 扫描和 fix-reference 识别两个不同下游任务中形成可测传播”；旧 JSS 路线与资产原样保留，本阶段尚未取得实验结果，也未决定替换旧路线） |
 
 ---
 
@@ -46,6 +47,38 @@ IST（务实备选）
 当前投稿判定为 `NO_GO_FOR_SUBMISSION`。RQ1/RQ2 已有确定性证据，但只有 V3.1
 双真人独立返回与冻结 RQ3 分析、JSS 正文、当前格式要求、作者元数据和最终
 artifact gate 全部完成后，才允许重新评估。零人工门禁通过不能替代这些条件。
+
+### 2026-08-31 时间 provenance 新方向资格验证
+
+- 状态：`Q0_PROTOCOL_FROZEN`；这是与旧 JSS routing 稿隔离的资格验证，不是对
+  旧稿的静默改题，也不是新论文 `GO`。
+- 候选问题不是泛泛统计“数据库会变化”，而是：被维护方公开接受的
+  `affected` 或 fix-reference 修正，是否能在可审计的历史快照中重放，并是否会改变
+  两类不同下游产物——离线 SCA 告警集合与已知修复提交的 reference coverage。
+- 主事件必须有公开 accepted disposition、明确 before/after、稳定主分支状态和完整
+  source→normalization→task-input→task-output lineage。普通同步、schema migration、
+  mirror rollback、只有 `modified` 时间戳变化或无法映射到稳定状态的事件不得冒充
+  accepted correction。
+- GHSA 历史主源为 `github/advisory-database` Git 主分支；其 commit time 只表示公开
+  镜像事务时间。NVD 当前值和变更审计使用官方 API；若历史 materialization 使用
+  FKIE 的 NVD API 衍生 Git 镜像，必须逐样本与官方当前 API/Change History 交叉核对，
+  并显式保留“非 NVD 官方版本库”边界。CVE source affected 可用官方
+  `CVEProject/cvelistV5` Git 历史作补充 provenance，但不得与 NVD affected 混称。
+- 资格验证先做 100 个 outcome-independent CVE、三个固定 checkpoint
+  (`2024-01-01T00:00:00Z`、`2025-01-01T00:00:00Z`、
+  `2026-05-31T00:00:00Z`) 的 E0 replay，再做 2024--2025 accepted-correction
+  discovery。2026-06-17 NVD schema/batch 注入及其他批量机械变更单列，不混入自然
+  修正主分析。
+- 硬停止门：任一主字段 current replay 一致率低于 `99.5%`；超过 `5%` 事件缺少
+  可恢复 payload 且找不到同刻 provider-controlled Git 状态；任一主字段少于 50 个
+  合格 accepted corrections；无法运行两个不同下游任务；或结果由单次批量迁移
+  主导，均返回 `NO_GO` 或收缩字段，不事后改 cutoff、样本或门槛救结果。
+- 本阶段最多能报告 observable state/output drift、accepted-change adoption 与明确
+  边界。accepted disposition 不是普遍语义真值；机械 replay PASS 也不证明 NVD/GHSA
+  准确、漏洞真实可利用、研究普遍受污染、工具更安全或新稿可投稿。
+- 冻结协议与字段合同：`docs/plans/temporal_provenance_pilot_v1.md`、
+  `docs/annotation_guidelines/accepted_correction_event_contract_v1.md`；实现与结果隔离在
+  `experiments/temporal_provenance/` 和 `results/temporal_provenance/pilot_v1/`。
 
 ### 2026-08-23 JSS framing 与实验边界
 
