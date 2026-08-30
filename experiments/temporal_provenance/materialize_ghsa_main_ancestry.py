@@ -20,6 +20,8 @@ from temporal_provenance_lib import canonical_json, parse_utc, sha256_bytes
 
 
 COMMIT_PREFIX = "@@@"
+FROZEN_WINDOW_START = "2024-01-01T00:00:00Z"
+FROZEN_WINDOW_END = "2026-01-01T00:00:00Z"
 
 
 @dataclass
@@ -130,11 +132,23 @@ def parse_log(raw: bytes) -> list[ParsedCommit]:
     return commits
 
 
-def validate_topology(commits: list[ParsedCommit], pinned_commit: str) -> list[dict[str, Any]]:
+def validate_topology(
+    commits: list[ParsedCommit],
+    pinned_commit: str,
+    expected_root: str | None = None,
+) -> list[dict[str, Any]]:
     failures = []
     if commits[-1].oid != pinned_commit:
         failures.append(
             {"kind": "pinned_tip_mismatch", "expected": pinned_commit, "actual": commits[-1].oid}
+        )
+    if expected_root is not None and commits[0].oid != expected_root:
+        failures.append(
+            {
+                "kind": "first_parent_root_mismatch",
+                "expected": expected_root,
+                "actual": commits[0].oid,
+            }
         )
     for position, commit in enumerate(commits):
         if position == 0:
@@ -246,6 +260,45 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> bytes:
     return payload
 
 
+def file_count_stratum(count: int) -> str:
+    if count == 0:
+        return "0"
+    if count == 1:
+        return "1"
+    if count <= 9:
+        return "2-9"
+    if count <= 99:
+        return "10-99"
+    return ">=100"
+
+
+def summarize_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    start = parse_utc(FROZEN_WINDOW_START)
+    end = parse_utc(FROZEN_WINDOW_END)
+    window_rows = [
+        row for row in rows if start <= parse_utc(row["committer_time"]) < end
+    ]
+    return {
+        "window": {
+            "start": FROZEN_WINDOW_START,
+            "end_exclusive": FROZEN_WINDOW_END,
+        },
+        "commit_count": len(window_rows),
+        "merge_commit_count": sum(row["is_merge"] for row in window_rows),
+        "clock_anomaly_count": sum(
+            row["clock_anomaly_from_previous"] for row in window_rows
+        ),
+        "changed_advisory_file_commit_strata": dict(
+            sorted(
+                Counter(
+                    file_count_stratum(row["changed_advisory_file_count"])
+                    for row in window_rows
+                ).items()
+            )
+        ),
+    }
+
+
 def main() -> int:
     args = parse_args()
     source_pins_path = Path(args.source_pins).resolve()
@@ -255,6 +308,10 @@ def main() -> int:
     pins = json.loads(source_pins_path.read_text(encoding="utf-8"))
     source = pins["sources"]["ghsa_advisory_database"]
     pinned_commit = source["head"]["commit"]
+    expected_roots = source.get("root_commits") or []
+    if len(expected_roots) != 1:
+        raise ValueError("GHSA pin must contain exactly one root commit")
+    expected_root = expected_roots[0]
     object_type = git(repository, "cat-file", "-t", pinned_commit).decode().strip()
     if object_type != "commit":
         raise ValueError(f"pinned GHSA object is not a commit: {pinned_commit}")
@@ -266,8 +323,21 @@ def main() -> int:
     raw_output.parent.mkdir(parents=True, exist_ok=True)
     raw_output.write_bytes(raw)
     commits = parse_log(raw)
-    topology_failures = validate_topology(commits, pinned_commit)
+    topology_failures = validate_topology(commits, pinned_commit, expected_root)
     rows, clock_anomalies = commit_rows(commits)
+    rev_list_count = int(
+        git(repository, "rev-list", "--first-parent", "--count", pinned_commit)
+        .decode()
+        .strip()
+    )
+    if rev_list_count != len(commits):
+        topology_failures.append(
+            {
+                "kind": "independent_rev_list_count_mismatch",
+                "rev_list_count": rev_list_count,
+                "parsed_log_count": len(commits),
+            }
+        )
     changes = advisory_change_rows(commits)
     commits_path = output_dir / "commits.jsonl"
     changes_path = output_dir / "advisory_changes.jsonl"
@@ -275,17 +345,7 @@ def main() -> int:
     changes_bytes = write_jsonl(changes_path, changes)
     strata = Counter()
     for row in rows:
-        count = row["changed_advisory_file_count"]
-        if count == 1:
-            strata["1"] += 1
-        elif 2 <= count <= 9:
-            strata["2-9"] += 1
-        elif 10 <= count <= 99:
-            strata["10-99"] += 1
-        elif count >= 100:
-            strata[">=100"] += 1
-        else:
-            strata["0"] += 1
+        strata[file_count_stratum(row["changed_advisory_file_count"])] += 1
     status = "complete" if not topology_failures else "topology_invalid"
     manifest = {
         "schema_version": "ghsa-main-first-parent-ancestry-v1",
@@ -303,12 +363,14 @@ def main() -> int:
             "rename_threshold": "50%",
         },
         "commit_count": len(rows),
+        "independent_rev_list_count": rev_list_count,
         "merge_commit_count": sum(row["is_merge"] for row in rows),
         "advisory_change_rows": len(changes),
         "clock_anomaly_count": len(clock_anomalies),
         "clock_anomalies": clock_anomalies,
         "topology_failures": topology_failures,
         "changed_advisory_path_commit_strata": dict(sorted(strata.items())),
+        "frozen_discovery_window": summarize_rows(rows),
         "raw_log": {
             "path": str(raw_output),
             "sha256": sha256_bytes(raw),

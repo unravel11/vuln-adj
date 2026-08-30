@@ -45,6 +45,11 @@ class ParserTests(unittest.TestCase):
         failures = target.validate_topology(commits, commits[-1].oid)
         self.assertEqual(failures[0]["kind"], "first_parent_chain_break")
 
+    def test_expected_root_is_checked_separately(self):
+        commits = target.parse_log(SYNTHETIC_LOG)
+        failures = target.validate_topology(commits, commits[-1].oid, "0" * 40)
+        self.assertEqual(failures[0]["kind"], "first_parent_root_mismatch")
+
 
 class ChangeParserTests(unittest.TestCase):
     def test_deletion_keeps_old_path(self):
