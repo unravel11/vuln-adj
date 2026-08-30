@@ -14,7 +14,7 @@
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
 | F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、三项 contribution ceiling 与 Branch P/B 合同不变；Markdown/`elsarticle` zero draft、17-key citation closure、三张确定性表、no-human artifact manifest、22 页临时 PDF 编译与逐页 QA 已完成；真人流程暂停且标签仍为 0，正文未获作者批准，E08/E09 与最终投稿门禁未完成） |
-| G：时间 provenance 新方向资格验证 | **进行中**（`E1_DISCOVERY_METHOD_FROZEN`；E0 历史重放工程门已通过，GHSA merged-PR→staging/main 的 14 日映射、七日稳定性和 exact/partial/substituted 分类已在全量枚举前冻结；两字段事件数、两项下游任务和贡献门仍未知，旧 JSS 路线与资产原样保留） |
+| G：时间 provenance 新方向资格验证 | **进行中**（`E1_DISCOVERY_METHOD_HARDENED_BEFORE_ACQUISITION`；E0 历史重放工程门已通过；独立方法审计后又在全量枚举前补齐双 REST census、accepted revision、PR-before、Git topology、direct/staging route binding、delta identity 与完整七日扫描；主 cohort 只认 route-bound stable exact，事件数和下游贡献门仍未知） |
 
 ---
 
@@ -50,7 +50,8 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 
 ### 2026-08-31 时间 provenance 新方向资格验证
 
-- 状态：`E1_DISCOVERY_METHOD_FROZEN`；这是与旧 JSS routing 稿隔离的资格验证，
+- 状态：`E1_DISCOVERY_METHOD_HARDENED_BEFORE_ACQUISITION`；这是与旧 JSS routing
+  稿隔离的资格验证，
   不是对旧稿的静默改题，也不是新论文 `GO`。E0 只通过历史重放工程门；当前已在
   全量事件枚举前冻结 GHSA accepted-PR 到公开 main 状态的映射方法。
 - 候选问题不是泛泛统计“数据库会变化”，而是：被维护方公开接受的
@@ -89,8 +90,10 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
   correction。完整边界见 `docs/temporal_provenance_e0_replay_result_20260831.md`。
 - GHSA 工作流探针显示 merged PR 可能先进入贡献者 staging branch 再由机器人发布到
   main，也存在 PR 提案与 main 最终字段值不同的反例。因此全量阶段必须分别保留
-  proposal、`merged_at` disposition 与 main parent/child；只允许 exact/partial adoption
-  进入主 accepted-correction cohort，substituted 与 14 日内无法映射者 fail closed。
+  proposal-before/after、accepted revision、`merged_at` disposition 与 main
+  parent/child。主 cohort 只允许 route-bound、七日稳定、`delta_main ==
+  delta_proposal` 的 exact event；partial、already-present、nonmatching/unlinked 与 14 日
+  内无法映射者不得进入主下游分析。
 
 ### 2026-08-23 JSS framing 与实验边界
 

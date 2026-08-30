@@ -7,8 +7,10 @@ GHSA merged-PR enumeration and proposal-to-main mapping follow the pre-census
 workflow addendum in
 `docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`. In particular, a
 merged PR is an accepted-disposition object, not the provider's final field
-state; `exact`, `partial`, and curator-substituted publication outcomes remain
-separate.
+state. Direct Git binding, staging-workflow binding, exact delta adoption,
+partial delta overlap, already-present values, and unlinked same-field events
+remain separate. Only route-bound, stable, exact deltas enter the primary
+cohort.
 
 The pilot is isolated from the existing RQ2 routing and JSS paper pipeline.
 Existing normalized affected/reference values may define an ID universe, but

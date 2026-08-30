@@ -4,11 +4,21 @@
 **Applies to**: temporal-provenance qualification pilot V1
 
 **Pre-census workflow addendum**: the provider's staged publication workflow
-requires proposal-to-main mapping and adds
-`accepted_but_proposal_not_adopted`; see
+requires proposal-to-main delta and route mapping, expands the event identity
+with GHSA/package object keys, and supersedes the initial
+`accepted_but_proposal_not_adopted` label with fail-closed nonmatching/unlinked
+relations; see
 `docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`. The addendum was
 frozen after limited workflow-resolution probes and before the full census. It
 does not change the original numerical gates.
+
+For GHSA discovery, the effective event key is:
+
+`provider | ghsa_id | package_object_key_or_null | field | accepted_disposition_id | proposal_before_blob | proposal_after_blob | main_before_blob | main_after_blob`
+
+`cve_id` is retained as a downstream alias join, not as a substitute for the
+provider object. A multi-CVE GHSA is not mechanically duplicated into multiple
+CVE events without explicit field-level attribution.
 
 ## 1. Required event identity
 

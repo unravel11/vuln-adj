@@ -4638,13 +4638,23 @@
   - 将 PR proposal、`merged_at` accepted disposition、main parent/child 实际状态和
     JSON `modified` 拆为不同证据对象与时钟；禁止把 merged PR head 直接当 final
     provider state。
-  - 冻结按自然月穷举 GitHub public merged PR、月内完整性核对、全窗口总数核对、
-    原始响应与失败 attempt 留存、PR head/diff/完整 JSON 保留、跨 reviewed/unreviewed
-    path migration 搜索、14 日 main 映射与七日稳定性检查。
-  - 增加 proposal→main 的 `exact`、`partial`、`substituted`、`no_field_delta`、
-    `ambiguous_many_to_one`、`unresolved_14d` 分类。只有 exact/partial 可证明提案至少
-    部分被 main 采用；substituted 新增为
-    `accepted_but_proposal_not_adopted`，不能冒充已接受的提案值。
+  - 初版冻结后立即进行独立方法审计；在尚未运行全量 census 时补齐普通 Pulls REST
+    全分页与两次 Search 月分片的集合级对账，避免把同一 Search index 的 whole-window
+    count 误写成独立完整性证据。总体改为“采集时仍可由两条公共 REST 路由观察到的
+    merged PR”，不声称找回历史上曾存在但后来删除的对象。
+  - 补齐 raw PR/timeline/files、`base.sha`、accepted `head.sha`、
+    `merge_commit_sha`、完整 proposal-before/after blob 与 pull-ref 一致性；禁止用不完整
+    patch、head 第一父节点或事后方便的 merge-base 补前态。
+  - 冻结完整 first-parent ancestry 后再按 Git object timestamp 判断 14 日 operational
+    window，禁止 `git log --since` 漏掉拓扑事件；direct route 要求 merge object 位于
+    pinned main，staging route 要求 PR-specific base、bot timeline、staging merge object
+    和唯一首个 exact main delta 的完整链。
+  - proposal/main 都比较原子 multiset delta；新增 `already_present_before_disposition`
+    与 `same_field_nonmatching_or_unlinked`，废弃会推测 curator 意图的 `substituted`
+    标签。主 cohort 只允许 route-bound stable exact；partial 仅在 adopted atoms 可机械
+    隔离时进入 sensitivity，不能把完整 main transition 归因给 PR。
+  - 七日 stability 扫描所有后续 first-parent states 和边界状态，而不是只看下一次 edit；
+    路径迁移、第二/第三次编辑、回滚与 timestamp anomaly 均 fail closed。
   - 保留原冻结的每字段 50 个事件、两个任务各 50 个可执行事件、replay、payload
     loss 与 bulk-dominance 停止门；没有因先验数量或探针现象调整阈值。
 
@@ -4668,20 +4678,22 @@
   - 20 条固定 reference workflow probe 均在 14 日内找到 main 事件，但包含 exact、
     partial、curator-substituted 和多文件发布事务；这证明技术映射可做，也证明 merged
     disposition 不能替代 main 实际值或语义真值。
-  - reference body 候选高度集中于少数 author/campaign，因此冻结 author/campaign 与
-    main-transaction clustering 和 sensitivity，不能把 PR 数直接当独立样本量。
+  - reference body 候选高度集中于少数 author，因此冻结 author、author/day 与
+    main-transaction clustering 和 sensitivity；不再靠事后主观命名 campaign。
 
 - 还没验证的点：
-  - 全量 1,941 是否能通过逐月 API 完整性门尚未在权威远端采集验证；body-search
-    数也尚未通过实际 JSON diff 转化为字段候选。
+  - 全量 1,941 是否能通过两次逐月 Search 与普通 Pulls REST 全分页的三方集合一致性
+    门尚未在权威远端采集验证；body-search 数也尚未通过实际 JSON diff 转化为字段
+    候选。
   - 两个主字段各自的 main-mapped、stable、eligible 数和 unique CVE 数仍未知；
     Task A/Task B 可执行数与 paired output changes 仍为 0 个已完成结果。
   - merged disposition 只证明公开维护流程采用某项贡献；不证明 affected range 或
     commit link 的事实正确性。
 
 - 下一步：
-  - 在权威远端运行按月、可恢复、保留原始 JSON/headers/attempts 的全量 PR manifest
-    acquisition，先通过 completeness gate。
-  - 对全量 PR 读取真实 advisory JSON diff，映射到 14 日内稳定 main state，生成包含
-    exact/partial/substituted/unresolved 的事件账本；若任一主字段少于 50，立即按协议
-    返回 broad-route `NO_GO`，不先做论文包装。
+  - 在权威远端运行可恢复、保留原始 JSON/headers/attempts 的两次按月 Search 与普通
+    Pulls REST 全量 manifest acquisition，先通过集合级 completeness gate。
+  - 对全量 PR 读取 accepted revision 的完整 advisory before/after blobs，以冻结
+    direct/staging 路由映射到 14 日内 main ancestry 并扫描完整七日状态，生成
+    exact/partial/already-present/unlinked/unresolved 账本；若任一主字段 route-bound
+    stable exact 少于 50，立即返回 broad-route `NO_GO`，不先做论文包装。
