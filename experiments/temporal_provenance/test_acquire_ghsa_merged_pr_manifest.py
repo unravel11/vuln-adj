@@ -125,6 +125,8 @@ class RawEvidenceTests(unittest.TestCase):
             )
             self.assertNotIn("Authorization", target.SELECTED_HEADERS)
             self.assertIn(acquirer.auth_mode, {"authenticated_public", "unauthenticated_public"})
+            self.assertEqual(acquirer.request_headers["Cache-Control"], "no-cache")
+            self.assertEqual(acquirer.request_headers["Pragma"], "no-cache")
 
     def test_resume_rejects_a_different_request_url(self):
         with tempfile.TemporaryDirectory() as directory:

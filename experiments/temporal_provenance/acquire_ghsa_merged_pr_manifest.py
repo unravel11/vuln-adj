@@ -85,7 +85,12 @@ def parse_args() -> argparse.Namespace:
         default="data/processed/temporal_provenance/pilot_v1/ghsa_merged_pr_census",
     )
     parser.add_argument("--timeout", type=int, default=120)
-    parser.add_argument("--max-attempts", type=int, default=4)
+    parser.add_argument(
+        "--max-attempts",
+        type=int,
+        default=12,
+        help="Total append-only attempt ceiling per request across resumed runs.",
+    )
     parser.add_argument(
         "--max-rate-wait",
         type=int,
@@ -224,6 +229,8 @@ class GithubAcquirer:
         self.auth_mode = "authenticated_public" if token else "unauthenticated_public"
         self.request_headers = {
             "Accept": "application/vnd.github+json",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
             "X-GitHub-Api-Version": API_VERSION,
             "User-Agent": USER_AGENT,
         }
@@ -282,7 +289,7 @@ class GithubAcquirer:
             raise AcquisitionError(
                 f"request exhausted the frozen attempt limit: {request_id}"
             )
-        for local_attempt in range(attempts_remaining):
+        for local_attempt in range(min(attempts_remaining, 4)):
             attempt = self._next_attempt(request_dir)
             observed_at = utc_now()
             status: int | None = None
@@ -351,8 +358,18 @@ class GithubAcquirer:
                         time.sleep(self.request_delay)
                     return payload, metadata
 
-            if status in {403, 429}:
+            rate_limited = status == 429 or (
+                status == 403
+                and headers.get("x-ratelimit-remaining") == "0"
+            )
+            if rate_limited:
                 wait, reset_epoch = self._rate_wait(headers)
+                if reset_epoch is not None and reset_epoch <= int(time.time()):
+                    raise RateLimitPause(
+                        "rate-limit response carried a stale/past reset; "
+                        "resume with a fresh no-cache request",
+                        reset_epoch=reset_epoch,
+                    )
                 if wait > self.max_rate_wait:
                     raise RateLimitPause(
                         f"rate limit requires {wait}s wait; resume this run later",
