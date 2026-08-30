@@ -39,6 +39,10 @@ def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def sha256_bytes(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -249,4 +253,56 @@ def project_nvd_record(record: dict[str, Any]) -> dict[str, Any]:
         "cpe_configurations": project_nvd_cpe_configurations(record),
         "top_level_affected": project_nvd_top_level_affected(record),
         "references": project_references(record.get("references") or []),
+    }
+
+
+def project_cvelist_v5_record(record: dict[str, Any]) -> dict[str, Any]:
+    metadata = record.get("cveMetadata") or {}
+    containers = record.get("containers") or {}
+    projected_containers = []
+    raw_containers = []
+    cna = containers.get("cna")
+    if isinstance(cna, dict):
+        raw_containers.append(("cna", 0, cna))
+    for position, adp in enumerate(containers.get("adp") or []):
+        if isinstance(adp, dict):
+            raw_containers.append(("adp", position, adp))
+    for container_type, position, container in raw_containers:
+        provider = (container.get("providerMetadata") or {}).get("orgId")
+        affected = []
+        for affected_position, item in enumerate(container.get("affected") or []):
+            affected.append(
+                {
+                    "position": affected_position,
+                    "vendor": item.get("vendor"),
+                    "product": item.get("product"),
+                    "package_name": item.get("packageName"),
+                    "collection_url": item.get("collectionURL"),
+                    "repo": item.get("repo"),
+                    "default_status": item.get("defaultStatus"),
+                    "versions": item.get("versions") or [],
+                    "modules": item.get("modules") or [],
+                    "platforms": item.get("platforms") or [],
+                    "program_files": item.get("programFiles") or [],
+                    "program_routines": item.get("programRoutines") or [],
+                }
+            )
+        projected_containers.append(
+            {
+                "container_type": container_type,
+                "position": position,
+                "provider_org_id": provider,
+                "date_public": container.get("datePublic"),
+                "affected": affected,
+                "references": project_references(container.get("references") or []),
+            }
+        )
+    return {
+        "cve_id": metadata.get("cveId"),
+        "state": metadata.get("state"),
+        "assigner_org_id": metadata.get("assignerOrgId"),
+        "date_published": metadata.get("datePublished"),
+        "date_updated": metadata.get("dateUpdated"),
+        "date_reserved": metadata.get("dateReserved"),
+        "containers": projected_containers,
     }

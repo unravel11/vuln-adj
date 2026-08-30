@@ -94,6 +94,44 @@ class ProjectionTests(unittest.TestCase):
             "https://github.com/Org/Repo/commit/abcdef",
         )
 
+    def test_cvelist_preserves_all_affected_versions_and_container_identity(self):
+        record = {
+            "cveMetadata": {
+                "cveId": "CVE-2023-0001",
+                "assignerOrgId": "org-cna",
+                "dateUpdated": "2025-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "providerMetadata": {"orgId": "org-cna"},
+                    "affected": [
+                        {
+                            "vendor": "vendor",
+                            "product": "product",
+                            "defaultStatus": "unaffected",
+                            "versions": [
+                                {"version": "1.0", "status": "affected"},
+                                {"version": "2.0", "status": "unaffected"},
+                            ],
+                        }
+                    ],
+                },
+                "adp": [
+                    {
+                        "providerMetadata": {"orgId": "org-adp"},
+                        "affected": [{"product": "other", "versions": []}],
+                    }
+                ],
+            },
+        }
+        projected = target.project_cvelist_v5_record(record)
+        self.assertEqual(len(projected["containers"]), 2)
+        self.assertEqual(
+            len(projected["containers"][0]["affected"][0]["versions"]),
+            2,
+        )
+        self.assertEqual(projected["containers"][1]["provider_org_id"], "org-adp")
+
 
 if __name__ == "__main__":
     unittest.main()

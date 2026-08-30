@@ -1,0 +1,1221 @@
+{
+  "schema_version": "temporal-provenance-e0-sample-v1",
+  "status": "sealed",
+  "selection_rule": "ascending_sha256_seed_plus_cve_id",
+  "selection_seed_literal": "temporal-provenance-pilot-v1\n",
+  "eligibility_cutoff": "2023-12-31T23:59:59Z",
+  "eligible_cves": 2635,
+  "requested_sample_size": 100,
+  "selected_cves": 100,
+  "checkpoints": [
+    "2024-01-01T00:00:00Z",
+    "2025-01-01T00:00:00Z",
+    "2026-05-31T00:00:00Z"
+  ],
+  "rows": [
+    {
+      "cve_id": "CVE-2023-6730",
+      "selection_digest": "001fb015e724063500b10c2994190667686197bcfcb1ed361e755124f67c5e71",
+      "nvd_published": "2023-12-19T13:15:43.380",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-3863-2447-669p",
+          "published": "2023-12-19T15:30:30Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-3863-2447-669p/GHSA-3863-2447-669p.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-46496",
+      "selection_digest": "00529b78d70c8df7c82d7904bdf071c3f2d3d3b267c8971e5770ee04d8889127",
+      "nvd_published": "2023-12-08T20:15:07.373",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-rwf3-w4jq-f4cm",
+          "published": "2023-12-08T21:30:30Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-rwf3-w4jq-f4cm/GHSA-rwf3-w4jq-f4cm.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-28936",
+      "selection_digest": "00531f89e25b94eba07f3813b20a1cb20e1c04e906b90c043a92ce04d7253b03",
+      "nvd_published": "2023-05-12T08:15:08.857",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-v93h-rwj8-78qh",
+          "published": "2023-07-06T21:14:56Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-v93h-rwj8-78qh/GHSA-v93h-rwj8-78qh.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-40037",
+      "selection_digest": "00a6033a302577041298a494927e79dc0fb398b412af2c3565789ff030d9e361",
+      "nvd_published": "2023-08-18T22:15:10.690",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-23qf-3jf9-h3q9",
+          "published": "2023-08-19T00:30:29Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-23qf-3jf9-h3q9/GHSA-23qf-3jf9-h3q9.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-38337",
+      "selection_digest": "00d97bdd7dd160c0afb4d44ec4c4d4be2ab3a17f188011e2e7d3b800c0af5d63",
+      "nvd_published": "2023-07-14T22:15:09.430",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-vc79-65pr-q82v",
+          "published": "2023-07-15T00:30:34Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-vc79-65pr-q82v/GHSA-vc79-65pr-q82v.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-36471",
+      "selection_digest": "01000bd6ec6465a395ce8ff481d6c9ea7e1f24351b90cd9807683a5b271cf412",
+      "nvd_published": "2023-06-29T20:15:10.003",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-6pqf-c99p-758v",
+          "published": "2023-06-30T20:41:50Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-6pqf-c99p-758v/GHSA-6pqf-c99p-758v.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-31606",
+      "selection_digest": "012e09c5e425b9d33c04cbc19ee8e789add73a8a23217e60a572aacfb098fd46",
+      "nvd_published": "2023-06-06T17:15:14.843",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-qcm3-vfq5-wfr2",
+          "published": "2023-06-06T18:30:20Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-qcm3-vfq5-wfr2/GHSA-qcm3-vfq5-wfr2.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-48122",
+      "selection_digest": "015e6210ba6e90b3350123643df7834c3ddfd175b3e39d3c492623c071692348",
+      "nvd_published": "2023-12-08T04:15:06.850",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-p8q6-qrgj-7gx2",
+          "published": "2023-12-08T06:30:37Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-p8q6-qrgj-7gx2/GHSA-p8q6-qrgj-7gx2.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-26364",
+      "selection_digest": "017f65824a0dd1dca61fd58e61000e25c09e482ed7bfbb9d2dd63d384f2db02c",
+      "nvd_published": "2023-11-17T14:15:21.083",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-hpx4-r86g-5jrg",
+          "published": "2023-08-29T23:33:26Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-hpx4-r86g-5jrg/GHSA-hpx4-r86g-5jrg.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-26119",
+      "selection_digest": "01961b0df41c840b0aee3cf9e3f7809d1a3e4124c89bd0dd39dbd9f8f5ecd39a",
+      "nvd_published": "2023-04-03T05:15:07.863",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-3xrr-7m6p-p7xh",
+          "published": "2023-07-06T19:24:13Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-3xrr-7m6p-p7xh/GHSA-3xrr-7m6p-p7xh.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-22849",
+      "selection_digest": "01e7318807d771086683b4fc943bc46282a8c8cb5950f9985740398d325c74fb",
+      "nvd_published": "2023-02-04T21:15:09.113",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-rghh-ghf7-7943",
+          "published": "2023-02-04T21:30:22Z",
+          "relative_path": "advisories/github-reviewed/2023/02/GHSA-rghh-ghf7-7943/GHSA-rghh-ghf7-7943.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-26127",
+      "selection_digest": "01ed749bcd59ade9b0897cab04ebdacf1b115ec3ec4e74f2b69df271768bf147",
+      "nvd_published": "2023-05-27T05:15:09.300",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-549h-r7g9-2qpf",
+          "published": "2023-05-27T06:30:41Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-549h-r7g9-2qpf/GHSA-549h-r7g9-2qpf.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-0112",
+      "selection_digest": "01ee5f5f1a2759f17f243f8f42ec86f40e70e253020bba43209459de24591aba",
+      "nvd_published": "2023-01-07T04:15:08.467",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-9h7x-9pmh-7gg8",
+          "published": "2023-01-07T06:30:19Z",
+          "relative_path": "advisories/github-reviewed/2023/01/GHSA-9h7x-9pmh-7gg8/GHSA-9h7x-9pmh-7gg8.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-5159",
+      "selection_digest": "02081622d307b57507c2457f726fb608e3d6198dacb662381385e60ef34dbc73",
+      "nvd_published": "2023-09-29T10:15:10.530",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-rp65-jpc7-8h8p",
+          "published": "2023-09-29T12:30:16Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-rp65-jpc7-8h8p/GHSA-rp65-jpc7-8h8p.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-32302",
+      "selection_digest": "020f7e69d7953cd0e86677530adca0b61948753b5d1a7dd755e076c0f0b88663",
+      "nvd_published": "2023-08-01T11:15:09.667",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-36xx-7vf6-7mv3",
+          "published": "2023-07-31T22:00:58Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-36xx-7vf6-7mv3/GHSA-36xx-7vf6-7mv3.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-36435",
+      "selection_digest": "02101afb5346a6d996590f795d011fa12efe656801fd914d910ab5e0a01be2eb",
+      "nvd_published": "2023-10-10T18:15:12.680",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-fr44-546p-7xcp",
+          "published": "2023-10-10T22:23:28Z",
+          "relative_path": "advisories/github-reviewed/2023/10/GHSA-fr44-546p-7xcp/GHSA-fr44-546p-7xcp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-25578",
+      "selection_digest": "021064ecef3fdcabba7672e08342bd2e804f5ece280e9e04343ecae5b63f6937",
+      "nvd_published": "2023-02-15T15:15:11.883",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-p24m-863f-fm6q",
+          "published": "2023-02-15T17:42:42Z",
+          "relative_path": "advisories/github-reviewed/2023/02/GHSA-p24m-863f-fm6q/GHSA-p24m-863f-fm6q.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-36475",
+      "selection_digest": "022debea73d7a2a9d4a2cb00cfa8fa4a6bcddd32e6982548be275f162b3e5217",
+      "nvd_published": "2023-06-28T23:15:21.140",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-462x-c3jw-7vr6",
+          "published": "2023-06-30T20:41:43Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-462x-c3jw-7vr6/GHSA-462x-c3jw-7vr6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-0872",
+      "selection_digest": "023290e32dfeea942e2b69e00feaed6a870931c43cd7951bf261b03893618597",
+      "nvd_published": "2023-08-14T18:15:10.730",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-w5gq-xrrp-3fxf",
+          "published": "2023-08-14T18:32:59Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-w5gq-xrrp-3fxf/GHSA-w5gq-xrrp-3fxf.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-3426",
+      "selection_digest": "0237f1f5195897369d154a2f9c80e47b931875654408438697885a1945bcaee9",
+      "nvd_published": "2023-08-02T10:15:09.887",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-xph3-vjcq-g488",
+          "published": "2023-08-02T12:30:15Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-xph3-vjcq-g488/GHSA-xph3-vjcq-g488.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-25307",
+      "selection_digest": "024f7a1d2fda97b02ad3165e9a5685b29c6d771eb28bd6c902b77c820bd47b7e",
+      "nvd_published": "2023-06-26T15:15:09.703",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-r887-gfxh-m9rr",
+          "published": "2023-02-08T18:07:16Z",
+          "relative_path": "advisories/github-reviewed/2023/02/GHSA-r887-gfxh-m9rr/GHSA-r887-gfxh-m9rr.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-29921",
+      "selection_digest": "02519115833e662793410471482a797d5a21f0a1949ab43cd8960bc81ebad58b",
+      "nvd_published": "2023-04-19T12:15:08.293",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-mpvf-6h9g-2hq2",
+          "published": "2023-04-19T12:30:21Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-mpvf-6h9g-2hq2/GHSA-mpvf-6h9g-2hq2.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-47630",
+      "selection_digest": "027b05c3f6d36a6e24e55c7b4ea8fb7af18406c5a8b85e591562504a50b9d139",
+      "nvd_published": "2023-11-14T21:15:13.037",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-3hfq-cx9j-923w",
+          "published": "2023-11-14T22:20:09Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-3hfq-cx9j-923w/GHSA-3hfq-cx9j-923w.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-39965",
+      "selection_digest": "0285480f7824a03ed17a20e81f98e633e1ad212f4fa65ca36d189037abca85e2",
+      "nvd_published": "2023-08-10T18:15:11.213",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-85cf-gj29-f555",
+          "published": "2023-08-10T20:09:24Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-85cf-gj29-f555/GHSA-85cf-gj29-f555.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-7036",
+      "selection_digest": "02c9f7c5078f2f949237369d2db8d8c973f353062131de9b4be71ed4388093aa",
+      "nvd_published": "2023-12-21T16:15:11.320",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-fpph-mqc8-h6q5",
+          "published": "2023-12-21T18:30:23Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-fpph-mqc8-h6q5/GHSA-fpph-mqc8-h6q5.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-26111",
+      "selection_digest": "0311e890f88ad2723a4c330e5d7654d8c8ade114ad7a80f899ccdc3024d9e069",
+      "nvd_published": "2023-03-06T05:15:12.920",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-5g97-whc9-8g7j",
+          "published": "2023-03-06T06:30:18Z",
+          "relative_path": "advisories/github-reviewed/2023/03/GHSA-5g97-whc9-8g7j/GHSA-5g97-whc9-8g7j.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-29408",
+      "selection_digest": "032cc02313d0619695ffa373757ad3e1181fb134809e85ddb75df792844087ce",
+      "nvd_published": "2023-08-02T20:15:11.857",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-x92r-3vfx-4cv3",
+          "published": "2023-08-02T21:30:20Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-x92r-3vfx-4cv3/GHSA-x92r-3vfx-4cv3.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-40014",
+      "selection_digest": "034b20922946ea399238d7d2a5262f3f754b5880ab5d6cf5c1b81d79ecb03fc8",
+      "nvd_published": "2023-08-10T20:15:10.867",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-g4vp-m682-qqmp",
+          "published": "2023-08-11T19:00:48Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-g4vp-m682-qqmp/GHSA-g4vp-m682-qqmp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-30837",
+      "selection_digest": "0350aaff09cfea1f7f9e278517bd2da10d6b198cded793fe72ea9730f1f71b11",
+      "nvd_published": "2023-05-08T17:15:12.007",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-mgv8-gggw-mrg6",
+          "published": "2023-05-05T22:22:23Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-mgv8-gggw-mrg6/GHSA-mgv8-gggw-mrg6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-41881",
+      "selection_digest": "035dc53d03d4cbfcab6b821c188a21349e6519507a6f32e434e3fc803ebf6d1e",
+      "nvd_published": "2023-10-11T20:15:10.617",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-rf54-7qrr-96j6",
+          "published": "2023-10-16T14:31:39Z",
+          "relative_path": "advisories/github-reviewed/2023/10/GHSA-rf54-7qrr-96j6/GHSA-rf54-7qrr-96j6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-6911",
+      "selection_digest": "0368d91ffc3802ddce277387212e04ea6410de898ce32f31e8c2d1a4c4a04ee0",
+      "nvd_published": "2023-12-18T09:15:05.810",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-rfq3-wpjh-ppvg",
+          "published": "2023-12-22T18:30:30Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-rfq3-wpjh-ppvg/GHSA-rfq3-wpjh-ppvg.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-1241",
+      "selection_digest": "03777261624faa161eeb13327a5ffda630e79e79eff53d2c7129642b7021260e",
+      "nvd_published": "2023-03-07T08:15:09.673",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-ff27-hrmr-ggpj",
+          "published": "2023-03-07T09:30:30Z",
+          "relative_path": "advisories/github-reviewed/2023/03/GHSA-ff27-hrmr-ggpj/GHSA-ff27-hrmr-ggpj.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-32235",
+      "selection_digest": "039a624bc3ef2f5c0fb50fcbd3dcfda272b8fe25f584423ad50affe354ed64b9",
+      "nvd_published": "2023-05-05T05:15:09.293",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-wf7x-fh6w-34r6",
+          "published": "2023-05-05T06:30:32Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-wf7x-fh6w-34r6/GHSA-wf7x-fh6w-34r6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-39156",
+      "selection_digest": "03bdaa6f42304f5099c62368847708f8bfa501f90d01f8ca8ec90a61ee06c49c",
+      "nvd_published": "2023-07-26T14:15:10.750",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-6f4q-f5fj-q6fc",
+          "published": "2023-07-26T15:30:57Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-6f4q-f5fj-q6fc/GHSA-6f4q-f5fj-q6fc.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-4126",
+      "selection_digest": "03d2ce5d3b2488394345bbcac8f28e55c49c3d1213e668d893c98187fbfb3872",
+      "nvd_published": "2023-08-03T04:15:11.620",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-ggcf-hwxp-rc77",
+          "published": "2023-08-03T06:30:22Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-ggcf-hwxp-rc77/GHSA-ggcf-hwxp-rc77.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-46402",
+      "selection_digest": "03e01b0ae28c97742662919b5bffe7e72aec434e5b5af317a30d78c3d59bce6b",
+      "nvd_published": "2023-11-18T00:15:07.183",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-3f2q-6294-fmq5",
+          "published": "2023-11-18T00:30:17Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-3f2q-6294-fmq5/GHSA-3f2q-6294-fmq5.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-1789",
+      "selection_digest": "03e51abb1c03fa732ba2597fc3b0f9526c3e26edd4086135b8cdaa6714e0fa06",
+      "nvd_published": "2023-04-01T02:15:07.203",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-mwxw-hxvp-4r2r",
+          "published": "2023-04-01T03:30:16Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-mwxw-hxvp-4r2r/GHSA-mwxw-hxvp-4r2r.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-29246",
+      "selection_digest": "044fce3e0587c815cfa38a56a66f72649c6d2fdad4384e93f6e5bdc6acd30254",
+      "nvd_published": "2023-05-12T08:15:08.997",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-mg5h-f3q8-c96g",
+          "published": "2023-05-12T09:30:14Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-mg5h-f3q8-c96g/GHSA-mg5h-f3q8-c96g.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-22432",
+      "selection_digest": "0453fbf4d35cf5ac9f27f3943ce8eff53ed6bd16ac39f5cf2cc2a531ff3e360d",
+      "nvd_published": "2023-03-06T00:15:10.700",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-w4r7-vm83-q2c7",
+          "published": "2023-03-06T00:30:16Z",
+          "relative_path": "advisories/github-reviewed/2023/03/GHSA-w4r7-vm83-q2c7/GHSA-w4r7-vm83-q2c7.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-23631",
+      "selection_digest": "047381770f7fe2a5f013da35b97e49f5aa3ea28c2526195662a784dc38d2955b",
+      "nvd_published": "2023-02-09T21:15:11.513",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-4gj3-6r43-3wfc",
+          "published": "2023-02-10T19:54:14Z",
+          "relative_path": "advisories/github-reviewed/2023/02/GHSA-4gj3-6r43-3wfc/GHSA-4gj3-6r43-3wfc.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-35151",
+      "selection_digest": "047461432d660a9410275e153b0f5e2ae95c63541135cc8951a181046f793129",
+      "nvd_published": "2023-06-23T17:15:09.457",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-8g9c-c9cm-9c56",
+          "published": "2023-06-20T16:46:29Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-8g9c-c9cm-9c56/GHSA-8g9c-c9cm-9c56.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-33962",
+      "selection_digest": "04952f7b33e89adbcb3d599b598c9e7deb1ca89664ace4b468d15298bcaf0037",
+      "nvd_published": "2023-05-30T22:15:10.933",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-gwxv-jv83-6qjr",
+          "published": "2023-06-06T00:45:18Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-gwxv-jv83-6qjr/GHSA-gwxv-jv83-6qjr.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-52079",
+      "selection_digest": "049fa4f3a016ef82830d028a03a09b7c0b8d1fcaa8fb880807ed1596a4a44c01",
+      "nvd_published": "2023-12-28T16:16:01.863",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-7hpj-7hhx-2fgx",
+          "published": "2023-12-28T21:16:20Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-7hpj-7hhx-2fgx/GHSA-7hpj-7hhx-2fgx.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-3304",
+      "selection_digest": "04d3181abe0e52553df7df54feb71929b12420e85f733e3f2d817b2f3915c6b3",
+      "nvd_published": "2023-06-23T13:15:10.663",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-x3m2-3pwj-8fj4",
+          "published": "2023-06-23T15:30:43Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-x3m2-3pwj-8fj4/GHSA-x3m2-3pwj-8fj4.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-33191",
+      "selection_digest": "04d5eaaf4859c83df56147a99fca25d597f76cb89e2485562839f17da1167520",
+      "nvd_published": "2023-05-30T07:15:09.997",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-33hq-f2mf-jm3c",
+          "published": "2023-05-25T16:58:48Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-33hq-f2mf-jm3c/GHSA-33hq-f2mf-jm3c.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-29201",
+      "selection_digest": "04f955cffa346f8504348876eff3f3974743687e01f5adcc5caa4be7916dac16",
+      "nvd_published": "2023-04-15T15:15:08.273",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-m3jr-cvhj-f35j",
+          "published": "2023-04-12T20:38:17Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-m3jr-cvhj-f35j/GHSA-m3jr-cvhj-f35j.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-29205",
+      "selection_digest": "05123c70271270d804050ba607fc356adfc651419bd43738c10251e14eb18b21",
+      "nvd_published": "2023-04-15T16:15:07.210",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-vxf7-mx22-jr24",
+          "published": "2023-04-12T20:38:44Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-vxf7-mx22-jr24/GHSA-vxf7-mx22-jr24.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-28841",
+      "selection_digest": "0514a0cd7cc4bf7c012bf09f8e75759d42f47d7be0334ef90eae54c89e12248e",
+      "nvd_published": "2023-04-04T22:15:07.937",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-33pg-m6jh-5237",
+          "published": "2023-04-04T21:12:20Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-33pg-m6jh-5237/GHSA-33pg-m6jh-5237.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-22580",
+      "selection_digest": "051ffd87d74fb6a1479aac2ca277e84cc11c417cdf2a49d8037febee0963da2a",
+      "nvd_published": "2023-02-16T15:15:18.727",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-8c25-f3mj-v6h8",
+          "published": "2023-02-16T15:30:28Z",
+          "relative_path": "advisories/github-reviewed/2023/02/GHSA-8c25-f3mj-v6h8/GHSA-8c25-f3mj-v6h8.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-37466",
+      "selection_digest": "052e397e05110802e4b9e3f3f946fa2f71abb2c8729b04feedeacae6a825b262",
+      "nvd_published": "2023-07-14T00:15:09.263",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-cchq-frgv-rjh5",
+          "published": "2023-07-13T17:02:02Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-cchq-frgv-rjh5/GHSA-cchq-frgv-rjh5.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-30519",
+      "selection_digest": "052fc90307d0c56960b80ccec820b6385ce8db9063b76de65e1422b43a69437a",
+      "nvd_published": "2023-04-12T18:15:09.760",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-q2fc-9ww2-ggfj",
+          "published": "2023-04-12T18:30:37Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-q2fc-9ww2-ggfj/GHSA-q2fc-9ww2-ggfj.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-43499",
+      "selection_digest": "053b5cd1cf2f09e91229b96770667c7631dcde18a478f96e758d9da0b020df8f",
+      "nvd_published": "2023-09-20T17:15:11.980",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-262f-77q5-rqv6",
+          "published": "2023-09-20T18:30:21Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-262f-77q5-rqv6/GHSA-262f-77q5-rqv6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-28476",
+      "selection_digest": "053c1412ea40bb46c245d5feb3a032197e3fe3019cbe04d7e2dd1e9a5a6f51cf",
+      "nvd_published": "2023-04-28T14:15:10.557",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-2ggc-552c-rmqr",
+          "published": "2023-04-28T15:30:18Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-2ggc-552c-rmqr/GHSA-2ggc-552c-rmqr.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-28370",
+      "selection_digest": "053c6955cc320b035f093b3f658d73dcdc37eac0faa20289ace13f39abb0c561",
+      "nvd_published": "2023-05-25T10:15:09.750",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-hj3f-6gcp-jg8j",
+          "published": "2023-05-25T12:30:16Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-hj3f-6gcp-jg8j/GHSA-hj3f-6gcp-jg8j.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-43802",
+      "selection_digest": "056424225495d02743fad634932ed5bbfb0a9a00127c08c8f5bb6aff6fb5e15b",
+      "nvd_published": "2023-10-18T21:15:09.187",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-75j7-w798-cwwx",
+          "published": "2023-10-18T18:21:37Z",
+          "relative_path": "advisories/github-reviewed/2023/10/GHSA-75j7-w798-cwwx/GHSA-75j7-w798-cwwx.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-6014",
+      "selection_digest": "0570bc40acff214c5aad56d644836ef11972963592533f393208491828b84c9b",
+      "nvd_published": "2023-11-16T21:15:09.267",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-4qq5-mxxx-m6gg",
+          "published": "2023-11-16T21:30:46Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-4qq5-mxxx-m6gg/GHSA-4qq5-mxxx-m6gg.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-31066",
+      "selection_digest": "05762a370f362d5a1fea1b5cefeeb7829b156edc0ce3f56289b1d4e7a4b0fe68",
+      "nvd_published": "2023-05-22T16:15:10.090",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-wx79-r3q8-fq9h",
+          "published": "2023-07-06T21:14:59Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-wx79-r3q8-fq9h/GHSA-wx79-r3q8-fq9h.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-6599",
+      "selection_digest": "05be301a6affaa7b555322e5e0431ddbc083377694f2cfe868385e4f6ab3cc2f",
+      "nvd_published": "2023-12-08T00:15:08.113",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-9r6p-hg4g-5gxp",
+          "published": "2023-12-08T00:30:31Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-9r6p-hg4g-5gxp/GHSA-9r6p-hg4g-5gxp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-34035",
+      "selection_digest": "0627af1f5bcd6be1a7b7225a13bd1042f2333da46b75b52e982b871cd479f005",
+      "nvd_published": "2023-07-18T16:15:11.753",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-4vpr-xfrp-cj64",
+          "published": "2023-07-18T18:30:36Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-4vpr-xfrp-cj64/GHSA-4vpr-xfrp-cj64.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-34047",
+      "selection_digest": "064bdf38b4e9f0c55ab1e8d0fa7d66620d3178f61f63d626ff79f7c8cc8d0505",
+      "nvd_published": "2023-09-20T10:15:14.247",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-frqc-f2h8-fjvf",
+          "published": "2023-09-20T12:30:22Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-frqc-f2h8-fjvf/GHSA-frqc-f2h8-fjvf.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-38489",
+      "selection_digest": "068e0fc1a9207139eba8bb63ba8f43c93ad448fa5d784a76588ffa2038400836",
+      "nvd_published": "2023-07-27T15:15:12.220",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-5mvj-rvp8-rf45",
+          "published": "2023-07-28T15:35:25Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-5mvj-rvp8-rf45/GHSA-5mvj-rvp8-rf45.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-50728",
+      "selection_digest": "06a415de225a6e8ad4335bb3b823e1a5b245e50a4b5d0b5b462e712b34d40ff4",
+      "nvd_published": "2023-12-15T22:15:07.160",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-pwfr-8pq7-x9qv",
+          "published": "2023-12-16T00:52:19Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-pwfr-8pq7-x9qv/GHSA-pwfr-8pq7-x9qv.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-32998",
+      "selection_digest": "06a4e04b572104102a176dd7e4b693cc7c7c38804e2cd885d59135c5ebbaa53b",
+      "nvd_published": "2023-05-16T17:15:12.110",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-vgfw-766v-7q82",
+          "published": "2023-05-16T18:30:16Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-vgfw-766v-7q82/GHSA-vgfw-766v-7q82.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-27586",
+      "selection_digest": "06e23972d2de77022b94f911b609f290639e5da24154a055440b80a27cf904a9",
+      "nvd_published": "2023-03-20T16:15:13.197",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-rwmf-w63j-p7gv",
+          "published": "2023-03-20T21:27:15Z",
+          "relative_path": "advisories/github-reviewed/2023/03/GHSA-rwmf-w63j-p7gv/GHSA-rwmf-w63j-p7gv.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-28431",
+      "selection_digest": "06eda95dd20798a58bb3dcde7a51913ae992daf2e764aa7a1fb642b59be8a1b6",
+      "nvd_published": "2023-03-22T21:15:18.170",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-fcmm-54jp-7vf6",
+          "published": "2023-03-21T22:31:30Z",
+          "relative_path": "advisories/github-reviewed/2023/03/GHSA-fcmm-54jp-7vf6/GHSA-fcmm-54jp-7vf6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-50766",
+      "selection_digest": "0707601617dc42a96fc3880246526d6edfd81cb62c839829f0e4977f3c6c05c8",
+      "nvd_published": "2023-12-13T18:15:43.840",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-4gfc-72gw-v385",
+          "published": "2023-12-13T18:31:04Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-4gfc-72gw-v385/GHSA-4gfc-72gw-v385.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-46229",
+      "selection_digest": "07542d1cbf5844f41c057becb8b637e9ccc30bb2670ca3a55711fc209ab923bc",
+      "nvd_published": "2023-10-19T05:15:58.737",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-655w-fm8m-m478",
+          "published": "2023-10-19T06:30:23Z",
+          "relative_path": "advisories/github-reviewed/2023/10/GHSA-655w-fm8m-m478/GHSA-655w-fm8m-m478.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-0790",
+      "selection_digest": "07727159ae170d9b6ee5df914cba53410e2dc7538f7eb61b341ff99cd08b2e0b",
+      "nvd_published": "2023-02-12T14:15:11.547",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-6vv4-qq3r-9rv8",
+          "published": "2023-02-12T15:30:25Z",
+          "relative_path": "advisories/github-reviewed/2023/02/GHSA-6vv4-qq3r-9rv8/GHSA-6vv4-qq3r-9rv8.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-34616",
+      "selection_digest": "0774f8004e667249ef8485c3e93a5a09e4d869c49a9dfcaf9e47507dfcdf1990",
+      "nvd_published": "2023-06-14T14:15:10.190",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-p4c9-x742-qh8c",
+          "published": "2023-06-14T15:30:38Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-p4c9-x742-qh8c/GHSA-p4c9-x742-qh8c.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-50719",
+      "selection_digest": "0778cb6f2758b0800fdc738b96c58ad56b8dcaa69ac2676cea7749224c7070b8",
+      "nvd_published": "2023-12-15T19:15:09.247",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-p6cp-6r35-32mh",
+          "published": "2023-12-16T00:03:54Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-p6cp-6r35-32mh/GHSA-p6cp-6r35-32mh.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-2307",
+      "selection_digest": "0789cd64208598af65c29810488c21287db1b5a4fe01c5e92b14ce54772bef52",
+      "nvd_published": "2023-04-26T17:15:11.217",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-c54w-7j5f-xg98",
+          "published": "2023-04-26T18:30:21Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-c54w-7j5f-xg98/GHSA-c54w-7j5f-xg98.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-22298",
+      "selection_digest": "07985295174cab6469a3d2ae38e9a7afaa47b8c058117ee5f4e988a49cf32196",
+      "nvd_published": "2023-01-17T10:15:11.657",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-894c-rg7f-3c62",
+          "published": "2023-01-17T12:30:33Z",
+          "relative_path": "advisories/github-reviewed/2023/01/GHSA-894c-rg7f-3c62/GHSA-894c-rg7f-3c62.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-50723",
+      "selection_digest": "079cb69f940392330dd51bc429198f556ef32d275673613d3ca38962c36a47c2",
+      "nvd_published": "2023-12-15T19:15:10.073",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-qj86-p74r-7wp5",
+          "published": "2023-12-16T00:40:04Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-qj86-p74r-7wp5/GHSA-qj86-p74r-7wp5.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-35887",
+      "selection_digest": "07adf3019bd59af189cb32bcc2f3939e2260941f51251994e49d33540b3e666b",
+      "nvd_published": "2023-07-10T16:15:53.050",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-mjmq-gwgm-5qhm",
+          "published": "2023-07-10T18:30:49Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-mjmq-gwgm-5qhm/GHSA-mjmq-gwgm-5qhm.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-49396",
+      "selection_digest": "082f9e0114681c6d632ef22918d865cfae12a68abca8612fbc48d9956e124918",
+      "nvd_published": "2023-12-05T15:15:08.417",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-882g-gjqp-9vjp",
+          "published": "2023-12-05T15:30:38Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-882g-gjqp-9vjp/GHSA-882g-gjqp-9vjp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-47641",
+      "selection_digest": "086076b44218840dffd3d2e4a0fc364c2e48671cd68450d36d28543973c24d58",
+      "nvd_published": "2023-11-14T21:15:13.713",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-xx9p-xxvh-7g8j",
+          "published": "2023-11-14T20:36:25Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-xx9p-xxvh-7g8j/GHSA-xx9p-xxvh-7g8j.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-5036",
+      "selection_digest": "08659dd556a181bbd70af57d328ffccf40268ba7f54fb7c087733ad2d16ef306",
+      "nvd_published": "2023-09-18T06:15:08.267",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-2g7r-9xq5-c6hv",
+          "published": "2023-09-18T06:30:14Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-2g7r-9xq5-c6hv/GHSA-2g7r-9xq5-c6hv.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-38490",
+      "selection_digest": "086dc87fb0ad3934df2fb8220946c9888de1e4166690f08da6182f462c3803d0",
+      "nvd_published": "2023-07-27T15:15:12.317",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-q386-w6fg-gmgp",
+          "published": "2023-07-28T15:35:04Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-q386-w6fg-gmgp/GHSA-q386-w6fg-gmgp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-49097",
+      "selection_digest": "08804a1de74688add9031ee2d3ff8cb2c5d5975a4bcff0bef63125ec95f9744a",
+      "nvd_published": "2023-11-30T05:15:09.503",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-2wmj-46rj-qm2w",
+          "published": "2023-11-29T21:32:51Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-2wmj-46rj-qm2w/GHSA-2wmj-46rj-qm2w.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-24423",
+      "selection_digest": "08896d782eaa28e72487839872a3c9497af47168f122b9f4131679459adf99f2",
+      "nvd_published": "2023-01-26T21:18:16.707",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-95jq-24cr-pgrq",
+          "published": "2023-01-26T21:30:18Z",
+          "relative_path": "advisories/github-reviewed/2023/01/GHSA-95jq-24cr-pgrq/GHSA-95jq-24cr-pgrq.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-38888",
+      "selection_digest": "0894abce378128bab395b0d496fceb80a42a759bffde9bdadf8f4f877ccc8ff8",
+      "nvd_published": "2023-09-20T01:15:56.580",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-62wf-h26v-5m57",
+          "published": "2023-09-20T03:30:17Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-62wf-h26v-5m57/GHSA-62wf-h26v-5m57.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-40351",
+      "selection_digest": "08f122da5ba22a825154bcebd4caaeee7c51f0055dfa3a6fa47939b73c7761a3",
+      "nvd_published": "2023-08-16T15:15:12.313",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-jrj6-qx48-3cpq",
+          "published": "2023-08-16T15:30:18Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-jrj6-qx48-3cpq/GHSA-jrj6-qx48-3cpq.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-1880",
+      "selection_digest": "096ab206ab664bd0d36e29548915f60310d63b4aad14b80dbfb218c57aeb2763",
+      "nvd_published": "2023-04-05T17:15:07.133",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-m8q9-7v2f-qjx9",
+          "published": "2023-04-05T18:30:18Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-m8q9-7v2f-qjx9/GHSA-m8q9-7v2f-qjx9.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-35930",
+      "selection_digest": "09776ae91338d63b0d5a35f612cc609e548fe0fa2dbb55ba66f710f41350fe8e",
+      "nvd_published": "2023-06-26T20:15:10.507",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-m54h-5x5f-5m6r",
+          "published": "2023-06-28T22:48:50Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-m54h-5x5f-5m6r/GHSA-m54h-5x5f-5m6r.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-5192",
+      "selection_digest": "098383ec4f35cdb2882464c8646ba9354849ee47754e886ea4bb1f8263841bae",
+      "nvd_published": "2023-09-27T15:19:42.997",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-p76j-h4m8-hx5c",
+          "published": "2023-09-27T15:30:40Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-p76j-h4m8-hx5c/GHSA-p76j-h4m8-hx5c.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-25662",
+      "selection_digest": "0984c182ef9731c1dc90fb0f1cbd2eb16299f81ac95ac7904a8a7727742a7502",
+      "nvd_published": "2023-03-25T00:15:07.260",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-7jvm-xxmr-v5cw",
+          "published": "2023-03-24T21:58:31Z",
+          "relative_path": "advisories/github-reviewed/2023/03/GHSA-7jvm-xxmr-v5cw/GHSA-7jvm-xxmr-v5cw.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-46239",
+      "selection_digest": "09a278c26a1ecc4b2e184f863e3f222ceecef6c411e49b107a9cf4604c273810",
+      "nvd_published": "2023-10-31T16:15:09.543",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-3q6m-v84f-6p9h",
+          "published": "2023-10-30T15:08:05Z",
+          "relative_path": "advisories/github-reviewed/2023/10/GHSA-3q6m-v84f-6p9h/GHSA-3q6m-v84f-6p9h.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-43620",
+      "selection_digest": "09c559dad697a21b028798229aed6337fd1de6436dcf9d7bec80a573e02d8d11",
+      "nvd_published": "2023-09-20T06:15:10.870",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-364c-vvqx-446c",
+          "published": "2023-09-20T06:30:50Z",
+          "relative_path": "advisories/github-reviewed/2023/09/GHSA-364c-vvqx-446c/GHSA-364c-vvqx-446c.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-30363",
+      "selection_digest": "09f9101bafec72675f1c4f72014b029eb4241f50728250988c4a9d3be5e17bc2",
+      "nvd_published": "2023-04-26T21:15:09.103",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-f737-3fh6-jf6w",
+          "published": "2023-04-26T21:30:37Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-f737-3fh6-jf6w/GHSA-f737-3fh6-jf6w.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-35141",
+      "selection_digest": "0a24b918952e3f682d27af167985034ad94a88fc24f01291cc07a7c2702d54e3",
+      "nvd_published": "2023-06-14T13:15:11.823",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-98fp-r22g-wpj7",
+          "published": "2023-06-14T15:30:37Z",
+          "relative_path": "advisories/github-reviewed/2023/06/GHSA-98fp-r22g-wpj7/GHSA-98fp-r22g-wpj7.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-2800",
+      "selection_digest": "0a47f9812cfb60ed8db4eb62c547a84d622ecd4850cc140590bd9e39a036524a",
+      "nvd_published": "2023-05-18T17:15:08.817",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-282v-666c-3fvg",
+          "published": "2023-05-18T18:30:35Z",
+          "relative_path": "advisories/github-reviewed/2023/05/GHSA-282v-666c-3fvg/GHSA-282v-666c-3fvg.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-40273",
+      "selection_digest": "0a49ce2dabe5a807c78ffed93983b97881c93f02ae6ebf2e0573ac4c821b8c35",
+      "nvd_published": "2023-08-23T16:15:09.803",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-pm87-24wq-r8w9",
+          "published": "2023-08-23T18:30:34Z",
+          "relative_path": "advisories/github-reviewed/2023/08/GHSA-pm87-24wq-r8w9/GHSA-pm87-24wq-r8w9.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-42497",
+      "selection_digest": "0a63acfbc4224997b66c7abaf12607f4e4e3fe59fd6a9ea5fc562259c5b6b066",
+      "nvd_published": "2023-10-17T08:15:09.437",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-w2g3-j73q-7qv7",
+          "published": "2023-10-17T09:30:23Z",
+          "relative_path": "advisories/github-reviewed/2023/10/GHSA-w2g3-j73q-7qv7/GHSA-w2g3-j73q-7qv7.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-6654",
+      "selection_digest": "0aad7b466c4cf9e500be2372ee2e8f58ef686bd76c74516d0aaaf8eeaabc1a8b",
+      "nvd_published": "2023-12-10T15:15:07.160",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-5rv2-vvmf-f7w8",
+          "published": "2023-12-10T15:30:31Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-5rv2-vvmf-f7w8/GHSA-5rv2-vvmf-f7w8.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-2104",
+      "selection_digest": "0ac21da4a5c20adf2b3ee8831a944d55319000daafe46efdba506b4ea479e5bc",
+      "nvd_published": "2023-04-15T14:15:07.650",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-fc4g-f42p-7rhp",
+          "published": "2023-04-15T15:30:14Z",
+          "relative_path": "advisories/github-reviewed/2023/04/GHSA-fc4g-f42p-7rhp/GHSA-fc4g-f42p-7rhp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-49395",
+      "selection_digest": "0ac6419368a8c42b50a6a2f98367768a77726c335a56a39c56d883f352bb48f1",
+      "nvd_published": "2023-12-05T15:15:08.360",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-8hch-q86g-j38w",
+          "published": "2023-12-05T15:30:38Z",
+          "relative_path": "advisories/github-reviewed/2023/12/GHSA-8hch-q86g-j38w/GHSA-8hch-q86g-j38w.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-0312",
+      "selection_digest": "0accde21a6df9d331c90d1cc4a4657d1b9d1fd6d9a731b17d217b14c2fdb5bc3",
+      "nvd_published": "2023-01-15T22:15:10.893",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-6449-vf6p-9hfp",
+          "published": "2023-01-16T00:30:24Z",
+          "relative_path": "advisories/github-reviewed/2023/01/GHSA-6449-vf6p-9hfp/GHSA-6449-vf6p-9hfp.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-37659",
+      "selection_digest": "0ae8f8dac2059dd147a33cc779f0b0d16dc9f1dadca954920921faf25d9fe5b2",
+      "nvd_published": "2023-07-11T15:15:20.467",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-jx3q-5rgf-vrrr",
+          "published": "2023-07-11T15:31:18Z",
+          "relative_path": "advisories/github-reviewed/2023/07/GHSA-jx3q-5rgf-vrrr/GHSA-jx3q-5rgf-vrrr.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-48711",
+      "selection_digest": "0b073b06dbd36b8a84ce415e20fb6c497346683a801ad3d4b1c4946d54b9e44d",
+      "nvd_published": "2023-11-24T17:15:07.563",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-4233-7q5q-m7p6",
+          "published": "2023-11-27T23:30:14Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-4233-7q5q-m7p6/GHSA-4233-7q5q-m7p6.json"
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2023-49655",
+      "selection_digest": "0b093607620890b4b56b9f5d2bc0e89652ff233344cd0a86073982fa9ed306b0",
+      "nvd_published": "2023-11-29T14:15:07.617",
+      "ghsa_records": [
+        {
+          "ghsa_id": "GHSA-9f5g-rgcr-8grw",
+          "published": "2023-11-29T15:30:21Z",
+          "relative_path": "advisories/github-reviewed/2023/11/GHSA-9f5g-rgcr-8grw/GHSA-9f5g-rgcr-8grw.json"
+        }
+      ]
+    }
+  ],
+  "input": {
+    "path": "/home/xiaoyuliang/code/vuln-adj/data/processed/bootstrap/aligned/nvd_ghsa_by_cve.jsonl",
+    "sha256": "056d20bab59e1f00c730b1626b8a97333863ed9c4818d2d8a1e63d85a4313f1f"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "temporal-provenance-source-pins-v1",
+  "status": "pinned",
+  "observed_at": "2026-08-30T16:39:30.978355+00:00",
+  "checkpoints": [
+    "2024-01-01T00:00:00Z",
+    "2025-01-01T00:00:00Z",
+    "2026-05-31T00:00:00Z"
+  ],
+  "sources": {
+    "ghsa_advisory_database": {
+      "logical_name": "ghsa_advisory_database",
+      "directory_name": "ghsa-advisory-database",
+      "origin": "https://github.com/github/advisory-database.git",
+      "head": {
+        "commit": "b695d547ec7cbc0be623463706ee0ac6c3290c92",
+        "author_time": "2026-08-30T15:32:22+00:00",
+        "committer_time": "2026-08-30T15:32:22+00:00"
+      },
+      "root_commits": [
+        "ba762b8b068138bb66504b292044eed0c3315695"
+      ],
+      "object_format": "sha1",
+      "partial_clone_promisor": true,
+      "partial_clone_filter": "blob:none",
+      "checkpoints": {
+        "2024-01-01T00:00:00Z": {
+          "commit": "308f9cac9cc06441474024e0bdf71c1cc6149811",
+          "author_time": "2023-12-31T21:31:36+00:00",
+          "committer_time": "2023-12-31T21:31:36+00:00"
+        },
+        "2025-01-01T00:00:00Z": {
+          "commit": "469f75bc59616aab52894189170cc4145cc6157d",
+          "author_time": "2024-12-31T21:32:07+00:00",
+          "committer_time": "2024-12-31T21:32:07+00:00"
+        },
+        "2026-05-31T00:00:00Z": {
+          "commit": "3e994c09902d7b969fba12eb48889dcf54cde1c4",
+          "author_time": "2026-05-30T21:32:10+00:00",
+          "committer_time": "2026-05-30T21:32:10+00:00"
+        }
+      }
+    },
+    "cvelist_v5": {
+      "logical_name": "cvelist_v5",
+      "directory_name": "cvelistV5",
+      "origin": "https://github.com/CVEProject/cvelistV5.git",
+      "head": {
+        "commit": "6c762782de01db8b11c40cc857ea97e0158aa7cb",
+        "author_time": "2026-08-30T15:47:33+00:00",
+        "committer_time": "2026-08-30T15:47:33+00:00"
+      },
+      "root_commits": [
+        "c61aa90c516e9477c2cc5fea72f3ef1c099c0c68"
+      ],
+      "object_format": "sha1",
+      "partial_clone_promisor": true,
+      "partial_clone_filter": "blob:none",
+      "checkpoints": {
+        "2024-01-01T00:00:00Z": {
+          "commit": "ff9a7c62a9aa290b91b81bc5ee9669dc5cd07a3e",
+          "author_time": "2023-12-31T22:44:11+00:00",
+          "committer_time": "2023-12-31T22:44:11+00:00"
+        },
+        "2025-01-01T00:00:00Z": {
+          "commit": "5e80c2d67604af34932f5def3b53ec54432235ca",
+          "author_time": "2024-12-31T23:18:08+00:00",
+          "committer_time": "2024-12-31T23:18:08+00:00"
+        },
+        "2026-05-31T00:00:00Z": {
+          "commit": "4ac9674c8a551b19390380ac286739c64da8bfa3",
+          "author_time": "2026-05-30T23:47:10+00:00",
+          "committer_time": "2026-05-30T23:47:10+00:00"
+        }
+      }
+    },
+    "fkie_nvd_json_data_feeds": {
+      "logical_name": "fkie_nvd_json_data_feeds",
+      "directory_name": "nvd-json-data-feeds",
+      "origin": "https://github.com/fkie-cad/nvd-json-data-feeds.git",
+      "head": {
+        "commit": "499fa5d653e13dcc01000d0b4216ccbf6201110b",
+        "author_time": "2026-08-30T16:05:14+00:00",
+        "committer_time": "2026-08-30T16:05:14+00:00"
+      },
+      "root_commits": [
+        "35e9dae1411c8bc78087f7a7d02bcd1495ff9083"
+      ],
+      "object_format": "sha1",
+      "partial_clone_promisor": true,
+      "partial_clone_filter": "blob:none",
+      "checkpoints": {
+        "2024-01-01T00:00:00Z": {
+          "commit": "e5ecf99553802fc08b2ee7c9254d02b80531b39f",
+          "author_time": "2023-12-31T23:00:29+00:00",
+          "committer_time": "2023-12-31T23:00:29+00:00"
+        },
+        "2025-01-01T00:00:00Z": {
+          "commit": "347c2a4df2683120b41645325d4de0324fb3791e",
+          "author_time": "2024-12-31T23:03:42+00:00",
+          "committer_time": "2024-12-31T23:03:42+00:00"
+        },
+        "2026-05-31T00:00:00Z": {
+          "commit": "8f152d41f27594a18bcc22db1e388d3cea1b7b53",
+          "author_time": "2026-05-30T23:58:02+00:00",
+          "committer_time": "2026-05-30T23:58:02+00:00"
+        }
+      }
+    }
+  },
+  "source_ceiling": {
+    "ghsa_advisory_database": "provider_public_mirror_git",
+    "cvelist_v5": "official_cve_list_git_cache",
+    "fkie_nvd_json_data_feeds": "community_nvd_api_reconstruction_not_nvd_endorsed"
+  }
+}
