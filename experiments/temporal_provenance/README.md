@@ -21,7 +21,22 @@ Large repositories, raw snapshots, URL responses, processed rows, and result
 payloads remain under ignored `data/` and `results/` paths on the authoritative
 remote. Small frozen controls and schemas may be tracked.
 
-Current status: protocol frozen; no pilot result has been generated.
+Current status: protocol, source pins, and the deterministic E0 sample are
+sealed. The official current NVD response is acquired. Historical Git states,
+the current replay gate, and downstream outcomes are not scientific results
+until their corresponding validators pass.
+
+The E0 execution order is fail-closed:
+
+1. `materialize_e0_git_states.py` writes projections plus content-addressed
+   raw record blobs from the pinned commits;
+2. `verify_e0_git_states.py` independently reparses every available snapshot
+   for 20 outcome-independent CVEs and checks the raw digests and loss-sensitive
+   structural projections; and
+3. `analyze_e0_replay.py` opens historical transition summaries only when both
+   the current-state gate and independent-parser verification pass.
+
+The independent parser is a mechanical structural check, not semantic truth.
 
 Pre-acquisition errata that govern historical alignment, NVD affected lineage,
 and the stricter E0 replay gate are recorded in

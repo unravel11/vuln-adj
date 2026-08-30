@@ -32,6 +32,13 @@ def parse_args() -> argparse.Namespace:
         "--output",
         default="results/temporal_provenance/pilot_v1/e0_replay/analysis.json",
     )
+    parser.add_argument(
+        "--independent-verification",
+        default=(
+            "results/temporal_provenance/pilot_v1/e0_replay/"
+            "independent_parser_verification.json"
+        ),
+    )
     return parser.parse_args()
 
 
@@ -290,12 +297,14 @@ def main() -> int:
     git_states_dir = Path(args.git_states_dir).resolve()
     nvd_current_dir = Path(args.nvd_current_dir).resolve()
     output = Path(args.output).resolve()
+    verification_path = Path(args.independent_verification).resolve()
     git_manifest = json.loads(
         (git_states_dir / "manifest.json").read_text(encoding="utf-8")
     )
     nvd_manifest = json.loads(
         (nvd_current_dir / "manifest.json").read_text(encoding="utf-8")
     )
+    verification = json.loads(verification_path.read_text(encoding="utf-8"))
     if nvd_manifest.get("status") != "complete":
         raise ValueError("Official NVD current acquisition is incomplete")
     git_rows = {
@@ -306,14 +315,32 @@ def main() -> int:
         nvd_current_dir / nvd_manifest["records_file"]
     )
     gate = current_gate(git_rows, nvd_current_rows)
+    independent_pass = (
+        verification.get("status") == "pass"
+        and verification.get("selected_count") == 20
+        and not verification.get("failures")
+    )
+    if gate["status"] != "pass":
+        status = "stop_current_replay"
+    elif not independent_pass:
+        status = "stop_independent_parser"
+    else:
+        status = "pass_e0_replay"
     analysis = {
         "schema_version": "temporal-provenance-e0-replay-analysis-v1",
-        "status": "stop_current_replay" if gate["status"] != "pass" else "pass_e0_replay",
+        "status": status,
         "claim_ceiling": "engineering_replay_and_observable_state_drift_only",
         "current_replay_gate": gate,
+        "independent_parser_verification": {
+            "path": str(verification_path),
+            "status": verification.get("status"),
+            "selected_count": verification.get("selected_count"),
+            "audited_present_states": verification.get("audited_present_states"),
+            "failure_count": len(verification.get("failures") or []),
+        },
         "historical_summary": None,
     }
-    if gate["status"] == "pass":
+    if analysis["status"] == "pass_e0_replay":
         analysis["historical_summary"] = historical_summary(git_rows)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(analysis, indent=2, ensure_ascii=False) + "\n")

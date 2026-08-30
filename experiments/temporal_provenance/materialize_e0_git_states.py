@@ -161,6 +161,7 @@ def states_for_source(
     source_pin: dict[str, Any],
     paths_by_cve: dict[str, list[str]],
     projector: Callable[[dict[str, Any]], dict[str, Any]],
+    raw_blobs_dir: Path,
 ) -> list[dict[str, Any]]:
     snapshots = {"current": source_pin["head"]}
     snapshots.update(source_pin["checkpoints"])
@@ -207,6 +208,10 @@ def states_for_source(
                     projection = None
                     status = "parse_error"
                     error = f"{type(exc).__name__}: {exc}"
+                raw_digest = sha256_bytes(raw)
+                raw_blob = raw_blobs_dir / f"{raw_digest}.json"
+                if not raw_blob.exists():
+                    raw_blob.write_bytes(raw)
                 row = {
                     "source": source_name,
                     "snapshot": snapshot_name,
@@ -215,7 +220,8 @@ def states_for_source(
                     "cve_id": cve_id,
                     "path": path,
                     "status": status,
-                    "raw_sha256": sha256_bytes(raw),
+                    "raw_sha256": raw_digest,
+                    "raw_blob": str(raw_blob.relative_to(raw_blobs_dir.parent)),
                     "raw_size": len(raw),
                     "projection": projection,
                 }
@@ -239,6 +245,8 @@ def main() -> int:
         raise ValueError("Source pins are not sealed")
 
     output_dir.mkdir(parents=True, exist_ok=True)
+    raw_blobs_dir = output_dir / "raw_blobs"
+    raw_blobs_dir.mkdir(parents=True, exist_ok=True)
     all_rows = []
     repository_heads = {}
     for source_name, spec in SOURCE_SPECS.items():
@@ -259,6 +267,7 @@ def main() -> int:
             source_pin,
             paths_by_cve,
             spec["projector"],
+            raw_blobs_dir,
         )
         source_output = output_dir / f"{source_name}.jsonl"
         with source_output.open("w", encoding="utf-8") as handle:
@@ -287,6 +296,10 @@ def main() -> int:
         "source_files": {
             source_name: f"{source_name}.jsonl" for source_name in SOURCE_SPECS
         },
+        "raw_blobs_dir": "raw_blobs",
+        "unique_raw_blobs": len({
+            row["raw_sha256"] for row in all_rows if row.get("raw_sha256")
+        }),
         "repository_transport_heads": repository_heads,
     }
     manifest_path = output_dir / "manifest.json"
