@@ -8,6 +8,7 @@ import io
 import json
 import subprocess
 import tarfile
+import time
 from collections import Counter
 from pathlib import Path
 from typing import Any, Callable
@@ -63,21 +64,46 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def run_git(repo: Path, *args: str, binary: bool = False) -> str | bytes:
-    completed = subprocess.run(
-        ["git", "-C", str(repo), *args],
-        check=False,
-        capture_output=True,
-        text=not binary,
-    )
-    if completed.returncode != 0:
+def run_git(
+    repo: Path, *args: str, binary: bool = False, attempts: int = 1
+) -> str | bytes:
+    if attempts <= 0:
+        raise ValueError("attempts must be positive")
+    detail = "unknown error"
+    for attempt in range(attempts):
+        completed = subprocess.run(
+            [
+                "git",
+                "-c",
+                "http.version=HTTP/1.1",
+                "-C",
+                str(repo),
+                *args,
+            ],
+            check=False,
+            capture_output=True,
+            text=not binary,
+        )
+        if completed.returncode == 0:
+            return completed.stdout
         stderr = completed.stderr
         if isinstance(stderr, bytes):
             detail = stderr.decode("utf-8", errors="replace").strip()
         else:
             detail = stderr.strip()
-        raise RuntimeError(f"git {' '.join(args)} failed for {repo}: {detail}")
-    return completed.stdout
+        retryable = any(
+            marker in detail
+            for marker in (
+                "SSL_ERROR_SYSCALL",
+                "unable to access",
+                "Connection reset",
+                "The requested URL returned error: 5",
+            )
+        )
+        if not retryable or attempt + 1 == attempts:
+            break
+        time.sleep(5 * (attempt + 1))
+    raise RuntimeError(f"git {' '.join(args)} failed for {repo}: {detail}")
 
 
 def existing_paths(repo: Path, commit: str, paths: list[str]) -> set[str]:
@@ -92,7 +118,16 @@ def archive_records(repo: Path, commit: str, paths: list[str]) -> dict[str, byte
     existing = sorted(existing_paths(repo, commit, paths))
     if not existing:
         return {}
-    archive = run_git(repo, "archive", "--format=tar", commit, "--", *existing, binary=True)
+    archive = run_git(
+        repo,
+        "archive",
+        "--format=tar",
+        commit,
+        "--",
+        *existing,
+        binary=True,
+        attempts=4,
+    )
     assert isinstance(archive, bytes)
     records = {}
     with tarfile.open(fileobj=io.BytesIO(archive), mode="r:") as handle:
