@@ -62,12 +62,11 @@ def parse_args() -> argparse.Namespace:
 
 
 def git(repository: Path, *arguments: str) -> bytes:
-    completed = subprocess.run(
-        ["git", "-C", str(repository), *arguments],
-        check=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
+    command = ["git", "-C", str(repository), *arguments]
+    completed = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if completed.returncode != 0:
+        message = completed.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"Git command failed ({completed.returncode}): {message}")
     return completed.stdout
 
 
@@ -80,7 +79,7 @@ def build_log(repository: Path, pinned_commit: str) -> bytes:
         "--first-parent",
         "--reverse",
         "--root",
-        "--diff-merges=first-parent",
+        "-m",
         "--find-renames=50%",
         "--format=@@@%H%x09%P%x09%aI%x09%cI%x09%s",
         "--name-status",
@@ -300,7 +299,7 @@ def main() -> int:
             "reverse": True,
             "root_diff": True,
             "date_limits": False,
-            "merge_diff": "first_parent",
+            "merge_diff": "-m with --first-parent (Git 2.27 compatible)",
             "rename_threshold": "50%",
         },
         "commit_count": len(rows),
