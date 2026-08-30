@@ -4697,3 +4697,72 @@
     direct/staging 路由映射到 14 日内 main ancestry 并扫描完整七日状态，生成
     exact/partial/already-present/unlinked/unresolved 账本；若任一主字段 route-bound
     stable exact 少于 50，立即返回 broad-route `NO_GO`，不先做论文包装。
+
+## 2026-08-31：独立审计否决 exhaustive census，冻结 V2 endpoint-visible reconciliation
+
+- 本次完成了什么：
+  - 在首个 GHSA PR manifest 和任何字段 diff 产生前，用独立 acquisition/verifier 审计
+    否决上一节的“全量 census / completeness”表述。两次 Search 与一次 ordinary
+    Pulls 虽使用不同索引路径，仍共享 GitHub 的权限、删除、服务与公开可见性边界；
+    三者集合一致只能形成条件性的
+    `three_pass_reconciled_endpoint_visible_set`，不能证明 exhaustive public history。
+  - 保留 V1 半程原始响应作工程轨迹，但将其从科学输入排除：第一遍 Search 有成功
+    请求，ordinary Pulls 只走到第 25 页，第二遍 Search 未开始；V1 没有完成 manifest、
+    字段差异、accepted-event 结果或下游结果。V2 使用全新 raw/processed 目录和新的
+    run identity，禁止把 V1 响应混入。
+  - V2 补齐 Search 页内 `total_count` 稳定性、Pulls exact Link traversal、GitHub
+    canonical `/repositories/{numeric_id}/pulls` 路径与 repository-ID 冻结、跨页重复和
+    空页硬失败、run/auth/request identity、primary/secondary rate-limit 分类、请求接收
+    时间及独立 request-ID 账本。
+  - 将 acquisition 与 verifier 门禁拆开：采集 manifest 即使内部三路一致，仍固定为
+    `reconciliation_complete_pending_independent_verification`、
+    `verification_status=pending`、`downstream_eligible=false`。只有独立重算 PASS，并且
+    verifier 的 `run_id` 与一次性 manifest SHA-256 匹配当前文件，后续字段入口才可放行。
+  - 提交 `aa79d7e` 后在权威远端确认 `hostname=code-defender`、
+    `pwd=/home/xiaoyuliang/code/vuln-adj`，fast-forward 到同一提交并启动 V2。第一遍
+    Search 已保留 33 个成功响应；随后 ordinary Pulls 第 1 页因匿名 core rate limit
+    在任何成功页产生前按协议暂停。当前 V2 尚无 manifest，也未打开字段 diff。
+
+- 产物路径：
+  - `docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`
+  - `experiments/temporal_provenance/acquire_ghsa_merged_pr_manifest.py`
+  - `experiments/temporal_provenance/verify_ghsa_merged_pr_manifest.py`
+  - `experiments/temporal_provenance/test_acquire_ghsa_merged_pr_manifest.py`
+  - `experiments/temporal_provenance/test_verify_ghsa_merged_pr_manifest.py`
+  - V1 excluded trace：
+    `data/raw/temporal_provenance/pilot_v1/ghsa_merged_pr_census/`、
+    `data/processed/temporal_provenance/pilot_v1/ghsa_merged_pr_census/`
+  - V2 authoritative ignored state：
+    `data/raw/temporal_provenance/pilot_v1/ghsa_merged_pr_reconciled_v2/`、
+    `data/processed/temporal_provenance/pilot_v1/ghsa_merged_pr_reconciled_v2/`
+
+- 如何验证：
+  - staging clone 与权威远端均执行 `py_compile`；完整 temporal-provenance test suite
+    为 `67/67 PASS`。独立复审未发现剩余 BLOCKER/HIGH。
+  - 新增反例覆盖 canonical Link 的 page/repository-ID 漂移、Search total drift、Pulls
+    duplicate/empty page、secondary 403 在 core remaining 非零时的至少 60 秒门、resume
+    identity 漂移，以及 verifier 对零请求 Pulls traversal 的拒绝。
+  - 权威远端 V2 run ID 为 `96afd7b8-f3f9-4d15-81f6-8b8b3fef1d6a`；当前
+    `run_state.json` 为 `rate_limited_resumable`。成功响应和失败 attempt 均留在同一
+    append-only raw root，没有换样本或删失败记录。
+
+- 当前观察到的效果或统计：
+  - 只完成了 V2 Search pass 1 的网络证据保存；Pulls 与 Search pass 2 尚未形成完整
+    三路对账。因此目前没有 endpoint-visible PR denominator，更没有 affected/reference
+    candidate、accepted correction、stable exact event 或下游 output-change 数。
+  - TLS EOF 探针与匿名 core rate-limit 是工程运行状态，不是论文结果。机械测试 PASS
+    也不证明 GitHub 历史完整、字段修正正确、事件足量或新方向可投稿。
+
+- 还没验证的点：
+  - V2 三路 PR number/`merged_at` 是否完全一致、独立 verifier 是否 PASS、两个主字段
+    是否各有至少 50 个 route-bound stable exact events，均未知。
+  - Task A/Task B 的每项 50-event executable gate、paired output changes、payload loss、
+    bulk dominance 与 closest-work differential 均未通过；论文状态保持
+    `NO_GO_FOR_SUBMISSION`。
+
+- 下一步：
+  - 匿名 core rate limit 重置后，在同一 run ID 与 raw root 原地恢复 ordinary Pulls，
+    再完成第二遍 Search；不改时间窗、身份、页参数或失败记录。
+  - 采集内部对齐后先运行独立 verifier，并检查 hash/run-ID 放行凭据。只有该门通过，
+    才允许打开 accepted revision 与 main-state 字段 diff；否则记录
+    `manifest_incomplete` 或 verifier FAIL 并停止。
