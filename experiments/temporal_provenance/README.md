@@ -47,6 +47,19 @@ The E0 execution order is fail-closed:
 
 The independent parser is a mechanical structural check, not semantic truth.
 
+The first E1 operation is census-only:
+
+```bash
+python3 experiments/temporal_provenance/acquire_ghsa_merged_pr_manifest.py
+```
+
+It reconciles two monthly Search passes with the ordinary closed-pulls REST
+pagination before any PR field diff is opened. Raw bodies, selected response
+headers, and every failed attempt are append-only under the ignored raw-data
+tree. Exit code `3` means a public API rate limit paused the run; rerunning the
+same command resumes only requests whose successful body and request identity
+already match. This stage does not count affected/reference changes.
+
 Pre-acquisition errata that govern historical alignment, NVD affected lineage,
 and the stricter E0 replay gate are recorded in
 `docs/plans/temporal_provenance_pilot_v1_pre_acquisition_errata_1.md`.
