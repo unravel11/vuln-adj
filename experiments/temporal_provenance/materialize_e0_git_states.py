@@ -240,13 +240,15 @@ def main() -> int:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     all_rows = []
+    repository_heads = {}
     for source_name, spec in SOURCE_SPECS.items():
         repo = repositories_root / spec["directory"]
         source_pin = pins["sources"][source_name]
         actual_head = run_git(repo, "rev-parse", "HEAD")
         assert isinstance(actual_head, str)
-        if actual_head.strip() != source_pin["head"]["commit"]:
-            raise ValueError(f"Pinned HEAD drift for {source_name}")
+        repository_heads[source_name] = actual_head.strip()
+        pinned_commit = source_pin["head"]["commit"]
+        run_git(repo, "cat-file", "-e", f"{pinned_commit}^{{commit}}")
         if source_name == "ghsa_advisory_database":
             paths_by_cve = ghsa_paths(sample)
         else:
@@ -285,6 +287,7 @@ def main() -> int:
         "source_files": {
             source_name: f"{source_name}.jsonl" for source_name in SOURCE_SPECS
         },
+        "repository_transport_heads": repository_heads,
     }
     manifest_path = output_dir / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
