@@ -60,6 +60,19 @@ tree. Exit code `3` means a public API rate limit paused the run; rerunning the
 same command resumes only requests whose successful body and request identity
 already match. This stage does not count affected/reference changes.
 
+After the manifest reports `complete`, independently rebuild it from the raw
+success pointers, response bodies, and attempt ledger before opening field
+diffs:
+
+```bash
+python3 experiments/temporal_provenance/verify_ghsa_merged_pr_manifest.py
+```
+
+The verifier reparses both Search passes and the ordinary Pulls pages, checks
+the retained-body digests, and requires exact PR-number and `merged_at`
+identity. Its PASS is a mechanical census check, not a correction or truth
+label.
+
 Pre-acquisition errata that govern historical alignment, NVD affected lineage,
 and the stricter E0 replay gate are recorded in
 `docs/plans/temporal_provenance_pilot_v1_pre_acquisition_errata_1.md`.
