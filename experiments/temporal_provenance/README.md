@@ -3,6 +3,13 @@
 This directory implements the frozen protocol in
 `docs/plans/temporal_provenance_pilot_v1.md`.
 
+GHSA merged-PR enumeration and proposal-to-main mapping follow the pre-census
+workflow addendum in
+`docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`. In particular, a
+merged PR is an accepted-disposition object, not the provider's final field
+state; `exact`, `partial`, and curator-substituted publication outcomes remain
+separate.
+
 The pilot is isolated from the existing RQ2 routing and JSS paper pipeline.
 Existing normalized affected/reference values may define an ID universe, but
 they are not reused as historical field truth.
@@ -21,10 +28,10 @@ Large repositories, raw snapshots, URL responses, processed rows, and result
 payloads remain under ignored `data/` and `results/` paths on the authoritative
 remote. Small frozen controls and schemas may be tracked.
 
-Current status: protocol, source pins, and the deterministic E0 sample are
-sealed. The official current NVD response is acquired. Historical Git states,
-the current replay gate, and downstream outcomes are not scientific results
-until their corresponding validators pass.
+Current status: E0 replay passed its engineering gate, and the GHSA discovery
+and main-state mapping method is frozen. Full accepted-event denominators and
+both downstream outcomes remain unknown until their corresponding acquisition,
+mapping, and validators pass.
 
 The E0 execution order is fail-closed:
 

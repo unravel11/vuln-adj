@@ -3,6 +3,13 @@
 **Frozen**: 2026-08-31 before event discovery  
 **Applies to**: temporal-provenance qualification pilot V1
 
+**Pre-census workflow addendum**: the provider's staged publication workflow
+requires proposal-to-main mapping and adds
+`accepted_but_proposal_not_adopted`; see
+`docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`. The addendum was
+frozen after limited workflow-resolution probes and before the full census. It
+does not change the original numerical gates.
+
 ## 1. Required event identity
 
 An event key is:
@@ -116,4 +123,3 @@ sets the candidate to an unresolved/ineligible classification. The pipeline
 must not fill missing historical values from the current record, carry an
 after value backward, or select a neighboring commit because it yields a
 cleaner downstream comparison.
-

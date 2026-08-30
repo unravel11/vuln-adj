@@ -4628,3 +4628,60 @@
   - 将 ASE 2026 的 12 个窗口内 NVD updates 只作外部可观察验证候选；没有公开 NVD
     disposition 证据时分类为 `ordinary_provider_change_no_public_acceptance`，不为凑数
     降低事件合同。
+
+## 2026-08-31：冻结 GHSA accepted-event 全量发现与 main 映射方法
+
+- 本次完成了什么：
+  - 在 E0 replay 通过后，先用有限公开 PR 探针解析 GHSA 实际发布流程，再在全量
+    merged-PR census 和任何下游 outcome 分析前冻结 E1 方法。探针发现两种路径：
+    PR 可直接合入 main，也可先合入贡献者 staging branch 后由 bot 发布到 main。
+  - 将 PR proposal、`merged_at` accepted disposition、main parent/child 实际状态和
+    JSON `modified` 拆为不同证据对象与时钟；禁止把 merged PR head 直接当 final
+    provider state。
+  - 冻结按自然月穷举 GitHub public merged PR、月内完整性核对、全窗口总数核对、
+    原始响应与失败 attempt 留存、PR head/diff/完整 JSON 保留、跨 reviewed/unreviewed
+    path migration 搜索、14 日 main 映射与七日稳定性检查。
+  - 增加 proposal→main 的 `exact`、`partial`、`substituted`、`no_field_delta`、
+    `ambiguous_many_to_one`、`unresolved_14d` 分类。只有 exact/partial 可证明提案至少
+    部分被 main 采用；substituted 新增为
+    `accepted_but_proposal_not_adopted`，不能冒充已接受的提案值。
+  - 保留原冻结的每字段 50 个事件、两个任务各 50 个可执行事件、replay、payload
+    loss 与 bulk-dominance 停止门；没有因先验数量或探针现象调整阈值。
+
+- 产物路径：
+  - `docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`
+  - `docs/annotation_guidelines/accepted_correction_event_contract_v1.md`
+  - `experiments/temporal_provenance/README.md`
+  - `docs/plans/project_master_plan.md` 与本进度日志
+
+- 如何验证：
+  - 可文本核对总体、精确时间窗、月分片、完整性门、原始 evidence lineage、14 日
+    mapping、七日 stability、fail-closed 分类与不变的停止门。
+  - 有限探针固定使用两个 SHA-256 排序 seed；一次 HTTP 429 保留且不换样本。探针只
+    解决工作流与方法，不进入全量 effect 分母。
+  - 提交前执行 `git diff --check`；推送后在权威远端 fast-forward 并复核 clean。
+
+- 当前观察到的效果或统计：
+  - 公开 whole-window count probe 为 `1,941` 个 merged PR；PR body 命中
+    `Affected products`/`References` 分别为 `1,488`/`825`，只作为 acquisition
+    reconcile target 和候选上界，不是实际 field delta 或 accepted correction 数。
+  - 20 条固定 reference workflow probe 均在 14 日内找到 main 事件，但包含 exact、
+    partial、curator-substituted 和多文件发布事务；这证明技术映射可做，也证明 merged
+    disposition 不能替代 main 实际值或语义真值。
+  - reference body 候选高度集中于少数 author/campaign，因此冻结 author/campaign 与
+    main-transaction clustering 和 sensitivity，不能把 PR 数直接当独立样本量。
+
+- 还没验证的点：
+  - 全量 1,941 是否能通过逐月 API 完整性门尚未在权威远端采集验证；body-search
+    数也尚未通过实际 JSON diff 转化为字段候选。
+  - 两个主字段各自的 main-mapped、stable、eligible 数和 unique CVE 数仍未知；
+    Task A/Task B 可执行数与 paired output changes 仍为 0 个已完成结果。
+  - merged disposition 只证明公开维护流程采用某项贡献；不证明 affected range 或
+    commit link 的事实正确性。
+
+- 下一步：
+  - 在权威远端运行按月、可恢复、保留原始 JSON/headers/attempts 的全量 PR manifest
+    acquisition，先通过 completeness gate。
+  - 对全量 PR 读取真实 advisory JSON diff，映射到 14 日内稳定 main state，生成包含
+    exact/partial/substituted/unresolved 的事件账本；若任一主字段少于 50，立即按协议
+    返回 broad-route `NO_GO`，不先做论文包装。
