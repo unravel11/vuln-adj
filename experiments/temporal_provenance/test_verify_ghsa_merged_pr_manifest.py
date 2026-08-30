@@ -1,9 +1,12 @@
+import tempfile
 import unittest
+from pathlib import Path
 
 from verify_ghsa_merged_pr_manifest import (
     VerificationError,
     compare_censuses,
     parse_utc,
+    rebuild_pulls,
     validate_pulls_request,
     validate_search_request,
 )
@@ -54,15 +57,61 @@ class CensusVerifierTests(unittest.TestCase):
         )
 
     def test_pulls_request_requires_frozen_query(self):
-        validate_pulls_request(
+        repository_id = validate_pulls_request(
             {
                 "url": (
-                    "https://api.github.com/repos/github/advisory-database/pulls?"
+                    "https://api.github.com/repositories/458364565/pulls?"
                     "state=closed&sort=created&direction=asc&per_page=100&page=7"
                 )
             },
             page=7,
+            expected_repository_id=458364565,
         )
+        self.assertEqual(repository_id, 458364565)
+
+    def test_first_pulls_request_requires_owner_name_path(self):
+        repository_id = validate_pulls_request(
+            {
+                "url": (
+                    "https://api.github.com/repos/github/advisory-database/pulls?"
+                    "state=closed&sort=created&direction=asc&per_page=100&page=1"
+                )
+            },
+            page=1,
+        )
+        self.assertIsNone(repository_id)
+
+    def test_later_pulls_request_rejects_repository_id_change(self):
+        with self.assertRaisesRegex(VerificationError, "repository ID changed"):
+            validate_pulls_request(
+                {
+                    "url": (
+                        "https://api.github.com/repositories/458364566/pulls?"
+                        "state=closed&sort=created&direction=asc&per_page=100&page=3"
+                    )
+                },
+                page=3,
+                expected_repository_id=458364565,
+            )
+
+    def test_pulls_rebuild_rejects_zero_request_traversal(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaisesRegex(
+                VerificationError, "no retained request evidence"
+            ):
+                rebuild_pulls(
+                    Path(directory),
+                    {
+                        "stage": "pulls",
+                        "status": "traversal_complete",
+                        "pages": 0,
+                        "page_summaries": [],
+                    },
+                    parse_utc("2024-01-01T00:00:00Z"),
+                    parse_utc("2026-01-01T00:00:00Z"),
+                    "run-id",
+                    "unauthenticated_public",
+                )
 
 
 if __name__ == "__main__":

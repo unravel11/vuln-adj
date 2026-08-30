@@ -14,7 +14,7 @@
 | D：标注规范与金标建设 | **进行中** |
 | E：证据驱动裁决实现 | **进行中** |
 | F：实验汇总与论文写作（JSS 保守重构） | **进行中**（`S2_ARGUMENT_LOCKED`；routing-centric title/thesis、确定性 RQ1/RQ2、analyst-bounded RQ3、三项 contribution ceiling 与 Branch P/B 合同不变；Markdown/`elsarticle` zero draft、17-key citation closure、三张确定性表、no-human artifact manifest、22 页临时 PDF 编译与逐页 QA 已完成；真人流程暂停且标签仍为 0，正文未获作者批准，E08/E09 与最终投稿门禁未完成） |
-| G：时间 provenance 新方向资格验证 | **进行中**（`E1_DISCOVERY_METHOD_HARDENED_BEFORE_ACQUISITION`；E0 历史重放工程门已通过；独立方法审计后又在全量枚举前补齐双 REST census、accepted revision、PR-before、Git topology、direct/staging route binding、delta identity 与完整七日扫描；主 cohort 只认 route-bound stable exact，事件数和下游贡献门仍未知） |
+| G：时间 provenance 新方向资格验证 | **进行中**（`E1_DISCOVERY_METHOD_HARDENED_V2_BEFORE_REACQUISITION`；E0 历史重放工程门已通过；独立审计在首个 manifest 完成前否决“全量 census”表述，并补强分页、run/auth identity、限流与独立重算；V2 只构造 three-pass endpoint-visible reconciled set；主 cohort 只认 route-bound stable exact，事件数和下游贡献门仍未知） |
 
 ---
 
@@ -50,10 +50,11 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 
 ### 2026-08-31 时间 provenance 新方向资格验证
 
-- 状态：`E1_DISCOVERY_METHOD_HARDENED_BEFORE_ACQUISITION`；这是与旧 JSS routing
+- 状态：`E1_DISCOVERY_METHOD_HARDENED_V2_BEFORE_REACQUISITION`；这是与旧 JSS routing
   稿隔离的资格验证，
   不是对旧稿的静默改题，也不是新论文 `GO`。E0 只通过历史重放工程门；当前已在
-  全量事件枚举前冻结 GHSA accepted-PR 到公开 main 状态的映射方法。
+  字段结果前冻结 GHSA accepted-PR 到公开 main 状态的映射方法。首轮不完整采集只作
+  工程轨迹，V2 使用新 raw root 重采。
 - 候选问题不是泛泛统计“数据库会变化”，而是：被维护方公开接受的
   `affected` 或 fix-reference 修正，是否能在可审计的历史快照中重放，并是否会改变
   两类不同下游产物——离线 SCA 告警集合与已知修复提交的 reference coverage。
@@ -78,6 +79,11 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
 - 本阶段最多能报告 observable state/output drift、accepted-change adoption 与明确
   边界。accepted disposition 不是普遍语义真值；机械 replay PASS 也不证明 NVD/GHSA
   准确、漏洞真实可利用、研究普遍受污染、工具更安全或新稿可投稿。
+- merged-PR frame 只允许写成两次 Search 与一次 ordinary Pulls 遍历得到的
+  `three_pass_reconciled_endpoint_visible_set`。三条链路共享 GitHub 的权限、删除和
+  服务边界，集合相同不是 exhaustive public census 的独立证明；后续比例与分母均
+  条件于该 frame。采集 manifest 固定为 `downstream_eligible=false`；只有独立验证器
+  PASS 且其 run ID 与一次性 manifest SHA-256 仍匹配，才允许打开字段 diff。
 - 冻结协议与字段合同：`docs/plans/temporal_provenance_pilot_v1.md`、
   `docs/annotation_guidelines/accepted_correction_event_contract_v1.md`、
   `docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`；实现与结果隔离在
@@ -89,7 +95,7 @@ artifact gate 全部完成后，才允许重新评估。零人工门禁通过不
   与 NVD 的若干 `99/100` transition 只作为 bulk/schema/sync 风险信号，不计 accepted
   correction。完整边界见 `docs/temporal_provenance_e0_replay_result_20260831.md`。
 - GHSA 工作流探针显示 merged PR 可能先进入贡献者 staging branch 再由机器人发布到
-  main，也存在 PR 提案与 main 最终字段值不同的反例。因此全量阶段必须分别保留
+  main，也存在 PR 提案与 main 最终字段值不同的反例。因此 endpoint-visible 阶段必须分别保留
   proposal-before/after、accepted revision、`merged_at` disposition 与 main
   parent/child。主 cohort 只允许 route-bound、七日稳定、`delta_main ==
   delta_proposal` 的 exact event；partial、already-present、nonmatching/unlinked 与 14 日

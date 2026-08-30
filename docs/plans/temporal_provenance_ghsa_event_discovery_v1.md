@@ -1,8 +1,8 @@
 # GHSA Accepted-Event Discovery and Main-State Mapping V1
 
-**Frozen on**: 2026-08-31, after limited workflow-resolution probes and before
-the full merged-PR census or outcome analysis  
-**Status**: `E1_DISCOVERY_METHOD_HARDENED_BEFORE_ACQUISITION`
+**Frozen on**: 2026-08-31; V2 hardened after an independent acquisition audit,
+before a completed PR manifest or any field outcome analysis
+**Status**: `E1_DISCOVERY_METHOD_HARDENED_V2_BEFORE_REACQUISITION`
 
 **Parent protocol**: `docs/plans/temporal_provenance_pilot_v1.md`  
 **Event contract**:
@@ -25,23 +25,36 @@ three separate evidence objects. A merged PR cannot be copied directly into
 the event ledger as the provider's final field value.
 
 The probes were used only to resolve this workflow and choose an acquisition
-algorithm. They are not the full census, are not an effect estimate, and do
+algorithm. They are not the reconciled event set, are not an effect estimate, and do
 not change the frozen 50-event, replay, payload-loss, downstream-execution, or
 claim-ceiling gates.
 
-## 2. Frozen population and completeness gate
+An initial V1 acquisition partially completed the first Search traversal and
+25 ordinary-Pulls pages, but an independent audit stopped it before a manifest
+or field diff was produced. The audit found that agreement among GitHub
+endpoints cannot prove exhaustive public history and exposed pagination,
+resume-identity, and secondary-rate-limit weaknesses. Those partial V1 raw
+responses remain retained as an engineering trace but are excluded from V2.
+V2 uses a new versioned raw root and the rules below.
 
-The observable population is every merged pull request that remains public at
-acquisition time through both frozen GitHub REST routes below and whose exact
-`pull_request.merged_at` satisfies:
+## 2. Frozen endpoint-visible frame and reconciliation gate
+
+The analysis frame is the set of merged pull requests returned with identical
+PR numbers and `merged_at` values by two completed GitHub Issues Search
+traversals and one completed ordinary Pulls traversal under one declared public
+authentication boundary, whose exact `pull_request.merged_at` satisfies:
 
 ```text
 2024-01-01T00:00:00Z <= merged_at < 2026-01-01T00:00:00Z
 ```
 
-This wording is deliberate: the study cannot recover a PR that was historically
-public but was later deleted or made unavailable. It therefore does not claim a
-census of every PR that ever existed.
+This is a `three_pass_reconciled_endpoint_visible_set`, not an exhaustive public
+PR census. All three traversals share GitHub's provider, permission, deletion,
+and service boundaries and can therefore omit the same object. The study cannot
+recover a PR that was historically public but was later deleted or made
+unavailable, and endpoint agreement is mechanical consistency rather than an
+independent completeness oracle. Counts and rates are conditional on this
+declared frame.
 
 The primary enumeration uses GitHub's Issues Search REST API with the fixed
 query:
@@ -50,9 +63,9 @@ query:
 repo:github/advisory-database is:pr is:merged merged:START..END
 ```
 
-The search census is partitioned by natural month, requests `per_page=100`,
+Each Search traversal is partitioned by natural month, requests `per_page=100`,
 follows all reported pages, and fixes `sort=created&order=asc` for stable
-traversal. A second search pass is run after the independent REST listing
+traversal. A second search pass is run after the differently indexed REST traversal
 below. Both use `X-GitHub-Api-Version: 2022-11-28`. The authentication mode
 (`authenticated_public` or `unauthenticated_public`) is recorded, but
 authentication secrets are never serialized into a request ledger or response
@@ -61,19 +74,43 @@ If a monthly query reports more than 1,000 results, that month is partitioned
 by UTC day before any items are used. Rows are deduplicated only by PR number,
 and the exact timestamp predicate above is reapplied after parsing.
 
-The independent enumeration walks the ordinary Pull Requests REST endpoint:
+The differently indexed enumeration walks the ordinary Pull Requests REST endpoint:
 
 ```text
 GET /repos/github/advisory-database/pulls
     ?state=closed&sort=created&direction=asc&per_page=100&page=N
 ```
 
-It follows the endpoint's complete pagination from page 1, then retains only
-rows satisfying the exact `merged_at` predicate. It does not use a search date
-index. Search and ordinary-pulls responses, headers, acquisition times, HTTP
-statuses, attempt numbers, and response digests are all retained.
+It follows the exact `rel="next"` URL returned by the endpoint from page 1 until
+the complete created-time prefix reaches the frozen end, then retains only rows
+satisfying the exact `merged_at` predicate. It does not use a search date index.
+GitHub canonicalizes later Link paths to `/repositories/{numeric_id}/pulls`; V2
+freezes the numeric repository ID from the first such Link and rejects any later
+ID change rather than rebuilding owner/name page URLs locally.
+Any duplicate PR number across Pulls pages, changed Search `total_count` within
+a shard, missing/invalid Link, non-contiguous page, or ordering violation fails
+closed. Raw and unique row counts are both retained.
 
-The census passes completeness only when all of the following hold:
+One versioned raw root is one resumable acquisition generation. Its run ID,
+authentication mode, repository, API version, and frozen interval are written
+before requests and cannot change on resume. A new observation requires a new
+raw root; rerunning a completed generation is explicitly a local replay, not a
+new pass. Each attempt records request-start and response-receive times,
+monotonic duration, GitHub request ID, `Date`, `Age`, `Via`, `Warning`,
+`Last-Modified`, rate-limit headers, body digest, and status. The three
+traversals must have disjoint non-empty GitHub request IDs. This demonstrates
+distinct network responses, not independent providers or exhaustive coverage.
+
+Primary and secondary 403/429 rate limits are append-only pauses. A secondary
+limit without reliable reset/`Retry-After` evidence exits resumably and requires
+at least 60 seconds before retry; it is never handled as an ordinary 2/5/15
+second HTTP retry.
+
+Acquisition may report internal
+`reconciliation_status=three_pass_reconciled_endpoint_visible_set` only when
+the network conditions below hold. Its top-level status remains
+`reconciliation_complete_pending_independent_verification` and
+`downstream_eligible=false`:
 
 - every query returns `incomplete_results=false`;
 - every shard's observed unique count equals its reported `total_count`;
@@ -82,17 +119,27 @@ The census passes completeness only when all of the following hold:
   Search self-consistency check, not independent evidence);
 - the first Search union, ordinary-pulls union, and second Search union have
   exactly the same PR numbers and `merged_at` values; and
-- no requested page is absent, truncated, or represented only by a failed
-  response.
+- no required created-time-prefix page is absent, truncated, duplicated, or
+  represented only by a failed response.
+
+The independent verifier then separately reconstructs the set and checks the
+frozen run identity, authentication mode, request URLs, exact Link chain,
+response digests, attempt ledger, and distinct request IDs. It emits the only
+`downstream_eligible=true` artifact and binds it to both the run ID and SHA-256
+of the exact manifest bytes it reconstructed. Every later field-diff or outcome
+entrypoint must reject a missing/failed verifier, a run-ID mismatch, or a current
+manifest hash mismatch. A verifier PASS is still only mechanical reconciliation.
 
 Logged-out GitHub HTML search may be retained as a display-level corroboration
 only. It is not an independent census. Dynamic HTML, anti-bot, pagination, any
 REST-set disagreement, or replay disagreement sets the manifest to
-`manifest_incomplete`; no field denominator is reported as exhaustive.
+`manifest_incomplete`. Even a reconciled manifest is never reported as an
+exhaustive denominator; all later denominators retain the endpoint-visible
+frame qualifier.
 
 The PR body phrases `Affected products` and `References` may be recorded as
 screening metadata, but they are neither admission rules nor semantic field
-labels. Every PR in the merged population must be inspected through its
+labels. Every PR in the reconciled set must be inspected through its
 actual advisory JSON changes. Body-search counts are candidate upper bounds,
 not field-change counts.
 
@@ -133,7 +180,7 @@ The main-state mapper reads the already pinned full GHSA repository and never
 substitutes its transport HEAD for the frozen source pin.
 
 HTTP failures are append-only acquisition attempts. A failed deterministic
-sample position is not replaced. Full-census failures remain unresolved rows;
+sample position is not replaced. Reconciled-set failures remain unresolved rows;
 bounded retries may add attempts but cannot erase the original failure.
 
 ## 4. Proposal projection and path handling
@@ -315,7 +362,7 @@ The first ranks the 825 body-search reference candidates and takes 50; the
 second ranks strict commit-URL candidates successfully parsed from that sample
 and takes 20. The first sample retained one HTTP 429 failure without
 replacement. These samples may be reported only as method-resolution evidence
-and counterexamples. They cannot be pooled into the full-census effect or used
+and counterexamples. They cannot be pooled into the reconciled-set effect or used
 to change thresholds.
 
 ## 8. Outputs and fail-closed decision
@@ -327,7 +374,7 @@ the final event ledger. Every processed row must join back to raw evidence.
 
 At minimum, the stage reports:
 
-- merged-population, field-candidate, main-mapped, stable, eligible, and
+- endpoint-visible reconciled-set, field-candidate, main-mapped, stable, eligible, and
   executable denominators;
 - every exclusion and unresolved reason;
 - `direct_git_bound`, `staging_workflow_bound`, unlinked, `exact`, `partial`,

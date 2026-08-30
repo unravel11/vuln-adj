@@ -3,7 +3,7 @@
 This directory implements the frozen protocol in
 `docs/plans/temporal_provenance_pilot_v1.md`.
 
-GHSA merged-PR enumeration and proposal-to-main mapping follow the pre-census
+GHSA merged-PR enumeration and proposal-to-main mapping follow the pre-outcome
 workflow addendum in
 `docs/plans/temporal_provenance_ghsa_event_discovery_v1.md`. In particular, a
 merged PR is an accepted-disposition object, not the provider's final field
@@ -47,20 +47,24 @@ The E0 execution order is fail-closed:
 
 The independent parser is a mechanical structural check, not semantic truth.
 
-The first E1 operation is census-only:
+The first E1 operation constructs only a reconciled endpoint-visible PR set:
 
 ```bash
 python3 experiments/temporal_provenance/acquire_ghsa_merged_pr_manifest.py
 ```
 
-It reconciles two monthly Search passes with the ordinary closed-pulls REST
-pagination before any PR field diff is opened. Raw bodies, selected response
+It reconciles two monthly Search traversals with an ordinary closed-pulls REST
+traversal before any PR field diff is opened. It does not claim an exhaustive
+public PR census because all three traversals share GitHub's visibility and
+service boundary. Raw bodies, selected response
 headers, and every failed attempt are append-only under the ignored raw-data
 tree. Exit code `3` means a public API rate limit paused the run; rerunning the
 same command resumes only requests whose successful body and request identity
 already match. This stage does not count affected/reference changes.
 
-After the manifest reports `complete`, independently rebuild it from the raw
+After acquisition reports
+`reconciliation_complete_pending_independent_verification`, independently
+rebuild it from the raw
 success pointers, response bodies, and attempt ledger before opening field
 diffs:
 
@@ -70,8 +74,12 @@ python3 experiments/temporal_provenance/verify_ghsa_merged_pr_manifest.py
 
 The verifier reparses both Search passes and the ordinary Pulls pages, checks
 the retained-body digests, and requires exact PR-number and `merged_at`
-identity. Its PASS is a mechanical census check, not a correction or truth
-label.
+identity. Its PASS is a mechanical reconciliation check, not proof of
+exhaustive history, a correction label, or truth.
+Acquisition always writes `downstream_eligible=false`. Only the verifier output
+with `status=pass`, `downstream_eligible=true`, the same `run_id`, and a SHA-256
+that matches the current manifest bytes may authorize a later field-diff step.
+Changing or replacing the manifest invalidates that verifier artifact.
 
 Pre-acquisition errata that govern historical alignment, NVD affected lineage,
 and the stricter E0 replay gate are recorded in

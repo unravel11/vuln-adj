@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Acquire and reconcile the frozen GHSA merged-PR observable population.
+"""Acquire the frozen GHSA three-pass endpoint-visible merged-PR set.
 
-This stage acquires only the census manifest. It does not inspect advisory
+This stage acquires only the reconciled-set manifest. It does not inspect advisory
 field diffs, map PRs to main, or produce downstream outcomes.
 """
 
@@ -20,6 +20,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import uuid
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -33,14 +34,28 @@ API_VERSION = "2022-11-28"
 REPOSITORY = "github/advisory-database"
 DEFAULT_START = "2024-01-01T00:00:00Z"
 DEFAULT_END = "2026-01-01T00:00:00Z"
+DEFAULT_RAW_ROOT = (
+    "data/raw/temporal_provenance/pilot_v1/ghsa_merged_pr_reconciled_v2"
+)
+DEFAULT_OUTPUT_DIR = (
+    "data/processed/temporal_provenance/pilot_v1/ghsa_merged_pr_reconciled_v2"
+)
+RECONCILED_STATUS = "three_pass_reconciled_endpoint_visible_set"
+PENDING_VERIFICATION_STATUS = (
+    "reconciliation_complete_pending_independent_verification"
+)
 USER_AGENT = "vuln-adj-temporal-provenance-pilot-v1/1.0"
 SELECTED_HEADERS = {
+    "age",
     "content-type",
     "date",
     "etag",
     "github-authentication-token-expiration",
     "link",
     "retry-after",
+    "via",
+    "warning",
+    "last-modified",
     "x-github-request-id",
     "x-ratelimit-limit",
     "x-ratelimit-remaining",
@@ -51,7 +66,7 @@ SELECTED_HEADERS = {
 
 
 class AcquisitionError(RuntimeError):
-    """A request or response cannot support a complete manifest."""
+    """A request or response cannot support a reconciled manifest."""
 
 
 class RateLimitPause(AcquisitionError):
@@ -79,11 +94,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--end", default=DEFAULT_END)
     parser.add_argument(
         "--raw-root",
-        default="data/raw/temporal_provenance/pilot_v1/ghsa_merged_pr_census",
+        default=DEFAULT_RAW_ROOT,
     )
     parser.add_argument(
         "--output-dir",
-        default="data/processed/temporal_provenance/pilot_v1/ghsa_merged_pr_census",
+        default=DEFAULT_OUTPUT_DIR,
     )
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument(
@@ -178,6 +193,36 @@ def build_pulls_url(page: int, per_page: int = 100) -> str:
     return f"{API_ROOT}/repos/{REPOSITORY}/pulls?{query}"
 
 
+def validate_pulls_page_url(
+    url: str,
+    expected_page: int,
+    expected_repository_id: int | None = None,
+) -> int:
+    parsed = urllib.parse.urlsplit(url)
+    path_match = re.fullmatch(r"/repositories/(\d+)/pulls", parsed.path)
+    expected_query = {
+        "state": ["closed"],
+        "sort": ["created"],
+        "direction": ["asc"],
+        "per_page": ["100"],
+        "page": [str(expected_page)],
+    }
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != "api.github.com"
+        or path_match is None
+        or urllib.parse.parse_qs(parsed.query) != expected_query
+    ):
+        raise AcquisitionError(f"unexpected Pulls Link URL for page {expected_page}: {url}")
+    repository_id = int(path_match.group(1))
+    if expected_repository_id is not None and repository_id != expected_repository_id:
+        raise AcquisitionError(
+            f"Pulls Link repository ID changed: "
+            f"{expected_repository_id} -> {repository_id}"
+        )
+    return repository_id
+
+
 def safe_request_id(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9_.-]+", "_", value).strip("_")
     if not cleaned:
@@ -191,6 +236,32 @@ def selected_headers(headers: Any) -> dict[str, str]:
         for key, value in headers.items()
         if key.lower() in SELECTED_HEADERS
     }
+
+
+def rate_limit_kind(
+    status: int | None, headers: dict[str, str], body: bytes
+) -> str | None:
+    body_text = body.decode("utf-8", errors="replace").lower()
+    if status not in {403, 429}:
+        return None
+    if headers.get("x-ratelimit-remaining") == "0":
+        return "primary"
+    if status == 429 or (
+        status == 403
+        and (
+            "rate limit" in body_text
+            or "abuse detection" in body_text
+        )
+    ):
+        return "secondary"
+    return None
+
+
+def secondary_rate_wait(headers: dict[str, str]) -> int:
+    retry_after = headers.get("retry-after")
+    if retry_after and retry_after.isdigit():
+        return int(retry_after) + 1
+    return 60
 
 
 def parse_link_header(value: str | None) -> dict[str, str]:
@@ -237,12 +308,53 @@ class GithubAcquirer:
         }
         if token:
             self.request_headers["Authorization"] = f"Bearer {token}"
+        self.run_identity = self._load_or_create_run_identity()
+        self.run_id = self.run_identity["run_id"]
+
+    def _load_or_create_run_identity(self) -> dict[str, Any]:
+        path = self.raw_root / "acquisition_identity.json"
+        expected = {
+            "schema_version": "ghsa-merged-pr-acquisition-identity-v2",
+            "repository": REPOSITORY,
+            "api_version": API_VERSION,
+            "window": {"start": DEFAULT_START, "end_exclusive": DEFAULT_END},
+            "auth_mode": self.auth_mode,
+        }
+        if path.exists():
+            identity = json.loads(path.read_text(encoding="utf-8"))
+            for key, value in expected.items():
+                if identity.get(key) != value:
+                    raise AcquisitionError(
+                        f"raw-root acquisition identity mismatch for {key}: {path}"
+                    )
+            run_id = identity.get("run_id")
+            if not isinstance(run_id, str) or not run_id:
+                raise AcquisitionError(f"raw-root run_id missing: {path}")
+            return identity
+        identity = {
+            **expected,
+            "run_id": str(uuid.uuid4()),
+            "created_at": utc_now(),
+            "claim_ceiling": (
+                "One resumable acquisition generation. A new observation requires "
+                "a new versioned raw root."
+            ),
+        }
+        atomic_write(
+            path,
+            (json.dumps(identity, indent=2, sort_keys=True) + "\n").encode("utf-8"),
+        )
+        return identity
 
     def _request_dir(self, stage: str, request_id: str) -> Path:
         return self.raw_root / safe_request_id(stage) / safe_request_id(request_id)
 
     def _load_success(
-        self, request_dir: Path, expected_url: str
+        self,
+        request_dir: Path,
+        expected_stage: str,
+        expected_request_id: str,
+        expected_url: str,
     ) -> tuple[dict[str, Any], dict[str, Any]] | None:
         success_path = request_dir / "success.json"
         if not success_path.exists():
@@ -251,7 +363,15 @@ class GithubAcquirer:
         body_path = request_dir / success["body_file"]
         metadata_path = request_dir / success["metadata_file"]
         metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-        if metadata.get("url") != expected_url or metadata.get("api_version") != API_VERSION:
+        identity = {
+            "stage": expected_stage,
+            "request_id": expected_request_id,
+            "url": expected_url,
+            "api_version": API_VERSION,
+            "auth_mode": self.auth_mode,
+            "run_id": self.run_id,
+        }
+        if any(metadata.get(key) != value for key, value in identity.items()):
             raise AcquisitionError(f"resume request identity mismatch: {metadata_path}")
         body = body_path.read_bytes()
         if sha256_bytes(body) != success["body_sha256"]:
@@ -287,12 +407,12 @@ class GithubAcquirer:
         reset = headers.get("x-ratelimit-reset")
         reset_epoch = int(reset) if reset and reset.isdigit() else None
         if reset_epoch is None:
-            return 5, None, response_epoch
+            return 60, None, response_epoch
         return max(1, reset_epoch - response_epoch + 2), reset_epoch, response_epoch
 
     def get_json(self, stage: str, request_id: str, url: str) -> tuple[Any, dict[str, Any]]:
         request_dir = self._request_dir(stage, request_id)
-        resumed = self._load_success(request_dir, url)
+        resumed = self._load_success(request_dir, stage, request_id, url)
         if resumed is not None:
             return resumed
 
@@ -306,6 +426,7 @@ class GithubAcquirer:
         for local_attempt in range(min(attempts_remaining, 4)):
             attempt = self._next_attempt(request_dir)
             observed_at = utc_now()
+            started_monotonic = time.monotonic()
             status: int | None = None
             body = b""
             headers: dict[str, str] = {}
@@ -325,6 +446,8 @@ class GithubAcquirer:
             except (urllib.error.URLError, TimeoutError, socket.timeout) as exc:
                 error_type = type(exc).__name__
                 last_error = str(exc)
+            received_at = utc_now()
+            elapsed_seconds = time.monotonic() - started_monotonic
 
             request_dir.mkdir(parents=True, exist_ok=True)
             body_name = f"attempt_{attempt:03d}.body"
@@ -332,12 +455,15 @@ class GithubAcquirer:
             atomic_write(request_dir / body_name, body)
             metadata = {
                 "schema_version": "ghsa-merged-pr-request-attempt-v1",
+                "run_id": self.run_id,
                 "stage": stage,
                 "request_id": request_id,
                 "url": url,
                 "api_version": API_VERSION,
                 "auth_mode": self.auth_mode,
                 "observed_at": observed_at,
+                "received_at": received_at,
+                "elapsed_monotonic_seconds": round(elapsed_seconds, 6),
                 "attempt": attempt,
                 "status": status,
                 "error_type": error_type,
@@ -372,11 +498,21 @@ class GithubAcquirer:
                         time.sleep(self.request_delay)
                     return payload, metadata
 
-            rate_limited = status == 429 or (
-                status == 403
-                and headers.get("x-ratelimit-remaining") == "0"
-            )
-            if rate_limited:
+            limit_kind = rate_limit_kind(status, headers, body)
+            if limit_kind is not None:
+                if limit_kind == "secondary":
+                    wait = secondary_rate_wait(headers)
+                    if wait > self.max_rate_wait:
+                        raise RateLimitPause(
+                            "secondary rate limit requires at least "
+                            f"{wait}s wait; resume this run later"
+                        )
+                    time.sleep(wait)
+                    continue
+                if limit_kind != "primary":
+                    raise RateLimitPause(
+                        f"unrecognized rate-limit classification: {limit_kind}"
+                    )
                 wait, reset_epoch, response_epoch = self._rate_wait(headers)
                 if reset_epoch is not None and reset_epoch <= response_epoch:
                     raise RateLimitPause(
@@ -419,15 +555,22 @@ def in_window(value: str | None, start: datetime, end: datetime) -> bool:
 
 
 def add_unique(
-    rows: dict[int, dict[str, Any]], item: dict[str, Any], source: str
+    rows: dict[int, dict[str, Any]],
+    item: dict[str, Any],
+    source: str,
+    *,
+    reject_duplicate: bool = False,
 ) -> None:
     number = item_number(item)
     merged_at = item_merged_at(item, source)
     if merged_at is None:
         raise AcquisitionError(f"merged item lacks merged_at: PR {number}")
     existing = rows.get(number)
-    if existing is not None and item_merged_at(existing, source) != merged_at:
-        raise AcquisitionError(f"duplicate PR with conflicting merged_at: {number}")
+    if existing is not None:
+        if item_merged_at(existing, source) != merged_at:
+            raise AcquisitionError(f"duplicate PR with conflicting merged_at: {number}")
+        if reject_duplicate:
+            raise AcquisitionError(f"duplicate PR across pagination: {number}")
     rows[number] = item
 
 
@@ -451,26 +594,39 @@ def acquire_search_shard(
         raise AcquisitionError(f"search shard exceeds 1000: {shard.shard_id}")
     pages = max(1, math.ceil(total_count / 100))
     rows: dict[int, dict[str, Any]] = {}
-    page_payloads = [page1]
+    page_payloads = [(page1, page1_meta)]
     for page in range(2, pages + 1):
-        payload, _ = acquirer.get_json(
+        payload, metadata = acquirer.get_json(
             stage,
             f"{shard.shard_id}_page_{page:03d}",
             build_search_url(shard.start_day, shard.end_day, page),
         )
         if not isinstance(payload, dict):
             raise AcquisitionError(f"search page is not an object: {shard.shard_id}/{page}")
-        page_payloads.append(payload)
-    for payload in page_payloads:
+        page_payloads.append((payload, metadata))
+    request_ids = []
+    received_times = []
+    for payload, metadata in page_payloads:
         if payload.get("incomplete_results") is not False:
             raise AcquisitionError(f"incomplete search response: {shard.shard_id}")
+        if payload.get("total_count") != total_count:
+            raise AcquisitionError(
+                f"search total changed within shard: {shard.shard_id}"
+            )
         items = payload.get("items")
         if not isinstance(items, list):
             raise AcquisitionError(f"search items missing: {shard.shard_id}")
         for item in items:
             if not isinstance(item, dict):
                 raise AcquisitionError(f"non-object search item: {shard.shard_id}")
-            add_unique(rows, item, "search")
+            add_unique(rows, item, "search", reject_duplicate=True)
+        request_id = (metadata.get("response_headers") or {}).get(
+            "x-github-request-id"
+        )
+        if not isinstance(request_id, str) or not request_id:
+            raise AcquisitionError(f"search response lacks GitHub request ID: {shard.shard_id}")
+        request_ids.append(request_id)
+        received_times.append(metadata["received_at"])
     if len(rows) != total_count:
         raise AcquisitionError(
             f"search shard count mismatch {shard.shard_id}: "
@@ -485,6 +641,8 @@ def acquire_search_shard(
         "pages": pages,
         "incomplete_results": incomplete,
         "first_observed_at": page1_meta["observed_at"],
+        "last_received_at": max(received_times),
+        "github_request_ids": request_ids,
     }
 
 
@@ -496,15 +654,38 @@ def acquire_search_pass(
 ) -> tuple[dict[int, dict[str, Any]], dict[str, Any]]:
     all_rows: dict[int, dict[str, Any]] = {}
     shard_summaries = []
+    split_probe_summaries = []
     overlap_numbers: set[int] = set()
     for month in month_shards(start, end):
-        page1, _ = acquirer.get_json(
+        page1, page1_metadata = acquirer.get_json(
             stage,
             f"{month.shard_id}_page_001",
             build_search_url(month.start_day, month.end_day, 1),
         )
         total = page1.get("total_count") if isinstance(page1, dict) else None
-        shards = day_shards(month) if isinstance(total, int) and total > 1000 else [month]
+        split_month = isinstance(total, int) and total > 1000
+        if split_month:
+            if page1.get("incomplete_results") is not False:
+                raise AcquisitionError(f"incomplete monthly split probe: {month.shard_id}")
+            request_id = (page1_metadata.get("response_headers") or {}).get(
+                "x-github-request-id"
+            )
+            if not isinstance(request_id, str) or not request_id:
+                raise AcquisitionError(
+                    f"monthly split probe lacks GitHub request ID: {month.shard_id}"
+                )
+            split_probe_summaries.append(
+                {
+                    "shard_id": month.shard_id,
+                    "start_day": month.start_day.isoformat(),
+                    "end_day": month.end_day.isoformat(),
+                    "reported_total": total,
+                    "observed_at": page1_metadata["observed_at"],
+                    "received_at": page1_metadata["received_at"],
+                    "github_request_id": request_id,
+                }
+            )
+        shards = day_shards(month) if split_month else [month]
         for shard in shards:
             rows, summary = acquire_search_shard(acquirer, stage, shard)
             overlap_numbers.update(set(all_rows).intersection(rows))
@@ -533,12 +714,27 @@ def acquire_search_pass(
         raise AcquisitionError(
             f"search union mismatch {stage}: unique={len(filtered)} whole={whole_total}"
         )
+    whole_request_id = (whole_meta.get("response_headers") or {}).get(
+        "x-github-request-id"
+    )
+    if not isinstance(whole_request_id, str) or not whole_request_id:
+        raise AcquisitionError(f"whole-window response lacks GitHub request ID: {stage}")
+    request_ids = [row["github_request_id"] for row in split_probe_summaries] + [
+        request_id
+        for summary in shard_summaries
+        for request_id in summary["github_request_ids"]
+    ] + [whole_request_id]
+    if len(request_ids) != len(set(request_ids)):
+        raise AcquisitionError(f"duplicate GitHub request ID within {stage}")
     return filtered, {
         "stage": stage,
-        "status": "complete",
+        "status": "traversal_complete",
         "items": len(filtered),
         "whole_window_total": whole_total,
         "whole_window_observed_at": whole_meta["observed_at"],
+        "whole_window_received_at": whole_meta["received_at"],
+        "github_request_ids": request_ids,
+        "split_probe_summaries": split_probe_summaries,
         "shards": shard_summaries,
         "overlap_pr_numbers": [],
     }
@@ -567,21 +763,29 @@ def acquire_pulls_census(
     end: datetime,
 ) -> tuple[dict[int, dict[str, Any]], dict[str, Any]]:
     rows: dict[int, dict[str, Any]] = {}
+    seen_all_pr_numbers: set[int] = set()
+    raw_items = 0
     page = 1
+    url = build_pulls_url(page)
+    repository_numeric_id: int | None = None
     previous_last: datetime | None = None
     page_summaries = []
+    github_request_ids = []
     stopped_reason: str | None = None
     while True:
         payload, metadata = acquirer.get_json(
             stage,
             f"page_{page:03d}",
-            build_pulls_url(page),
+            url,
         )
         if not isinstance(payload, list):
             raise AcquisitionError(f"pulls response is not a list: page {page}")
         if not payload:
-            stopped_reason = "empty_page"
-            break
+            raise AcquisitionError(
+                f"unexpected empty Pulls page: page {page}; "
+                "the first page must contain this repository's history and any "
+                "later requested page was promised by a next Link"
+            )
         if any(not isinstance(item, dict) for item in payload):
             raise AcquisitionError(f"non-object pull item: page {page}")
         first_created, last_created = validate_created_order(payload)
@@ -589,9 +793,22 @@ def acquire_pulls_census(
             raise AcquisitionError(f"cross-page created_at order violation: page {page}")
         previous_last = last_created
         for item in payload:
+            number = item_number(item)
+            raw_items += 1
+            if number in seen_all_pr_numbers:
+                raise AcquisitionError(
+                    f"duplicate PR across Pulls pagination: {number}"
+                )
+            seen_all_pr_numbers.add(number)
             if in_window(item_merged_at(item, "pulls"), start, end):
-                add_unique(rows, item, "pulls")
+                add_unique(rows, item, "pulls", reject_duplicate=True)
         links = parse_link_header(metadata["response_headers"].get("link"))
+        github_request_id = metadata["response_headers"].get("x-github-request-id")
+        if not isinstance(github_request_id, str) or not github_request_id:
+            raise AcquisitionError(f"Pulls response lacks GitHub request ID: page {page}")
+        if github_request_id in github_request_ids:
+            raise AcquisitionError(f"duplicate Pulls GitHub request ID: {github_request_id}")
+        github_request_ids.append(github_request_id)
         page_summaries.append(
             {
                 "page": page,
@@ -600,6 +817,8 @@ def acquire_pulls_census(
                 "last_created_at": last_created.isoformat(),
                 "has_next": "next" in links,
                 "observed_at": metadata["observed_at"],
+                "received_at": metadata["received_at"],
+                "github_request_id": github_request_id,
             }
         )
         if last_created >= end:
@@ -609,10 +828,18 @@ def acquire_pulls_census(
             stopped_reason = "pagination_exhausted"
             break
         page += 1
+        url = links["next"]
+        repository_numeric_id = validate_pulls_page_url(
+            url, page, repository_numeric_id
+        )
     return rows, {
         "stage": stage,
-        "status": "complete",
+        "status": "traversal_complete",
         "items": len(rows),
+        "raw_items": raw_items,
+        "unique_raw_pr_numbers": len(seen_all_pr_numbers),
+        "github_request_ids": github_request_ids,
+        "repository_numeric_id": repository_numeric_id,
         "pages": len(page_summaries),
         "stopped_reason": stopped_reason,
         "page_summaries": page_summaries,
@@ -674,7 +901,7 @@ def compare_censuses(
         and all(not values for values in differences.values())
     )
     return {
-        "status": "complete" if complete else "manifest_incomplete",
+        "status": RECONCILED_STATUS if complete else "manifest_incomplete",
         "search_pass_1_count": len(search1),
         "pulls_count": len(pulls),
         "search_pass_2_count": len(search2),
@@ -709,7 +936,7 @@ def main() -> int:
     if start.isoformat() != parse_utc(DEFAULT_START).isoformat() or end.isoformat() != parse_utc(
         DEFAULT_END
     ).isoformat():
-        raise ValueError("the frozen census interval cannot be changed")
+        raise ValueError("the frozen reconciliation interval cannot be changed")
     raw_root = Path(args.raw_root).resolve()
     output_dir = Path(args.output_dir).resolve()
     acquirer = GithubAcquirer(
@@ -728,13 +955,23 @@ def main() -> int:
         search2, search2_summary = acquire_search_pass(
             acquirer, "search_pass_2", start, end
         )
+        all_request_ids = (
+            search1_summary["github_request_ids"]
+            + pulls_summary["github_request_ids"]
+            + search2_summary["github_request_ids"]
+        )
+        if len(all_request_ids) != len(set(all_request_ids)):
+            raise AcquisitionError(
+                "the three traversals do not have distinct GitHub request IDs"
+            )
     except RateLimitPause as exc:
         state = {
-            "schema_version": "ghsa-merged-pr-census-run-state-v1",
+            "schema_version": "ghsa-merged-pr-reconciled-run-state-v2",
             "status": "rate_limited_resumable",
             "started_at": started_at,
             "stopped_at": utc_now(),
             "auth_mode": acquirer.auth_mode,
+            "run_id": acquirer.run_id,
             "message": str(exc),
             "reset_epoch": exc.reset_epoch,
             "raw_root": str(raw_root),
@@ -744,11 +981,12 @@ def main() -> int:
         return 3
     except AcquisitionError as exc:
         state = {
-            "schema_version": "ghsa-merged-pr-census-run-state-v1",
+            "schema_version": "ghsa-merged-pr-reconciled-run-state-v2",
             "status": "acquisition_error",
             "started_at": started_at,
             "stopped_at": utc_now(),
             "auth_mode": acquirer.auth_mode,
+            "run_id": acquirer.run_id,
             "message": str(exc),
             "raw_root": str(raw_root),
         }
@@ -770,15 +1008,33 @@ def main() -> int:
         attempts_path,
         b"".join((canonical_json(row) + "\n").encode("utf-8") for row in attempts),
     )
+    successful_attempts = [row for row in attempts if row.get("status") == 200]
     manifest = {
-        "schema_version": "ghsa-merged-pr-observable-census-v1",
-        "status": comparison["status"],
+        "schema_version": "ghsa-merged-pr-endpoint-visible-set-v2",
+        "status": (
+            PENDING_VERIFICATION_STATUS
+            if comparison["status"] == RECONCILED_STATUS
+            else "manifest_incomplete"
+        ),
+        "reconciliation_status": comparison["status"],
+        "verification_status": "pending",
+        "downstream_eligible": False,
         "repository": REPOSITORY,
         "api_version": API_VERSION,
         "auth_mode": acquirer.auth_mode,
+        "run_id": acquirer.run_id,
+        "acquisition_identity_created_at": acquirer.run_identity["created_at"],
         "window": {"start": DEFAULT_START, "end_exclusive": DEFAULT_END},
-        "started_at": started_at,
-        "completed_at": utc_now(),
+        "invocation_started_at": started_at,
+        "invocation_completed_at": utc_now(),
+        "successful_response_observation_bounds": {
+            "first_request_started_at": min(
+                row["observed_at"] for row in successful_attempts
+            ),
+            "last_response_received_at": max(
+                row["received_at"] for row in successful_attempts
+            ),
+        },
         "raw_root": str(raw_root),
         "search_pass_1": search1_summary,
         "pulls": pulls_summary,
@@ -791,8 +1047,10 @@ def main() -> int:
         },
         "attempts": {"path": str(attempts_path), "records": len(attempts)},
         "claim_ceiling": (
-            "This is the acquisition-visible public merged-PR population under "
-            "two GitHub REST routes, not a field-change, correction, or truth count."
+            "This is the PR-number and merged_at set reconciled across two Search "
+            "traversals and one ordinary Pulls traversal under one declared GitHub "
+            "public-access boundary. It is not proof of exhaustive public history, "
+            "nor a field-change, correction, acceptance-semantics, or truth count."
         ),
     }
     manifest_path = output_dir / "manifest.json"
@@ -803,18 +1061,22 @@ def main() -> int:
     write_run_state(
         output_dir,
         {
-            "schema_version": "ghsa-merged-pr-census-run-state-v1",
-            "status": comparison["status"],
-            "completed_at": manifest["completed_at"],
+            "schema_version": "ghsa-merged-pr-reconciled-run-state-v2",
+            "status": manifest["status"],
+            "reconciliation_status": comparison["status"],
+            "verification_status": "pending",
+            "downstream_eligible": False,
+            "run_id": acquirer.run_id,
+            "completed_at": manifest["invocation_completed_at"],
             "manifest": str(manifest_path),
         },
     )
     print(
-        f"GHSA merged-PR census {comparison['status']}: "
+        f"GHSA merged-PR acquisition {manifest['status']}: "
         f"search1={len(search1)} pulls={len(pulls)} search2={len(search2)}"
     )
     print(f"Manifest: {manifest_path}")
-    return 0 if comparison["status"] == "complete" else 2
+    return 0 if comparison["status"] == RECONCILED_STATUS else 2
 
 
 if __name__ == "__main__":
