@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import calendar
+import email.utils
 import json
 import math
 import os
@@ -265,16 +266,29 @@ class GithubAcquirer:
                 attempts.append(int(match.group(1)))
         return max(attempts, default=0) + 1
 
-    def _rate_wait(self, headers: dict[str, str]) -> tuple[int, int | None]:
+    def _response_epoch(self, headers: dict[str, str]) -> int:
+        server_date = headers.get("date")
+        if server_date:
+            try:
+                parsed = email.utils.parsedate_to_datetime(server_date)
+                return int(parsed.timestamp())
+            except (TypeError, ValueError, OverflowError):
+                pass
+        return int(time.time())
+
+    def _rate_wait(
+        self, headers: dict[str, str]
+    ) -> tuple[int, int | None, int]:
+        response_epoch = self._response_epoch(headers)
         retry_after = headers.get("retry-after")
         if retry_after and retry_after.isdigit():
             wait = int(retry_after) + 1
-            return wait, None
+            return wait, None, response_epoch
         reset = headers.get("x-ratelimit-reset")
         reset_epoch = int(reset) if reset and reset.isdigit() else None
         if reset_epoch is None:
-            return 5, None
-        return max(1, reset_epoch - int(time.time()) + 2), reset_epoch
+            return 5, None, response_epoch
+        return max(1, reset_epoch - response_epoch + 2), reset_epoch, response_epoch
 
     def get_json(self, stage: str, request_id: str, url: str) -> tuple[Any, dict[str, Any]]:
         request_dir = self._request_dir(stage, request_id)
@@ -363,10 +377,10 @@ class GithubAcquirer:
                 and headers.get("x-ratelimit-remaining") == "0"
             )
             if rate_limited:
-                wait, reset_epoch = self._rate_wait(headers)
-                if reset_epoch is not None and reset_epoch <= int(time.time()):
+                wait, reset_epoch, response_epoch = self._rate_wait(headers)
+                if reset_epoch is not None and reset_epoch <= response_epoch:
                     raise RateLimitPause(
-                        "rate-limit response carried a stale/past reset; "
+                        "rate-limit response carried a stale/past server reset; "
                         "resume with a fresh no-cache request",
                         reset_epoch=reset_epoch,
                     )

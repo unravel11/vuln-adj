@@ -155,6 +155,24 @@ class RawEvidenceTests(unittest.TestCase):
             with self.assertRaises(target.AcquisitionError):
                 acquirer._load_success(request_dir, "https://api.github.com/new")
 
+    def test_rate_wait_uses_server_date_when_host_clock_differs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            acquirer = target.GithubAcquirer(
+                Path(directory),
+                timeout=1,
+                max_attempts=1,
+                max_rate_wait=55,
+                request_delay=0,
+            )
+            wait, reset, response_epoch = acquirer._rate_wait(
+                {
+                    "date": "Sun, 30 Aug 2026 17:45:59 GMT",
+                    "x-ratelimit-reset": "1788112000",
+                }
+            )
+            self.assertEqual(reset - response_epoch, 41)
+            self.assertEqual(wait, 43)
+
 
 if __name__ == "__main__":
     unittest.main()
