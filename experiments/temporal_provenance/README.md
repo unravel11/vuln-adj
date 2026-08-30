@@ -23,3 +23,6 @@ remote. Small frozen controls and schemas may be tracked.
 
 Current status: protocol frozen; no pilot result has been generated.
 
+Pre-acquisition errata that govern historical alignment, NVD affected lineage,
+and the stricter E0 replay gate are recorded in
+`docs/plans/temporal_provenance_pilot_v1_pre_acquisition_errata_1.md`.
